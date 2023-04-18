@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Commandes -
+	{{ app.user.firstName }}
+	{{ app.user.lastName }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{# START : purchase_list #}
+{% block body %}
+	<section class="page">
+		<h2>Mes Commandes</h2>
+		{# START : searchPurchaseForm #}
+		{{ form_start(searchPurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-purchase-form' }}
+		) }}
+		<div class="form-field">
+			{{ form_label(searchPurchaseForm, 'Référence', { 'label_attr': { 'class': 'form-field__label form-field__purchase-reference-label display-none' }}) }}
+			{{ form_widget(searchPurchaseForm.reference, { 'id': 'purchase-reference-input', 'attr': {'class': 'form-field__input form-field__purchase-reference-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par référence' }}) }}
+			<p class="error-message error-message_color_red error-message-purchase-reference-empty display-none">
+				Merci de saisir une référence.
+			</p>
+			<p class="error-message error-message_color_red error-message-purchase-reference-length display-none">
+				La référence doit contenir 12 cactères.
+			</p>
+			{{ form_errors(searchPurchaseForm.reference) }}
+		</div>
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-purchase-button">
+			Rechercher
+		</button>
+		{{ form_end(searchPurchaseForm) }}
+		{# END : searchPurchaseForm #}
+		<div
+			class="neptune">
+			{# START : card for mobile #}
+			{% for purchase in purchases %}
+				<div class="saturn saturn_border-color_blue">
+					<p>
+						{{ purchase.reference|upper }}
+					</p>
+					<p>
+						{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}
+					</p>
+					<p>
+						{{ purchase.total|amount }}
+					</p>
+					{% if purchase.status == statusPaid %}
+						<p class="status status__paid status__paid_color_green">
+							{{ purchase.status }}</p>
+					{% elseif purchase.status == statusInProgress %}
+						<p class="status status__in-progress status__in-progress_color_orange">
+							{{ purchase.status }}
+						</p>
+					{% elseif purchase.status == statusSend %}
+						<p class="status status__send status__send_color_purple">
+							{{ purchase.status }}
+						</p>
+					{% elseif purchase.status == statusDeliver %}
+						<p class="status status__deliver status__deliver_color_slimy-green">
+							{{ purchase.status }}
+						</p>
+					{% elseif purchase.status == statusAnnul %}
+						<p class="status status__annul status__annul_color_red">
+							{{ purchase.status }}
+						</p>
+					{% endif %}
+					<a class="page__text-link page__text-link page__link_color_blue" href="{{ path('purchase_download_bill', {'reference': purchase.reference}) }}">Facture PDF</a>
+					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('purchase_detail', {'reference': purchase.reference}) }}">Détails</a>
+				</div>
+			{% endfor %}
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-purchase table_background-color_blue table_color_white table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Référence</th>
+						<th>Date</th>
+						<th>Prix total</th>
+						<th>Statut</th>
+						<th>Facture</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				{% for purchase in purchases %}
+					<tbody>
+						<tr>
+							<td>{{ purchase.reference|upper }}</td>
+							<td>{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+							<td>{{ purchase.total|amount }}</td>
+							{% if purchase.status == statusPaid %}
+								<td class="status status__paid status__paid_color_green">
+									{{ purchase.status }}
+								</td>
+							{% elseif purchase.status == statusInProgress %}
+								<td class="status status__in-progress status__in-progress_color_orange">
+									{{ purchase.status }}
+								</td>
+							{% elseif purchase.status == statusSend %}
+								<td class="status status__send status__send_color_purple">
+									{{ purchase.status }}
+								</td>
+							{% elseif purchase.status == statusDeliver %}
+								<td class="status status__deliver status__deliver_color_slimy-green">
+									{{ purchase.status }}
+								</td>
+							{% elseif purchase.status == statusAnnul %}
+								<td class="status status__annul status__annul_color_red">
+									{{ purchase.status }}
+								</td>
+							{% endif %}
+							<td>
+								<a class="page__text-link page__link_color_blue" href="{{ path('purchase_download_bill', {'reference': purchase.reference}) }}">
+									PDF</a>
+							</td>
+							<td>
+								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('purchase_detail', {'reference': purchase.reference}) }}">Détails</a>
+							</td>
+						</tr>
+					</tbody>
+				{% endfor %}
+			</table>
+		</div>
+		{# END : table for desktop #}
+	</section>
+{% endblock %}
+{# START : purchase_list #}

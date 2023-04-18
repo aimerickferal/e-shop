@@ -1,0 +1,239 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Commandes -
+	{{ purchase.reference|upper }}
+	-
+	{{ app.user.firstName }}
+	{{ app.user.lastName }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{# START : purchase_detail #}
+{% block body %}
+	<section class="page">
+		<h2>
+			Commande :
+			{{ purchase.reference|upper }}
+			-
+			{{ app.user.firstName }}
+			{{ app.user.lastName }}
+		</h2>
+		{# START : card for mobile #}
+		<div class="neptune">
+			<div class="saturn saturn_border-color_blue">
+				<p>
+					{{ purchase.reference|upper }}
+				</p>
+				<p>
+					Commandée le
+					{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}
+				</p>
+				<p>
+					Prix total :
+					{{ purchase.total|amount }}
+				</p>
+				<p>
+					{{ purchase.checkoutMethod }}
+				</p>
+				<p>
+					{{ purchase.deliveryMode }}
+				</p>
+				<a class="page__text-link page__link_color_blue" href="{{ path('purchase_download_bill', {'reference': purchase.reference}) }}">Facture PDF</a>
+				{% if purchase.status == statusPaid %}
+					<p class="status status__paid status__paid_color_green">
+						{{ purchase.status }}</p>
+				{% elseif purchase.status == statusInProgress %}
+					<p class="status status__in-progress status__in-progress_color_orange">
+						{{ purchase.status }}
+					</p>
+				{% elseif purchase.status == statusSend %}
+					<p class="status status__send status__send_color_purple">
+						{{ purchase.status }}
+					</p>
+				{% elseif purchase.status == statusDeliver %}
+					<p class="status status__deliver status__deliver_color_slimy-green">
+						{{ purchase.status }}
+					</p>
+				{% elseif purchase.status == statusAnnul %}
+					<p class="status status__annul status__annul_color_red">
+						{{ purchase.status }}
+					</p>
+				{% endif %}
+			</div>
+			<div class="saturn saturn_border-color_blue">
+				<h3>Adresse de facturation</h3>
+				{% for data in billingAddress %}
+					<p>{{ data }}</p>
+				{% endfor %}
+			</div>
+			<div class="saturn saturn_border-color_blue">
+				<h3>Adresse de livraison</h3>
+				{% for data in deliveryAddress %}
+					<p>{{ data }}</p>
+				{% endfor %}
+			</div>
+			{# <h4>Articles commandés</h4> #}
+			{% for purchaseItem in purchaseItems %}
+				<div class="purchase-item">
+					<div class="purchase-item-property">
+						<h3>{{ purchaseItem.productName }}</h3>
+						<p>Référence :
+							{{ purchaseItem.productReference}}</p>
+						<p>{{ purchaseItem.productPrice|amount }}</p>
+						<p>
+							Quantité x
+							{{ purchaseItem.quantity }}
+						</p>
+						<p>{{ purchaseItem.total|amount }}</p>
+					</div>
+				</div>
+			{% endfor %}
+			<div class="purchase-subtotal">
+				<p>Sous-total :</p>
+				<p>{{ purchase.subtotal|amount }}</p>
+			</div>
+			<div class="purchase-delivery-mode-price">
+				<p>Frais de livraison :</p>
+				<p>{{ purchase.deliveryModePrice|amount }}</p>
+			</div>
+			<div class="purchase-total purchase-.total_border-top-color_gold-crayola">
+				<p>TOTAL :</p>
+				<p>{{ purchase.total|amount }}</p>
+			</div>
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-purchase table_background-color_gold-crayola table_color_black table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Propriétés</th>
+						<th>Valeurs</th>
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr>
+						<th>Référence</th>
+						<td>{{ purchase.reference|upper }}</td>
+					</tr>
+					<tr>
+						<th>
+							Commandée le
+						</th>
+						<td>
+							{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}
+						</td>
+					</tr>
+					<tr>
+						<th>Prix total</th>
+						<td>{{ purchase.total|amount }}</td>
+					</tr>
+					<tr>
+						<th>Méthode de paiment</th>
+						<td>{{ purchase.checkoutMethod }}</td>
+					</tr>
+					<tr>
+						<th>Mode de livraison</th>
+						<td>{{ purchase.deliveryMode }}</td>
+					</tr>
+					<tr>
+						<th>Adresse de facturation</th>
+						<td>
+							<ul>
+								{% for data in billingAddress %}
+									<li>
+										{{ data }}
+									</li>
+								{% endfor %}
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							Adresse de livraison
+						</th>
+						<td>
+							<ul>
+								{% for data in deliveryAddress %}
+									<li>
+										{{ data }}
+									</li>
+								{% endfor %}
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							Facture
+						</th>
+						<td>
+							<a class="page__text-link page__link_color_blue" href="{{ path('purchase_download_bill', {'reference': purchase.reference}) }}">
+								PDF</a>
+						</td>
+					</tr>
+					<tr>
+						<th>Statut</th>
+						{% if purchase.status == statusPaid %}
+							<td class="status status__paid status__paid_color_green">
+								{{ purchase.status }}
+							</td>
+						{% elseif purchase.status == statusInProgress %}
+							<td class="status status__in-progress status__in-progress_color_orange">
+								{{ purchase.status }}
+							</td>
+						{% elseif purchase.status == statusSend %}
+							<td class="status status__send status__send_color_purple">
+								{{ purchase.status }}
+							</td>
+						{% elseif purchase.status == statusDeliver %}
+							<td class="status status__deliver status__deliver_color_slimy-green">
+								{{ purchase.status }}
+							</td>
+						{% elseif purchase.status == statusAnnul %}
+							<td class="status status__annul status__annul_color_red">
+								{{purchase.status}}
+							</td>
+						{% endif %}
+					</tr>
+				</tbody>
+			</table>
+			<table class="table table-purchase-item table_background-color_gold-crayola table_color_black table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Produit</th>
+						<th>Quantité</th>
+						<th>Prix unitaire</th>
+						<th>Prix total</th>
+					</tr>
+				</thead>
+				{% for purchaseItem in purchaseItems %}
+					<tbody>
+						<tr>
+							<td>{{ purchaseItem.productName }}<br>Référence :
+								{{ purchaseItem.productReference }}</td>
+							<td>{{ purchaseItem.quantity }}</td>
+							<td>{{ purchaseItem.productPrice|amount }}</td>
+							<td>{{ purchaseItem.total|amount }}</td>
+						</tr>
+					{% endfor %}
+					<tr>
+						<td colspan="2" rowspan="3"></td>
+						<td>Sous-total</td>
+						<th>{{ purchase.subtotal|amount }}</th>
+					</tr>
+					<tr>
+						<td>Frais de livraison</td>
+						<th>{{ purchase.deliveryModePrice|amount }}</th>
+					</tr>
+					<tr>
+						<th>Total</th>
+						<td>{{ purchase.total|amount }}</td>
+					</tr>
+				</tbody>
+			</table>
+			{# END : table for desktop #}
+		</div>
+	</section>
+{% endblock %}
+{# START : purchase_detail #}

@@ -46,6 +46,7 @@ Relation between **User** & **Address** :
 - id
 - name
 - slug
+- reference
 - picture
 - price
 - description
@@ -53,9 +54,9 @@ Relation between **User** & **Address** :
 - createdAt
 - updatedAt
 
-| id  | name         | slug         | picture     | price | description | category      | created_at          | updated_at          |
-| --- | ------------ | ------------ | ----------- | ----- | ----------- | ------------- | ------------------- | ------------------- |
-| 1   | Product Name | product-name | product.png | 9999  | Lorem...    | Category Name | 2022-02-09 10:03:11 | 2022-02-09 10:03:11 |
+| id  | name         | slug         | reference  | picture     | price | description | category      | created_at          | updated_at          |
+| --- | ------------ | ------------ | ---------- | ----------- | ----- | ----------- | ------------- | ------------------- | ------------------- |
+| 1   | Product Name | product-name | XJIJEJPO12 | product.png | 9999  | Lorem...    | Category Name | 2022-02-09 10:03:11 | 2022-02-09 10:03:11 |
 
 Relation between **Product** & **Category** :
 

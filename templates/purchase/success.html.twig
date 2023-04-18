@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Commande confirmée |
+	{{ parent() }}
+{% endblock %}
+
+{# START : purchase_stripe_success #}
+{% block body %}
+	<section class="page">
+		<h2>Commande confirmée</h2>
+		<div class="neptune">
+			<div class="term">
+				<p>Bonjour
+					{{ user.firstName }},</p>
+				<p>Votre commande
+					<strong>{{ purchase.reference|upper }}</strong>
+					est confirmée.</p>
+				<p>Voici le lien pour consulter le
+					<a class="page__text-link page__link_color_blue" href="{{ path('purchase_detail', {'reference': purchase.reference}) }}">détail</a>
+					de votre commande.
+				</p>
+				<p>Merci de votre fidélité.</p>
+				<p>À bientôt sur
+					<a class="page__text-link page__link_color_blue" href="http://localhost:8080/">E-Shop</a>.
+				</p>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+{# START : purchase_stripe_success #}
