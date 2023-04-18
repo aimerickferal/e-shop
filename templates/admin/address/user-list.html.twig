@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Adresses -
+	{{ user.firstName }}
+	{{ user.lastName }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{# START : admin_address_user_list #}
+{% block body %}
+	<section class="page">
+		<h2>
+			Adresses :
+			{{ user.firstName }}
+			{{ user.lastName }}
+		</h2>
+		{# START : searchAddressForm #}
+		{{ form_start(searchAddressForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-address-form' }}
+		) }}
+		<div class="form-field">
+			{{ form_label(searchAddressForm, 'Ville', { 'label_attr': { 'class': 'form-field__label form-field__address-city-label' }}) }}
+			{{ form_widget(searchAddressForm.city, { 'id': 'address-city-input', 'attr': {'class': 'form-field__input form-field__address-city-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par ville' }}) }}
+			<p class="error-message error-message_color_red error-message-empty-city display-none">
+				Merci de saisir un nom de ville.
+			</p>
+			{{ form_errors(searchAddressForm.city) }}
+		</div>
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-address-button">
+			Rechercher
+		</button>
+		{{ form_end(searchAddressForm) }}
+		{# END : searchAddressForm #}
+		<a class="page__link page__create-link page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_address_create', {'id': user.id}) }}" id="create-address-link">Créer</a>
+		<div
+			class="neptune">
+			{# START : card for mobile #}
+			{% for address in addresses %}
+				<div class="saturn saturn_border-color_blue">
+					<p>
+						{{ address.firstName }}
+						{{ address.lastName }}
+					</p>
+					<p>
+						{{ address.streetNumber }}
+						{{ address.streetName }}
+					</p>
+					<p>
+						{{ address.zipCode }}
+						-
+						{{ address.city }}
+					</p>
+					<p>
+						{{ address.country }}
+					</p>
+					<p>
+						{{ address.phoneNumber }}
+					</p>
+					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_address_detail', {'userId': user.id, 'addressId': address.id}) }}">Détails</a>
+					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_address_update', {'userId': user.id, 'addressId': address.id}) }}">Modifier</a>
+					<a class="page__link page__delete-link page__delete-address-link page__link_background-color_red page__link_color_white" href="{{ path('admin_address_delete', {'userId': user.id, 'addressId': address.id, 'token':csrf_token('admin-address-delete' ~ address.id)} ) }}" data-userfirstname="{{ address.user.firstName }}" data-userlastname="{{ address.user.lastName }}">Supprimer</a>
+				</div>
+			{% endfor %}
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-address table_background-color_blue table_color_white table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Prénom</th>
+						<th>Nom</th>
+						<th>Numéro de rue</th>
+						<th>Nom de rue</th>
+						<th>Code postal</th>
+						<th>Ville</th>
+						<th>Pays</th>
+						<th>Numéro de téléphone mobile</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				{% for address in addresses %}
+					<tbody>
+						<tr>
+							<td>{{ address.firstName }}</td>
+							<td>{{ address.lastName }}</td>
+							<td>{{ address.streetNumber}}</td>
+							<td>{{ address.streetName}}</td>
+							<td>{{ address.zipCode}}</td>
+							<td>{{ address.city}}</td>
+							<td>{{ address.country}}</td>
+							<td>{{ address.phoneNumber}}</td>
+							<td>
+								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_address_detail', {'userId': user.id, 'addressId': address.id}) }}">Détails</a>
+								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_address_update', {'userId': user.id, 'addressId': address.id}) }}">
+									Modifier</a>
+								<a class="page__link page__delete-link page__delete-address-link page__link_background-color_red page__link_color_white" href="{{ path('admin_address_delete', {'userId': user.id, 'addressId': address.id, 'token':csrf_token('admin-address-delete' ~ address.id)} ) }}" data-userfirstname="{{ address.user.firstName }}" data-userlastname="{{ address.user.lastName }}">Supprimer</a>
+							</td>
+						</tr>
+					</tbody>
+				{% endfor %}
+			</table>
+			{# END : table for desktop #}
+		</div>
+	</section>
+{% endblock %}
+{# START : admin_address_user_list #}

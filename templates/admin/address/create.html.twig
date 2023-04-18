@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Créer - Adresse -
+	{{ user.firstName }}
+	{{ user.lastName }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{# START : admin_address_create #}
+{% block body %}
+	<section class="page">
+		<h2>Créer une Adresse :
+			{{ user.firstName }}
+			{{ user.lastName }}</h2>
+		{# START : adminCreateAddressForm #}
+		{{ form_start(adminCreateAddressForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-create-address-form' }}) }}
+		{# firstName #}
+		<div class="form-field">
+			{{ form_label(adminCreateAddressForm, 'Prénom', { 'label_attr': { 'class': 'form-field__label form-field__address-first-name-label display-none' }}) }}
+			{{ form_widget(adminCreateAddressForm.firstName, { 'id': 'address-first-name-input', 'attr': {'class': 'form-field__input form-field__user-first-name-input form-field__input_color_black', 'placeholder': 'Prénom' }}) }}
+			<p class="error-message error-message_color_red error-message-user-first-name-empty display-none">
+				Merci de saisir un prénom.
+			</p>
+			{{ form_errors(adminCreateAddressForm.firstName) }}
+		</div>
+		{# lastName #}
+		<div class="form-field">
+			{{ form_label(adminCreateAddressForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__address-last-name-label display-none' }}) }}
+			{{ form_widget(adminCreateAddressForm.lastName, { 'id': 'address-last-name-input', 'attr': { 'class': 'form-field__input form-field__user-last-name-input form-field__input_color_black', 'placeholder': 'Nom' }}) }}
+			<p class="error-message error-message_color_red error-message-user-last-name-empty display-none">
+				Merci de saisir un nom.
+			</p>
+			{{ form_errors(adminCreateAddressForm.lastName) }}
+		</div>
+		{# streetNumber #}
+		<div class="form-field">
+			{{ form_label(adminCreateAddressForm, 'Numéro de rue', { 'label_attr': { 'class': 'form-field__label form-field__address-street-number-label display-none' }}) }}
+			{{ form_widget(adminCreateAddressForm.streetNumber, { 'id': 'address-street-number-input', 'attr': { 'class': 'form-field__input form-field__address-street-number-input form-field__input_color_black', 'placeholder': 'Numéro de rue' }}) }}
+			<p class="error-message error-message_color_red error-message-empty-street-number display-none">
+				Merci de saisir un numéro de rue.
+			</p>
+			<p class="error-message error-message_color_red error-message-validity-street-number display-none">
+				Merci de saisir un numéro de rue valide.
+			</p>
+			{{ form_errors(adminCreateAddressForm.streetNumber) }}
+		</div>
+		{# streetName #}
+		<div class="form-field">
+			{{ form_label(adminCreateAddressForm, 'Nom de rue', { 'label_attr': { 'class': 'form-field__label form-field__address-street-name-label display-none' }}) }}
+			{{ form_widget(adminCreateAddressForm.streetName, { 'id': 'address-street-name-input', 'attr': { 'class': 'form-field__input form-field__address-street-name-input form-field__input_color_black', 'placeholder': 'Nom de rue' }}) }}
+			<p class="error-message error-message_color_red error-message-empty-street-name display-none">
+				Merci de saisir un nom de rue.
+			</p>
+			{{ form_errors(adminCreateAddressForm.streetName) }}
+		</div>
+		{# zipCode #}
+		<div class="form-field">
+			{{ form_label(adminCreateAddressForm, 'Code postal', { 'label_attr': { 'class': 'form-field__label form-field__address-zip-code-label display-none' }}) }}
+			{{ form_widget(adminCreateAddressForm.zipCode, { 'id': 'address-zip-code-input', 'attr': { 'class': 'form-field__input form-field__address-zip-code-input form-field__input_color_black', 'placeholder': 'Code postal' }}) }}
+			<p class="error-message error-message_color_red error-message-empty-zip-code display-none">
+				Merci de saisir un code postal.
+			</p>
+			<p class="error-message error-message_color_red error-message-validity-zip-code display-none">
+				Merci de saisir un code postal valide.
+			</p>
+			{{ form_errors(adminCreateAddressForm.zipCode) }}
+		</div>
+		{# city #}
+		<div class="form-field">
+			{{ form_label(adminCreateAddressForm, 'Ville', { 'label_attr': { 'class': 'form-field__label form-field__address-city-label display-none' }}) }}
+			{{ form_widget(adminCreateAddressForm.city, { 'id': 'address-city-input', 'attr': { 'class': 'form-field__input form-field__address-city-input form-field__input_color_black', 'placeholder': 'Ville' }}) }}
+			<p class="error-message error-message_color_red error-message-empty-city display-none">
+				Merci de saisir un nom de ville.
+			</p>
+			{{ form_errors(adminCreateAddressForm.city) }}
+		</div>
+		{# country #}
+		<div class="form-field">
+			{{ form_label(adminCreateAddressForm, 'Pays', { 'label_attr': { 'class': 'form-field__label form-field__address-country-label display-none' }}) }}
+			{{ form_widget(adminCreateAddressForm.country, { 'id': 'address-country-input', 'attr': { 'class': 'form-field__input form-field__address-country-input form-field__input_color_black', 'placeholder': 'Pays' }}) }}
+			<p class="error-message error-message_color_red error-message-empty-country display-none">
+				Merci de saisir un nom de pays.
+			</p>
+			{{ form_errors(adminCreateAddressForm.country) }}
+		</div>
+		{# phoneNumber #}
+		<div class="form-field">
+			{{ form_label(adminCreateAddressForm, 'Numéro de téléphone mobile', { 'label_attr': { 'class': 'form-field__label form-field__address-phone-number-label display-none' }}) }}
+			{{ form_widget(adminCreateAddressForm.phoneNumber, { 'id': 'address-phone-number-input', 'attr': { 'class': 'form-field__input form-field__phone-number-input form-field__input_color_black', 'placeholder': 'Numéro de téléphone mobile' }}) }}
+			<p class="error-message error-message_color_red error-message-empty-phone-number display-none">
+				Merci de saisir un numéro de téléphone mobile.
+			</p>
+			<p class="error-message error-message_color_red error-message-validity-phone-number display-none">
+				Merci de saisir un numéro de téléphone mobile valide.
+			</p>
+			{{ form_errors(adminCreateAddressForm.phoneNumber) }}
+		</div>
+		{# adminCreateAddressForm submit button #}
+		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-create-address-button">
+			Créer
+		</button>
+		{{ form_end(adminCreateAddressForm) }}
+		{# END : adminCreateAddressForm #}
+	</section>
+{% endblock %}
+{# END : admin_address_create #}

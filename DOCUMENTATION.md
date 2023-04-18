@@ -88,7 +88,6 @@ Relation between **Category** & **Product** :
 ### **Address**
 
 - id
-- user | ManyToOne, allowed to be null : no
 - firstName
 - lastName
 - streetNumber
