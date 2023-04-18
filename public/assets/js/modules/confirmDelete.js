@@ -15,7 +15,6 @@ const confirmDelete = {
     confirmDelete.deleteUserLinks = document.querySelectorAll(
       ".page__delete-user-link"
     );
-    // For each link of form.deleteUserLinks.
     for (let link of confirmDelete.deleteUserLinks) {
       // We add a listener and a handler on the click event.
       link.addEventListener("click", confirmDelete.handleDeleteUserLinks);
@@ -25,7 +24,6 @@ const confirmDelete = {
     confirmDelete.deleteAddressLinks = document.querySelectorAll(
       ".page__delete-address-link"
     );
-    // For each link of form.deleteAddressLinks.
     for (let link of confirmDelete.deleteAddressLinks) {
       // We add a listener and a handler on the click event.
       link.addEventListener("click", confirmDelete.handleDeleteAddressLinks);
@@ -35,7 +33,6 @@ const confirmDelete = {
     confirmDelete.deleteProductLinks = document.querySelectorAll(
       ".page__delete-product-link"
     );
-    // For each link of form.deleteProductLinks.
     for (let link of confirmDelete.deleteProductLinks) {
       // We add a listener and a handler on the click event.
       link.addEventListener("click", confirmDelete.handleDeleteProductLinks);
@@ -45,7 +42,6 @@ const confirmDelete = {
     confirmDelete.deleteCategoryLinks = document.querySelectorAll(
       ".page__delete-link-category"
     );
-    // For each link of form.deleteCategoryLinks.
     for (let link of confirmDelete.deleteCategoryLinks) {
       // We add a listener and a handler on the click event.
       link.addEventListener("click", confirmDelete.handleDeleteCategoryLinks);
@@ -55,7 +51,6 @@ const confirmDelete = {
     confirmDelete.deleteDeliveyModeLinks = document.querySelectorAll(
       ".page__delete-link-delivery-mode"
     );
-    // For each link of form.deleteDeliveyModeLinks.
     for (let link of confirmDelete.deleteDeliveyModeLinks) {
       // We add a listener and a handler on the click event.
       link.addEventListener(

@@ -10,9 +10,7 @@ const tools = {
   addDisplayNone: function (...elements) {
     // console.log("tools.addDisplayNone()");
 
-    // For each element of elements.
     for (let element of elements) {
-      // We use the classList API to add the display-none class to element.
       element.classList.add("display-none");
     }
   },
@@ -24,9 +22,7 @@ const tools = {
   removeDisplayNone: function (...elements) {
     // console.log("tools.removeDisplayNone()");
 
-    // For each element of elements.
     for (let element of elements) {
-      // We use the classList API to remove the display-none class from element.
       element.classList.remove("display-none");
     }
   },
@@ -38,9 +34,7 @@ const tools = {
   toggleDisplayNone: function (...elements) {
     // console.log("tools.toggleDisplayNone()");
 
-    // For each element of elements.
     for (let element of elements) {
-      // We use the classList API to toggle the display-none class to element.
       element.classList.toggle("display-none");
     }
   },
@@ -53,9 +47,7 @@ const tools = {
   addClassToElements: function (className, ...elements) {
     // console.log("tools.addClassToElements()");
 
-    // For each element of elements.
     for (let element of elements) {
-      // We use the classList API to add className to element.
       element.classList.add(className);
     }
   },
@@ -68,9 +60,7 @@ const tools = {
   removeClassFromElements: function (className, ...elements) {
     // console.log("tools.removeClassFromElements()");
 
-    // For each element of elements.
     for (let element of elements) {
-      // We use the classList API to remove className from element.
       element.classList.remove(className);
     }
   },
@@ -83,9 +73,7 @@ const tools = {
   toggleClassToElements: function (className, ...elements) {
     // console.log("tools.toggleClassToElements()");
 
-    // For each element of elements.
     for (let element of elements) {
-      // We use the classList API to toggle className to element.
       element.classList.toggle(className);
     }
   },
@@ -98,9 +86,7 @@ const tools = {
   addClassesToElement: function (element, ...classNames) {
     // console.log("tools.addClassesToElement()");
 
-    // For each className of classNames.
     for (let className of classNames) {
-      // We use the classList API to add className to element.
       element.classList.add(className);
     }
   },
@@ -113,11 +99,8 @@ const tools = {
   removeClassesFromElement: function (element, ...classNames) {
     // console.log("tools.removeClassesFromElement()");
 
-    // For each className of classNames.
     for (let className of classNames) {
-      // We use the classList API to remove className from element.
       element.classList.remove(className);
-      // console.log(className.length + " " + className);
     }
   },
   /**
@@ -129,9 +112,7 @@ const tools = {
   toggleClassesToElement: function (element, ...classNames) {
     // console.log("tools.toggleClassesToElement()");
 
-    // For each className of classNames.
     for (let className of classNames) {
-      // We use the classList API to toggle className to element.
       element.classList.toggle(className);
     }
   },
@@ -143,9 +124,7 @@ const tools = {
   removeDisabledAttribute: function (...inputs) {
     // console.log("tools.removeDisabledAttribute()");
 
-    // For each input of form.inputs.
     for (let input of inputs) {
-      // We remove the disabled attribute.
       input.removeAttribute("disabled");
     }
   },
@@ -157,9 +136,7 @@ const tools = {
   setDisabledAttribute: function (...inputs) {
     // console.log("tools.setDisabledAttribute()");
 
-    // For each input of form.inputs.
     for (let input of inputs) {
-      // We remove the disabled attribute.
       input.setAttribute("disabled", "");
     }
   },
@@ -171,9 +148,7 @@ const tools = {
   checkInputs: function (...inputs) {
     // console.log("tools.checkInputs()");
 
-    // For each input of inputs.
     for (let input of inputs) {
-      // We check the input.
       input.checked = true;
     }
   },
@@ -185,9 +160,7 @@ const tools = {
   uncheckInputs: function (...inputs) {
     // console.log("tools.uncheckInputs()");
 
-    // For each input of inputs.
     for (let input of inputs) {
-      // We uncheck the input.
       input.checked = false;
     }
   },
@@ -200,7 +173,6 @@ const tools = {
   setColorToBeforeProperty: function (element, color) {
     // console.log("tools.setColorToBeforeProperty()");
 
-    // We set the property of the CSS variable.
     element.style.setProperty("--before", color);
   },
   /**
@@ -211,9 +183,7 @@ const tools = {
   removeElementsFromDOM: function (...elements) {
     // console.log("tools.removeElementsFromDOM()");
 
-    // For each element of elements.
     for (let element of elements) {
-      // We use the JS method remove() to remove the element from the DOM.
       element.remove();
     }
   },
@@ -254,7 +224,7 @@ const tools = {
     // We extract the date.
     let day = date[8] + date[9];
 
-    // We return the date with the format dd/mm/yyyy.
+    // We return the date in the format dd/mm/yyyy.
     return day + "/" + mounth + "/" + year;
   },
 };

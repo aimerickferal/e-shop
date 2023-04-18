@@ -12,7 +12,6 @@ const customerService = {
       document.querySelectorAll(".term__question")
     );
     customerService.terms = document.querySelectorAll(".term-customer-service");
-    // For each question ofcustomerService.questions.
     for (let question of customerService.questions) {
       // We add a listener and a handler on the click event.
       question.addEventListener(
@@ -37,7 +36,6 @@ const customerService = {
     // The index is the index of the clickedQuestion.
     index = customerService.questions.indexOf(clickedQuestion);
 
-    // For each question of customerService.questions.
     for (let question of customerService.questions) {
       // If clickedQuestion is strictly equal to question.
       if (clickedQuestion === question) {

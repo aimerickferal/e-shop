@@ -23,9 +23,7 @@ const responsive = {
 
     responsive.header = document.querySelector(".header");
     responsive.bugerMenu = document.querySelectorAll(".burger-menu");
-    // If the length of the DOM elements is superior to 0 that mean the elements are display on the current page.
     if (responsive.bugerMenu.length > 0) {
-      // For each button of responsive.bugerMenu.
       for (let button of responsive.bugerMenu) {
         // We add a listener and a handler on the click event.
         button.addEventListener("click", responsive.handleSelectedNavButton);
@@ -37,7 +35,6 @@ const responsive = {
     responsive.footer = document.querySelector(".footer");
     responsive.page = document.querySelector(".page");
 
-    // When the app is loaded we call responsive.applyResponsive() to add or remove some CSS classes to the elements.
     responsive.applyResponsive();
   },
   /**
@@ -64,7 +61,6 @@ const responsive = {
       response = false;
     }
 
-    // We return response;
     return response;
   },
   /**
@@ -74,20 +70,12 @@ const responsive = {
   applyResponsive: function () {
     // console.log("responsive.applyResponsive()");
 
-    // If the DOM elements exist.
     if (responsive.bugerMenu && responsive.menuNavMobile) {
-      // We call tools.removeClassesFromElement() to remove one or several classNames from the element.
       tools.removeClassesFromElement(responsive.closingButton, "burger-menu");
-      // We call tools.addDisplayNone() to add the display-none class to one or several elements.
       tools.addDisplayNone(responsive.closingButton);
-      // If the user use a mobile.
       if (responsive.isUserUseMobileDevice()) {
-        // We call tools.addDisplayNone() to add the display-none class to one or several elements.
         tools.addDisplayNone(responsive.menuNavMobile);
-      }
-      // Else if the user don't use a mobile but a desktop.
-      else if (!responsive.isUserUseMobileDevice()) {
-        // We call tools.removeDisplayNone() to remove the display-none class from one or several elements.
+      } else if (!responsive.isUserUseMobileDevice()) {
         tools.removeDisplayNone(responsive.menuNavMobile);
       }
     }
@@ -103,60 +91,39 @@ const responsive = {
     // We get the DOM element form which the event occured.
     let selectedButton = event.currentTarget;
 
-    // If selectedButton is strictly equal to responsive.openingButton.
+    // Accoding to clicekButton we display or hide several elements.
+
+    // If the user open the mobile nav.
     if (selectedButton === responsive.openingButton) {
-      // We call tools.removeClassesFromElement() to remove one or several classNames from the element.
       tools.removeClassesFromElement(responsive.openingButton, "burger-menu");
-      // We call tools.addDisplayNone() to add the display-none class to one or several elements.
       tools.addDisplayNone(responsive.openingButton);
-      // We call tools.removeDisplayNone() to remove the display-none class from one or several elements.
       tools.removeDisplayNone(responsive.closingButton);
-      // We call tools.addClassesToElement() to add one or several classNames to the element.
       tools.addClassesToElement(responsive.closingButton, "burger-menu");
-      // We call tools.removeClassesFromElement() to remove one or several classNames from the element.
       tools.removeClassesFromElement(responsive.footer, "footer");
-      // We call tools.addDisplayNone() to add the display-none class to one or several elements.
       tools.addDisplayNone(responsive.footer);
 
-      // If the DOM element exist.
       if (responsive.menuNavMobile) {
-        // We call tools.toggleClassToElements() in order to toggle a className to one or several elements.
         tools.toggleDisplayNone(responsive.menuNavMobile);
 
-        // If the DOM element exist.
         if (responsive.page) {
-          // We call tools.toggleClassToElements() in order to toggle a className to one or several elements.
           tools.toggleClassToElements("page", responsive.page);
-          // We call tools.addDisplayNone() to add the display-none class to one or several elements.
           tools.addDisplayNone(responsive.page);
         }
       }
-    }
-    // Else if selectedButton is strictly equal to responsive.closingButton.
-    else if (selectedButton === responsive.closingButton) {
-      // We call tools.removeClassesFromElement() to remove one or several classNames from the element.
+      // Else if the user close the mobile nav.
+    } else if (selectedButton === responsive.closingButton) {
       tools.removeClassesFromElement(responsive.closingButton, "burger-menu");
-      // We call tools.addDisplayNone() to add the display-none class to one or several elements.
       tools.addDisplayNone(responsive.closingButton);
-      // We call tools.removeDisplayNone() to remove the display-none class from one or several elements.
       tools.removeDisplayNone(responsive.openingButton);
-      // We call tools.addClassesToElement() to add one or several classNames to the element.
       tools.addClassesToElement(responsive.openingButton, "burger-menu");
-      // We call tools.removeDisplayNone() to remove the display-none class from one or several elements.
       tools.removeDisplayNone(responsive.footer);
-      // We call tools.addClassToElements() to add className to the element.
       tools.addClassToElements("footer", responsive.footer);
 
-      // If the DOM element exist.
       if (responsive.menuNavMobile) {
-        // We call tools.toggleClassToElements() in order to toggle a className to one or several elements.
         tools.toggleDisplayNone(responsive.menuNavMobile);
 
-        // If the DOM element exist.
         if (responsive.page) {
-          // We call tools.toggleClassToElements() in order to toggle a className to one or several elements.
           tools.toggleClassToElements("page", responsive.page);
-          // We call tools.removeDisplayNone() to remove the display-none class from one or several elements.
           tools.removeDisplayNone(responsive.page);
         }
       }

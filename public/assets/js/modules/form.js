@@ -1155,7 +1155,6 @@ const form = {
     console.log("STOP 🛑👮🏼‍♂️ Security check 🔐");
 
     // According to the clicked button we call different methods to check the validity of the input and submit the form is it's doesn't contain any error.
-
     if (
       clickedButton === form.signUpButton ||
       clickedButton === form.loginButton ||

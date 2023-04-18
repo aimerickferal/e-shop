@@ -18,7 +18,6 @@ const purchase = {
     purchase.subtotalParagraph = document.getElementById(
       "purchase-subtotal-paragraph"
     );
-    // If the DOM element exist.
     if (purchase.subtotalParagraph) {
       // The value in cents of the subtotal is in a HTML dataset attribut whose name is data-purchasesubtotal.
       // We use the parseInt() method to convert the string value to a integer.
@@ -31,7 +30,6 @@ const purchase = {
     purchase.deliveryModePriceParagraph = document.getElementById(
       "purchase-delivery-mode-price-paragraph"
     );
-    // If the DOM element exist.
     if (purchase.deliveryModePriceParagraph) {
       // The value in decimal of the PHP constante DeliveryMode::DELIVERY_PRICE_FREE is in a HTML dataset attribut whose name is data-deliveryamountfree.
       purchase.deliveryModeAmountFree =
@@ -52,7 +50,6 @@ const purchase = {
     purchase.totalParagraph = document.getElementById(
       "purchase-total-paragraph"
     );
-    // If the DOM element exist.
     if (purchase.totalParagraph) {
       // The total is egual to the subtotal add tp the price by default of the delivey mode.
       purchase.total = purchase.subtotal + purchase.deliveryModeByDefaultPrice;

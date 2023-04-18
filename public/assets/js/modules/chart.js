@@ -9,15 +9,15 @@ const chart = {
   labelsColor: null,
   titleColor: null,
   // ======================= DOM ELEMENTS =======================
-  // User roles
+  // User's roles
   pieCanvasUserRolesByNumber: null,
   pieChartUserRolesByNumber: {},
   pieCanvaUserRolesByProportion: null,
   pieChartUserRolesByProportion: {},
-  // User gender
-  pieCanvaUserGenderByNumber: null,
+  // User's gender
+  pieCanvaUserCivilityTitleByNumber: null,
   pieChartUserGenderByNumber: {},
-  pieCanvaUserGenderByProportion: null,
+  pieCanvaUserCivilityTitleByProportion: null,
   pieChartUserGenderByProportion: {},
   init: function () {
     console.log("Hello world, I'm chart.js 📊");
@@ -38,36 +38,28 @@ const chart = {
     chart.pieCanvasUserRolesByNumber = document.getElementById(
       "pie-canvas-user-roles-by-number"
     );
-    // If the DOM element exist.
     if (chart.pieCanvasUserRolesByNumber) {
-      // We call chart.createPieChartForUserRolesByNumber() to create the user role pie chart.
       chart.createPieChartForUserRolesByNumber();
     }
     chart.pieCanvaUserRolesByProportion = document.getElementById(
       "pie-canvas-user-roles-by-proportion"
     );
-    // If the DOM element exist.
     if (chart.pieCanvaUserRolesByProportion) {
-      // We call chart.createPieChartForUserRolesByProportion() to create the user role pie chart.
       chart.createPieChartForUserRolesByProportion();
     }
 
-    // User gender
-    chart.pieCanvaUserGenderByNumber = document.getElementById(
-      "pie-canvas-user-gender-by-number"
+    // User civility title
+    chart.pieCanvaUserCivilityTitleByNumber = document.getElementById(
+      "pie-canvas-user-civility-title-by-number"
     );
-    // If the DOM element exist.
-    if (chart.pieCanvaUserGenderByNumber) {
-      // We call chart.createPieChartForUserRolesByNumber() to create the user role pie chart.
-      chart.createPieChartforUserGenderByNumber();
+    if (chart.pieCanvaUserCivilityTitleByNumber) {
+      chart.createPieChartforUserCivilityTitleByNumber();
     }
-    chart.pieCanvaUserGenderByProportion = document.getElementById(
-      "pie-canvas-user-gender-by-proportion"
+    chart.pieCanvaUserCivilityTitleByProportion = document.getElementById(
+      "pie-canvas-user-civility-title-by-proportion"
     );
-    // If the DOM element exist.
-    if (chart.pieCanvaUserGenderByProportion) {
-      // We call chart.createPieChartForUserGenderByProportion() to create the user role pie chart.
-      chart.createPieChartForUserGenderByProportion();
+    if (chart.pieCanvaUserCivilityTitleByProportion) {
+      chart.createPieChartForUserCivilitTitlerByProportion();
     }
   },
   /**
@@ -212,12 +204,12 @@ const chart = {
    * Method that create a pie chart to show the number of users by gender.
    * @return {void}
    */
-  createPieChartforUserGenderByNumber: function () {
-    // console.log("chart.createPieChartforUserGenderByNumber()");
+  createPieChartforUserCivilityTitleByNumber: function () {
+    // console.log("chart.createPieChartforUserCivilityTitleByNumber()");
 
     // We create a pie chart with the user data that we get from te database.
     chart.pieChartUserGenderByNumber = new Chart(
-      chart.pieCanvaUserGenderByNumber,
+      chart.pieCanvaUserCivilityTitleByNumber,
       {
         type: "pie",
         data: {
@@ -225,8 +217,8 @@ const chart = {
           datasets: [
             {
               data: [
-                chart.pieCanvaUserGenderByNumber.dataset.numberofmans,
-                chart.pieCanvaUserGenderByNumber.dataset.numberofwomans,
+                chart.pieCanvaUserCivilityTitleByNumber.dataset.numberofmans,
+                chart.pieCanvaUserCivilityTitleByNumber.dataset.numberofwomans,
               ],
               //   backgroundColor: ["#66b5fa", "#ff00ff"],
               backgroundColor: ["#66b5fa", "#D96DA0"],
@@ -275,12 +267,12 @@ const chart = {
    * Method that create a pie chart to show the proportion of users by gender.
    * @return {void}
    */
-  createPieChartForUserGenderByProportion: function () {
-    // console.log("chart.createPieChartForUserGenderByProportion()");
+  createPieChartForUserCivilitTitlerByProportion: function () {
+    // console.log("chart.createPieChartForUserCivilitTitlerByProportion()");
 
     // We create a pie chart with the user data that we get from te database.
     chart.pieChartUserGenderByProportion = new Chart(
-      chart.pieCanvaUserGenderByProportion,
+      chart.pieCanvaUserCivilityTitleByProportion,
       {
         type: "pie",
         data: {
@@ -288,8 +280,10 @@ const chart = {
           datasets: [
             {
               data: [
-                chart.pieCanvaUserGenderByProportion.dataset.numberofmans,
-                chart.pieCanvaUserGenderByProportion.dataset.numberofwomans,
+                chart.pieCanvaUserCivilityTitleByProportion.dataset
+                  .numberofmans,
+                chart.pieCanvaUserCivilityTitleByProportion.dataset
+                  .numberofwomans,
               ],
               //   backgroundColor: ["#66b5fa", "#ff00ff"],
               backgroundColor: ["#66b5fa", "#D96DA0"],
@@ -310,7 +304,8 @@ const chart = {
                 return (
                   Math.round(
                     (value * 100) /
-                      chart.pieCanvaUserGenderByProportion.dataset.numberofusers
+                      chart.pieCanvaUserCivilityTitleByProportion.dataset
+                        .numberofusers
                   ) + "%"
                 );
               },

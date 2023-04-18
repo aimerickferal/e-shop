@@ -13,7 +13,6 @@ const nav = {
     for (let index = 0; index < nav.links.length; index++) {
       // If the current nav.links is strictly equal to the current URL.
       if (nav.links[index].href === location.href) {
-        // We call tools.addClassToElements() to add className to one or several elements.
         tools.addClassToElements("active", nav.links[index]);
       }
     }

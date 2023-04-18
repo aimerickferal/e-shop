@@ -24,9 +24,6 @@ class MainController extends AbstractController
     #[Route('/', name: 'home', methods: 'GET')]
     public function home(Request $request, ProductRepository $productRepository): Response
     {
-        //! Token generator
-        // dd(bin2hex(random_bytes(12)));
-
         // We remove the cart form the session.
         // $request->getSession()->remove('cart');
 
