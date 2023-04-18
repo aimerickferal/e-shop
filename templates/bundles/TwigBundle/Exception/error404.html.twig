@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	404 - Not Found |
+	{{ parent() }}
+{% endblock %}
+
+{# START : 404 #}
+{% block body %}
+	<section class="sagittarius-a">
+		<p class="sagittarius-a__p-404 sagittarius-a__p-404_color_red">404</p>
+		<p>Oups... La page que vous rechercher est introuvable.</p>
+		<a class="page__text-link sagittarius-a__back-home-link page__link_color_blue" href="{{ path('home') }}">Retour à l'accueil</a>
+	</section>
+{% endblock %}
+{# END : 404 #}

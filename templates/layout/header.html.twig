@@ -1,0 +1,31 @@
+{# START : HEADER #}
+<header class="header header_background-color_blue">
+	{# START : mobile burger menu #}
+	{# Opening button #}
+		<button type="button" class="burger-menu burger-menu-opening-button burger-menu_background-color_blue" id="opening-button">
+			<img class="burger-menu__bars-icon header__image_color_white" id="burger-menu-bars-icon" src="{{ asset('assets/images/icons/burger-menu-bars.svg') }}" alt="burger-menu-bars-icon"/>
+	</button>
+	{# Closing button #}
+	<button type="button" class="burger-menu burger-menu-closing-button burger-menu_background-color_blue" id="closing-button">
+		<img class="burger-menu__cross-mark-icon header__image_color_white" id="burger-menu-cross-mark-icon" src="{{ asset('assets/images/icons/cross-mark.svg') }}" alt="burger-menu-cross-mark-icon"/>
+	</button>
+	{# END : mobile burger menu #}
+	<a class="header__h1-link page__link_color_white" href="{{ path('home') }}">
+		<h1>E-Shop</h1>
+	</a>
+	{# START : NAV DESKTOP #}
+	{% include "partials/_nav-desktop.html.twig" %}
+	{# END : NAV DESKTOP #}
+	{# START : cart icon #}
+		<a href="{{ path('cart_detail') }}"> <img class="header__cart-icon header__image_color_white" id="header-cart-icon" src="{{ asset('assets/images/icons/cart.svg') }}" alt="cart-image"/>
+		<div class="circle circle_background-color_white circle_color_blue">
+			{% if cart.numberOfItem >= 1 %}
+				<p>{{ cart.numberOfItem }}</p>
+			{% else %}
+				<p>0</p>
+			{% endif %}
+		</div>
+	</a>
+	{# END : cart icon #}
+</header>
+{# END : HEADER #}

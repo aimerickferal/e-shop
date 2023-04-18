@@ -1,0 +1,53 @@
+{# START : NAV DESKTOP #}
+<nav class="nav-desktop">
+	<ul>
+		<li class="nav__item nav-desktop__item">
+			<a class="nav__link nav__desktop-link page__link_color_white" href="{{ path('product_list') }}">Produits</a>
+		</li>
+		<li class="nav__item nav-desktop__item">
+			<a class="nav__link nav__desktop-link page__link_color_white" href="{{ path('category_list') }}">Catégories</a>
+		</li>
+		{# START : admin access #}
+		{% if is_granted('ROLE_ADMIN') %}
+			<li class="nav__item nav-desktop__item nav-desktop__item_color_white">
+				<a class="nav__link nav__desktop-link page__link_color_white" href="{{ path('admin_dashboard') }}">Dashboard</a>
+			</li>
+			<li class="nav__item nav-desktop__item">
+				<a class="nav__link nav__desktop-link page__link_color_white" href="{{ path('admin_user_list') }}">Gestion Utilisateurs</a>
+			</li>
+			<li class="nav__item nav-desktop__item">
+				<a class="nav__link nav__desktop-link page__link_color_white" href="{{ path('admin_address_list') }}">Gestion Adresses</a>
+			</li>
+			<li class="nav__item nav-desktop__item">
+				<a class="nav__link nav__desktop-link page__link_color_white" href="{{ path('admin_product_list') }}">Gestion Produits</a>
+
+			</li>
+			<li class="nav__item nav-desktop__item">
+				<a class="nav__link nav__desktop-link page__link_color_white" href="{{ path('admin_category_list') }}">Gestion Catégories</a>
+			</li>
+			<li class="nav__item nav-desktop__item">
+				<a class="nav__link nav__desktop-link page__link_color_white" href="{{ path('admin_purchase_list') }}">Gestion Commandes</a>
+			</li>
+			<li class="nav__item nav-desktop__item">
+				<a class="nav__link nav__desktop-link page__link_color_white" href="{{ path('admin_delivery_mode_list') }}">Gestion Modes de Livraison</a>
+			</li>
+		{% endif %}
+		{# END : admin access #}
+		{% if app.user %}
+			<li class="nav__item">
+				<a class="page__desktop-logout-link page__link_color_red" id="desktop-logout-link" href="{{ path('app_logout') }}">Déconnexion</a>
+			</li>
+			<a class="header__link_background-color_blue" href="{{ path('user_profile') }}">
+				<img class="nav-desktop__user-picture" id="profile-picture-nav-desktop" src="{{ asset('assets/uploads/pictures/users/' ~ app.user.picture) }}" alt="image {{ app.user.firstName }}"/>
+			</a>
+		{% else %}
+			<li class="nav__item">
+				<a class="page__desktop-login-link page__link_color_green" id="desktop-login-link" href="{{ path('app_login') }}">Connexion</a>
+			</li>
+			<li class="nav__item">
+				<a class="page__desktop-sign-up-link page__link_color_orange" id="desktop-sign-up-link" href="{{ path('app_sign_up') }}">Inscription</a>
+			</li>
+		{% endif %}
+	</ul>
+</nav>
+{# END : NAV DESKTOP #}

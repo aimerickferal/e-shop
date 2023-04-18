@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Paiement Securisé  |
+	{{ parent() }}
+{% endblock %}
+
+{# START : secure_payment #}
+{% block body %}
+	<section class="page">
+		<h2>Paiement Securisé</h2>
+		<div class="neptune">
+			<div class="term term-secure-payment">
+				<h3>PAIEMENT PAR CARTE BANCAIRE</h3>
+				<img class="page__logo-checkout-method page__logo-visa" src="{{ asset('assets/images/logos/visa.svg') }}" alt="logo-visa"/>
+				<img class="page__logo-checkout-method page__logo-mastercard" src="{{ asset('assets/images/logos/mastercard.svg') }}" alt="logo-mastercard"/>
+				<img class="page__logo-checkout-method page__logo-cb" src="{{ asset('assets/images/logos/cb.svg') }}" alt="logo-cb"/>
+				<img class="page__logo-checkout-method page__logo-american-express" src="{{ asset('assets/images/logos/american-express.png') }}" alt="logo-american-express"/>
+				<p>Le paiement par Carte Bancaire (Visa, MasterCard, Carte Bleue et American Express) est accessible pour l'ensemble de vos commandes réalisées sur www.e-shop.fr.</p>
+				<p>
+					<strong>PAIEMENT TOTALEMENT SÉCURISÉ</strong>
+					: la transaction est cryptée (SSL). Les informations bancaires que vous donnez, cryptées sur votre propre ordinateur, ne circuleront jamais en clair sur Internet et votre numéro de carte ne sera jamais connu ni conservé par www.e-shop.fr.
+				</p>
+				<h3>PAIEMENT PAR PAYPAL</h3>
+				<img class="page__logo-checkout-method page__logo-paypal" src="{{ asset('assets/images/logos/paypal.svg') }}" alt="logo--paypal"/>
+				<p>PayPal est un service qui vous permet de payer en ligne, d'envoyer et de recevoir de l'argent sans partager vos informations bancaires.</p>
+				<p>
+					<strong>C'est sécurisé</strong><br>
+					En tant qu'établissement bancaire au sein de l'Union Européenne PayPal vous offre plus de 10 ans d'expérience dans les paiements sécurisés en ligne. PayPal crypte et sécurise vos informations bancaires et ne les communique jamais au destinataire de vos paiements.
+				</p>
+				<p>
+					<strong>C'est simple</strong><br>
+					Plus besoin de saisir les 16 chiffres de votre carte bancaire à chaque fois que vous faites un achat en ligne. Utilisez simplement vos identifiants PayPal : e-mail et mot de passe. Vos transactions sont instantanées.
+				</p>
+				<p>
+					<strong>C'est gratuit</strong><br>
+					Payer en ligne avec PayPal ne vous coûte pas plus cher qu'avec votre carte bancaire. Si vous faites des achats en euros dans la Zone Euro de l'Union Européenne, c'est gratuit.
+				</p>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+{# END : secure_payment #}

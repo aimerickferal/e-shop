@@ -1,0 +1,40 @@
+{# START : FOOTER #}
+<footer class="footer footer_background-color_blue">
+	<div class="block-footer">
+		<h3 class="footer__title footer__title_color_white">Votre compte</h3>
+		<ul>
+			<li><a class="page__text-link page__link_color_white"href="{{ path('user_profile') }}">Profil</a></li>
+			<li><a class="page__text-link page__link_color_white"href="{{ path('address_list') }}">Adresses</a></li>
+			<li><a class="page__text-link page__link_color_white"href="{{ path('purchase_list') }}">Commandes</a></li>
+			<li><a class="page__text-link page__link_color_white" href="#">Suivi colis</a></li>
+		</ul>
+	</div>
+	<div class="block-footer">
+		<h3 class="footer__title footer__title_color_white">Notre sociéte</h3>
+		<ul>
+			<li><a class="page__text-link page__link_color_white"href="{{ path('legal_notices') }}">Mentions Légales</a></li>
+			<li><a class="page__text-link page__link_color_white"href="{{ path('general_terms_of_sale') }}">Conditions Générales de Vente</a></li>
+			<li><a class="page__text-link page__link_color_white"href="{{ path('general_terms_of_use') }}">Conditions Générales d'Utilisation</a></li>
+			<li><a class="page__text-link page__link_color_white"href="{{ path('delivery_and_customer_service') }}">Livraison et SAV</a></li>
+			<li><a class="page__text-link page__link_color_white"href="{{ path('secure_payment') }}">Paiement sécurisé</a></li>
+			<li><a class="page__text-link page__link_color_white" ref="#">La Team E-Shop</a></li>
+			<li><a class="page__text-link page__link_color_white"href="{{ path('contact') }}">Contactez-nous</a></li>
+		</ul>
+	</div>
+	<div class="block-footer">
+		<img class="page__logo-checkout-method page__logo-visa" src="{{ asset('assets/images/logos/visa.svg') }}" alt="logo-visa"/>
+		<img class="page__logo-checkout-method page__logo-mastercard" src="{{ asset('assets/images/logos/mastercard.svg') }}" alt="logo-mastercard"/>
+		<img class="page__logo-checkout-method page__logo-cb" src="{{ asset('assets/images/logos/cb.svg') }}" alt="logo-cb"/>
+		<img class="page__logo-checkout-method page__logo-american-express" src="{{ asset('assets/images/logos/american-express.png') }}" alt="logo-american-express"/>
+		<img class="page__logo-checkout-method page__logo-paypal" src="{{ asset('assets/images/logos/paypal.svg') }}" alt="logo-paypal"/>
+	</div>
+	<div class="block-footer block-footer-copyright">
+		<p class="block-footer__copyright block-footer__copyright_color_white">
+			&#169;
+			{{ 'now' | date('Y') }}
+			-
+			<strong>E-Shop</strong>
+		</p>
+	</div>
+</footer>
+{# END : FOOTER #}
