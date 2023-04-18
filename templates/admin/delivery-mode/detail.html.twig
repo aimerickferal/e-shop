@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Mode de Livraison -
+	{{ deliveryMode.name }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{# START : admin_delivery_mode_detail #}
+{% block body %}
+	<section class="page">
+		<h2>Mode de Livraison :
+			{{ deliveryMode.name }}</h2>
+		<div
+			class="neptune">
+			{# START : card for mobile #}
+			<div class="saturn saturn_border-color_blue">
+				<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/pictures/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
+				<p>{{ deliveryMode.name }}</p>
+				<p>{{ deliveryMode.description }}</p>
+				<p>{{ deliveryMode.price|amount }}</p>
+				<p>Offert à partir de
+					{{ deliveryMode.minCartAmountForFreeDelivery|amount }}</p>
+				<p>
+					Créée le
+					{{ deliveryMode.createdAt|format_datetime('short', 'none', locale='fr') }}
+
+				</p>
+				<p>
+					Mise à jour le
+					{{ deliveryMode.updatedAt|format_datetime('short', 'none', locale='fr') }}
+				</p>
+				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_delivery_mode_update', {'id': deliveryMode.id}) }}">Modifier</a>
+				<a class="page__link page__delete-link page__delete-link-delivery-mode page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
+			</div>
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-delivery-mode table_background-color_blue table_color_white table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Propriétés</th>
+						<th>Valeurs</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Image</th>
+						<td>
+							<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/pictures/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/></td>
+					</tr>
+					<tr>
+						<th>Nom</th>
+						<td>{{ deliveryMode.name }}</td>
+
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td>{{ deliveryMode.description }}</td>
+					</tr>
+					<tr>
+						<th>Prix</th>
+						<td>{{ deliveryMode.price|amount }}</td>
+					</tr>
+					<tr>
+						<th>Offert à partir de</th>
+						<td>{{ deliveryMode.minCartAmountForFreeDelivery|amount }}</td>
+					</tr>
+					<tr>
+						<th>Créé le</th>
+						<td>{{ deliveryMode.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+
+					</tr>
+					<tr>
+						<th>Mise à jour le</th>
+						<td>{{ deliveryMode.updatedAt|format_datetime('short', 'none', locale='fr') }}</td>
+					</tr>
+					<tr>
+						<th>Actions</th>
+						<td>
+							<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_delivery_mode_update', {'id': deliveryMode.id}) }}">Modifier</a>
+							<a class="page__link page__delete-link page__delete-link-delivery-mode page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			{# END : table for desktop #}
+		</section>
+	</div>
+{% endblock %}
+{# START : admin_category_detail #}

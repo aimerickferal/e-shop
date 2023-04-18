@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Modes de Livraison |
+	{{ parent() }}
+{% endblock %}
+
+{# START : admin_delivery_mode_list #}
+{% block body %}
+	<section class="page">
+		<h2>Modes de Livraison</h2>
+		{# START : searchProductForm #}
+		{{ form_start(searchDeliveryModeForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-delivery-mode-form' }}
+		) }}
+		{# Name #}
+		<div class="form-field">
+			{{ form_label(searchDeliveryModeForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__delivery-mode-name-label display-none' }}) }}
+			{{ form_widget(searchDeliveryModeForm.name, { 'id': 'delivery-mode-name-input', 'attr': {'class': 'form-field__input form-field__delivery-mode-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}
+			) }}
+			<p class="error-message error-message_color_red error-message-delivery-mode-name-empty display-none">
+				Merci de saisir un nom.
+			</p>
+			{{ form_errors(searchDeliveryModeForm.name) }}
+		</div>
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-delivery-mode-button">
+			Rechercher
+		</button>
+		{{ form_end(searchDeliveryModeForm) }}
+		{# END : searchProductForm #}
+		<a class="page__link page__create-link  page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_delivery_mode_create') }}" id="create-delivery-mode-link">Créer</a>
+		<div class="neptune">
+			{% for deliveryMode in deliveryModes %}
+				{# START : card for mobile #}
+				<div class="saturn saturn_border-color_blue">
+					<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/pictures/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
+					<p>{{ deliveryMode.name }}</p>
+					<p>{{ deliveryMode.description }}</p>
+					<p>{{ deliveryMode.price|amount }}</p>
+					<p>Offert à partir de
+						{{ deliveryMode.minCartAmountForFreeDelivery|amount }}</p>
+					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_delivery_mode_detail', {'id': deliveryMode.id}) }}">Détails</a>
+					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_delivery_mode_update', {'id': deliveryMode.id}) }}">Modifier</a>
+					<a class="page__link page__delete-link page__delete-link-delivery-mode page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
+				</div>
+			{% endfor %}
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-delivery-mode table_background-color_blue table_color_white table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Image</th>
+						<th>Nom</th>
+						<th>Description</th>
+						<th>Prix</th>
+						<th>Offert à partir de</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				{% for deliveryMode in deliveryModes %}
+					<tbody>
+						<tr>
+							<td>
+								<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/pictures/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
+							</td>
+							<td>{{ deliveryMode.name }}</td>
+							<td>{{ deliveryMode.description }}</td>
+							<td>{{ deliveryMode.price|amount }}</td>
+							<td>{{ deliveryMode.minCartAmountForFreeDelivery|amount }}</td>
+
+							<td>
+								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_delivery_mode_detail', {'id': deliveryMode.id}) }}">Détails</a>
+								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_delivery_mode_update', {'id': deliveryMode.id}) }}">Modifier</a>
+								<a class="page__link page__delete-link page__delete-link-delivery-mode page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
+							</td>
+						</tr>
+					</tbody>
+				{% endfor %}
+			</table>
+			{# END : table for desktop #}
+		</div>
+	</section>
+{% endblock %}
+{# END : admin_delivery_mode_list #}
