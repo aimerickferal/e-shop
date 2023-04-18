@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Catégories |
+	{{ parent() }}
+{% endblock %}
+
+{# START : category_list #}
+{% block body %}
+	<section class="page">
+		<h2>Nos Catégories</h2>
+		{# START : searchCategoryForm #}
+		{{ form_start(searchCategoryForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-category-form' }}
+		) }}
+		<div class="form-field">
+			{{ form_label(searchCategoryForm, 'Rechercher par nom', { 'label_attr': { 'class': 'form-field__label form-field__category-name-label display-none' }}) }}
+			{{ form_widget(searchCategoryForm.name, { 'id': 'category-name-input', 'attr': {'class': 'form-field__input form-field__category-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}) }}
+			<p class="error-message error-message_color_red error-message-category-name-empty display-none">
+				Merci de saisir un nom.
+			</p>
+			{{ form_errors(searchCategoryForm.name) }}
+		</div>
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-category-button">
+			Rechercher
+		</button>
+		{{ form_end(searchCategoryForm) }}
+		{# END : searchCategoryForm #}
+		<div class="neptune">
+			{% for category in categories %}
+				<div class="square square_border-color_blue">
+					<a class="page__text-link square__link page__link_color_blue" href="{{ path('category_product_list', {'slug': category.slug}) }}">{{ category.name }}</a>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}
+{# END : category_list #}

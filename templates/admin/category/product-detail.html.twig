@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ category.name }}
+	-
+	{{ product.name }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{# START : admin_category_product_detail #}
+{% block body %}
+	<section class="page">
+		<h2>Produit :
+			{{ product.name }}
+		</h2>
+		<div
+			class="neptune">
+			{# START : card for mobile #}
+			<div class="saturn saturn_border-color_blue">
+				<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+				<p>
+					{{ product.name }}
+				</p>
+				<p>
+					{{ product.category }}
+				</p>
+				<p>
+					{{ product.reference }}
+				</p>
+				<p>
+					{{ product.price|amount }}
+				</p>
+				<p>
+					{{ product.description }}
+				</p>
+				{% if product.availability == available %}
+					<p class="availability available availability__avialable_color_green">Disponible</p>
+				{% elseif product.availability == unavailable %}
+					<p class="availability unavailable availability__unavailable_color_red">Indisponible</p>
+				{% endif %}
+				<p>
+					Crée le :
+					{{ product.createdAt|format_datetime('short', 'none', locale='fr') }}
+				</p>
+				<p>
+					Mis à jour le :
+					{{ product.updatedAt|format_datetime('short', 'none', locale='fr') }}
+				</p>
+				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
+				<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
+			</div>
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-product table_background-color_blue table_color_white table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Propriétés</th>
+						<th>Valeurs</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Image</th>
+						<td><img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"></td>
+					</tr>
+					<tr>
+						<th>Nom</th>
+						<td>{{ product.name }}</td>
+					</tr>
+					<tr>
+						<th>Catégorie</th>
+						<td>{{ product.category }}</td>
+					</tr>
+					</tr>
+					<tr>
+						<th>Référence</th>
+						<td>{{ product.reference }}</td>
+					</tr>
+					<tr>
+						<th>Prix</th>
+						<td>{{ product.price | amount }}</td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td>{{ product.description }}</td>
+					</tr>
+					<tr>
+						<th>Disponibilité</th>
+						{% if product.availability == available %}
+							<td class="availability available availability__avialable_color_green">Disponible</td>
+						{% elseif product.availability == unavailable %}
+							<td class="availability unavailable availability__unavailable_color_red">Indisponible</td>
+						{% endif %}
+					</tr>
+					<tr>
+						<th>Crée le</th>
+						<td>{{ product.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+					</tr>
+					<tr>
+						<th>Mis à jour le</th>
+						<td>{{ product.updatedAt|format_datetime('short', 'none', locale='fr') }}</td>
+					</tr>
+					<tr>
+					<th>Actions</th>
+						<td>
+							<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
+							<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		{# END : table for desktop #}
+	</section>
+{% endblock %}{# START : admin_category_product_detail #}

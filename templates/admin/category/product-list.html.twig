@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Produits - Catégorie -
+	{{ category.name }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+
+{# START : admin_category_product_list #}
+{% block body %}
+	<section class="page">
+		<h2>{{ category.name }}s</h2>
+		{# START : searchProductForm #}
+		{{ form_start(searchProductForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-product-form' }}
+		) }}
+		<div class="form-field">
+			{{ form_label(searchProductForm, 'Rechercher par nom', { 'label_attr': { 'class': 'form-field__label form-field__product-name-label display-none' }}) }}
+			{{ form_widget(searchProductForm.name, { 'id': 'product-name-input', 'attr': {'class': 'form-field__input form-field__product-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}) }}
+			<p class="error-message error-message_color_red error-message-product-name-empty display-none">
+				Merci de saisir un nom.
+			</p>
+			{{ form_errors(searchProductForm.name) }}
+		</div>
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-product-button">
+			Rechercher
+		</button>
+		{{ form_end(searchProductForm) }}
+		{# END : searchProductForm #}
+		<a class="page__link page__create-link page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_product_create') }}" id="create-product-link">Créer</a>
+		<div class="neptune">
+			{% for product in products %}
+				{# START : card for mobile #}
+				<div class="saturn saturn_border-color_blue">
+					<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+					<p>{{ product.name }}</p>
+					<p>{{ product.category }}</p>
+					<p>
+						{{ product.reference }}
+					</p>
+					<p>{{ product.price|amount }}</p>
+					{% if product.availability == available %}
+						<p class="availability available availability__avialable_color_green">Disponible</p>
+					{% elseif product.availability == unavailable %}
+						<p class="availability unavailable availability__unavailable_color_red">Indisponible</p>
+					{% endif %}
+					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_category_product_detail', {'categorySlug': category.slug, 'productSlug': product.slug}) }}">Détails</a>
+					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
+					<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
+				</div>
+			{% endfor %}
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-product table_background-color_blue table_color_white table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Image</th>
+						<th>Nom</th>
+						<th>Catégorie</th>
+						<th>Référence</th>
+						<th>Prix</th>
+						<th>Disponibilité</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				{% for product in products %}
+					<tbody>
+						<tr>
+							<td>
+								<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+							</td>
+							<td>{{ product.name }}</td>
+							<td>{{ product.category }}</td>
+							<td>{{ product.reference }}</td>
+							<td>{{ product.price|amount }}</td>
+							{% if product.availability == available %}
+								<td class="availability available availability__avialable_color_green">Disponible</td>
+							{% elseif product.availability == unavailable %}
+								<td class="availability unavailable availability__unavailable_color_red">Indisponible</td>
+							{% endif %}
+							<td>
+								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_category_product_detail', {'categorySlug': category.slug, 'productSlug': product.slug}) }}">Détails</a>
+								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
+								<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
+							</td>
+						</tr>
+					</tbody>
+				{% endfor %}
+			</table>
+			{# END : table for desktop #}
+		</div>
+	</section>
+{% endblock %}
+{# START : admin_category_product_list #}

@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Utilisateur -
+	{{ user.firstName }}
+	{{ user.lastName }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{# START : admin_user_detail #}
+{% block body %}
+	<section class="page">
+		<h2>Utilisateur :
+			{{ user.firstName }}
+			{{ user.lastName }}</h2>
+		{# START : card for mobile #}
+		<div class="neptune">
+			<div class="saturn saturn_border-color_blue">
+				<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/'~ user.picture) }}" alt="image {{ user.firstName }}"/>
+				<p>{{ user.civilityTitle }}</p>
+				<p>{{ user.firstName }}
+					{{ user.lastName }}</p>
+				<a class="page__text-link page__text-link page__link_color_blue" id="" href="mailto:{{ user.email }}">{{ user.email }}</a>
+				<p>{{ user.roles|json_encode() }}</p>
+				<a class="page__text-link page__text-link page__link_color_blue" href="{{ path('admin_address_user_list', {'id': user.id}) }}">Adresses</a>
+				<a class="page__text-link page__text-link page__link_color_blue" href="{{ path('admin_purchase_user_list', {'id': user.id}) }}">Commandes</a>
+				<p>Crée le
+					{{ user.createdAt|format_datetime('short', 'none', locale='fr') }}</p>
+				<p>Mis à jour le
+					{{ user.updatedAt|format_datetime('short', 'none', locale='fr') }}</p>
+				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_user_update', {'id': user.id} ) }}">Modifier</a>
+				<a class="page__link page__delete-link page__delete-user-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
+					Supprimer</a>
+			</div>
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-user table_background-color_blue table_color_white table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Propriétés</th>
+						<th>Valeurs</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Photo</th>
+						<td>
+							<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/'~ user.picture) }}" alt="image {{ user.firstName }}">
+						</td>
+					</tr>
+					<tr>
+						<th>Civilité</th>
+						<td>{{ user.civilityTitle }}</td>
+
+					</tr>
+					<tr>
+						<th>Prénom</th>
+						<td>{{ user.firstName }}</td>
+
+					</tr>
+					<tr>
+						<th>Nom</th>
+						<td>{{ user.lastName }}</td>
+					</tr>
+					<tr>
+						<th>E-mail</th>
+						<td>
+							<a class="page__text-link page__link_color_blue" id="" href="mailto:{{ user.email }}">{{ user.email }}</a>
+						</td>
+					</tr>
+					<tr>
+						<th>Rôle(s)</th>
+						<td>{{ user.roles|json_encode() }}</td>
+					</tr>
+					<tr>
+						<th>Adresses</th>
+						<td>
+							<a class="page__text-link page__link_color_blue" href="{{ path('admin_address_user_list', {'id': user.id}) }}">Adresses</a>
+						</td>
+					</tr>
+					<tr>
+						<th>Commandes</th>
+						<td>
+							<a class="page__text-link page__link_color_blue" href="{{ path('admin_purchase_user_list', {'id': user.id}) }}">Commandes</a>
+						</td>
+					</tr>
+					<tr>
+						<th>Crée le</th>
+						<td>{{ user.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+					</tr>
+					<tr>
+						<th>Mis à jour le</th>
+						<td>{{ user.updatedAt|format_datetime('short', 'none', locale='fr') }}</td>
+					</tr>
+					<tr>
+						<th>Actions</th>
+						<td>
+							<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_user_update', {'id': user.id} ) }}">Modifier</a>
+							<a class="page__link page__delete-link page__delete-user-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
+								Supprimer</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			{# END : table for desktop #}
+		</div>
+	</section>
+{% endblock %}
+{# START : admin_user_detail #}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ category.name }}
+	-
+	{{ product.name }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{# START : category_product_detail #}
+{% block body %}
+	<section
+		class="page">
+		{# START : layout mobile #}
+		<div class="product-detail">
+			<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+			<h2>{{ product.name }}</h2>
+			<p>{{ product.price|amount }}</p>
+			<p>
+				{{ product.description }}
+			</p>
+			{% if product.availability == available %}
+				<p class="availability available availability__avialable_color_green">Disponible</p>
+				<a class="page__link page__add-to-cart-link page__link_background-color_blue page__link_color_white" href="{{ path('cart_add', {'id': product.id}) }}?returnToCategoryProductDetail=true">Ajouter au panier</a>
+			{% elseif product.availability == unavailable %}
+				<p class="availability unavailable availability__unavailable_color_red">Indisponible</p>
+			{% endif %}
+		</div>
+		{# END : layout mobile #}
+		{# START : layout tablet and desktop #}
+		<div class="product-detail-from-tablet">
+			<div class="product-detail-property">
+				<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+			</div>
+			<div class="product-detail-property">
+				<h2>{{ product.name }}</h2>
+				<p>{{ product.price|amount }}</p>
+				<p>
+					{{ product.description }}
+				</p>
+				{% if product.availability == available %}
+					<p class="availability available availability__avialable_color_green">Disponible</p>
+					<a class="page__link page__add-to-cart-link page__link_background-color_blue page__link_color_white" href="{{ path('cart_add', {'id': product.id}) }}?returnToCategoryProductDetail=true">Ajouter au panier</a>
+				{% elseif product.availability == unavailable %}
+					<p class="availability unavailable availability__unavailable_color_red">Indisponible</p>
+				{% endif %}
+
+			</div>
+		</div>
+		{# END : layout tablet and desktop #}
+	</section>
+{% endblock %}
+{# END : category_product_detail #}

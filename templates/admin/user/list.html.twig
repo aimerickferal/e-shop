@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Utilisateurs |
+	{{ parent() }}
+{% endblock %}
+
+{# START : admin_user_list #}
+{% block body %}
+	<section class="page">
+		<h2>Utilisateurs</h2>
+		{# START : searchUserForm #}
+		{{ form_start(searchUserForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-user-form' }}
+		) }}
+		<div class="form-field">
+			{{ form_label(searchUserForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__user-last-name-label display-none' }}) }}
+			{{ form_widget(searchUserForm.lastName, { 'id': 'user-last-name-input', 'attr': {'class': 'form-field__input form-field__user-last-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}
+			) }}
+			<p class="error-message error-message_color_red error-message-user-last-name-empty display-none">
+				Merci de saisir un nom.
+			</p>
+			{{ form_errors(searchUserForm.lastName) }}
+		</div>
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-user-button">
+			Rechercher
+		</button>
+		{{ form_end(searchUserForm) }}
+		{# END : searchUserForm #}
+		<a class="page__link page__create-link page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_user_create') }}" id="create-user-link">Créer</a>
+		<div class="neptune">
+			{% for user in users %}
+				{# START : card for mobile #}
+				<div class="saturn saturn_border-color_blue">
+					<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/'~ user.picture) }}" alt="image {{ user.firstName }}"/>
+					<p>{{ user.civilityTitle }}</p>
+					<p>{{ user.firstName }}
+						{{ user.lastName }}</p>
+					<a class="page__text-link page__link_color_blue" id="" href="{{ path('admin_user_detail', {'id': user.id}) }}">{{ user.email }}</a>
+					<p>{{ user.roles|json_encode() }}</p>
+					<a class="page__text-link page__link_color_blue" href="{{ path('admin_address_user_list', {'id': user.id}) }}">Adresses</a>
+					<a class="page__text-link page__link_color_blue" href="{{ path('admin_purchase_user_list', {'id': user.id}) }}">Commandes</a>
+					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_user_detail', {'id': user.id}) }}">Détails</a>
+					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_user_update', {'id': user.id}) }}">Modifier</a>
+					<a class="page__link page__delete-link page__delete-user-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
+						Supprimer</a>
+				</div>
+			{% endfor %}
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-user table_background-color_blue table_color_white table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Photo</th>
+						<th>Civilité</th>
+						<th>Prénom</th>
+						<th>Nom</th>
+						<th>E-mail</th>
+						<th>Rôle(s)</th>
+						<th>Adresses</th>
+						<th>Commandes</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				{% for user in users %}
+					<tbody>
+						<tr>
+							<td>
+								<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/'~ user.picture) }}" alt="image-{{ user.firstName }}"/>
+							</td>
+							<td>{{ user.civilityTitle }}</td>
+							<td>{{ user.firstName }}</td>
+							<td>{{ user.lastName }}</td>
+							<td>
+								<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_detail', {'id': user.id}) }}">{{ user.email }}</a>
+								{# <a class="ppage__text-link page__link_color_blue" href="mailto:{{ user.email }}">{{ user.email }}</a> #}
+							</td>
+							<td>{{ user.roles|json_encode() }}</td>
+							<td>
+								<a class="page__text-link page__link_color_blue" href="{{ path('admin_address_user_list', {'id': user.id}) }}">Adresses</a>
+							</td>
+							<td>
+								<a class="page__text-link page__link_color_blue" href="{{ path('admin_purchase_user_list', {'id': user.id}) }}">Commandes</a>
+							</td>
+							<td>
+								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_user_detail', {'id': user.id}) }}">Détails</a>
+								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_user_update', {'id': user.id}) }}">Modifier</a>
+								<a class="page__link page__delete-link page__delete-user-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
+									Supprimer</a>
+							</td>
+						</tr>
+					</tbody>
+				{% endfor %}
+			</table>
+			{# END : table for desktop #}
+		</div>
+	</section>
+{% endblock %}
+{# START : admin_user_list #}

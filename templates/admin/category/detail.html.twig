@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Catégorie -
+	{{ category.name }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{# START : admin_category_detail #}
+{% block body %}
+	<section class="page">
+		<h2>Catégorie :
+			{{ category.name }}</h2>
+		{# START : card for mobile #}
+		<div class="neptune">
+			<div class="saturn saturn_border-color_blue">
+				<p>{{ category.name }}</p>
+				<a class="page__text-link page__link_color_blue" href="{{ path('admin_category_product_list', {'slug': category.slug}) }}">Liste des
+					{{ category.name }}s</a>
+				<p>
+					Créée le
+					{{ category.createdAt|format_datetime('short', 'none', locale='fr') }}
+				</p>
+				<p>
+					Mise à jour le
+					{{ category.updatedAt|format_datetime('short', 'none', locale='fr') }}
+				</p>
+				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_category_update', {'slug': category.slug}) }}">Modifier</a>
+				<a class="page__link page__delete-link page__delete-link-category page__link_background-color_red page__link_color_white" href="{{ path('admin_category_delete', {'id':category.id, 'token':csrf_token('admin-category-delete' ~ category.id)} ) }}" data-categoryname="{{ category.name }}">Supprimer</a>
+			</div>
+			{# END : card for mobile #}
+			{# START : table for desktop #}
+			<table class="table table-category table_background-color_blue table_color_white table_border-color_blue">
+				<thead>
+					<tr>
+						<th>Propriétés</th>
+						<th>Valeurs</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Nom</th>
+						<td>{{ category.name }}</td>
+
+					</tr>
+					<tr>
+						<th>Produits</th>
+						<td>
+							<a class="page__text-link page__link_color_blue" href="{{ path('admin_category_product_list', {'slug': category.slug}) }}">Liste des
+								{{ category.name }}s</a>
+						</td>
+					</tr>
+					<tr>
+						<th>Créée le</th>
+						<td>{{ category.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+					</tr>
+					<tr>
+						<th>Mise à jour le</th>
+						<td>{{ category.updatedAt|format_datetime('short', 'none', locale='fr') }}</td>
+
+					</tr>
+					<tr>
+						<th>Actions</th>
+						<td>
+							<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_category_update', {'slug': category.slug}) }}">Modifier</a>
+							<a class="page__link page__delete-link page__delete-link-category page__link_background-color_red page__link_color_white" href="{{ path('admin_category_delete', {'id':category.id, 'token':csrf_token('admin-category-delete' ~ category.id)} ) }}" data-categoryname="{{ category.name }}">Supprimer</a>
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			{# END : table for desktop #}
+		</div>
+	</section>
+{% endblock %}
+{# START : admin_category_detail #}
