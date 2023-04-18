@@ -26,7 +26,7 @@
 				</p>
 				<p>
 					Commandée le
-					{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}
+					{{ purchase.purchasedAt|format_datetime('short', 'none', locale='fr') }}
 				</p>
 				<p>
 					Mise à jour le
@@ -121,7 +121,7 @@
 					</tr>
 					<tr>
 						<th>Commandée le</th>
-						<td>{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+						<td>{{ purchase.purchasedAt|format_datetime('short', 'none', locale='fr') }}</td>
 					</tr>
 					<tr>
 						<th>Mise à jour le</th>
@@ -191,57 +191,53 @@
 						{% endif %}
 					</tr>
 					<tr>
-							<th>Utilisateur</th>
-							<td>
-								<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_detail', {'id': purchase.user.id}) }}">{{ purchase.user.email }}</a>
-							</td>
+						<th>Utilisateur</th>
+						<td>
+							<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_detail', {'id': purchase.user.id}) }}">{{ purchase.user.email }}</a>
+						</td>
 					</tr>
 				</tbody>
-				</tr>
-					<tr>
-					<th>Actions</th>
-					<td>
-						<a class=" page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_purchase_update', {'userId': user.id, 'reference': purchase.reference}) }}?	returnToAdminPurchaseUserList=true">Modifier</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<table class="table table-purchase-item table_background-color_blue table_color_white table_border-color_blue">
-			<thead>
+			</tr>
+			<tr>
+				<th>Actions</th>
+				<td>
+					<a class=" page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_purchase_update', {'userId': user.id, 'reference': purchase.reference}) }}? returnToAdminPurchaseUserList=true">Modifier</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table table-purchase-item table_background-color_blue table_color_white table_border-color_blue">
+		<thead>
+			<tr>
+				<th>Produit</th>
+				<th>Quantité</th>
+				<th>Prix unitaire</th>
+				<th>Prix total</th>
+			</tr>
+		</thead>
+		{% for purchaseItem in purchaseItems %}
+			<tbody>
 				<tr>
-					<th>Produit</th>
-					<th>Quantité</th>
-					<th>Prix unitaire</th>
-					<th>Prix total</th>
-				</tr>
-			</thead>
-			{% for purchaseItem in purchaseItems %}
-				<tbody>
-					<tr>
-						<td>{{ purchaseItem.productName }}<br>Référence :
+					<td>{{ purchaseItem.productName }}<br>Référence :
 						{{ purchaseItem.productReference }}</td>
-						<td>{{ purchaseItem.quantity }}</td>
-						<td>{{ purchaseItem.productPrice|amount }}</td>
-						<td>{{ purchaseItem.total|amount }}</td>
-					</tr>
-				{% endfor %}
-					<tr>
-						<td colspan="2" rowspan="3"></td>
-						<td>Sous-total</td>
-						<th>{{ purchase.subtotal|amount }}</th>
-					</tr>
-					<tr>
-						<td>Frais de livraison</td>
-							<th>{{ purchase.deliveryModePrice|amount }}</th>
-					</tr>
-					<tr>
-						<th>Total</th>
-						<td>{{ purchase.total|amount }}</td>
-					</tr>
-					</tbody>
-			</table>
-		</div>
-	</section>
-{# END : table for desktop #}
-{% endblock %}
-{# START : admin_purchase_user_detail #}
+					<td>{{ purchaseItem.quantity }}</td>
+					<td>{{ purchaseItem.productPrice|amount }}</td>
+					<td>{{ purchaseItem.total|amount }}</td>
+				</tr>
+			{% endfor %}
+			<tr>
+				<td colspan="2" rowspan="3"></td>
+				<td>Sous-total</td>
+				<th>{{ purchase.subtotal|amount }}</th>
+			</tr>
+			<tr>
+				<td>Frais de livraison</td>
+				<th>{{ purchase.deliveryModePrice|amount }}</th>
+			</tr>
+			<tr>
+				<th>Total</th>
+				<td>{{ purchase.total|amount }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div></section>{# END : table for desktop #}{% endblock %}{# START : admin_purchase_user_detail #}

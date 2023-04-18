@@ -18,7 +18,7 @@
 		) }}
 		{# picture #}
 		<div class="form-field-picture">
-			<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/' ~ app.user.picture) }}" alt="image {{ app.user.firstName }}"/>
+			<img class="page__user-picture" src="{{ asset('assets/uploads/users/' ~ app.user.picture) }}" alt="image {{ app.user.firstName }}"/>
 		</div>
 		{# upload #}
 		<div class="form-field form-field-upload display-none">
@@ -83,8 +83,8 @@
 		{{ form_end(userProfileForm) }}
 	{# END : userProfileForm #}
 		{# <a class="display-none page__link page__delete-link page__delete-my-user-account-link page__delete-user-link page__link_background-color_red page__link_color_white" id="delete-my-user-account-link" href="{{ path('user_delete', {'id':app.user.id, 'token':csrf_token('user-delete' ~ app.user.id)} ) }}" data-userfirstname="{{ app.user.firstName }}" data-userlastname="{{ app.user.lastName }}">
-							Supprimer mon compte
-						</a> #}
+									Supprimer mon compte
+								</a> #}
 	</section>
 {% endblock %}
 {# START : user_profile #}

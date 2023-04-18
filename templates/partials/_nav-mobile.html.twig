@@ -36,7 +36,7 @@
 			<li class="nav__item nav-mobile__item nav-mobile__item_border-top nav-mobile__item_border-bottom nav-mobile__item_border-top-color_blue nav-mobile__item_border-bottom-color_blue">
 				<a class="page__mobile-logout-link page__link_color_red" id="mobile-logout-link" href="{{ path('app_logout') }}">Déconnexion</a>
 				<a class="header__link_background-color_blue" href="{{ path('user_profile') }}">
-					<img class="nav-mobile__user-picture" src="{{ asset('assets/uploads/pictures/users/' ~ app.user.picture) }}" alt="image {{ app.user.firstName }}"/>
+					<img class="nav-mobile__user-picture" src="{{ asset('assets/uploads/users/' ~ app.user.picture) }}" alt="image {{ app.user.firstName }}"/>
 				</a>
 			</li>
 		{% else %}

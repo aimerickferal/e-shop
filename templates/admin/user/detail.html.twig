@@ -11,13 +11,12 @@
 {# START : admin_user_detail #}
 {% block body %}
 	<section class="page">
-		<h2>Utilisateur :
-			{{ user.firstName }}
+		<h2>{{ user.firstName }}
 			{{ user.lastName }}</h2>
 		{# START : card for mobile #}
 		<div class="neptune">
 			<div class="saturn saturn_border-color_blue">
-				<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/'~ user.picture) }}" alt="image {{ user.firstName }}"/>
+				<img class="page__user-picture" src="{{ asset('assets/uploads/users/'~ user.picture) }}" alt="image {{ user.firstName }}"/>
 				<p>{{ user.civilityTitle }}</p>
 				<p>{{ user.firstName }}
 					{{ user.lastName }}</p>
@@ -46,7 +45,7 @@
 					<tr>
 						<th>Photo</th>
 						<td>
-							<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/'~ user.picture) }}" alt="image {{ user.firstName }}">
+							<img class="page__user-picture" src="{{ asset('assets/uploads/users/'~ user.picture) }}" alt="image {{ user.firstName }}">
 						</td>
 					</tr>
 					<tr>

@@ -31,7 +31,7 @@
 			{% for product in products %}
 				{# START : card for mobile #}
 				<div class="saturn saturn_border-color_blue">
-					<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+					<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
 					<p>{{ product.name }}</p>
 					<p>{{ product.category }}</p>
 					<p>
@@ -66,7 +66,7 @@
 					<tbody>
 						<tr>
 							<td>
-								<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+								<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
 							</td>
 							<td>{{ product.name }}</td>
 							<td>{{ product.category }}</td>
@@ -91,5 +91,3 @@
 	</section>
 {% endblock %}
 {# END : admin_product_list #}
-
-        

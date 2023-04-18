@@ -10,14 +10,12 @@
 {# START : admin_product_detail #}
 {% block body %}
 	<section class="page">
-		<h2>Produit :
-			{{ product.name }}
-		</h2>
+		<h2>{{ product.name }}</h2>
 		<div
 			class="neptune">
 			{# START : card for mobile #}
 			<div class="saturn saturn_background-color_garnet">
-				<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+				<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
 				<p>
 					{{ product.name }}
 				</p>
@@ -61,7 +59,7 @@
 				<tbody>
 					<tr>
 						<th>Image</th>
-						<td><img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"></td>
+						<td><img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"></td>
 					</tr>
 					<tr>
 						<th>Nom</th>

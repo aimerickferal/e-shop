@@ -16,7 +16,7 @@
 		{{ form_start(adminUpdateProductForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-update-product-form' }}) }}
 		{# picture #}
 		<div class="form-field-picture">
-			<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/' ~ product.picture) }}" alt="image {{ product.name }}"/>
+			<img class="page__product-picture" src="{{ asset('assets/uploads/products/' ~ product.picture) }}" alt="image {{ product.name }}"/>
 		</div>
 		{# upload #}
 		<div class="form-field">

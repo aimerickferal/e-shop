@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Dashboard |
+	{{ parent() }}
+{% endblock %}
+
+{# START : admin_dashboard #}
+{% block body %}
+	<section class="page">
+		<h2>Dashboard</h2>
+		<div class="neptune">
+			<div class="square square_border-color_blue">
+				<a class="page__text-link square__link page__link_color_blue" href="{{ path('admin_user_list') }}">Utilisateurs</a>
+				<p>
+					{{ numberOfUsers }}
+					Utilisateurs dont
+					{{ admins }}
+					Administrateurs
+				</p>
+				{# <p>
+									{{ numberOfUsers }}
+									Utilisateurs
+								</p>
+								<p>
+									{{ users }}
+									Utilisateurs avec un rôle Utilisateur
+								</p>
+								<p>
+									{{ admins }}
+									Utilisateur avec un rôle Administrateur
+								</p>
+								<a class="page__link square__link page__link_color_blue" href="#">Utilisateurs désactivés</a> #}
+				<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_statistics') }}">Statistiques 📊</a>
+			</div>
+			<div class="square square_border-color_blue">
+				<a class="page__text-link square__link page__link_color_blue" href="{{ path('admin_address_list') }}">Adresses</a>
+				<p>
+					{{ addresses }}
+					Adresses
+				</p>
+			</div>
+			<div class="square square_border-color_blue">
+				<a class="page__text-link square__link page__link_color_blue" href="{{ path('admin_category_list') }}">Catégories</a>
+				<p>
+					{{ categories }}
+					Catégories
+				</p>
+			</div>
+			<div class="square square_border-color_blue">
+				<a class="page__text-link square__link page__link_color_blue" href="{{ path('admin_product_list') }}">Produits</a>
+				<p>
+					{{ products }}
+					Produits
+				</p>
+			</div>
+			<div class="square square_border-color_blue">
+				<a class="page__text-link square__link page__link_color_blue" href="{{ path('admin_delivery_mode_list') }}">Modes de Livraison</a>
+				<p>
+					{{ deliveryModes }}
+					Modes de Livraison
+				</p>
+			</div>
+			<div class="square square_border-color_blue">
+				<a class="page__text-link square__link page__link_color_blue" href="{{ path('admin_purchase_list') }}">Commandes</a>
+				<p>
+					{{ purchases }}
+					Commandes
+				</p>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+{# START : admin_dashboard #}

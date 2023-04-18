@@ -31,7 +31,7 @@
 			{% for user in users %}
 				{# START : card for mobile #}
 				<div class="saturn saturn_border-color_blue">
-					<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/'~ user.picture) }}" alt="image {{ user.firstName }}"/>
+					<img class="page__user-picture" src="{{ asset('assets/uploads/users/'~ user.picture) }}" alt="image {{ user.firstName }}"/>
 					<p>{{ user.civilityTitle }}</p>
 					<p>{{ user.firstName }}
 						{{ user.lastName }}</p>
@@ -65,7 +65,7 @@
 					<tbody>
 						<tr>
 							<td>
-								<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/'~ user.picture) }}" alt="image-{{ user.firstName }}"/>
+								<img class="page__user-picture" src="{{ asset('assets/uploads/users/'~ user.picture) }}" alt="image-{{ user.firstName }}"/>
 							</td>
 							<td>{{ user.civilityTitle }}</td>
 							<td>{{ user.firstName }}</td>

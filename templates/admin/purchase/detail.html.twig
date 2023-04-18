@@ -21,7 +21,7 @@
 				</p>
 				<p>
 					Commandée le
-					{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}
+					{{ purchase.purchasedAt|format_datetime('short', 'none', locale='fr') }}
 				</p>
 				<p>
 					Mise à jour le
@@ -122,7 +122,7 @@
 					</tr>
 					<tr>
 						<th>Commandée le</th>
-						<td>{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+						<td>{{ purchase.purchasedAt|format_datetime('short', 'none', locale='fr') }}</td>
 					</tr>
 					<tr>
 						<th>Mise à jour le</th>

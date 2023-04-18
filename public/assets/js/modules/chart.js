@@ -25,65 +25,10 @@ const chart = {
     chart.fontFamily = "Roboto";
     chart.titleFontSize = 16;
     chart.legendFontSize = 14;
-
-    // If mode.backgroundColor is strictly equal to "dark".
-    if (mode.backgroundColor === "dark") {
-      //  We set to chart.borderColor the value of font.colors.black.
-      chart.borderColor = font.colors.black;
-      //  We set to chart.datalabelsColor the value of font.colors.white.
-      chart.labelsColor = font.colors.white;
-      //  We set to chart.datalabelsColor the value of font.colors.white.
-      chart.datalabelsColor = font.colors.white;
-      //  We set to chart.titleColor the value of font.colors.white.
-      chart.titleColor = font.colors.white;
-
-      // If the font item in localStorage is strictly equal to "knick".
-      if (font.color === "knick") {
-        //  We set to chart.titleColor the value of font.colors.blue.
-        chart.borderColor = font.colors.blue;
-      }
-      // If the font item in localStorage is strictly equal to "lakers".
-      else if (font.color === "lakers") {
-        //  We set to chart.titleColor the value of font.colors.purple.
-        chart.borderColor = font.colors.purple;
-      }
-      // If the font item in localStorage is strictly equal to "mario".
-      else if (font.color === "mario") {
-        //  We set to chart.titleColor the value of font.colors.red.
-        chart.borderColor = font.colors.red;
-      }
-      // If the font item in localStorage is strictly equal to "jamaica".
-      else if (font.color === "jamaica") {
-        //  We set to chart.titleColor the value of font.colors.slimyGreen.
-        chart.borderColor = font.colors.slimyGreen;
-      }
-      // If the font item in localStorage is strictly equal to "golden-state-warriors".
-      else if (font.color === "golden-state-warriors") {
-        //  We set to chart.titleColor the value of font.colors.yellow.
-        chart.borderColor = font.colors.yellow;
-      }
-      // If the font item in localStorage is strictly equal to "flash".
-      else if (font.color === "flash") {
-        //  We set to chart.titleColor the value of font.colors.red.
-        chart.borderColor = font.colors.red;
-      }
-      // If the font item in localStorage is strictly equal to "forest".
-      else if (font.color === "forest") {
-        //  We set to chart.titleColor the value of font.colors.sepia.
-        chart.borderColor = font.colors.sepia;
-      }
-    }
-    // Else if mode.backgroundColor is strictly equal to "light".
-    else if (mode.backgroundColor === "light") {
-      //  We set to chart.borderColor the value of font.colors.white.
-      chart.borderColor = font.colors.white;
-      //  We set to chart.datalabelsColor the value of font.colors.black.
-      chart.labelsColor = font.colors.black;
-      //  We set to chart.datalabelsColor the value of font.colors.black.
-      chart.datalabelsColor = font.colors.black;
-      //  We set to  chart.titleColor the value of font.colors.black.
-      chart.titleColor = font.colors.black;
-    }
+    chart.borderColor = form.colors.white;
+    chart.datalabelsColor = form.colors.black;
+    chart.labelsColor = form.colors.black;
+    chart.titleColor = form.colors.black;
 
     // ======================= DOM ELEMENTS =======================
 
@@ -145,7 +90,7 @@ const chart = {
                 chart.pieCanvasUserRolesByNumber.dataset.users,
                 chart.pieCanvasUserRolesByNumber.dataset.admins,
               ],
-              backgroundColor: [font.colors.green, font.colors.red],
+              backgroundColor: [form.colors.green, form.colors.red],
               borderColor: chart.borderColor,
               hoverOffset: 8,
             },
@@ -213,7 +158,7 @@ const chart = {
                 chart.pieCanvaUserRolesByProportion.dataset.users,
                 chart.pieCanvaUserRolesByProportion.dataset.admins,
               ],
-              backgroundColor: [font.colors.green, font.colors.red],
+              backgroundColor: [form.colors.green, form.colors.red],
               borderColor: chart.borderColor,
               hoverOffset: 8,
             },

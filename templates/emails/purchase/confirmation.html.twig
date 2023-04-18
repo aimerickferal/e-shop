@@ -1,0 +1,69 @@
+<p>Bonjour
+	{{ user.firstName }},</p>
+<p>Votre commande
+	<strong>{{ purchase.reference|upper }}</strong>
+	est confirmée.</p>
+<p>Vous trouverez ci-dessous le récapitulatif de votre commande :
+</p>
+<p>Commande :
+	<strong>{{ purchase.reference|upper }}</strong>
+</p>
+<p>Date :
+	{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}
+</p>
+<p>Prix total :
+	{{ purchase.total|amount }}
+</p>
+<p>Méthode de paiement :
+	{{ purchase.checkoutMethod }}
+</p>
+<p>Statut :
+	{{ purchase.status }}
+</p>
+<p>Mode de livraison :
+	{{ purchase.deliveryMode }}
+</p>
+<p>Adresse de facturation :
+</p>
+{% for data in billingAddress %}
+	<p>{{ data }}</p>
+{% endfor %}
+<p>Adresse de livraison :
+</p>
+{% for data in billingAddress %}
+	<p>{{ data }}</p>
+{% endfor %}
+<table>
+	<thead>
+		<tr>
+			<th>Produit</th>
+			<th>Quantité</th>
+			<th>Prix unitaire</th>
+			<th>Prix total</th>
+		</tr>
+	</thead>
+	{% for purchaseItem in purchaseItems %}
+		<tbody>
+			<tr>
+				<td>{{ purchaseItem.productName }}<br>Référence :
+					{{ purchaseItem.productReference }}</td>
+				<td>{{ purchaseItem.quantity }}</td>
+				<td>{{ purchaseItem.productPrice|amount }}</td>
+				<td>{{ purchaseItem.total|amount }}</td>
+			</tr>
+		{% endfor %}
+		<tr>
+			<td colspan="2" rowspan="3"></td>
+			<td>Sous-total</td>
+			<th>{{ purchase.subtotal|amount }}</th>
+		</tr>
+		<tr>
+			<td>Frais de livraison</td>
+			<th>{{ purchase.deliveryModePrice|amount }}</th>
+		</tr>
+		<tr>
+			<th>Total</th>
+			<td>{{ purchase.total|amount }}</td>
+		</tr>
+	</tbody>
+</table>

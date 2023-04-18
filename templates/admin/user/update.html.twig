@@ -18,7 +18,7 @@
 	{{ form_start(adminUpdateUserForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-update-user-form' }}) }}
 	{# picture #}
 	<div class="form-field-picture">
-		<img class="page__user-picture" src="{{ asset('assets/uploads/pictures/users/' ~ user.picture) }}" alt="{{ user.firstName }}"/>
+		<img class="page__user-picture" src="{{ asset('assets/uploads/users/' ~ user.picture) }}" alt="{{ user.firstName }}"/>
 	</div>
 	{# upload #}
 	<div class="form-field">

@@ -12,7 +12,7 @@
 		{% for item in cartItems %}
 			<div class="product">
 				<div class="product-image">
-					<img class="product-image__picture" src="{{ asset('assets/uploads/pictures/products/'~ item.product.picture) }}" alt="image {{ item.product.name }}"/>
+					<img class="product-image__picture" src="{{ asset('assets/uploads/products/'~ item.product.picture) }}" alt="image {{ item.product.name }}"/>
 				</div>
 				<div class="product-property">
 					<h3>{{ item.product.name }}</h3>

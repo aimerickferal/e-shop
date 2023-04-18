@@ -37,7 +37,7 @@ class AppFixtures extends Fixture
             ->setLastName('Kent')
             ->setEmail('clark.kent@email.com')
             ->setPassword($this->userPasswordHasherInterface->hashPassword($userAdmin, '2CBb4cb73201f865638932A41@'))
-            ->setPicture(User::MAN_PICTURE);;
+            ->setPicture(User::MAN_PICTURE);
 
         // We the userAdmin in the array of users.
         $users[] = $userAdmin;
@@ -537,7 +537,7 @@ class AppFixtures extends Fixture
                 'Availability' => Product::AVAILABLE
             ],
             1 => [
-                'Name' => 'T-Shirt White',
+                'Name' => 'T-Shirt Blanc',
                 'Slug' => 't-shirt-blanc',
                 // 'Name' => 'White T-Shirt',
                 // 'Slug' => 'white-t-shirt',

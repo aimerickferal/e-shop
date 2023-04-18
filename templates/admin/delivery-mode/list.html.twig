@@ -32,7 +32,7 @@
 			{% for deliveryMode in deliveryModes %}
 				{# START : card for mobile #}
 				<div class="saturn saturn_border-color_blue">
-					<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/pictures/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
+					<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
 					<p>{{ deliveryMode.name }}</p>
 					<p>{{ deliveryMode.description }}</p>
 					<p>{{ deliveryMode.price|amount }}</p>
@@ -60,7 +60,7 @@
 					<tbody>
 						<tr>
 							<td>
-								<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/pictures/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
+								<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
 							</td>
 							<td>{{ deliveryMode.name }}</td>
 							<td>{{ deliveryMode.description }}</td>

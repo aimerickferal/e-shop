@@ -16,7 +16,7 @@
 		{{ form_start(adminUpdateDeliveryModeForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-update-delivery-mode-form' }}) }}
 		{# picture #}
 		<div class="form-field-picture">
-			<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/pictures/delivery-modes/' ~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
+			<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/delivery-modes/' ~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
 		</div>
 		{# upload #}
 		<div class="form-field">

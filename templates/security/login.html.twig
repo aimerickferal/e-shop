@@ -20,8 +20,8 @@
 			{% endif %}
 			{# email #}
 			<div class="form-field">
-				<label class="form-field__label form-field__user-e-mail-label display-none" id="user-e-mail-input" for="inputEmail">E-mail</label>
-				<input class="form-field__input form-field__user-e-mail-input" id="inputEmail" type="email" value="{{ last_username }}" name="email" placeholder="E-mail" autocomplete="email" required autofocus>
+				<label class="form-field__label form-field__user-e-mail-label display-none" for="inputEmail">E-mail</label>
+				<input class="form-field__input form-field__user-e-mail-input form-field__input_color_black" id="inputEmail" type="email" value="{{ last_username }}" name="email" placeholder="E-mail" autocomplete="email" required autofocus>
 				<p class="error-message error-message_color_red error-message-user-email-empty display-none">
 					Merci de saisir un e-mail.
 				</p>
@@ -31,8 +31,8 @@
 			</div>
 			{# password #}
 			<div class="form-field">
-				<label class="form-field__label form-field__user-password-label display-none" id="user-password-input" for="inputPassword">Password</label>
-				<input class="form-field__input form-field__user-password-input" id="inputPassword" type="password" name="password" placeholder="Mot de passe" autocomplete="current-password" required>
+				<label class="form-field__label form-field__user-password-label display-none" for="inputPassword">Password</label>
+				<input class="form-field__input form-field__user-password-input form-field__input_color_black" id="inputPassword" type="password" name="password" placeholder="Mot de passe" autocomplete="current-password" required>
 				<p class="error-message error-message_color_red error-message-user-password-empty display-none">
 					Merci de saisir un mot de passe.
 				</p>
@@ -66,7 +66,7 @@
 		</form>
 		{# END : loginForm #}
 		<div>
-			<a class="page__text-link page__link_color_blue" id="forgotten-password-link" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ? |</a>
+			<a class="page__text-link page__link_color_blue" id="forgotten-password-link" href="#">Mot de passe oublié ? |</a>
 			<a class="page__text-link page__sign-up-link page__link_color_orange" id="sign-up-link" href="{{ path('app_sign_up') }}">S'inscrire</a>
 		</div>
 	</section>

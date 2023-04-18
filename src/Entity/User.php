@@ -255,17 +255,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeAddress(Address $address): self
-    {
-        if ($this->addresses->removeElement($address)) {
-            // set the owning side to null (unless already changed)
-            if ($address->getUser() === $this) {
-                $address->setUser(null);
-            }
-        }
+    // public function removeAddress(Address $address): self
+    // {
+    //     if ($this->addresses->removeElement($address)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($address->getUser() === $this) {
+    //             $address->setUser(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * @return Collection<int, Purchase>

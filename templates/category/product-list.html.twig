@@ -32,7 +32,7 @@
 			{% for product in products %}
 				<div class="venus">
 					<a class="image-link" href="{{ path('category_product_detail', {'categorySlug': category.slug, 'productSlug': product.slug}) }}">
-						<img class="page__product-picture" src="{{ asset('assets/uploads/pictures/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+						<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
 					</a>
 					<p>{{ product.name }}</p>
 					<p>{{ product.price|amount }}</p>

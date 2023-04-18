@@ -10,13 +10,12 @@
 {# START : admin_delivery_mode_detail #}
 {% block body %}
 	<section class="page">
-		<h2>Mode de Livraison :
-			{{ deliveryMode.name }}</h2>
+		<h2>{{ deliveryMode.name }}</h2>
 		<div
 			class="neptune">
 			{# START : card for mobile #}
 			<div class="saturn saturn_border-color_blue">
-				<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/pictures/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
+				<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
 				<p>{{ deliveryMode.name }}</p>
 				<p>{{ deliveryMode.description }}</p>
 				<p>{{ deliveryMode.price|amount }}</p>
@@ -47,7 +46,7 @@
 					<tr>
 						<th>Image</th>
 						<td>
-							<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/pictures/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/></td>
+							<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/></td>
 					</tr>
 					<tr>
 						<th>Nom</th>

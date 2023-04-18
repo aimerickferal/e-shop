@@ -44,7 +44,7 @@
 						{{ purchase.reference|upper }}
 					</p>
 					<p>
-						{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}
+						{{ purchase.purchasedAt|format_datetime('short', 'none', locale='fr') }}
 					</p>
 					<p>
 						{{ purchase.total|amount }}
@@ -91,7 +91,7 @@
 					<tbody>
 						<tr>
 							<td>{{ purchase.reference|upper }}</td>
-							<td>{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+							<td>{{ purchase.purchasedAt|format_datetime('short', 'none', locale='fr') }}</td>
 							<td>{{ purchase.total|amount }}</td>
 							{% if purchase.status == statusPaid %}
 								<td class="status status__paid status__paid_color_green">
