@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Inscription |
+	{{ parent() }}
+{% endblock %}
+
+{# START : app_sign_up #}
+{% block body %}
+	<section class="page">
+		<h2>Inscrpition</h2>
+		{% for flashError in app.flashes('verify_email_error') %}
+			<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+		{% endfor %}
+		{# START : signUpForm #}
+		{{ form_start(signUpForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'sign-up-form' }}) }}
+		{# gender #}
+		<div class="form-field">
+			{{ form_widget(signUpForm.civilityTitle) }}
+			<p class="error-message error-message_color_red error-message-user-gender-not-checked display-none">
+				Merci de sélectionnner une valeur.
+			</p>
+			{{ form_errors(signUpForm.civilityTitle) }}
+		</div>
+		{# picture #}
+		<div class="form-field">
+			{{ form_label(signUpForm, 'Photo de profil', { 'label_attr': { 'class': 'form-field__label form-field__user-picture-label display-none' }}) }}
+			{{ form_widget(signUpForm.picture, { 'id': 'user-picture-input', 'attr': {'class': 'form-field__input form-field__user-picture-input form-field__input_color_black' }}) }}
+			<p class="error-message error-message_color_red error-message-user-picture-mime-type display-none">
+				Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.
+			</p>
+			<p class="error-message error-message_color_red error-message-user-picture-size display-none">
+				Merci de télécharger un fichier de maximum 300 000 bytes.
+			</p>
+			{{ form_errors(signUpForm.picture) }}
+		</div>
+		{# firstName #}
+		<div class="form-field">
+			{{ form_label(signUpForm, 'Prénom', { 'label_attr': { 'class': 'form-field__label form-field__user-first-name-label display-none' }}) }}
+			{{ form_widget(signUpForm.firstName, { 'id': 'user-first-name-input', 'attr': {'class': 'form-field__input form-field__user-first-name-input form-field__input_color_black', 'placeholder': 'Prénom' }}) }}
+
+			<p class="error-message error-message_color_red error-message-user-first-name-empty display-none">
+				Merci de saisir un prénom.
+			</p>
+			{{ form_errors(signUpForm.firstName) }}
+		</div>
+		{# lastName #}
+		<div class="form-field">
+			{{ form_label(signUpForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__user-last-name-label display-none' }}) }}
+			{{ form_widget(signUpForm.lastName, { 'id': 'user-last-name-input', 'attr': {'class': 'form-field__input form-field__user-last-name-input form-field__input_color_black', 'placeholder': 'Nom'}}) }}
+			<p class="error-message error-message_color_red error-message-user-last-name-empty display-none">
+				Merci de saisir un nom.
+			</p>
+			{{ form_errors(signUpForm.lastName) }}
+		</div>
+		{# email #}
+		<div class="form-field">
+			{{ form_label(signUpForm, 'E-mail', { 'label_attr': { 'class': 'form-field__label form-field__user-e-mail-label display-none' }}) }}
+			{{ form_widget(signUpForm.email, { 'id': 'user-e-mail-input', 'attr': {'class': 'form-field__input form-field__user-e-mail-input form-field__input_color_black', 'placeholder': 'E-mail' }}) }}
+			<p class="error-message error-message_color_red error-message-user-email-empty display-none">
+				Merci de saisir un e-mail.
+			</p>
+			<p class="error-message error-message_color_red error-message-user-email-validity display-none">
+				Merci de saisir un e-mail valide.
+			</p>
+			{{ form_errors(signUpForm.email) }}
+		</div>
+		{# plainPassword #}
+		<div class="form-field">
+			{{ form_label(signUpForm, 'Mot de passe', { 'label_attr': { 'class': 'form-field__label form-field__user-password-label display-none' }}) }}
+			{{ form_widget(signUpForm.plainPassword, { 'id': 'user-password-input', 'attr': {'class': 'form-field__input form-field__user-password-input form-field__input_color_black', 'placeholder': 'Mot de passe' }}) }}
+			<p class="error-message error-message_color_red error-message-user-password-empty display-none">
+				Merci de saisir un mot de passe.
+			</p>
+			<p class="error-message error-message_color_red error-message-user-password-length display-none">
+				Le mot de passe doit contenir au moins 8 caractères.
+			</p>
+			<p class="error-message error-message_color_red error-message-user-password-lowercase display-none">
+				Le mot de passe doit contenir au moins une minuscule.
+			</p>
+			<p class="error-message error-message_color_red error-message-user-password-uppercase display-none">
+				Le mot de passe doit contenir au moins une majuscule.
+			</p>
+			<p class="error-message error-message_color_red error-message-user-password-number display-none">
+				Le mot de passe doit contenir au moins un chiffre.
+			</p>
+			<p class="error-message error-message_color_red error-message-user-password-special-character display-none">
+				Le mot de passe doit contenir au moins un caractére spécial.
+			</p>
+			{{ form_errors(signUpForm.plainPassword) }}
+		</div>
+		{# agreeTerms #}
+		<div class="form-field">
+			{{ form_widget(signUpForm.agreeTerms, { 'id': 'user-terms-of-use-input', 'attr': {'class': 'form-field__terms-of-use-input' }}) }}
+			{{ form_label(signUpForm, 'J\'ai lu et j\'accepte les ', { 'label_attr': { 'class': '' }}) }}
+			<a class="page__text-link page__link_color_blue page__link_font-weight_normal" id="terms-of-service-link" href="{{ path('general_terms_of_use') }}">Conditions Générales d'Utilisation</a>.
+			<p class="error-message error-message_color_red         error-message-terms-of-use-not-checked display-none">
+				Merci de confirmer avoir lu et accepter nos Conditions Générales d'Utilisation.
+			</p>
+			{{ form_errors(signUpForm.agreeTerms) }}
+		</div>
+		{# signUpForm submit button #}
+		<button type="submit" class="page__button page__sign-up-button page__submit-button page__button_background-color_blue page__button_color_white" id="sign-up-button">S'inscrire</button>
+		{{ form_end(signUpForm) }}
+		{# END : signUpForm #}
+	</section>
+{% endblock %}
+{# END : app_sign_up #}

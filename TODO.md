@@ -1,5 +1,7 @@
 # **Todo**
 
+- remenber me
+
 - use checkIfNumber with only one error message
 - use class for titles
 - term = galatea

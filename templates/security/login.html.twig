@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Connexion |
+	{{ parent() }}
+{% endblock %}
+
+{# START : app_login #}
+{% block body %}
+	<section class="page">
+		<h2>Connexion</h2>
+		{# START : loginForm #}
+		<form class="form" id="login-form" method="post">
+			{% if error %}
+				<p
+					class="error-message error-message_color_red">
+					{# {{ error.messageKey|trans(error.messageData, 'security') }} #}
+					Ivalide informations.
+				</p>
+			{% endif %}
+			{# email #}
+			<div class="form-field">
+				<label class="form-field__label form-field__user-e-mail-label display-none" id="user-e-mail-input" for="inputEmail">E-mail</label>
+				<input class="form-field__input form-field__user-e-mail-input" id="inputEmail" type="email" value="{{ last_username }}" name="email" placeholder="E-mail" autocomplete="email" required autofocus>
+				<p class="error-message error-message_color_red error-message-user-email-empty display-none">
+					Merci de saisir un e-mail.
+				</p>
+				<p class="error-message error-message_color_red error-message-user-email-validity display-none">
+					Merci de saisir un e-mail valide.
+				</p>
+			</div>
+			{# password #}
+			<div class="form-field">
+				<label class="form-field__label form-field__user-password-label display-none" id="user-password-input" for="inputPassword">Password</label>
+				<input class="form-field__input form-field__user-password-input" id="inputPassword" type="password" name="password" placeholder="Mot de passe" autocomplete="current-password" required>
+				<p class="error-message error-message_color_red error-message-user-password-empty display-none">
+					Merci de saisir un mot de passe.
+				</p>
+				<p class="error-message error-message_color_red error-message-user-password-length display-none">
+					Le mot de passe doit contenir au moins 8 caractères.
+				</p>
+				<p class="error-message error-message_color_red error-message-user-password-lowercase display-none">
+					Le mot de passe doit contenir au moins une minuscule.
+				</p>
+				<p class="error-message error-message_color_red error-message-user-password-uppercase display-none">
+					Le mot de passe doit contenir au moins une majuscule.
+				</p>
+				<p class="error-message error-message_color_red error-message-user-password-number display-none">
+					Le mot de passe doit contenir au moins un chiffre.
+				</p>
+				<p class="error-message error-message_color_red error-message-user-password-special-character display-none">
+					Le mot de passe doit contenir au moins un caractére spécial.
+				</p>
+			</div>
+			{# Remember me option #}
+			<div class="form-field">
+				<input type="checkbox" name="_remember_me" checked/>
+				<label>Rester connecter</label>
+			</div>
+			{# csrf token #}
+			<input
+			type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+			{# loginForm submit button #}
+			<button class="page__button page__login-button page__submit-button page__button_background-color_blue page__button_color_white" id="login-button" type="submit">
+				Se connecter</button>
+		</form>
+		{# END : loginForm #}
+		<div>
+			<a class="page__text-link page__link_color_blue" id="forgotten-password-link" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ? |</a>
+			<a class="page__text-link page__sign-up-link page__link_color_orange" id="sign-up-link" href="{{ path('app_sign_up') }}">S'inscrire</a>
+		</div>
+	</section>
+{% endblock %}
+{# START : app_login #}

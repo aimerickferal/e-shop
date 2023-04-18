@@ -15,14 +15,11 @@
 :root {
   --black: #000000;
   --white: #ffffff;
-  --jet: #333333;
   --silver: #cccccc;
   --blue: #0000ff;
   --green: #00ff00;
   --purple: #cc00ff;
   --yellow: #fbbc05;
-  --slimy-green: #009933;
-  --sepia: #663300;
   --dodger-blue: #1e90ff;
   --spanish-grey: #999999;
   /* flash-success */
@@ -41,60 +38,8 @@ body {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   text-align: left;
-}
-
-/* If mode = dark */
-.dark {
-  background-color: var(--black);
-  color: var(--white);
-}
-
-/* If mode = light */
-.light {
   background-color: var(--white);
   color: var(--black);
-}
-
-/* If theme = knick */
-.knick {
-  background-color: var(--blue);
-  color: var(--orange);
-}
-
-/* If theme = lakers */
-.lakers {
-  background-color: var(--purple);
-  color: var(--yellow);
-}
-
-/* If theme = spider-man */
-.spider-man {
-  background-color: var(--red);
-  color: var(--blue);
-}
-
-/* If theme = jamaica */
-.jamaica {
-  background-color: var(--slimy-green);
-  color: var(--yellow);
-}
-
-/* If theme = golden-state-warriors */
-.golden-state-warriors {
-  background-color: var(--yellow);
-  color: var(--blue);
-}
-
-/* If theme = flash */
-.flash {
-  background-color: var(--red);
-  color: var(--yellow);
-}
-
-/* If theme = forest */
-.forest {
-  background-color: var(--sepia);
-  color: var(--slimy-green);
 }
 
 .display-none {
@@ -327,305 +272,6 @@ body {
   .circle p {
     margin: 0;
   }
-
-  /* ============================================================ */
-  /* == START : MODE SWITCH, FONT COLOR SWITCHS & THEME SWITCHS = */
-  /* ============================================================ */
-  .andromeda {
-    display: none;
-    position: absolute;
-    top: 6.5%;
-    left: 0.5%;
-    width: 8em;
-    height: 20em;
-  }
-
-  /* The box around the slider */
-  .switch {
-    position: absolute;
-    display: block;
-    width: 3.75em;
-    height: 2.125em;
-  }
-
-  /* Hide default HTML checkbox */
-  .switch__input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  /* The slider */
-  .switch__slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
-  }
-
-  .switch__slider::before {
-    position: absolute;
-    content: "";
-    width: 1.625em;
-    height: 1.625em;
-    left: 0.25em;
-    bottom: 0.25em;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
-  }
-
-  .switch__input:checked + .switch__slider::before {
-    -webkit-transform: translateX(1.625em);
-    -ms-transform: translateX(1.625em);
-    transform: translateX(1.625em);
-  }
-
-  /* Rounded sliders */
-  .switch__slider.switch__round {
-    border-radius: 2.125em;
-  }
-
-  .switch__slider.switch__round::before {
-    border-radius: 50%;
-  }
-
-  /* ============================================================ */
-  /* ============= START : DARK & LIGHT MODE SWITCH ============= */
-  /* ============================================================ */
-  .switch-mode {
-    top: 0;
-    left: 0;
-  }
-
-  .switch-mode__slider_background-color_black {
-    background-color: var(--black);
-  }
-
-  .switch-mode__slider_background-color_white::before {
-    background-color: var(--before, var(--white));
-  }
-
-  /* When checked the switch background color is white */
-  .switch-mode__input:checked + .switch-mode__slider_background-color_white {
-    background-color: var(--white);
-  }
-  /* ============================================================ */
-  /* ============== END : DARK & LIGHT MODE SWITCH ============== */
-  /* ============================================================ */
-
-  /* ============================================================ */
-  /* ================= START : FONT COLOR SWITCHS =============== */
-  /* ============================================================ */
-  .switch-blue {
-    top: 13%;
-  }
-
-  .switch-color__slider_background-color_blue::before {
-    background-color: var(--blue);
-  }
-
-  .switch-green {
-    top: 26%;
-  }
-
-  .switch-color__slider_background-color_green::before {
-    background-color: var(--green);
-  }
-
-  .switch-purple {
-    top: 39%;
-  }
-
-  .switch-color__slider_background-color_purple::before {
-    background-color: var(--purple);
-  }
-
-  .switch-red {
-    top: 52%;
-  }
-
-  .switch-color__slider_background-color_red::before {
-    background-color: var(--red);
-  }
-
-  .switch-orange {
-    top: 65%;
-  }
-
-  .switch-color__slider_background-color_orange::before {
-    background-color: var(--orange);
-  }
-
-  .switch-yellow {
-    top: 78%;
-  }
-
-  .switch-color__slider_background-color_yellow::before {
-    background-color: var(--yellow);
-  }
-
-  .switch-color__slider_background-color_white {
-    background-color: var(--white);
-  }
-
-  .switch-color__slider_background-color_black {
-    background-color: var(--black);
-  }
-  /* ============================================================ */
-  /* ================== END : FONT COLOR SWITCHS ================ */
-  /* ============================================================ */
-
-  /* ============================================================ */
-  /* =================== START : THEME SWITCHS ================== */
-  /* ============================================================ */
-  /* Switch for knick theme */
-  .switch-knick {
-    top: 0;
-    left: 53%;
-  }
-
-  .switch-knick__slider_background-color_blue {
-    background-color: var(--blue);
-  }
-
-  .switch-knick__input:checked + .switch-knick__slider_background-color_orange {
-    background-color: var(--orange);
-  }
-
-  .switch-knick__slider_background-color_orange::before {
-    background-color: var(--before, var(--orange));
-  }
-
-  /* Switch for lakers theme */
-  .switch-lakers {
-    top: 13%;
-    left: 53%;
-  }
-
-  .switch-lakers__slider_background-color_purple {
-    background-color: var(--purple);
-  }
-
-  .switch-lakers__input:checked
-    + .switch-lakers__slider_background-color_yellow {
-    background-color: var(--yellow);
-  }
-
-  .switch-lakers__slider_background-color_yellow::before {
-    background-color: var(--before, var(--yellow));
-  }
-
-  /* Switch for spider-man theme */
-  .switch-spider-man {
-    top: 26%;
-    left: 53%;
-  }
-
-  .switch-spider-man__slider_background-color_red {
-    background-color: var(--red);
-  }
-
-  .switch-spider-man__slider_background-color_blue-spider-man {
-    background-color: var(--blue);
-  }
-
-  .switch-spider-man__input:checked
-    + .switch-spider-man__slider_background-color_blue {
-    background-color: var(--blue);
-  }
-
-  .switch-spider-man__slider_background-color_blue::before {
-    background-color: var(--before, var(--blue));
-  }
-
-  /* Switch for jamaica theme */
-  .switch-jamaica {
-    top: 39%;
-    left: 53%;
-  }
-
-  .switch-jamaica__slider_background-color_slimy-green {
-    background-color: var(--slimy-green);
-  }
-
-  .switch-jamaica__input:checked
-    + .switch-jamaica__slider_background-color_yellow {
-    background-color: var(--yellow);
-  }
-
-  .switch-jamaica__slider_background-color_yellow::before {
-    background-color: var(--before, var(--yellow));
-  }
-
-  /* Switch for golden State Warriors theme */
-  .switch-golden-state-warriors {
-    top: 52%;
-    left: 53%;
-  }
-
-  .switch-golden-state-warriors__slider_background-color_yellow {
-    background-color: var(--yellow);
-  }
-
-  .switch-golden-state-warriors__input:checked
-    + .switch-golden-state-warriors__slider_background-color_blue {
-    background-color: var(--blue);
-  }
-
-  .switch-golden-state-warriors__slider_background-color_blue::before {
-    background-color: var(--before, var(--blue));
-  }
-
-  /* Switch for Flash theme */
-  .switch-flash {
-    top: 65%;
-    left: 53%;
-  }
-
-  .switch-flash__slider_background-color_red {
-    background-color: var(--red);
-  }
-
-  .switch-flash__slider_background-color_yellow-flash {
-    background-color: var(--yellow);
-  }
-
-  .switch-flash__input:checked + .switch-flash__slider_background-color_yellow {
-    background-color: var(--yellow);
-  }
-
-  .switch-flash__slider_background-color_yellow::before {
-    background-color: var(--before, var(--yellow));
-  }
-
-  /* Switch for Forest theme */
-  .switch-forest {
-    top: 78%;
-    left: 53%;
-  }
-
-  .switch-forest__slider_background-color_sepia {
-    background-color: var(--sepia);
-  }
-
-  .switch-forest__input:checked
-    + .switch-forest__slider_background-color_slimy-green {
-    background-color: var(--slimy-green);
-  }
-
-  .switch-forest__slider_background-color_slimy-green::before {
-    background-color: var(--before, var(--slimy-green));
-  }
-  /* ============================================================ */
-  /* ==================== END : THEME SWITCHS =================== */
-  /* ============================================================ */
-  /* ============================================================ */
-  /* == END : MODE SWITCH, FONT COLOR SWITCHS & THEME SWITCHS === */
-  /* ============================================================ */
 
   /* ============================================================ */
   /* ===================== START : BUTTONS ====================== */
@@ -933,41 +579,6 @@ body {
       brightness(98%) contrast(144%);
   }
 
-  .header__image_color_green {
-    filter: invert(59%) sepia(19%) saturate(7109%) hue-rotate(81deg)
-      brightness(119%) contrast(123%);
-  }
-
-  .header__image_color_red {
-    filter: invert(21%) sepia(87%) saturate(6487%) hue-rotate(356deg)
-      brightness(104%) contrast(119%);
-  }
-
-  .header__image_color_orange {
-    filter: invert(46%) sepia(31%) saturate(6381%) hue-rotate(2deg)
-      brightness(105%) contrast(103%);
-  }
-
-  .header__image_color_purple {
-    filter: invert(21%) sepia(87%) saturate(6564%) hue-rotate(284deg)
-      brightness(101%) contrast(126%);
-  }
-
-  .header__image_color_yellow {
-    filter: invert(83%) sepia(10%) saturate(5304%) hue-rotate(352deg)
-      brightness(97%) contrast(104%);
-  }
-
-  .header__image_color_slimy-green {
-    filter: invert(42%) sepia(73%) saturate(7011%) hue-rotate(137deg)
-      brightness(100%) contrast(101%);
-  }
-
-  .header__image_color_sepia {
-    filter: invert(18%) sepia(94%) saturate(1018%) hue-rotate(9deg)
-      brightness(96%) contrast(101%);
-  }
-
   .burger-menu__bars-icon {
     width: 2.5em;
   }
@@ -1010,31 +621,6 @@ body {
   .page__image_color_red {
     filter: invert(21%) sepia(87%) saturate(6487%) hue-rotate(356deg)
       brightness(104%) contrast(119%);
-  }
-
-  .page__image_color_orange {
-    filter: invert(46%) sepia(31%) saturate(6381%) hue-rotate(2deg)
-      brightness(105%) contrast(103%);
-  }
-
-  .page__image_color_purple {
-    filter: invert(21%) sepia(87%) saturate(6564%) hue-rotate(284deg)
-      brightness(101%) contrast(126%);
-  }
-
-  .page__image_color_yellow {
-    filter: invert(83%) sepia(10%) saturate(5304%) hue-rotate(352deg)
-      brightness(97%) contrast(104%);
-  }
-
-  .page__image_color_slimy-green {
-    filter: invert(42%) sepia(73%) saturate(7011%) hue-rotate(137deg)
-      brightness(100%) contrast(101%);
-  }
-
-  .page__image_color_sepia {
-    filter: invert(18%) sepia(94%) saturate(1018%) hue-rotate(9deg)
-      brightness(96%) contrast(101%);
   }
 
   .page__checked-icon {
@@ -1242,30 +828,6 @@ body {
     background-color: var(--blue);
   }
 
-  .burger-menu_background-color_green {
-    background-color: var(--green);
-  }
-
-  .burger-menu_background-color_red {
-    background-color: var(--red);
-  }
-
-  .burger-menu_background-color_orange {
-    background-color: var(--orange);
-  }
-
-  .burger-menu_background-color_purple {
-    background-color: var(--purple);
-  }
-
-  .burger-menu_background-color_yellow {
-    background-color: var(--yellow);
-  }
-
-  .burger-menu_background-color_slimy-green {
-    background-color: var(--slimy-green);
-  }
-
   .circle {
     position: absolute;
     height: 1.4em;
@@ -1282,40 +844,8 @@ body {
     font-size: 0.8em;
   }
 
-  .circle_background-color_black {
-    background-color: var(--black);
-  }
-
   .circle_background-color_white {
     background-color: var(--white);
-  }
-
-  .circle_background-color_blue {
-    background-color: var(--blue);
-  }
-
-  .circle_background-color_green {
-    background-color: var(--green);
-  }
-
-  .circle_background-color_red {
-    background-color: var(--red);
-  }
-
-  .circle_background-color_orange {
-    background-color: var(--orange);
-  }
-
-  .circle_background-color_purple {
-    background-color: var(--purple);
-  }
-
-  .circle_background-color_yellow {
-    background-color: var(--yellow);
-  }
-
-  .circle_background-color_slimy-green {
-    background-color: var(--slimy-green);
   }
 
   .circle_background-color_sepia {
@@ -1326,37 +856,6 @@ body {
     color: var(--black);
   }
 
-  .circle_color_white {
-    color: var(--white);
-  }
-
-  .circle_color_blue {
-    color: var(--blue);
-  }
-
-  .circle_color_green {
-    color: var(--green);
-  }
-
-  .circle_color_red {
-    color: var(--red);
-  }
-
-  .circle_color_orange {
-    color: var(--orange);
-  }
-
-  .circle_color_purple {
-    color: var(--purple);
-  }
-
-  .circle_color_yellow {
-    color: var(--yellow);
-  }
-
-  .circle_color_slimy-green {
-    color: var(--slimy-green);
-  }
   /* ============================================================ */
   /* ======================= END : HEADER ======================= */
   /* ============================================================ */
@@ -1404,54 +903,6 @@ body {
   .nav-mobile__item_border-bottom-color_blue:last-child {
     border-bottom-color: var(--blue);
   }
-
-  .nav-mobile__item_border-top-color_green {
-    border-top-color: var(--green);
-  }
-
-  .nav-mobile__item_border-bottom-color_green:last-child {
-    border-bottom-color: var(--green);
-  }
-
-  .nav-mobile__item_border-top-color_red {
-    border-top-color: var(--red);
-  }
-
-  .nav-mobile__item_border-bottom-color_red:last-child {
-    border-bottom-color: var(--red);
-  }
-
-  .nav-mobile__item_border-top-color_orange {
-    border-top-color: var(--orange);
-  }
-
-  .nav-mobile__item_border-bottom-color_orange:last-child {
-    border-bottom-color: var(--orange);
-  }
-
-  .nav-mobile__item_border-top-color_purple {
-    border-top-color: var(--purple);
-  }
-
-  .nav-mobile__item_border-bottom-color_purple:last-child {
-    border-bottom-color: var(--purple);
-  }
-
-  .nav-mobile__item_border-top-color_yellow {
-    border-top-color: var(--yellow);
-  }
-
-  .nav-mobile__item_border-bottom-color_yellow:last-child {
-    border-bottom-color: var(--yellow);
-  }
-
-  .nav-mobile__item_border-top-color_slimy-green {
-    border-top-color: var(--slimy-green);
-  }
-
-  .nav-mobile__item_border-bottom-color_slimy-green:last-child {
-    border-bottom-color: var(--slimy-green);
-  }
   /* ============================================================ */
   /* ===================== END : NAV MOBILE ===================== */
   /* ============================================================ */
@@ -1483,60 +934,8 @@ body {
     background-color: var(--blue);
   }
 
-  .footer_background-color_green {
-    background-color: var(--green);
-  }
-
-  .footer_background-color_red {
-    background-color: var(--red);
-  }
-
-  .footer_background-color_orange {
-    background-color: var(--orange);
-  }
-
-  .footer_background-color_purple {
-    background-color: var(--purple);
-  }
-
-  .footer_background-color_yellow {
-    background-color: var(--yellow);
-  }
-
-  .footer_background-color_slimy-green {
-    background-color: var(--slimy-green);
-  }
-
-  .footer__title_color_black {
-    color: var(--black);
-  }
-
   .footer__title_color_white {
     color: var(--white);
-  }
-
-  .footer__title_color_blue {
-    color: var(--blue);
-  }
-
-  .footer__title_color_red {
-    color: var(--red);
-  }
-
-  .footer__title_color_purple {
-    color: var(--purple);
-  }
-
-  .footer__title_color_slimy-green {
-    color: var(--slimy-green);
-  }
-
-  .footer__title_color_yellow {
-    color: var(--yellow);
-  }
-
-  .footer__title_color_sepia {
-    color: var(--sepia);
   }
 
   .block-footer {
@@ -1554,37 +953,10 @@ body {
     font-weight: bold;
   }
 
-  .block-footer__copyright_color_black {
-    color: var(--black);
-  }
-
   .block-footer__copyright_color_white {
     color: var(--white);
   }
 
-  .block-footer__copyright_color_blue {
-    color: var(--blue);
-  }
-
-  .block-footer__copyright_color_red {
-    color: var(--red);
-  }
-
-  .block-footer__copyright_color_purple {
-    color: var(--purple);
-  }
-
-  .block-footer__copyright_color_slimy-green {
-    color: var(--slimy-green);
-  }
-
-  .block-footer__copyright_color_yellow {
-    color: var(--yellow);
-  }
-
-  .block-footer__copyright_color_sepia {
-    color: var(--sepia);
-  }
   /* ============================================================ */
   /* ======================= END : FOOTER ======================= */
   /* ============================================================ */
@@ -1755,17 +1127,6 @@ body {
     height: 8em;
   }
 
-  /* If mode = dark */
-  .form-field__input_color_white {
-    background-color: var(--jet);
-    color: var(--white);
-  }
-
-  .form-field__input_color_white::placeholder {
-    color: var(--white);
-  }
-
-  /* If mode = light */
   .form-field__input_color_black {
     background-color: var(--silver);
     color: var(--black);
@@ -1773,76 +1134,6 @@ body {
 
   .form-field__input_color_black::placeholder {
     color: var(--black);
-  }
-
-  /* If theme = knick */
-  .form-field__input_color_orange {
-    background-color: var(--orange);
-    color: var(--blue);
-  }
-
-  .form-field__input_color_orange::placeholder {
-    color: var(--blue);
-  }
-
-  /* If theme = lakers */
-  .form-field__input_color_yellow {
-    background-color: var(--yellow);
-    color: var(--purple);
-  }
-
-  .form-field__input_color_yellow::placeholder {
-    color: var(--purple);
-  }
-
-  /* If theme = spider-man */
-  .form-field__input_color_blue {
-    background-color: var(--blue);
-    color: var(--red);
-  }
-
-  .form-field__input_color_blue::placeholder {
-    color: var(--red);
-  }
-
-  /* If theme = jamaica */
-  .form-field__input_color_jamaica {
-    background-color: var(--yellow);
-    color: var(--slimy-green);
-  }
-
-  .form-field__input_color_jamaica::placeholder {
-    color: var(--slimy-green);
-  }
-
-  /* If theme = golden-state-warriors */
-  .form-field__input_color_golden-sate-warriors {
-    background-color: var(--blue);
-    color: var(--yellow);
-  }
-
-  .form-field__input_color_golden-sate-warriors::placeholder {
-    color: var(--yellow);
-  }
-
-  /* If theme = flash */
-  .form-field__input_color_flash {
-    background-color: var(--yellow);
-    color: var(--red);
-  }
-
-  .form-field__input_color_flash::placeholder {
-    color: var(--red);
-  }
-
-  /* If theme = forest */
-  .form-field__input_color_forest {
-    background-color: var(--slimy-green);
-    color: var(--sepia);
-  }
-
-  .form-field__input_color_forest::placeholder {
-    color: var(--sepia);
   }
 
   .form-check {
@@ -1894,30 +1185,6 @@ body {
     color: var(--blue);
   }
 
-  .term__question_color_green {
-    color: var(--green);
-  }
-
-  .term__question_color_red {
-    color: var(--red);
-  }
-
-  .term__question_color_orange {
-    color: var(--orange);
-  }
-
-  .term__question_color_purple {
-    color: var(--purple);
-  }
-
-  .term__question_color_yellow {
-    color: var(--yellow);
-  }
-
-  .term__question_color_white {
-    color: var(--white);
-  }
-
   .term.term-secure-payment h3 {
     margin: 2em 0 0;
   }
@@ -1957,30 +1224,6 @@ body {
 
   .saturn_border-color_blue {
     border-color: var(--blue);
-  }
-
-  .saturn_border-color_green {
-    border-color: var(--green);
-  }
-
-  .saturn_border-color_red {
-    border-color: var(--red);
-  }
-
-  .saturn_border-color_orange {
-    border-color: var(--orange);
-  }
-
-  .saturn_border-color_purple {
-    border-color: var(--purple);
-  }
-
-  .saturn_border-color_yellow {
-    border-color: var(--yellow);
-  }
-
-  .saturn_border-color_slimy-green {
-    border-color: var(--slimy-green);
   }
 
   .saturn p:nth-child(1) {
@@ -2259,30 +1502,6 @@ body {
     border-top-color: var(--blue);
   }
 
-  .total_border-top-color_green {
-    border-top-color: var(--green);
-  }
-
-  .total_border-top-color_red {
-    border-top-color: var(--red);
-  }
-
-  .total_border-top-color_orange {
-    border-top-color: var(--orange);
-  }
-
-  .total_border-top-color_purple {
-    border-top-color: var(--purple);
-  }
-
-  .total_border-top-color_yellow {
-    border-top-color: var(--yellow);
-  }
-
-  .total_border-top-color_slimy-green {
-    border-top-color: var(--slimy-green);
-  }
-
   .total p {
     font-weight: bold;
     margin-top: 0.5em;
@@ -2330,30 +1549,6 @@ body {
 
   .square_border-color_blue {
     border-color: var(--blue);
-  }
-
-  .square_border-color_green {
-    border-color: var(--green);
-  }
-
-  .square_border-color_red {
-    border-color: var(--red);
-  }
-
-  .square_border-color_orange {
-    border-color: var(--orange);
-  }
-
-  .square_border-color_purple {
-    border-color: var(--purple);
-  }
-
-  .square_border-color_yellow {
-    border-color: var(--yellow);
-  }
-
-  .square_border-color_slimy-green {
-    border-color: var(--slimy-green);
   }
 
   .saturn .product-property p:nth-child(1) {
@@ -2915,34 +2110,6 @@ body {
     background-color: var(--blue);
   }
 
-  .table_background-color_green thead tr {
-    background-color: var(--green);
-  }
-
-  .table_background-color_red thead tr {
-    background-color: var(--red);
-  }
-
-  .table_background-color_orange thead tr {
-    background-color: var(--orange);
-  }
-
-  .table_background-color_purple thead tr {
-    background-color: var(--purple);
-  }
-
-  .table_background-color_yellow thead tr {
-    background-color: var(--yellow);
-  }
-
-  .table_background-color_slimy-green thead tr {
-    background-color: var(--slimy-green);
-  }
-
-  .table_color_black thead tr {
-    color: var(--black);
-  }
-
   .table_color_white thead tr {
     color: var(--white);
   }
@@ -2951,59 +2118,9 @@ body {
     color: var(--blue);
   }
 
-  .table_color_red thead tr {
-    color: var(--red);
-  }
-
-  .table_color_purple thead tr {
-    color: var(--purple);
-  }
-
-  .table_color_slimy-green thead tr {
-    color: var(--slimy-green);
-  }
-
-  .table_color_yellow thead tr {
-    color: var(--yellow);
-  }
-
-  .table_color_sepia thead tr {
-    color: var(--sepia);
-  }
-
   .table_border-color_blue th,
   .table_border-color_blue td {
     border-color: var(--blue);
-  }
-
-  .table_border-color_green th,
-  .table_border-color_green td {
-    border-color: var(--green);
-  }
-
-  .table_border-color_red th,
-  .table_border-color_red td {
-    border-color: var(--red);
-  }
-
-  .table_border-color_orange th,
-  .table_border-color_orange td {
-    border-color: var(--orange);
-  }
-
-  .table_border-color_purple th,
-  .table_border-color_purple td {
-    border-color: var(--purple);
-  }
-
-  .table_border-color_yellow th,
-  .table_border-color_yellow td {
-    border-color: var(--yellow);
-  }
-
-  .table_border-color_slimy-green th,
-  .table_border-color_slimy-green td {
-    border-color: var(--slimy-green);
   }
 
   .block-chart {
