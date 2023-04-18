@@ -9,7 +9,7 @@
 	<strong>{{ purchase.reference|upper }}</strong>
 </p>
 <p>Date :
-	{{ purchase.createdAt|format_datetime('short', 'none', locale='fr') }}
+	{{ purchase.purchasedAt|format_datetime('short', 'none', locale='fr') }}
 </p>
 <p>Prix total :
 	{{ purchase.total|amount }}

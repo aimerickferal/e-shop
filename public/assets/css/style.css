@@ -1222,6 +1222,10 @@ body {
     margin: 2em 0 0 0;
   }
 
+  .saturn p {
+    margin: 0 0.5em 0.5em 0.5em;
+  }
+
   .saturn_border-color_blue {
     border-color: var(--blue);
   }
