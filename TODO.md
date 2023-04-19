@@ -1,9 +1,8 @@
 # **Todo**
 
-- use checkIfNumber with only one error message
+- update commentaries in checkIfInputIsChecked + handlePurchaseSteps handleAddressesStep + handleDeliveryModeStep + handleCheckoutMethodSteps
 - use class for titles
 - term = galatea
-- fontColor
 - fix header
 - add img size in % as much as possible if not use em
 - check if image-link improvements is possible
@@ -16,7 +15,6 @@
 - Fix delete my user account feature : id = delete-my-user-account-link
 
 ## **Commit**
-
 
 ## Video script:
 
@@ -40,9 +38,6 @@
 - product CRUD
 - category CRUD
 - delivery mode CRUD
-- font
-
-Mobile Glimpse with a Administrator Role | E-Shop
 
 Stuffs:
 

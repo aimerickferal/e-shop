@@ -149,8 +149,7 @@ const form = {
   errorMessageProductNameEmpty: null,
   errorMessageProductPictureMimeType: null,
   errorMessageProductPictureSize: null,
-  errorMessageProductPriceEmpty: null,
-  errorMessageProductPriceValidity: null,
+  errorMessageProductPrice: null,
   errorMessageProductDescriptionEmpty: null,
   errorMessageProductAvailabilityNotChecked: null,
   errorMessageCategoryProductNotChecked: null,
@@ -182,11 +181,9 @@ const form = {
   errorMessageDeliveryModeNameValidity: null,
   errorMessageDeliveryModePictureMimeType: null,
   errorMessageDeliveryModePictureSize: null,
-  errorMessageDeliveryModePriceEmpty: null,
-  errorMessageDeliveryModePriceValidity: null,
+  errorMessageDeliveryModePrice: null,
   errorMessageDeliveryModeDescriptionEmpty: null,
-  errorMessageDeliveryModeMinCartAmountForFreeDeliveryEmpty: null,
-  errorMessageDeliveryModeMinCartAmountForFreeDeliveryValidity: null,
+  errorMessageDeliveryModeMinCartAmountForFreeDelivery: null,
   // Contact's error messages
   errorMessageContactSubjectNotChecked: null,
   errorMessagePhoneNumberEmpty: null,
@@ -801,11 +798,8 @@ const form = {
     form.errorMessageProductPictureSize = document.querySelector(
       ".error-message-product-picture-size"
     );
-    form.errorMessageProductPriceEmpty = document.querySelector(
-      ".error-message-product-price-empty"
-    );
-    form.errorMessageProductPriceValidity = document.querySelector(
-      ".error-message-product-price-validity"
+    form.errorMessageProductPrice = document.querySelector(
+      ".error-message-product-price"
     );
     form.errorMessageProductDescriptionEmpty = document.querySelector(
       ".error-message-product-description-empty"
@@ -897,22 +891,15 @@ const form = {
     form.errorMessageDeliveryModePictureSize = document.querySelector(
       ".error-message-delivery-mode-picture-size"
     );
-    form.errorMessageDeliveryModePriceEmpty = document.querySelector(
-      ".error-message-delivery-mode-price-empty"
-    );
-    form.errorMessageDeliveryModePriceValidity = document.querySelector(
-      ".error-message-delivery-mode-price-validity"
+    form.errorMessageDeliveryModePrice = document.querySelector(
+      ".error-message-delivery-mode-price"
     );
     form.errorMessageDeliveryModeDescriptionEmpty = document.querySelector(
       ".error-message-delivery-mode-description-empty"
     );
-    form.errorMessageDeliveryModeMinCartAmountForFreeDeliveryEmpty =
+    form.errorMessageDeliveryModeMinCartAmountForFreeDelivery =
       document.querySelector(
-        ".error-message-delivery-mode-min-cart-amount-for-free-delivery-empty"
-      );
-    form.errorMessageDeliveryModeMinCartAmountForFreeDeliveryValidity =
-      document.querySelector(
-        ".error-message-delivery-mode-min-cart-amount-for-free-delivery-validity"
+        ".error-message-delivery-mode-min-cart-amount-for-free-delivery"
       );
 
     // Contact's error messages
@@ -1351,11 +1338,7 @@ const form = {
           form.errorMessageProductPictureSize
         );
       }
-      form.checkIfNumber(
-        form.productPriceInput,
-        form.errorMessageProductPriceEmpty,
-        form.errorMessageProductPriceValidity
-      );
+      form.checkIfNumber(form.productPriceInput, form.errorMessageProductPrice);
       form.checkIfInputContainValue(
         form.productDescriptionInput,
         form.errorMessageProductDescriptionEmpty
@@ -1521,13 +1504,11 @@ const form = {
       }
       form.checkIfNumber(
         form.deliveryModePriceInput,
-        form.errorMessageDeliveryModePriceEmpty,
-        form.errorMessageDeliveryModePriceValidity
+        form.errorMessageDeliveryModePrice
       );
       form.checkIfNumber(
         form.deliveryModeMinCartAmountForFreeDelivery,
-        form.errorMessageDeliveryModeMinCartAmountForFreeDeliveryEmpty,
-        form.errorMessageDeliveryModeMinCartAmountForFreeDeliveryValidity
+        form.errorMessageDeliveryModeMinCartAmountForFreeDelivery,
       );
       form.checkIfInputContainValue(
         form.deliveryModeDescriptionInput,
@@ -1561,7 +1542,7 @@ const form = {
     // - Check if it's value match our regex
     // - Switch the input ouline color
     // - Display or hide the related error message
-    // - Increment or decrement the number of errors.
+    // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
       tools.addDisplayNone(errorMessageEmpty);
       if (form.regexMatchEmail.test(input.value)) {
@@ -1605,7 +1586,7 @@ const form = {
     // - Check if it's value match ours regex
     // - Switch the input ouline color
     // - Display or hide the related error message
-    // - Increment or decrement the number of errors.
+    // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
       tools.addDisplayNone(errorMessageEmpty);
 
@@ -1671,7 +1652,7 @@ const form = {
     // According on whether the input contain a doesn't a value we:
     // - Switch the input ouline color
     // - Display or hide the related error message
-    // - Increment or decrement the number of errors.
+    // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
       form.switchInputOutlineColor(input, form.colors.green);
       tools.addDisplayNone(errorMessageEmpty);
@@ -1690,7 +1671,7 @@ const form = {
   checkIfInputIsChecked: function (input, errorMessageNotChecked) {
     console.log("form.checkIfInputIsChecked()");
 
-    // We initialize a checked input's counter.
+    // We initialize a counter.
     let numberOfCheckedInput = 0;
 
     // If the number of input is superior to 1.
@@ -1784,7 +1765,7 @@ const form = {
     // We initialize a variable to confirm when a authorizedMimeTypes is authorized.
     let isAuthorized = null;
 
-    // We extract the index of each element in the .files object from it's length.
+    // We extract the index of each elements from the length of the .files object in order to know their positions.
     for (let index = 0; index < input.files.length; index++) {
       for (let authorizedMimeType of authorizedMimeTypes) {
         // If the file mine type is strictly equal to authorizedMimeType.
@@ -1870,7 +1851,7 @@ const form = {
     // - Check if it's value match ours regex
     // - Switch the input ouline color
     // - Display or hide the related error message
-    // - Increment or decrement the number of errors.
+    // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
       tools.addDisplayNone(errorContactMessageEmpty);
 
@@ -1915,7 +1896,7 @@ const form = {
     // - Check if it's value match our regex
     // - Switch the input ouline color
     // - Display or hide the related error message
-    // - Increment or decrement the number of errors.
+    // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
       tools.addDisplayNone(errorContactMessageEmpty);
 
@@ -1936,36 +1917,31 @@ const form = {
   /**
    * Method that check if a input contain a value type of number and call the methods that display the related error message.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorContactMessageEmpty
-   * @param {HTMLParagraphElement} errorMessageValidity
+   * @param {HTMLParagraphElement} errorMessage
    * @return {void}
    */
-  checkIfNumber: function (
-    input,
-    errorContactMessageEmpty,
-    errorMessageValidity
-  ) {
+  checkIfNumber: function (input, errorMessage) {
     console.log("form.checkIfNumber()");
 
     // According on whether the input contain a doesn't a value we:
     // - Check if it's value match our regex
     // - Switch the input ouline color
     // - Display or hide the related error message
-    // - Increment or decrement the number of errors.
+    // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorContactMessageEmpty);
+      tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchNumber.test(input.value)) {
         form.switchInputOutlineColor(input, form.colors.green);
-        tools.addDisplayNone(errorMessageValidity);
+        tools.addDisplayNone(errorMessage);
       } else {
         form.switchInputOutlineColor(input, form.colors.red);
-        tools.removeDisplayNone(errorMessageValidity);
+        tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
     } else {
       form.switchInputOutlineColor(input, form.colors.red);
-      tools.removeDisplayNone(errorContactMessageEmpty);
+      tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
   },
@@ -1987,7 +1963,7 @@ const form = {
     // - Check if it's value match our regex
     // - Switch the input ouline color
     // - Display or hide the related error message
-    // - Increment or decrement the number of errors.
+    // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
       tools.addDisplayNone(errorContactMessageEmpty);
 
@@ -2023,7 +1999,7 @@ const form = {
     // - Check if it's value match our regex
     // - Switch the input ouline color
     // - Display or hide the related error message
-    // - Increment or decrement the number of errors.
+    // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
       tools.addDisplayNone(errorContactMessageEmpty);
 
@@ -2058,7 +2034,7 @@ const form = {
     // - Check if it's value match our regex
     // - Switch the input ouline color
     // - Display or hide the related error message
-    // - Increment or decrement the number of errors.
+    // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
       tools.addDisplayNone(errorContactMessageEmpty);
 
@@ -2068,17 +2044,11 @@ const form = {
       } else {
         form.switchInputOutlineColor(input, form.colors.red);
         tools.removeDisplayNone(errorMessageLength);
-        // We add 1 to form.numberOfErrors.
         form.numberOfErrors++;
       }
-    }
-    // Else input is empty.
-    else {
-      // We call form.switchInputOutlineColor() to switch the input outline color.
+    } else {
       form.switchInputOutlineColor(input, form.colors.red);
-      // We call tools.removeDisplayNone() to remove the display-none class from one or several elements.
       tools.removeDisplayNone(errorContactMessageEmpty);
-      // We add 1 to form.numberOfErrors.
       form.numberOfErrors++;
     }
   },

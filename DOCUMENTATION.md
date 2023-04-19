@@ -183,6 +183,88 @@ Relation between **PurchaseItem** & **Purchase** :
 | --- | ------------------ | ----------- | ----- | --------------------------------- | ----------------- | ------------------- | ------------------- |
 | 1   | Delivery Mode Name | Lorem...    | 999   | 999                               | home-delivery.png | 2022-02-09 10:03:11 | 2022-02-09 10:03:11 |
 
+## **Routes**
+
+| URL                                                               | Route Name                    | Methods HTTP | Controller                  | Method Name                  | Status |
+| ----------------------------------------------------------------- | ----------------------------- | ------------ | --------------------------- | ---------------------------- | ------ |
+| /                                                                 | home                          | GET          | MainController              | home()                       | ✅     |
+| /contact                                                          | contact                       | GET , POST   | MainController              | contact()                    | ✅     |
+| /a-propos                                                         | about                         | GET          | MainController              | about()                      | ✅     |
+| /mentions-legales                                                 | legal_notices                 | GET          | MainController              | legalMentions()              | ✅     |
+| /conditions-generales-d-utilisation                               | terms_of_services             | GET          | MainController              | termsOfServices()            | ✅     |
+| /conditions-generales-de-ventes                                   | general_terms_of_sale         | GET          | MainController              | termsOfSales()               | ✅     |
+| /livraison-et-service-apres-vente                                 | delivery_and_customer_service | GET          | MainController              | deliveryAndCustomerService() | ✅     |
+| /paiement-securise                                                | secure_payment                | GET          | MainController              | securePayment()              | ✅     |
+| /inscription                                                      | app_sign_up                   | GET, POST    | SignUpController            | signUp()                     | ✅     |
+| /connexion                                                        | app_login                     | GET, POST    | SecurityController          | login()                      | ✅     |
+| /deconnexion                                                      | app_logout                    | GET, POST    | SecurityController          | logout()                     | ✅     |
+| /profil                                                           | user_profile                  | GET, POST    | UserController              | profile()                    | ✅     |
+| /supprimer-photo                                                  | user_delete_picture           | GET, POST    | UserController              | deletePicture()              | ✅     |
+| /supprimer-mon-compte                                             | user_delete_my-account        | GET, POST    | UserController              | delete()                     | ❌     |
+| /reinitialisation-mot-de-passe/demande                            | app_forgot_password_request   | GET, POST    | ResetPasswordController     | request()                    | ❌     |
+| /reinitialisation-mot-de-passe/verification-e-mail                | app_check_email               | GET          | ResetPasswordController     | checkEmail()                 | ❌     |
+| /reinitialisation-mot-de-passe/reinitialisation/{token}           | app_reset_password            | GET          | ResetPasswordController     | reset()                      | ❌     |
+| /admin                                                            | admin_dashboard               | GET          | AdminMainController         | dashboard()                  | ✅     |
+| /admin/utilisateurs/creer                                         | admin_user_create             | GET, POST    | AdminUserController         | create()                     | ✅     |
+| /admin/utilisateurs                                               | admin_user_list               | GET          | AdminUserController         | list()                       | ✅     |
+| /admin/utilisateurs/{id}                                          | admin_user_detail             | GET          | AdminUserController         | detail()                     | ✅     |
+| /admin/utilisateurs/{id}/mettre-a-jour                            | admin_user_update             | GET, POST    | AdminUserController         | update()                     | ✅     |
+| /admin/utilisateurs/{id}/supprimer-photo                          | admin_user_delete_picture     | GET, POST    | AdminUserController         | deletePicture()              | ✅     |
+| /admin/utilisateurs/{id}/supprimer                                | admin_user_delete             | GET, POST    | AdminUserController         | delete()                     | ✅     |
+| /admin/utilisateurs/statistiques                                  | admin_user_statistics         | GET, POST    | AdminUserController         | statistics()                 | ✅     |
+| /admin/produits/creer                                             | admin_product_create          | GET, POST    | AdminProductController      | create()                     | ✅     |
+| /admin/produits                                                   | admin_product_list            | GET          | AdminProductController      | list()                       | ✅     |
+| /admin/produits/{slug}                                            | admin_product_detail          | GET          | AdminProductController      | detail()                     | ✅     |
+| /admin/produits/{slug}/mettre-a-jour                              | admin_product_update          | GET, POST    | AdminProductController      | update()                     | ✅     |
+| /admin/produits/{id}/supprimer                                    | admin_product_delete          | GET, POST    | AdminProductController      | delete()                     | ✅     |
+| /admin/categories/creer                                           | admin_category_create         | GET, POST    | AdminCategoryController     | create()                     | ✅     |
+| /admin/categories                                                 | admin_category_list           | GET          | AdminCategoryController     | list()                       | ✅     |
+| /admin/categories/{slug}/produits                                 | admin_category_product_list   | GET          | AdminCategoryController     | productList()                | ✅     |
+| /admin/categories/{slug}                                          | admin_category_detail         | GET          | AdminCategoryController     | detail()                     | ✅     |
+| /admin/categories/{categorySlug}/produits/{productSlug}           | admin_category_product_detail | GET          | AdminCategoryController     | productDetail()              | ✅     |
+| /admin/categories/{slug}/mettre-a-jour                            | admin_category_update         | GET, POST    | AdminCategoryController     | update()                     | ✅     |
+| /admin/categories/{id}/supprimer                                  | admin_category_delete         | GET, POST    | AdminCategoryController     | delete()                     | ✅     |
+| /admin/utilisateurs/{id}/adresses/creer                           | admin_address_create          | GET, POST    | AdminAddressController      | create()                     | ✅     |
+| /admin/adresses                                                   | admin_address_list            | GET          | AdminAddressController      | list()                       | ✅     |
+| /admin/utilisateurs/{id}/adresses                                 | admin_address_user_list       | GET          | AdminAddressController      | userList()                   | ✅     |
+| /admin/utilisateurs/{userId}/adresses/{addressId}                 | admin_address_detail          | GET          | AdminAddressController      | detail()                     | ✅     |
+| /admin/utilisateurs/{userId}/adresses/{addressId}/mettre-a-jour   | admin_address_update          | GET, POST    | AdminAddressController      | update()                     | ✅     |
+| /admin/utilisateurs/{userId}/adresses/{addressId}/supprimer       | admin_address_delete          | GET, POST    | AdminAddressController      | delete()                     | ✅     |
+| /admin/modes-de-livraison/creer                                   | admin_delivery_mode_create    | GET, POST    | AdminDeliveryModeController | create()                     | ✅     |
+| /admin/modes-de-livraison                                         | admin_delivery_mode_list      | GET          | AdminDeliveryModeController | list()                       | ✅     |
+| /admin/modes-de-livraison/{id}                                    | admin_delivery_mode_detail    | GET          | AdminDeliveryModeController | detail()                     | ✅     |
+| /admin/modes-de-livraison/{id}/mettre-a-jour                      | admin_delivery_mode_update    | GET, POST    | AdminDeliveryModeController | update()                     | ✅     |
+| /admin/modes-de-livraison/{id}/supprimer                          | admin_delivery_mode_delete    | GET, POST    | AdminDeliveryModeController | delete()                     | ✅     |
+| /admin/utilisateurs/{id}/commandes/creer                          | admin_purchase_create         | GET, POST    | AdminPurchaseController     | create()                     | ✅     |
+| /admin/commandes                                                  | admin_purchase_list           | GET          | AdminPurchaseController     | list()                       | ✅     |
+| /admin/utilisateurs/{id}/commandes                                | admin_purchase_user_list      | GET          | AdminPurchaseController     | userList()                   | ✅     |
+| /admin/commandes/{reference}                                      | admin_purchase_detail         | GET          | AdminPurchaseController     | detail()                     | ✅     |
+| /admin/utilisateurs/{userId}/commandes/{purchaseId}               | admin_purchase_user_detail    | GET          | AdminPurchaseController     | userDetail()                 | ✅     |
+| /admin/utilisateurs/{userId}/commandes/{purchaseId}/mettre-a-jour | admin_purchase_update         | GET, POST    | AdminPurchaseController     | update()                     | ✅     |
+| /admin/purchases/{id}/supprimer                                   | admin_purchase_delete         | GET, POST    | AdminPurchaseController     | delete()                     | ✅     |
+| /admin/commandes/{reference}/telecharger/facture                  | admin_purchase_download_bill  | GET          | AdminPurchaseController     | downloadBill()               | ✅     |
+| /produits                                                         | product_list                  | GET          | AdminProductController      | list()                       | ✅     |
+| /produits/{slug}                                                  | product_detail                | GET          | AdminProductController      | detail()                     | ✅     |
+| /categories                                                       | category_list                 | GET          | AdminCategoryController     | list()                       | ✅     |
+| /categories/{slug}/produits                                       | category_product_list         | GET          | AdminCategoryController     | productList()                | ✅     |
+| /categories/{categorySlug}/produits/{productSlug}                 | category_product_detail       | GET          | AdminCategoryController     | productDetail()              | ✅     |
+| /adresses/creer                                                   | address_create                | GET, POST    | AdminAddressController      | create()                     | ✅     |
+| /adresses                                                         | address_list                  | GET          | AdminAddressController      | list()                       | ✅     |
+| /adresses/{id}                                                    | address_detail                | GET          | AdminAddressController      | detail()                     | ✅     |
+| /adresses/{id}/mettre-a-jour                                      | address_update                | GET, POST    | AdminAddressController      | update()                     | ✅     |
+| /adresses/{id}/supprimer                                          | address_delete                | GET, POST    | AdminAddressController      | delete()                     | ✅     |
+| /panier/ajouter/produits/{id}                                     | cart_add                      | GET          | CartController              | add()                        | ✅     |
+| /panier                                                           | cart_detail                   | GET          | CartController              | add()                        | ✅     |
+| /panier/produits/{id}/supprimer                                   | cart_delete                   | GET          | CartController              | delete()                     | ✅     |
+| /panier/produits/{id}/decrementer                                 | cart_decremente               | GET          | CartController              | decremente()                 | ✅     |
+| /commandes                                                        | purchase_list                 | GET          | PurchaseController          | list()                       | ✅     |
+| /commandes/{reference}                                            | purchase_detail               | GET          | PurchaseController          | detail()                     | ✅     |
+| /commandes/{reference}/telecharger/facture                        | purchase_download_bill        | GET          | PurchaseController          | downloadBill()               | ✅     |
+| /demande-supression-compte                                        | user_delete_request           | GET          | UserController              | deleteRequest()              | ❌     |
+| /supprimer-mon-compte                                             | user_delete_my-account        | GET, POST    | UserController              | delete()                     | ❌     |
+| /demande-reactivation-compte                                      | user_reactivate_request       | GET          | UserController              | reactivateRequest()          | ❌     |
+| /reactivation                                                     | user_reactivate               | GET, POST    | UserController              | reactivate()                 | ❌     |
+
 ## Data Dictionnary
 
 | Fields | Types | Particularities | Descriptions |

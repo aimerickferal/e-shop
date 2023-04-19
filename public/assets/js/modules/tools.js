@@ -199,7 +199,7 @@ const tools = {
     // We convert the cents price to a decimal price.
     let decimalPrice = centsPrice / 100;
 
-    // We use the toString methot to convert the integer in a string and the replace method to replace the comma by a dot.
+    // We use the toString() method to convert the integer in a string and the replace method to replace the comma by a dot.
     let amount = decimalPrice.toString().replace(".", ",");
 
     // We return the amount with the symbol of the currency.

@@ -35,10 +35,7 @@
 		<div class="form-field">
 			{{ form_label(adminCreateProductForm, 'Prix', { 'label_attr': { 'class': 'form-field__label form-field__product-price-label display-none' }}) }}
 			{{ form_widget(adminCreateProductForm.price, { 'id': 'product-price-input', 'attr': {'class': 'form-field__input form-field__product-price-input form-field__input_color_black', 'placeholder': 'Prix en euros' }}) }}
-			<p class="error-message error-message_color_red error-message-product-price-empty display-none">
-				Merci de saisir un prix en euros.
-			</p>
-			<p class="error-message error-message_color_red error-message-product-price-validity display-none">
+			<p class="error-message error-message_color_red error-message-product-price display-none">
 				Merci de saisir un prix en euros.
 			</p>
 			{{ form_errors(adminCreateProductForm.price) }}
