@@ -34,7 +34,7 @@
 		<div class="form-field">
 			{{ form_label(adminUpdateDeliveryModeForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__delivery-mode-name-label display-none' }}) }}
 			{{ form_widget(adminUpdateDeliveryModeForm.name, { 'id': 'delivery-mode-name-input', 'attr': {'class': 'form-field__input form-field__delivery-mode-name-input form-field__input_color_black', 'placeholder': 'Nom' }}) }}
-			<p class="error-message error-message_color_red error-message-delivery-mode-name-blank display-none">
+			<p class="error-message error-message_color_red error-message-delivery-mode-name-empty display-none">
 				Merci de saisir un nom.
 			</p>
 			{{ form_errors(adminUpdateDeliveryModeForm.name) }}
@@ -63,7 +63,7 @@
 		<div class="form-field">
 			{{ form_label(adminUpdateDeliveryModeForm, 'Description', { 'label_attr': { 'class': 'form-field__label form-field__delivery-mode-description-label display-none' }}) }}
 			{{ form_widget(adminUpdateDeliveryModeForm.description, { 'id': 'delivery-mode-description-input', 'attr': {'class': 'form-field__input form-field__delivery-mode-description-input form-field__input_color_black', 'placeholder': 'Description' }}) }}
-			<p class="error-message error-message_color_red error-message-delivery-mode-description-blank display-none">
+			<p class="error-message error-message_color_red error-message-delivery-mode-description-empty display-none">
 				Merci de saisir une description.
 			</p>
 			<p class="error-message error-message_color_red error-message-delivery-mode-description-validity display-none">

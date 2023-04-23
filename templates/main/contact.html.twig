@@ -39,7 +39,7 @@
 		<div class="form-field">
 			{{ form_label(contactForm, 'Prénom', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.firstName, { 'id': 'contact-first-name-input', 'attr': {'class': 'form-field__input form-field__user-first-name-input form-field__input_color_black', 'placeholder': 'Prénom' }}) }}
-			<p class="error-message error-message_color_red error-message-user-first-name-blank display-none">
+			<p class="error-message error-message_color_red error-message-user-first-name-empty display-none">
 				Merci de saisir un prénom.
 			</p>
 			{{ form_errors(contactForm.firstName) }}
@@ -48,7 +48,7 @@
 		<div class="form-field">
 			{{ form_label(contactForm, 'Nom', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.lastName, { 'id': 'contact-last-name-input', 'attr': {'class': 'form-field__input form-field__user-last-name-input form-field__input_color_black', 'placeholder': 'Nom'}}) }}
-			<p class="error-message error-message_color_red error-message-user-last-name-blank display-none">
+			<p class="error-message error-message_color_red error-message-user-last-name-empty display-none">
 				Merci de saisir un nom.
 			</p>
 			{{ form_errors(contactForm.lastName) }}
@@ -58,7 +58,7 @@
 			{{ form_label(contactForm, 'E-mail', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.email, { 'id': 'contact-email-input', 'attr': {'class': 'form-field__input form-field__user-e-mail-input form-field__input_color_black', 'placeholder': 'E-mail' }}) }}
 
-			<p class="error-message error-message_color_red error-message-user-e-mail-blank error-message-user-e-mail-blank display-none ">
+			<p class="error-message error-message_color_red error-message-user-e-mail-empty error-message-user-e-mail-empty display-none ">
 				Merci de saisir un e-mail.
 			</p>
 			<p class="error-message error-message_color_red error-message-user-e-mail-validity display-none">
@@ -70,7 +70,7 @@
 		<div class="form-field">
 			{{ form_label(contactForm, 'Numéro de téléphone mobile', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.phoneNumber, { 'id': 'contact-phone-number-input', 'attr': {'class': 'form-field__input form-field__phone-number-input form-field__input_color_black', 'placeholder': 'Numéro de téléphone mobile' }}) }}
-			<p class="error-message error-message_color_red error-message-blank-phone-number display-none">
+			<p class="error-message error-message_color_red error-message-empty-phone-number display-none">
 				Merci de saisir un numéro de téléphone mobile.
 			</p>
 			<p class="error-message error-message_color_red error-message-validity-phone-number display-none">
@@ -95,7 +95,7 @@
 		<div class="form-field">
 			{{ form_label(contactForm, 'Message', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.message, { 'id': 'contact-message-input', 'attr': {'class': 'form-field__input form-field__input-contact-message form-field__input_color_black form-field__contact-message-input form-field__input_color_black', 'placeholder': 'Message' }}) }}
-			<p class="error-message error-message_color_red error-message-contact-message-blank display-none">
+			<p class="error-message error-message_color_red error-message-contact-message-empty display-none">
 				Merci de saisir un message.
 			</p>
 			{{ form_errors(contactForm.message) }}
