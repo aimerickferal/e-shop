@@ -14,7 +14,7 @@ const chart = {
   pieChartUserRolesByNumber: {},
   pieCanvaUserRolesByProportion: null,
   pieChartUserRolesByProportion: {},
-  // User's gender
+  // User's civility title
   pieCanvaUserCivilityTitleByNumber: null,
   pieChartUserGenderByNumber: {},
   pieCanvaUserCivilityTitleByProportion: null,

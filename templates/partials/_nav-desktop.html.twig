@@ -34,17 +34,17 @@
 		{% endif %}
 		{# END : admin access #}
 		{% if app.user %}
-			<li class="nav__item">
+			<li class="nav__item nav-desktop__item">
 				<a class="page__desktop-logout-link page__link_color_red" id="desktop-logout-link" href="{{ path('app_logout') }}">Déconnexion</a>
 			</li>
 			<a class="header__link_background-color_blue" href="{{ path('user_profile') }}">
 				<img class="nav-desktop__user-picture" id="profile-picture-nav-desktop" src="{{ asset('assets/uploads/users/' ~ app.user.picture) }}" alt="image {{ app.user.firstName }}"/>
 			</a>
 		{% else %}
-			<li class="nav__item">
+			<li class="nav__item nav-desktop__item">
 				<a class="page__desktop-login-link page__link_color_green" id="desktop-login-link" href="{{ path('app_login') }}">Connexion</a>
 			</li>
-			<li class="nav__item">
+			<li class="nav__item nav-desktop__item">
 				<a class="page__desktop-sign-up-link page__link_color_orange" id="desktop-sign-up-link" href="{{ path('app_sign_up') }}">Inscription</a>
 			</li>
 		{% endif %}

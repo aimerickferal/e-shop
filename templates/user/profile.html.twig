@@ -46,7 +46,7 @@
 		<div class="form-field">
 			{{ form_label(userProfileForm, 'Prénom', { 'label_attr': { 'class': 'form-field__label form-field__user-first-name-label display-none' }}) }}
 			{{ form_widget(userProfileForm.firstName, { 'id': 'update-my-user-first-name-input', 'attr': {'class': 'form-field__input form-field__user-first-name-input form-field__input_color_black', 'placeholder': 'Prénom', 'disabled':'disabled' }}) }}
-			<p class="error-message error-message_color_red error-message-user-first-name-empty display-none">
+			<p class="error-message error-message_color_red error-message-user-first-name-blank display-none">
 				Merci de saisir un prénom.
 			</p>
 			{{ form_errors(userProfileForm.firstName) }}
@@ -55,7 +55,7 @@
 		<div class="form-field">
 			{{ form_label(userProfileForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__user-last-name-label display-none' }}) }}
 			{{ form_widget(userProfileForm.lastName, { 'id': 'update-my-user-last-name-input', 'attr': { 'class': 'form-field__input form-field__user-last-name-input form-field__input_color_black', 'placeholder': 'Nom', 'disabled':'disabled' }}) }}
-			<p class="error-message error-message_color_red error-message-user-last-name-empty display-none">
+			<p class="error-message error-message_color_red error-message-user-last-name-blank display-none">
 				Merci de saisir un nom.
 			</p>
 			{{ form_errors(userProfileForm.lastName) }}
@@ -64,10 +64,10 @@
 		<div class="form-field">
 			{{ form_label(userProfileForm, 'E-mail', { 'label_attr': { 'class': 'form-field__label form-field__user-e-mail-label display-none' }}) }}
 			{{ form_widget(userProfileForm.email, { 'id': 'update-my-user-e-mail-input', 'attr': { 'class': 'form-field__input form-field__user-e-mail-input form-field__input_color_black', 'placeholder': 'E-mail', 'disabled':'disabled' }}) }}
-			<p class="error-message error-message_color_red error-message-user-email-empty display-none">
+			<p class="error-message error-message_color_red error-message-user-e-mail-blank display-none">
 				Merci de saisir un e-mail.
 			</p>
-			<p class="error-message error-message_color_red error-message-user-email-validity display-none">
+			<p class="error-message error-message_color_red error-message-user-e-mail-validity display-none">
 				Merci de saisir un e-mail valide.
 			</p>
 			{{ form_errors(userProfileForm.email) }}
@@ -83,8 +83,8 @@
 		{{ form_end(userProfileForm) }}
 	{# END : userProfileForm #}
 		{# <a class="display-none page__link page__delete-link page__delete-my-user-account-link page__delete-user-link page__link_background-color_red page__link_color_white" id="delete-my-user-account-link" href="{{ path('user_delete', {'id':app.user.id, 'token':csrf_token('user-delete' ~ app.user.id)} ) }}" data-userfirstname="{{ app.user.firstName }}" data-userlastname="{{ app.user.lastName }}">
-									Supprimer mon compte
-								</a> #}
+													Supprimer mon compte
+												</a> #}
 	</section>
 {% endblock %}
 {# START : user_profile #}

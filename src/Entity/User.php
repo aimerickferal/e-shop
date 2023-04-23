@@ -60,7 +60,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un nom.')]
-
     private ?string $lastName = null;
 
     #[ORM\Column(length: 255, nullable: true)]

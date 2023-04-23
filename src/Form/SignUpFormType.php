@@ -101,32 +101,6 @@ class SignUpFormType extends AbstractType
             ]);
     }
 
-    // /**
-    //  * Method that set in uppercase the lastName property of the User.
-    //  * @param FormEvent
-    //  * @return void
-    //  */
-    // public function onPreSubmit(FormEvent $event)
-    // {
-    //     // We get the form. 
-    //     $form = $event->getForm();
-
-    //     // We get the data of the user.
-    //     $user = $event->getData();
-
-    //     // If the submit doesn't contain a user. 
-    //     if (!$user) {
-    //         // We leave onPreSubmit().
-    //         return;
-    //     }
-
-    //     // We set in uppercase the lastName of the user. 
-    //     $user['lastName'] = strtoupper($user['lastName']);
-
-    //     // We set the data of the event with the new data of the user.
-    //     $event->setData($user);
-    // }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

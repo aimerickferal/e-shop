@@ -629,14 +629,6 @@ body {
     width: 1.2em;
   }
 
-  .page__user-picture,
-  .page__product-picture,
-  .page__delivery-mode-picture {
-    border-radius: 50%;
-    width: 50%;
-    margin: 1em 0 1em;
-  }
-
   .image-link .page__product-picture {
     width: 80%;
     margin: 0;

@@ -1,5 +1,7 @@
 # **Todo**
 
+- form name to switch
+- error-message-validity to simply
 - update commentaries in checkIfInputIsChecked + handlePurchaseSteps handleAddressesStep + handleDeliveryModeStep + handleCheckoutMethodSteps
 - use class for titles
 - term = galatea

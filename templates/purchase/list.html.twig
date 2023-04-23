@@ -18,7 +18,7 @@
 		<div class="form-field">
 			{{ form_label(searchPurchaseForm, 'Référence', { 'label_attr': { 'class': 'form-field__label form-field__purchase-reference-label display-none' }}) }}
 			{{ form_widget(searchPurchaseForm.reference, { 'id': 'purchase-reference-input', 'attr': {'class': 'form-field__input form-field__purchase-reference-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par référence' }}) }}
-			<p class="error-message error-message_color_red error-message-purchase-reference-empty display-none">
+			<p class="error-message error-message_color_red error-message-purchase-reference-blank display-none">
 				Merci de saisir une référence.
 			</p>
 			<p class="error-message error-message_color_red error-message-purchase-reference-length display-none">
