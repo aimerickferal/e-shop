@@ -26,34 +26,34 @@ const form = {
   signUpForm: null,
   loginForm: null,
   userProfileForm: null,
-  adminCreateUserForm: null,
-  adminUpdateUserForm: null,
-  searchUserForm: null,
+  adminUserCreateForm: null,
+  adminUserUpdateForm: null,
+  adminUserSearchForm: null,
   requestPasswordForm: null,
   resetPasswordForm: null,
   // Category's forms
-  adminCreateCategoryForm: null,
-  adminUpdateCategoryForm: null,
-  searchCategoryForm: null,
+  adminCategoryCreateForm: null,
+  adminCategoryUpdateForm: null,
+  categorySearchForm: null,
   // Product's forms
-  adminCreateProductForm: null,
-  adminUpdateProductForm: null,
-  searchProductForm: null,
+  adminProductCreateForm: null,
+  adminProductUpdateForm: null,
+  productSearchForm: null,
   // Address's forms
-  userCreateAddressForm: null,
-  userUpdateAddressForm: null,
-  adminCreateAddressForm: null,
-  adminUpdateAddressForm: null,
-  searchAddressForm: null,
+  addressCreateForm: null,
+  addressUpdateForm: null,
+  adminAddressCreateForm: null,
+  adminAddressUpdateForm: null,
+  addressSearchForm: null,
   // Purchase's forms
-  adminCreatePurchaseForm: null,
-  adminUpdatePurchaseForm: null,
-  searchPurchaseForm: null,
+  adminPurchaseCreateForm: null,
+  adminPurchaseUpdateForm: null,
+  purchaseSearchForm: null,
   purchaseForm: null,
   // Delivery mode's forms
-  adminCreateDeliveryModeForm: null,
-  adminUpdateDeliveryModeForm: null,
-  searchDeliveryModeForm: null,
+  adminDeliveryModeCreateForm: null,
+  adminDeliveryModeUpdateForm: null,
+  deliveryModeSearchForm: null,
   // Contact's form
   contactForm: null,
   // Upload's field
@@ -152,8 +152,7 @@ const form = {
   errorMessageProductAvailabilityNotChecked: null,
   errorMessageCategoryProductNotChecked: null,
   // Address's error messages
-  errorMessageAddressStreetNumberEmpty: null,
-  errorMessageAddressStreetNumberValidity: null,
+  errorMessageAddressStreetNumber: null,
   errorMessageAddressStreetNameEmpty: null,
   errorMessageAddressZipCode: null,
   errorMessageAddressCityEmpty: null,
@@ -179,8 +178,7 @@ const form = {
   errorMessageDeliveryModeMinCartAmountForFreeDelivery: null,
   // Contact's error messages
   errorMessageContactSubjectNotChecked: null,
-  errorMessagePhoneNumberEmpty: null,
-  errorMessagePhoneNumberValidity: null,
+  errorMessagePhoneNumber: null,
   errorContactMessageEmpty: null,
   // Buttons
   submitButtons: [],
@@ -189,36 +187,36 @@ const form = {
   loginButton: null,
   modifyMyUserProfileButton: null,
   updateMyUserProfileButton: null,
-  searchUserButton: null,
-  adminCreateUserButton: null,
-  adminUpdateUserButton: null,
+  adminUserSearchButton: null,
+  adminUserCreateButton: null,
+  adminUserUpdateButton: null,
   requestPasswordButton: null,
   resetPasswordButton: null,
   // Category's buttons
-  adminCreateCategoryButton: null,
-  adminUpdateCategoryButton: null,
-  searchCategoryButton: null,
+  adminCategoryCreateButton: null,
+  adminCategoryUpdateButton: null,
+  categorySearchButton: null,
   // Product's buttons
-  adminCreateProductButton: null,
-  adminUpdateProductButton: null,
-  searchProductButton: null,
+  adminProductCreateButton: null,
+  adminProductUpdateButton: null,
+  productSearchButton: null,
   // Address's buttons
-  userCreateAddressButton: null,
-  userUpdateAdressButton: null,
-  adminCreateAddressButton: null,
-  adminUpdateAddressButton: null,
-  searchAddressButton: null,
+  addressCreateButton: null,
+  addressUpdateButton: null,
+  adminAddressCreateButton: null,
+  adminAddressUpdateButton: null,
+  addressSearchButton: null,
   // Purchase's buttons
-  adminCreatePurchaseButton: null,
-  adminUpdatePurchaseButton: null,
-  searchPurchaseButton: null,
-  purchaseConfirmAddressesButton: null,
-  purchaseConfirmDeliveryModeButton: null,
+  adminPurchaseCreateButton: null,
+  adminPurchaseUpdateButton: null,
+  purchaseSearchButton: null,
+  purchaseAddressConfirmButton: null,
+  purchaseDeliveryModeConfirmButton: null,
   purchaseConfirmButton: null,
   // Delivery mode's buttons
-  adminCreateDeliveryModeButton: null,
-  adminUpdateDeliveryModeButton: null,
-  searchDeliveryModeButton: null,
+  adminDeliveryModeCreateButton: null,
+  adminDeliveryModeUpdateButton: null,
+  deliveryModeSearchButton: null,
   // Contact's buttons
   contactButton: null,
   // User's links
@@ -311,68 +309,66 @@ const form = {
     form.signUpForm = document.getElementById("sign-up-form");
     form.loginForm = document.getElementById("login-form");
     form.userProfileForm = document.getElementById("user-profile-form");
-    form.adminCreateUserForm = document.getElementById(
-      "admin-create-user-form"
+    form.adminUserCreateForm = document.getElementById(
+      "admin-user-create-form"
     );
-    form.adminUpdateUserForm = document.getElementById(
-      "admin-update-user-form"
+    form.adminUserUpdateForm = document.getElementById(
+      "admin-user-update-form"
     );
-    form.searchUserForm = document.getElementById("search-user-form");
+    form.adminUserSearchForm = document.getElementById(
+      "admin-user-search-form"
+    );
     form.requestPasswordForm = document.getElementById("request-password-form");
     form.resetPasswordForm = document.getElementById("reset-password-form");
 
     // Category's forms
-    form.adminCreateCategoryForm = document.getElementById(
+    form.adminCategoryCreateForm = document.getElementById(
       "admin-create-category-form"
     );
-    form.adminUpdateCategoryForm = document.getElementById(
-      "admin-update-category-form"
+    form.adminCategoryUpdateForm = document.getElementById(
+      "admin-category-update-form"
     );
-    form.searchCategoryForm = document.getElementById("search-category-form");
+    form.categorySearchForm = document.getElementById("category-search-form");
 
     // Product's froms
-    form.adminCreateProductForm = document.getElementById(
-      "admin-create-product-form"
+    form.adminProductCreateForm = document.getElementById(
+      "admin-product-create-form"
     );
-    form.adminUpdateProductForm = document.getElementById(
-      "admin-update-product-form"
+    form.adminProductUpdateForm = document.getElementById(
+      "admin-product-update-form"
     );
-    form.searchProductForm = document.getElementById("search-product-form");
+    form.productSearchForm = document.getElementById("product-search-form");
 
     // Address's forms
-    form.userCreateAddressForm = document.getElementById(
-      "user-create-address-form"
+    form.addressCreateForm = document.getElementById("address-create-form");
+    form.addressUpdateForm = document.getElementById("address-update-form");
+    form.adminAddressCreateForm = document.getElementById(
+      "admin-address-create-form"
     );
-    form.userUpdateAddressForm = document.getElementById(
-      "user-update-address-form"
+    form.adminAddressUpdateForm = document.getElementById(
+      "admin-address-update-form"
     );
-    form.adminCreateAddressForm = document.getElementById(
-      "admin-create-address-form"
-    );
-    form.adminUpdateAddressForm = document.getElementById(
-      "admin-update-address-form"
-    );
-    form.searchAddressForm = document.getElementById("search-address-form");
+    form.addressSearchForm = document.getElementById("address-search-form");
 
     // Purchase's forms
-    form.adminCreatePurchaseForm = document.getElementById(
-      "admin-create-purchase-form"
+    form.adminPurchaseCreateForm = document.getElementById(
+      "admin-purchase-create-form"
     );
-    form.adminUpdatePurchaseForm = document.getElementById(
-      "admin-update-purchase-form"
+    form.adminPurchaseUpdateForm = document.getElementById(
+      "admin-purchase-update-form"
     );
-    form.searchPurchaseForm = document.getElementById("search-purchase-form");
+    form.purchaseSearchForm = document.getElementById("purchase-search-form");
     form.purchaseForm = document.getElementById("purchase-form");
 
     // Delivery mode's forms
-    form.adminCreateDeliveryModeForm = document.getElementById(
-      "admin-create-delivery-mode-form"
+    form.adminDeliveryModeCreateForm = document.getElementById(
+      "admin-delivery-mode-create-form"
     );
-    form.adminUpdateDeliveryModeForm = document.getElementById(
-      "admin-update-delivery-mode-form"
+    form.adminDeliveryModeUpdateForm = document.getElementById(
+      "admin-delivery-mode-update-form"
     );
-    form.searchDeliveryModeForm = document.getElementById(
-      "search-delivery-mode-form"
+    form.deliveryModeSearchForm = document.getElementById(
+      "delivery-mode-search-form"
     );
 
     // Contact's form
@@ -799,11 +795,8 @@ const form = {
     );
 
     // Address's error messages
-    form.errorMessageAddressStreetNumberEmpty = document.querySelector(
-      ".error-message-adress-street-number-empty"
-    );
-    form.errorMessageAddressStreetNumberValidity = document.querySelector(
-      ".error-message-address-street-number-validity"
+    form.errorMessageAddressStreetNumber = document.querySelector(
+      ".error-message-adress-street-number"
     );
     form.errorMessageAddressStreetNameEmpty = document.querySelector(
       ".error-message-address-street-name-empty"
@@ -878,11 +871,8 @@ const form = {
     form.errorMessageContactSubjectNotChecked = document.querySelector(
       ".error-message-contact-subject-not-checked"
     );
-    form.errorMessagePhoneNumberEmpty = document.querySelector(
-      ".error-message-empty-phone-number"
-    );
-    form.errorMessagePhoneNumberValidity = document.querySelector(
-      ".error-message-validity-phone-number"
+    form.errorMessagePhoneNumber = document.querySelector(
+      ".error-message-phone-number"
     );
     form.errorContactMessageEmpty = document.querySelector(
       ".error-message-contact-message-empty"
@@ -924,12 +914,14 @@ const form = {
     form.updateMyUserProfileButton = document.getElementById(
       "update-my-user-profile-button"
     );
-    form.searchUserButton = document.getElementById("search-user-button");
-    form.adminCreateUserButton = document.getElementById(
-      "admin-create-user-button"
+    form.adminUserCreateButton = document.getElementById(
+      "admin-user-create-button"
     );
-    form.adminUpdateUserButton = document.getElementById(
-      "admin-update-user-button"
+    form.adminUserUpdateButton = document.getElementById(
+      "admin-user-update-button"
+    );
+    form.adminUserSearchButton = document.getElementById(
+      "admin-user-search-button"
     );
     form.requestPasswordButton = document.getElementById(
       "request-password-button"
@@ -937,69 +929,65 @@ const form = {
     form.resetPasswordButton = document.getElementById("reset-password-button");
 
     // Category's buttons
-    form.adminCreateCategoryButton = document.getElementById(
-      "admin-create-category-button"
+    form.adminCategoryCreateButton = document.getElementById(
+      "admin-category-create-button"
     );
-    form.adminUpdateCategoryButton = document.getElementById(
-      "admin-update-category-button"
+    form.adminCategoryUpdateButton = document.getElementById(
+      "admin-category-update-button"
     );
-    form.searchCategoryButton = document.getElementById(
-      "search-category-button"
+    form.categorySearchButton = document.getElementById(
+      "category-search-button"
     );
 
     // Product's buttons
-    form.adminCreateProductButton = document.getElementById(
-      "admin-create-product-button"
+    form.adminProductCreateButton = document.getElementById(
+      "admin-product-create-button"
     );
-    form.adminUpdateProductButton = document.getElementById(
-      "admin-update-product-button"
+    form.adminProductUpdateButton = document.getElementById(
+      "admin-product-update-button"
     );
-    form.searchProductButton = document.getElementById("search-product-button");
+    form.productSearchButton = document.getElementById("product-search-button");
 
     // Address's buttons
-    form.userCreateAddressButton = document.getElementById(
-      "user-create-address-button"
+    form.addressCreateButton = document.getElementById("address-create-button");
+    form.addressUpdateButton = document.getElementById("address-update-button");
+    form.adminAddressCreateButton = document.getElementById(
+      "admin-address-create-button"
     );
-    form.userUpdateAdressButton = document.getElementById(
-      "user-update-address-button"
+    form.adminAddressUpdateButton = document.getElementById(
+      "admin-address-update-button"
     );
-    form.adminCreateAddressButton = document.getElementById(
-      "admin-create-address-button"
-    );
-    form.adminUpdateAddressButton = document.getElementById(
-      "admin-update-address-button"
-    );
-    form.searchAddressButton = document.getElementById("search-address-button");
+    form.addressSearchButton = document.getElementById("address-search-button");
 
     // Purchase's buttons
-    form.adminCreatePurchaseButton = document.getElementById(
-      "admin-create-purchase-button"
+    form.adminPurchaseCreateButton = document.getElementById(
+      "admin-purchase-create-button"
     );
-    form.adminUpdatePurchaseButton = document.getElementById(
-      "admin-update-purchase-button"
+    form.adminPurchaseUpdateButton = document.getElementById(
+      "admin-purchase-update-button"
     );
-    form.searchPurchaseButton = document.getElementById(
-      "search-purchase-button"
+    form.purchaseSearchButton = document.getElementById(
+      "purchase-search-button"
     );
-    form.purchaseConfirmAddressesButton = document.getElementById(
-      "purchase-confirm-address-button"
+    form.purchaseAddressConfirmButton = document.getElementById(
+      "purchase-address-confirm-button"
     );
-    form.purchaseConfirmDeliveryModeButton = document.getElementById(
-      "purchase-confirm-delivery-mode-button"
+    form.purchaseDeliveryModeConfirmButton = document.getElementById(
+      "purchase-delivery-mode-confirm-button"
     );
     form.purchaseConfirmButton = document.getElementById(
       "purchase-confirm-button"
     );
 
     // DeliveryMode buttons
-    form.adminCreateDeliveryModeButton = document.getElementById(
-      "admin-create-delivery-mode-button"
+    form.adminDeliveryModeCreateButton = document.getElementById(
+      "admin-delivery-mode-create-button"
     );
-    form.adminUpdateDeliveryModeButton = document.getElementById(
-      "admin-update-delivery-mode-button"
+    form.adminDeliveryModeUpdateButton = document.getElementById(
+      "admin-delivery-mode-update-button"
     );
-    form.searchDeliveryModeButton = document.getElementById(
-      "search-delivery-mode-button"
+    form.deliveryModeSearchButton = document.getElementById(
+      "delivery-mode-search-button"
     );
 
     // Contact's buttons
@@ -1119,25 +1107,25 @@ const form = {
       clickedButton === form.loginButton ||
       clickedButton === form.updateMyUserProfileButton ||
       clickedButton === form.contactButton ||
-      clickedButton === form.adminCreateUserButton ||
-      clickedButton === form.adminUpdateUserButton ||
+      clickedButton === form.adminUserCreateButton ||
+      clickedButton === form.adminUserUpdateButton ||
       clickedButton === form.requestPasswordButton
     ) {
       form.checkIfEmail(form.userEmailInput, form.errorMessageUserEmail);
     }
 
-    if (clickedButton === form.searchUserButton) {
+    if (clickedButton === form.adminUserSearchButton) {
       form.checkIfInputContainValue(
         form.userLastNameInput,
         form.errorMessageUserLastNameEmpty
       );
-      form.submitFormIfNoError(form.searchUserForm);
+      form.submitFormIfNoError(form.adminUserSearchForm);
     }
 
     if (
       clickedButton === form.signUpButton ||
       clickedButton === form.loginButton ||
-      clickedButton === form.adminCreateUserButton ||
+      clickedButton === form.adminUserCreateButton ||
       clickedButton === form.resetPasswordButton
     ) {
       form.checkIfPassword(
@@ -1155,12 +1143,12 @@ const form = {
       clickedButton === form.signUpButton ||
       clickedButton === form.updateMyUserProfileButton ||
       clickedButton === form.contactButton ||
-      clickedButton === form.adminCreateUserButton ||
-      clickedButton === form.adminUpdateUserButton ||
-      clickedButton === form.userCreateAddressButton ||
-      clickedButton === form.userUpdateAdressButton ||
-      clickedButton === form.adminCreateAddressButton ||
-      clickedButton === form.adminUpdateAddressButton
+      clickedButton === form.adminUserCreateButton ||
+      clickedButton === form.adminUserUpdateButton ||
+      clickedButton === form.addressCreateButton ||
+      clickedButton === form.addressUpdateButton ||
+      clickedButton === form.adminAddressCreateButton ||
+      clickedButton === form.adminAddressUpdateButton
     ) {
       form.checkIfInputContainValue(
         form.userFirstNameInput,
@@ -1174,7 +1162,7 @@ const form = {
 
     if (
       clickedButton === form.signUpButton ||
-      clickedButton === form.adminCreateUserButton
+      clickedButton === form.adminUserCreateButton
     ) {
       form.checkIfInputIsChecked(
         form.userCivilityTitleInputs,
@@ -1183,8 +1171,8 @@ const form = {
     }
 
     if (
-      clickedButton === form.adminCreateUserButton ||
-      clickedButton === form.adminUpdateUserButton ||
+      clickedButton === form.adminUserCreateButton ||
+      clickedButton === form.adminUserUpdateButton ||
       clickedButton === form.updateMyUserProfileButton
     ) {
       if (form.userPictureInput.value) {
@@ -1198,15 +1186,14 @@ const form = {
 
     if (
       clickedButton === form.contactButton ||
-      clickedButton === form.userCreateAddressButton ||
-      clickedButton === form.userUpdateAdressButton ||
-      clickedButton == form.adminCreateAddressButton ||
-      clickedButton === form.adminUpdateAddressButton
+      clickedButton === form.addressCreateButton ||
+      clickedButton === form.addressUpdateButton ||
+      clickedButton == form.adminAddressCreateButton ||
+      clickedButton === form.adminAddressUpdateButton
     ) {
       form.checkIfPhoneNumber(
         form.phoneNumberInput,
-        form.errorMessagePhoneNumberEmpty,
-        form.errorMessagePhoneNumberValidity
+        form.errorMessagePhoneNumber
       );
     }
 
@@ -1245,12 +1232,12 @@ const form = {
       form.submitFormIfNoError(form.contactForm);
     }
 
-    if (clickedButton === form.adminCreateUserButton) {
-      form.submitFormIfNoError(form.adminCreateUserForm);
+    if (clickedButton === form.adminUserCreateButton) {
+      form.submitFormIfNoError(form.adminUserCreateForm);
     }
 
-    if (clickedButton == form.adminUpdateUserButton) {
-      form.submitFormIfNoError(form.adminUpdateUserForm);
+    if (clickedButton == form.adminUserUpdateButton) {
+      form.submitFormIfNoError(form.adminUserUpdateForm);
     }
 
     if (clickedButton == form.requestPasswordButton) {
@@ -1262,9 +1249,9 @@ const form = {
     }
 
     if (
-      clickedButton === form.adminCreateCategoryButton ||
-      clickedButton === form.adminUpdateCategoryButton ||
-      clickedButton === form.searchCategoryButton
+      clickedButton === form.adminCategoryCreateButton ||
+      clickedButton === form.adminCategoryUpdateButton ||
+      clickedButton === form.categorySearchButton
     ) {
       form.checkIfInputContainValue(
         form.categoryNameInput,
@@ -1272,22 +1259,22 @@ const form = {
       );
     }
 
-    if (clickedButton === form.adminCreateCategoryButton) {
-      form.submitFormIfNoError(form.adminCreateCategoryForm);
+    if (clickedButton === form.adminCategoryCreateButton) {
+      form.submitFormIfNoError(form.adminCategoryCreateForm);
     }
 
-    if (clickedButton === form.adminUpdateCategoryButton) {
-      form.submitFormIfNoError(form.adminUpdateCategoryForm);
+    if (clickedButton === form.adminCategoryUpdateButton) {
+      form.submitFormIfNoError(form.adminCategoryUpdateForm);
     }
 
-    if (clickedButton === form.searchCategoryButton) {
-      form.submitFormIfNoError(form.searchCategoryForm);
+    if (clickedButton === form.categorySearchButton) {
+      form.submitFormIfNoError(form.categorySearchForm);
     }
 
     if (
-      clickedButton === form.adminCreateProductButton ||
-      clickedButton === form.adminUpdateProductButton ||
-      clickedButton === form.searchProductButton
+      clickedButton === form.adminProductCreateButton ||
+      clickedButton === form.adminProductUpdateButton ||
+      clickedButton === form.productSearchButton
     ) {
       form.checkIfInputContainValue(
         form.productNameInput,
@@ -1296,8 +1283,8 @@ const form = {
     }
 
     if (
-      clickedButton === form.adminCreateProductButton ||
-      clickedButton === form.adminUpdateProductButton
+      clickedButton === form.adminProductCreateButton ||
+      clickedButton === form.adminProductUpdateButton
     ) {
       if (form.productPictureInput.value) {
         form.checkUploadedFileMimeType(
@@ -1321,24 +1308,24 @@ const form = {
       );
     }
 
-    if (clickedButton === form.adminCreateProductButton) {
-      form.submitFormIfNoError(form.adminCreateProductForm);
+    if (clickedButton === form.adminProductCreateButton) {
+      form.submitFormIfNoError(form.adminProductCreateForm);
     }
 
-    if (clickedButton === form.adminUpdateProductButton) {
-      form.submitFormIfNoError(form.adminUpdateProductForm);
+    if (clickedButton === form.adminProductUpdateButton) {
+      form.submitFormIfNoError(form.adminProductUpdateForm);
     }
 
-    if (clickedButton === form.searchProductButton) {
-      form.submitFormIfNoError(form.searchProductForm);
+    if (clickedButton === form.productSearchButton) {
+      form.submitFormIfNoError(form.productSearchForm);
     }
 
     if (
-      clickedButton === form.userCreateAddressButton ||
-      clickedButton === form.userUpdateAdressButton ||
-      clickedButton === form.adminCreateAddressButton ||
-      clickedButton === form.adminUpdateAddressButton ||
-      clickedButton === form.searchAddressButton
+      clickedButton === form.addressCreateButton ||
+      clickedButton === form.addressUpdateButton ||
+      clickedButton === form.adminAddressCreateButton ||
+      clickedButton === form.adminAddressUpdateButton ||
+      clickedButton === form.addressSearchButton
     ) {
       form.checkIfInputContainValue(
         form.addressCityInput,
@@ -1347,15 +1334,14 @@ const form = {
     }
 
     if (
-      clickedButton === form.userCreateAddressButton ||
-      clickedButton === form.userUpdateAdressButton ||
-      clickedButton === form.adminCreateAddressButton ||
-      clickedButton === form.adminUpdateAddressButton
+      clickedButton === form.addressCreateButton ||
+      clickedButton === form.addressUpdateButton ||
+      clickedButton === form.adminAddressCreateButton ||
+      clickedButton === form.adminAddressUpdateButton
     ) {
       form.checkIfStreetNumber(
         form.addressStreetNumberInput,
-        form.errorMessageAddressStreetNumberEmpty,
-        form.errorMessageAddressStreetNumberValidity
+        form.errorMessageAddressStreetNumber
       );
       form.checkIfInputContainValue(
         form.addressStreetNameInput,
@@ -1375,29 +1361,29 @@ const form = {
       );
     }
 
-    if (clickedButton === form.userCreateAddressButton) {
-      form.submitFormIfNoError(form.userCreateAddressForm);
+    if (clickedButton === form.addressCreateButton) {
+      form.submitFormIfNoError(form.addressCreateForm);
     }
 
-    if (clickedButton === form.userUpdateAdressButton) {
-      form.submitFormIfNoError(form.userUpdateAddressForm);
+    if (clickedButton === form.addressUpdateButton) {
+      form.submitFormIfNoError(form.addressUpdateForm);
     }
 
-    if (clickedButton === form.adminCreateAddressButton) {
-      form.submitFormIfNoError(form.adminCreateAddressForm);
+    if (clickedButton === form.adminAddressCreateButton) {
+      form.submitFormIfNoError(form.adminAddressCreateForm);
     }
 
-    if (clickedButton === form.adminUpdateAddressButton) {
-      form.submitFormIfNoError(form.adminUpdateAddressForm);
+    if (clickedButton === form.adminAddressUpdateButton) {
+      form.submitFormIfNoError(form.adminAddressUpdateForm);
     }
 
-    if (clickedButton === form.searchAddressButton) {
-      form.submitFormIfNoError(form.searchAddressForm);
+    if (clickedButton === form.addressSearchButton) {
+      form.submitFormIfNoError(form.addressSearchForm);
     }
 
     if (
-      clickedButton === form.adminCreatePurchaseButton ||
-      clickedButton === form.adminUpdatePurchaseButton
+      clickedButton === form.adminPurchaseCreateButton ||
+      clickedButton === form.adminPurchaseUpdateButton
     ) {
       form.checkIfInputIsChecked(
         form.purchaseStatusInputs,
@@ -1405,7 +1391,7 @@ const form = {
       );
     }
 
-    if (clickedButton === form.adminCreatePurchaseButton) {
+    if (clickedButton === form.adminPurchaseCreateButton) {
       form.checkIfInputIsChecked(
         form.purchaseBillingAddressInputs,
         form.errorMessagePurchaseBillingAddressNotChecked
@@ -1423,10 +1409,10 @@ const form = {
         form.errorMessagePurchaseBillMimeType,
         form.errorMessagePurchaseBillSize
       );
-      form.submitFormIfNoError(form.adminCreatePurchaseForm);
+      form.submitFormIfNoError(form.adminPurchaseCreateForm);
     }
 
-    if (clickedButton === form.adminUpdatePurchaseButton) {
+    if (clickedButton === form.adminPurchaseUpdateButton) {
       if (form.purchaseBillInput.value) {
         form.checkUploadedFileMimeType(
           form.purchaseBillInput,
@@ -1434,23 +1420,23 @@ const form = {
           form.errorMessagePurchaseBillSize
         );
       }
-      form.submitFormIfNoError(form.adminUpdatePurchaseForm);
+      form.submitFormIfNoError(form.adminPurchaseUpdateForm);
     }
 
-    if (clickedButton === form.searchPurchaseButton) {
+    if (clickedButton === form.purchaseSearchButton) {
       form.checkIfPurchaseReference(
         form.purchaseReferenceInput,
         form.errorMessagePurchaseReferenceEmpty,
         form.errorMessagePurchaseReferenceLength
       );
 
-      form.submitFormIfNoError(form.searchPurchaseForm);
+      form.submitFormIfNoError(form.purchaseSearchForm);
     }
 
     if (
-      clickedButton === form.adminCreateDeliveryModeButton ||
-      clickedButton === form.adminUpdateDeliveryModeButton ||
-      clickedButton === form.searchDeliveryModeButton
+      clickedButton === form.adminDeliveryModeCreateButton ||
+      clickedButton === form.adminDeliveryModeUpdateButton ||
+      clickedButton === form.deliveryModeSearchButton
     ) {
       form.checkIfInputContainValue(
         form.deliveryModeNameInput,
@@ -1459,8 +1445,8 @@ const form = {
     }
 
     if (
-      clickedButton === form.adminCreateDeliveryModeButton ||
-      clickedButton === form.adminUpdateDeliveryModeButton
+      clickedButton === form.adminDeliveryModeCreateButton ||
+      clickedButton === form.adminDeliveryModeUpdateButton
     ) {
       if (form.deliveryModePictureInput.value) {
         form.checkUploadedFileMimeType(
@@ -1483,16 +1469,16 @@ const form = {
       );
     }
 
-    if (clickedButton === form.adminCreateDeliveryModeButton) {
-      form.submitFormIfNoError(form.adminCreateDeliveryModeForm);
+    if (clickedButton === form.adminDeliveryModeCreateButton) {
+      form.submitFormIfNoError(form.adminDeliveryModeCreateForm);
     }
 
-    if (clickedButton === form.adminUpdateDeliveryModeButton) {
-      form.submitFormIfNoError(form.adminUpdateDeliveryModeForm);
+    if (clickedButton === form.adminDeliveryModeUpdateButton) {
+      form.submitFormIfNoError(form.adminDeliveryModeUpdateForm);
     }
 
-    if (clickedButton === form.searchDeliveryModeButton) {
-      form.submitFormIfNoError(form.searchDeliveryModeForm);
+    if (clickedButton === form.deliveryModeSearchButton) {
+      form.submitFormIfNoError(form.deliveryModeSearchForm);
     }
   },
   /**
@@ -1529,7 +1515,6 @@ const form = {
    * Method that check if a input contain a value type of password and call the methods that display the related error messages.
    * @param {HTMLInputElement} input
    * @param {HTMLParagraphElement} errorMessageEmpty
-   * @param {HTMLParagraphElement} errorMessageValidity
    * @param {HTMLParagraphElement} errorMessageLength
    * @param {HTMLParagraphElement} errorMessageLowercase
    * @param {HTMLParagraphElement} errorMessageUppercase
@@ -1802,15 +1787,10 @@ const form = {
   /**
    * Method that check if a input contain a value type of french phone number and call the methods that display the related error message.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessageEmpty
-   * @param {HTMLParagraphElement} errorMessageValidity
+   * @param {HTMLParagraphElement} errorMessage
    * @return {void}
    */
-  checkIfPhoneNumber: function (
-    input,
-    errorMessageEmpty,
-    errorMessageValidity
-  ) {
+  checkIfPhoneNumber: function (input, errorMessage) {
     console.log("form.checkIfPhoneNumber()");
 
     // According on whether the input contain a doesn't a value we:
@@ -1819,43 +1799,38 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorMessageEmpty);
+      tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchTenNumericCharacters.test(input.value)) {
         form.switchInputOutlineColor(input, form.colors.green);
-        tools.addDisplayNone(errorMessageValidity);
+        tools.addDisplayNone(errorMessage);
       } else {
         form.switchInputOutlineColor(input, form.colors.red);
-        tools.removeDisplayNone(errorMessageValidity);
+        tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchStartBy06Or07.test(input.value)) {
         form.switchInputOutlineColor(input, form.colors.green);
-        tools.addDisplayNone(errorMessageValidity);
+        tools.addDisplayNone(errorMessage);
       } else {
         form.switchInputOutlineColor(input, form.colors.red);
-        tools.removeDisplayNone(errorMessageValidity);
+        tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
     } else {
       form.switchInputOutlineColor(input, form.colors.red);
-      tools.removeDisplayNone(errorMessageEmpty);
+      tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
   },
   /**
    * Method that check if a input contain a value type of number and call the methods that display the related error message.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessageEmpty
-   * @param {HTMLParagraphElement} errorMessageValidity
+   * @param {HTMLParagraphElement} errorMessage
    * @return {void}
    */
-  checkIfAlphabeticalCharacters: function (
-    input,
-    errorMessageEmpty,
-    errorMessageValidity
-  ) {
+  checkIfAlphabeticalCharacters: function (input, errorMessage) {
     console.log("form.checkIfAlphabeticalCharacters()");
 
     // According on whether the input contain a doesn't a value we:
@@ -1864,19 +1839,19 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorMessageEmpty);
+      tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchAtLeastOneSpecialCharacter.test(input.value)) {
         form.switchInputOutlineColor(input, form.colors.red);
-        tools.removeDisplayNone(errorMessageValidity);
+        tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       } else {
         form.switchInputOutlineColor(input, form.colors.green);
-        tools.addDisplayNone(errorMessageValidity);
+        tools.addDisplayNone(errorMessage);
       }
     } else {
       form.switchInputOutlineColor(input, form.colors.red);
-      tools.removeDisplayNone(errorMessageEmpty);
+      tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
   },
@@ -1914,15 +1889,10 @@ const form = {
   /**
    * Method that check if a input contain a value with at least 1 numeric character and call the methods that display the related error message.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessageEmpty
-   * @param {HTMLParagraphElement} errorMessageValidity
+   * @param {HTMLParagraphElement} errorMessage
    * @return {void}
    */
-  checkIfStreetNumber: function (
-    input,
-    errorMessageEmpty,
-    errorMessageValidity
-  ) {
+  checkIfStreetNumber: function (input, errorMessage) {
     console.log("form.checkIfStreetNumber()");
 
     // According on whether the input contain a doesn't a value we:
@@ -1931,19 +1901,19 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorMessageEmpty);
+      tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
         form.switchInputOutlineColor(input, form.colors.green);
-        tools.addDisplayNone(errorMessageValidity);
+        tools.addDisplayNone(errorMessage);
       } else {
         form.switchInputOutlineColor(input, form.colors.red);
-        tools.removeDisplayNone(errorMessageValidity);
+        tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
     } else {
       form.switchInputOutlineColor(input, form.colors.red);
-      tools.removeDisplayNone(errorMessageEmpty);
+      tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
   },
@@ -2074,12 +2044,12 @@ const form = {
     const clickedElement = event.currentTarget;
 
     if (
-      clickedElement === form.purchaseConfirmAddressesButton ||
+      clickedElement === form.purchaseAddressConfirmButton ||
       clickedElement === form.addressStep
     ) {
       form.handleAddressesStep(clickedElement);
     } else if (
-      clickedElement === form.purchaseConfirmDeliveryModeButton ||
+      clickedElement === form.purchaseDeliveryModeConfirmButton ||
       clickedElement === form.deliveryModeStep
     ) {
       form.handleDeliveryModeStep(clickedElement);
@@ -2098,7 +2068,7 @@ const form = {
   handleAddressesStep: function (clickedElement) {
     console.log("form.handleAddressesStep()");
 
-    if (clickedElement === form.purchaseConfirmAddressesButton) {
+    if (clickedElement === form.purchaseAddressConfirmButton) {
       form.checkIfInputIsChecked(
         form.purchaseBillingAddressInputs,
         form.errorMessagePurchaseBillingAddressNotChecked
@@ -2111,12 +2081,12 @@ const form = {
         tools.addDisplayNone(
           form.addressStepIconChecked,
           form.purchaseDeliveryModeField,
-          form.purchaseConfirmDeliveryModeButton
+          form.purchaseDeliveryModeConfirmButton
         );
         tools.removeDisplayNone(
           form.purchaseBillingAddressField,
           form.purchaseDeliveryAddressField,
-          form.purchaseConfirmAddressesButton,
+          form.purchaseAddressConfirmButton,
           form.addNewAddressLink
         );
         tools.addClassToElements(
@@ -2132,13 +2102,13 @@ const form = {
         tools.removeDisplayNone(
           form.addressStepIconChecked,
           form.purchaseDeliveryModeField,
-          form.purchaseConfirmDeliveryModeButton
+          form.purchaseDeliveryModeConfirmButton
         );
         tools.addDisplayNone(
           form.addNewAddressLink,
           form.purchaseBillingAddressField,
           form.purchaseDeliveryAddressField,
-          form.purchaseConfirmAddressesButton
+          form.purchaseAddressConfirmButton
         );
         tools.removeClassesFromElement(
           form.deliveryModeStep,
@@ -2150,14 +2120,14 @@ const form = {
         form.addressStepIconChecked,
         form.deliveryModeStepIconChecked,
         form.purchaseDeliveryModeField,
-        form.purchaseConfirmDeliveryModeButton,
+        form.purchaseDeliveryModeConfirmButton,
         form.purchaseCheckoutMethodField,
         form.purchaseTermsOfSaleField,
         form.purchaseConfirmButton
       );
       tools.removeDisplayNone(
         form.addNewAddressLink,
-        form.purchaseConfirmAddressesButton,
+        form.purchaseAddressConfirmButton,
         form.purchaseBillingAddressField,
         form.purchaseDeliveryAddressField
       );
@@ -2176,7 +2146,7 @@ const form = {
   handleDeliveryModeStep: function (clickedElement) {
     console.log("form.handleDeliveryModeStep()");
 
-    if (clickedElement === form.purchaseConfirmDeliveryModeButton) {
+    if (clickedElement === form.purchaseDeliveryModeConfirmButton) {
       form.checkIfInputIsChecked(
         form.purchaseDeliveryModeInputs,
         form.errorMessagePurchaseDeliveryModeNotChecked
@@ -2196,7 +2166,7 @@ const form = {
         );
         tools.addDisplayNone(
           form.purchaseDeliveryModeField,
-          form.purchaseConfirmDeliveryModeButton
+          form.purchaseDeliveryModeConfirmButton
         );
         tools.removeClassesFromElement(
           form.paymentMethodStep,
@@ -2216,10 +2186,10 @@ const form = {
         form.purchaseConfirmButton,
         form.purchaseBillingAddressField,
         form.purchaseDeliveryAddressField,
-        form.purchaseConfirmAddressesButton
+        form.purchaseAddressConfirmButton
       );
       tools.removeDisplayNone(
-        form.purchaseConfirmDeliveryModeButton,
+        form.purchaseDeliveryModeConfirmButton,
         form.purchaseDeliveryModeField
       );
       tools.addClassToElements(

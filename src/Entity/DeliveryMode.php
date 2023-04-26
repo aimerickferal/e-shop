@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class DeliveryMode
 {
     // The path to the folder of the delivery mode picture. 
-    const DELIVERY_MODE_PICTURE_UPLOAD_FOLDER_PATH = 'assets/uploads/delivery-modes';
+    const PICTURE_UPLOAD_FOLDER_PATH = 'assets/uploads/delivery-modes';
 
     // The value in cents of the free deliveryPrice. 
     const DELIVERY_PRICE_FREE = 0;

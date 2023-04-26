@@ -10,7 +10,7 @@
 	<section class="page">
 		<h2>Créer une Catégorie</h2>
 		{# START :adminCreateCategoryForm #}
-		{{ form_start(adminCreateCategoryForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-create-category-form' }}) }}
+		{{ form_start(adminCreateCategoryForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-category-create-form' }}) }}
 		{# name #}
 		<div class="form-field">
 			{{ form_label(adminCreateCategoryForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__category-name-label display-none' }}) }}
@@ -21,7 +21,7 @@
 			{{ form_errors(adminCreateCategoryForm.name) }}
 		</div>
 		{# adminCreateCategoryForm submit button #}
-		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-create-category-button">
+		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-category-create-button">
 			Créer
 		</button>
 		{{ form_end(adminCreateCategoryForm) }}

@@ -10,7 +10,7 @@
 	<section class="page">
 		<h2>Créer un Produit</h2>
 		{# START :adminCreateProductForm #}
-		{{ form_start(adminCreateProductForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-create-product-form' }}) }}
+		{{ form_start(adminCreateProductForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-product-create-form' }}) }}
 		{# picture #}
 		<div class="form-field">
 			{{ form_label(adminCreateProductForm, 'Photo', { 'label_attr': { 'class': 'form-field__label form-field__product-picture-label display-none' }}) }}
@@ -65,7 +65,7 @@
 			{{ form_errors(adminCreateProductForm.category) }}
 		</div>
 		{# adminCreateProductForm submit button #}
-		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-create-product-button">Créer</button>
+		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-product-create-button">Créer</button>
 		{{ form_end(adminCreateProductForm) }}
 		{# END : adminCreateProductForm #}
 	</section>

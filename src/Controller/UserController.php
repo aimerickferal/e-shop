@@ -65,7 +65,7 @@ class UserController extends AbstractController
                     $previousPicture !== User::WOMAN_PICTURE
                 ) {
                     // We use the PHP function unlink() to delete, from our folder, the previous picture of the user. 
-                    unlink(User::USER_PICTURE_UPLOAD_FOLDER_PATH . '/' . $previousPicture);
+                    unlink(User::PICTURE_UPLOAD_FOLDER_PATH . '/' . $previousPicture);
                 }
 
                 // We set the picture to the user.
@@ -167,7 +167,7 @@ class UserController extends AbstractController
                 $picture !== User::WOMAN_PICTURE
             ) {
                 // We use the PHP function unlink() to delete, from our folder, the previous picture of the user. 
-                unlink(User::USER_PICTURE_UPLOAD_FOLDER_PATH . '/' . $picture);
+                unlink(User::PICTURE_UPLOAD_FOLDER_PATH . '/' . $picture);
             }
 
             // If the civility title of the user is User::MAN_CIVILITY_TITLE.
@@ -257,7 +257,7 @@ class UserController extends AbstractController
                 $picture !== User::WOMAN_PICTURE
             ) {
                 // We use the PHP function unlink() to delete, from our folder, the picture of the user. 
-                unlink(User::USER_PICTURE_UPLOAD_FOLDER_PATH . '/' . $picture);
+                unlink(User::PICTURE_UPLOAD_FOLDER_PATH . '/' . $picture);
             }
 
             // For each $adresse in $user->getAddresses().

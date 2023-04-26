@@ -10,7 +10,7 @@
 	<section class="page">
 		<h2>Utilisateurs</h2>
 		{# START : searchUserForm #}
-		{{ form_start(searchUserForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-user-form' }}
+		{{ form_start(searchUserForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-user-search-form' }}
 		) }}
 		<div class="form-field">
 			{{ form_label(searchUserForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__user-last-name-label display-none' }}) }}
@@ -21,7 +21,7 @@
 			</p>
 			{{ form_errors(searchUserForm.lastName) }}
 		</div>
-		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-user-button">
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="admin-user-search-button">
 			Rechercher
 		</button>
 		{{ form_end(searchUserForm) }}

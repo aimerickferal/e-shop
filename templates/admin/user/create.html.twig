@@ -10,7 +10,7 @@
 <section class="page">
 	<h2>Créer un Utilisateur</h2>
 	{# START :adminCreateUserForm #}
-	{{ form_start(adminCreateUserForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-create-user-form' }}) }}
+	{{ form_start(adminCreateUserForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-user-create-form' }}) }}
 	{# civilityTitle #}
 	<div class="form-field">
 		{{ form_widget(adminCreateUserForm.civilityTitle) }}
@@ -53,11 +53,8 @@
 	<div class="form-field">
 		{{ form_label(adminCreateUserForm, 'E-mail', { 'label_attr': { 'class': 'form-field__label form-field__user-e-mail-label display-none' }}) }}
 		{{ form_widget(adminCreateUserForm.email, { 'id': 'user-e-mail-input', 'attr': { 'class': 'form-field__input form-field__user-e-mail-input form-field__input_color_black', 'placeholder': 'E-mail' }}) }}
-		<p class="error-message error-message_color_red error-message-user-e-mail-empty display-none">
+		<p class="error-message error-message_color_red error-message-user-e-mail display-none">
 			Merci de saisir un e-mail.
-		</p>
-		<p class="error-message error-message_color_red error-message-user-e-mail-validity display-none">
-			Merci de saisir un e-mail valide.
 		</p>
 		{{ form_errors(adminCreateUserForm.email) }}
 	</div>
@@ -95,7 +92,7 @@
 		{{ form_errors(adminCreateUserForm.roles) }}
     </div>
 	{# adminCreateUserForm submit button #}
-		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-create-user-button">Créer</button>
+		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-user-create-button">Créer</button>
     	{{ form_end(adminCreateUserForm) }}
     	{# END : adminCreateUserForm #}
 	 </section>

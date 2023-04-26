@@ -1,14 +1,11 @@
 # **Todo**
 
-- form name to switch
-- error-message-validity to simply
 - update commentaries in checkIfInputIsChecked + handlePurchaseSteps handleAddressesStep + handleDeliveryModeStep + handleCheckoutMethodSteps
 - use class for titles
 - term = galatea
 - fix header
 - add img size in % as much as possible if not use em
 - check if image-link improvements is possible
-
 - Fix delete Product blocked by the PurchaseItem constraint
 - TODO #4 START : handle catch $errors in the uploadPicture() method of FileUploader service.
 - TODO #3 START : Make Paypal checkout.

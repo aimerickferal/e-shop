@@ -12,7 +12,7 @@
 			Adresses
 		</h2>
 		{# START : searchAddressForm #}
-		{{ form_start(searchAddressForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-address-form' }}
+		{{ form_start(searchAddressForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'address-search-form' }}
 		) }}
 		<div class="form-field">
 			{{ form_label(searchAddressForm, 'Ville', { 'label_attr': { 'class': 'form-field__label form-field__address-city-label display-none' }}) }}
@@ -23,7 +23,7 @@
 			</p>
 			{{ form_errors(searchAddressForm.city) }}
 		</div>
-		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-address-button">
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="address-search-button">
 			Rechercher
 		</button>
 		{{ form_end(searchAddressForm) }}

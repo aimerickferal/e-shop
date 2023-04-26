@@ -21,7 +21,7 @@
 			{{ user.lastName }}
 		</h2>
 		{# START : adminUpdatePurchaseForm #}
-		{{ form_start(adminUpdatePurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-update-purchase-form' }}) }}
+		{{ form_start(adminUpdatePurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-purchase-update-form' }}) }}
 		{# status #}
 		<div class="form-field">
 			{{ form_label(adminUpdatePurchaseForm, 'Statut :', { 'label_attr': { 'class': 'form-field__label form-field__purchase-status-label' }}) }}
@@ -44,7 +44,7 @@
 			{{ form_errors(adminUpdatePurchaseForm.upload) }}
 		</div>
 		{# adminUpdatePurchaseForm submit button #}
-		<button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-update-purchase-button">
+		<button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-purchase-update-button">
 			Mettre à jour
 		</button>
 		{{ form_end(adminUpdatePurchaseForm) }}

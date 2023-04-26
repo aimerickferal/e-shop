@@ -15,24 +15,24 @@ class Purchase
 {
     // The the differents checkoutMethod.
     // const CHECKOUT_PENDING = 'En attente de choix';
-    const CHECKOUT_METHOD_CREDIT_CARD = 'Paiment par carte bancaire';
-    const CHECKOUT_METHOD_PAYPAL = 'Paiment via Paypal';
-    const CHECKOUT_METHOD_DISPOSAL = 'Commande interne';
+    public const CHECKOUT_METHOD_CREDIT_CARD = 'Paiment par carte bancaire';
+    public const CHECKOUT_METHOD_PAYPAL = 'Paiment via Paypal';
+    public const CHECKOUT_METHOD_DISPOSAL = 'Commande interne';
 
     // The the differents status.
-    const STATUS_PENDING_CHECKOUT = 'En attente de paiment';
+    public const STATUS_PENDING_CHECKOUT = 'En attente de paiment';
     // const STATUS_ABANDONNED_CHECKOUT = 'Paiement abandonné';
-    const STATUS_PAID = 'Payée';
-    const STATUS_IN_PROGRESS = 'En cours de préparation';
-    const STATUS_SEND = 'Expédiée';
-    const STATUS_DELIVER = 'Livrée';
-    const STATUS_ANNUL = 'Annulée';
+    public const STATUS_PAID = 'Payée';
+    public const STATUS_IN_PROGRESS = 'En cours de préparation';
+    public const STATUS_SEND = 'Expédiée';
+    public const STATUS_DELIVER = 'Livrée';
+    public const STATUS_ANNUL = 'Annulée';
 
     // The path to the folder of the uploaded bills. 
     public const BILL_UPLOAD_FOLDER_PATH = 'assets/uploads/bills';
 
     // The bill by default.
-    const BILL_BY_DEFAULT = "bill.pdf";
+    public const BILL_BY_DEFAULT = "bill.pdf";
 
     #[ORM\Id]
     #[ORM\GeneratedValue]

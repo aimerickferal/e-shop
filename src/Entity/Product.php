@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Product
 {
     // The path to the folder of the product picture. 
-    const PRODUCT_PICTURE_UPLOAD_FOLDER_PATH = 'assets/uploads/products';
+    const PICTURE_UPLOAD_FOLDER_PATH = 'assets/uploads/products';
 
     // The differents possible availability for product. 
     const AVAILABLE = 'Disponible';

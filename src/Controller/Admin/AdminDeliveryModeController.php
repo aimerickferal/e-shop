@@ -193,7 +193,7 @@ class AdminDeliveryModeController extends AbstractController
                 // If the previous picture of the delivery mode is different than DeliveryMode::PICTURE_BY_DEFAULT. 
                 if ($previousPicture !== DeliveryMode::PICTURE_BY_DEFAULT) {
                     // We use the PHP function unlink() to delete, from our folder, the previous picture of the delivery mode. 
-                    unlink(DeliveryMode::DELIVERY_MODE_PICTURE_UPLOAD_FOLDER_PATH . '/' . $previousPicture);
+                    unlink(DeliveryMode::PICTURE_UPLOAD_FOLDER_PATH . '/' . $previousPicture);
                 }
             }
 
@@ -255,7 +255,7 @@ class AdminDeliveryModeController extends AbstractController
             // If the picture of the delivery mode is different than DeliveryMode::PICTURE_BY_DEFAULT. 
             if ($picture !== DeliveryMode::PICTURE_BY_DEFAULT) {
                 // We use the PHP function unlink() to delete, from our folder, the picture of the delivery mode. 
-                unlink(DeliveryMode::DELIVERY_MODE_PICTURE_UPLOAD_FOLDER_PATH . '/' . $picture);
+                unlink(DeliveryMode::PICTURE_UPLOAD_FOLDER_PATH . '/' . $picture);
             }
 
             // We redirect the user.

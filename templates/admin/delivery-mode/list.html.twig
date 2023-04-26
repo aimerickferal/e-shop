@@ -10,7 +10,7 @@
 	<section class="page">
 		<h2>Modes de Livraison</h2>
 		{# START : searchProductForm #}
-		{{ form_start(searchDeliveryModeForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-delivery-mode-form' }}
+		{{ form_start(searchDeliveryModeForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'delivery-mode-search-form' }}
 		) }}
 		{# Name #}
 		<div class="form-field">
@@ -22,7 +22,7 @@
 			</p>
 			{{ form_errors(searchDeliveryModeForm.name) }}
 		</div>
-		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-delivery-mode-button">
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="delivery-mode-search-button">
 			Rechercher
 		</button>
 		{{ form_end(searchDeliveryModeForm) }}

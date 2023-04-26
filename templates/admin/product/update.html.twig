@@ -13,7 +13,7 @@
 		<h2>Mettre à jour Produit :
 			{{ product.name }}</h2>
 		{# START :adminUpdateProductForm #}
-		{{ form_start(adminUpdateProductForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-update-product-form' }}) }}
+		{{ form_start(adminUpdateProductForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-product-update-form' }}) }}
 		{# picture #}
 		<div class="form-field-picture">
 			<img class="page__product-picture" src="{{ asset('assets/uploads/products/' ~ product.picture) }}" alt="image {{ product.name }}"/>
@@ -54,9 +54,6 @@
 			<p class="error-message error-message_color_red error-message-product-description-empty display-none">
 				Merci de saisir une description.
 			</p>
-			<p class="error-message error-message_color_red error-message-product-description-validity display-none">
-				Merci de saisir une description valide.
-			</p>
 			{{ form_errors(adminUpdateProductForm.description) }}
 		</div>
 		{# availability #}
@@ -78,7 +75,7 @@
 			{{ form_errors(adminUpdateProductForm.category) }}
 		</div>
 		{# Submit adminUpdateProductForm button #}
-		<button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-update-product-button">
+		<button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-product-update-button">
 			Mettre à jour
 		</button>
 		{{ form_end(adminUpdateProductForm) }}

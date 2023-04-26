@@ -10,7 +10,7 @@
 	<section class="page">
 		<h2>Commandes</h2>
 		{# START : searchPurchaseForm #}
-		{{ form_start(searchPurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-purchase-form' }}
+		{{ form_start(searchPurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'purchase-search-form' }}
 		) }}
 		<div class="form-field">
 			{{ form_label(searchPurchaseForm, 'Référence', { 'label_attr': { 'class': 'form-field__label form-field__purchase-reference-label display-none' }}) }}
@@ -23,7 +23,7 @@
 			</p>
 			{{ form_errors(searchPurchaseForm.reference) }}
 		</div>
-		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-purchase-button">
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="purchase-search-button">
 			Rechercher
 		</button>
 		{{ form_end(searchPurchaseForm) }}

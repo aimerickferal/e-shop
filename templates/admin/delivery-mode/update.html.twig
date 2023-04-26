@@ -13,7 +13,7 @@
 		<h2>Mettre à jour Mode de livraison :
 			{{ deliveryMode.name }}</h2>
 		{# START :adminUpdateDeliveryModeForm #}
-		{{ form_start(adminUpdateDeliveryModeForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-update-delivery-mode-form' }}) }}
+		{{ form_start(adminUpdateDeliveryModeForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-delivery-mode-update-form' }}) }}
 		{# picture #}
 		<div class="form-field-picture">
 			<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/delivery-modes/' ~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
@@ -46,9 +46,6 @@
 			<p class="error-message error-message_color_red error-message-delivery-mode-price display-none">
 				Merci de saisir un prix en euros.
 			</p>
-			<p class="error-message error-message_color_red error-message-delivery-mode-price-validity display-none">
-				Merci de saisir un prix en euros.
-			</p>
 			{{ form_errors(adminUpdateDeliveryModeForm.price) }}
 		</div>
 		{# minCartAmountForFreeDelivery #}
@@ -56,7 +53,6 @@
 			{{ form_label(adminUpdateDeliveryModeForm, 'Montant minimum d\'achat pour gratuité', { 'label_attr': { 'class': 'form-field__label form-field__delivery-mode-min-cart-amount-for-free-delivery-label display-none' }}) }}
 				{{ form_widget(adminUpdateDeliveryModeForm.minCartAmountForFreeDelivery, { 'id': 'delivery-mode-min-cart-amount-for-free-delivery-input', 'attr': {'class': 'form-field__input form-field__delivery-mode-min-cart-amount-for-free-delivery-input form-field__input_color_black', 'placeholder': 'Montant minimum d\'achat pour gratuité' }}) }}
 			<p class="error-message error-message_color_red error-message-delivery-mode-min-cart-amount-for-free-delivery display-none">Merci de saisir un prix en euros.</p>
-			<p class="error-message error-message_color_red error-message-delivery-mode-min-cart-amount-for-free-delivery-validity display-none">Merci de saisir un prix en euros.</p>
 			{{ form_errors(adminUpdateDeliveryModeForm.minCartAmountForFreeDelivery) }}
 		</div>
 		{# description #}
@@ -66,13 +62,10 @@
 			<p class="error-message error-message_color_red error-message-delivery-mode-description-empty display-none">
 				Merci de saisir une description.
 			</p>
-			<p class="error-message error-message_color_red error-message-delivery-mode-description-validity display-none">
-				Merci de saisir une description valide.
-			</p>
 			{{ form_errors(adminUpdateDeliveryModeForm.description) }}
 		</div>
 		{# adminUpdateDeliveryModeForm submit button #}
-		<button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-update-delivery-mode-button">
+		<button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-delivery-mode-update-button">
 			Mettre à jour
 		</button>
 		{{ form_end(adminUpdateDeliveryModeForm) }}

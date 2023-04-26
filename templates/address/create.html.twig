@@ -10,7 +10,7 @@
 	<section class="page">
 		<h2>Créer une Adresse</h2>
 		{# START :userCreateAddressForm #}
-		{{ form_start(userCreateAddressForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'user-create-address-form' }}) }}
+		{{ form_start(userCreateAddressForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'address-create-form' }}) }}
 		{# firstName #}
 		<div class="form-field">
 			{{ form_label(userCreateAddressForm, 'Prénom', { 'label_attr': { 'class': 'form-field__label form-field__address-first-name-label display-none' }}) }}
@@ -34,11 +34,8 @@
 		<div class="form-field">
 			{{ form_label(userCreateAddressForm, 'Numéro de rue', { 'label_attr': { 'class': 'form-field__label form-field__address-street-number-label display-none' }}) }}
 			{{ form_widget(userCreateAddressForm.streetNumber, { 'id': 'address-street-number-input', 'attr': { 'class': 'form-field__input form-field__address-street-number-input form-field__input_color_black', 'placeholder': 'Numéro de rue' }}) }}
-			<p class="error-message error-message_color_red error-message-adress-street-number-empty display-none">
+			<p class="error-message error-message_color_red error-message-adress-street-number display-none">
 				Merci de saisir un numéro de rue.
-			</p>
-			<p class="error-message error-message_color_red error-message-address-street-number-validity display-none">
-				Merci de saisir un numéro de rue valide.
 			</p>
 			{{ form_errors(userCreateAddressForm.streetNumber) }}
 		</div>
@@ -82,16 +79,13 @@
 		<div class="form-field">
 			{{ form_label(userCreateAddressForm, 'Numéro de téléphone mobile', { 'label_attr': { 'class': 'form-field__label form-field__address-phone-number-label display-none' }}) }}
 			{{ form_widget(userCreateAddressForm.phoneNumber, { 'id': 'address-phone-number-input', 'attr': { 'class': 'form-field__input form-field__phone-number-input form-field__input_color_black', 'placeholder': 'Numéro de téléphone mobile' }}) }}
-			<p class="error-message error-message_color_red error-message-empty-phone-number display-none">
+			<p class="error-message error-message_color_red error-message-phone-number display-none">
 				Merci de saisir un numéro de téléphone mobile.
-			</p>
-			<p class="error-message error-message_color_red error-message-validity-phone-number display-none">
-				Merci de saisir un numéro de téléphone mobile valide.
 			</p>
 			{{ form_errors(userCreateAddressForm.phoneNumber) }}
 		</div>
 		{# userCreateAddressForm submit button #}
-		<button type="submit" class="page__button page__submit-button page__create-button page__button_background-color_dodger-blue page__button_color_white " id="user-create-address-button">
+		<button type="submit" class="page__button page__submit-button page__create-button page__button_background-color_dodger-blue page__button_color_white " id="address-create-button">
 			Créer
 		</button>
 		{# END : userCreateAddressForm #}

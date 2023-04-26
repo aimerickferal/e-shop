@@ -15,7 +15,7 @@
 		{{ user.firstName }}
 		{{ user.lastName }}</h2>
 	{# START :adminUpdateUserForm #}
-	{{ form_start(adminUpdateUserForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-update-user-form' }}) }}
+	{{ form_start(adminUpdateUserForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-user-update-form' }}) }}
 	{# picture #}
 	<div class="form-field-picture">
 		<img class="page__user-picture" src="{{ asset('assets/uploads/users/' ~ user.picture) }}" alt="{{ user.firstName }}"/>
@@ -64,11 +64,8 @@
 	<div class="form-field">
 		{{ form_label(adminUpdateUserForm, 'E-mail', { 'label_attr': { 'class': 'form-field__label form-field__user-e-mail-label display-none' }}) }}
 		{{ form_widget(adminUpdateUserForm.email, { 'id': 'user-e-mail-input', 'attr': { 'class': 'form-field__input form-field__user-e-mail-input form-field__input_color_black', 'placeholder': 'E-mail' }}) }}
-		<p class="error-message error-message_color_red error-message-user-e-mail-empty display-none">
+		<p class="error-message error-message_color_red error-message-user-e-mail display-none">
 			Merci de saisir un e-mail.
-		</p>
-		<p class="error-message error-message_color_red error-message-user-e-mail-validity display-none">
-			Merci de saisir un e-mail valide.
 		</p>
 		{{ form_errors(adminUpdateUserForm.email) }}
 	</div>
@@ -106,7 +103,7 @@
 		    {{ form_errors(adminUpdateUserForm.roles) }}
     	</div>
 		{# Submit adminUpdateUserForm button #}
-        <button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-update-user-button">
+        <button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-user-update-button">
 	        Mettre à jour
         </button>
         {{ form_end(adminUpdateUserForm) }}

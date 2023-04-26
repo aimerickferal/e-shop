@@ -124,7 +124,7 @@ class PurchaseController extends AbstractController
         $form->handleRequest($request);
 
         // If the form is submitted and valid.
-        if ($form->isSubmitted() && $form->isValid()) { 
+        if ($form->isSubmitted() && $form->isValid()) {
             // We set the billing address to the purchase.
             $purchase->setBillingAddress($this->purchaseAddress->insertBreakLineCharactersInAddress($user, $form->get('billingAddress')->getData()));
 
@@ -231,7 +231,7 @@ class PurchaseController extends AbstractController
                 'cartItems' => $cartItems,
                 'subtotal' => $subtotal,
                 'deliveryModePrice' => $deliveryModePrice,
-                'deliveryModePictureUploadFolderPath' => DeliveryMode::DELIVERY_MODE_PICTURE_UPLOAD_FOLDER_PATH,
+                'deliveryModePictureUploadFolderPath' => DeliveryMode::PICTURE_UPLOAD_FOLDER_PATH,
                 'deliveryModePictures' => $deliveryModePictures,
                 'total' => $total,
                 'deliveryPriceFree' => DeliveryMode::DELIVERY_PRICE_FREE,

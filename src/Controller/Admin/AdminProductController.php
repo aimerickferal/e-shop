@@ -250,7 +250,7 @@ class AdminProductController extends AbstractController
                 // If the previous picture of the product is different than 
                 if ($previousPicture !== Product::PICTURE_BY_DEFAULT) {
                     // We use the PHP function unlink() to delete, from our folder, the previous picture of the product. 
-                    unlink(Product::PRODUCT_PICTURE_UPLOAD_FOLDER_PATH . '/' . $previousPicture);
+                    unlink(Product::PICTURE_UPLOAD_FOLDER_PATH . '/' . $previousPicture);
                 }
             }
 
@@ -323,7 +323,7 @@ class AdminProductController extends AbstractController
             // If the picture of the product is different than Product::PICTURE_BY_DEFAULT. 
             if ($picture !== Product::PICTURE_BY_DEFAULT) {
                 // We use the PHP function unlink() to delete, from our folder, the picture of the product. 
-                unlink(Product::PRODUCT_PICTURE_UPLOAD_FOLDER_PATH . '/' . $picture);
+                unlink(Product::PICTURE_UPLOAD_FOLDER_PATH . '/' . $picture);
             }
 
             // We display a flash message for the user.

@@ -10,7 +10,7 @@
 	<section class="page">
 		<h2>Catégories</h2>
 		{# START : searchCategoryForm #}
-		{{ form_start(searchCategoryForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-category-form' }}
+		{{ form_start(searchCategoryForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'category-search-form' }}
 		) }}
 		<div class="form-field">
 			{{ form_label(searchCategoryForm, 'Rechercher par nom', { 'label_attr': { 'class': 'form-field__label form-field__category-name-label display-none' }}) }}
@@ -21,7 +21,7 @@
 			</p>
 			{{ form_errors(searchCategoryForm.name) }}
 		</div>
-		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="search-category-button">
+		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="category-search-button">
 			Rechercher
 		</button>
 		{{ form_end(searchCategoryForm) }}

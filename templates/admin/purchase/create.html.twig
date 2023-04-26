@@ -17,7 +17,7 @@
 			{{ user.lastName }}
 		</h2>
 		{# START : adminCreatePurchaseForm #}
-		{{ form_start(adminCreatePurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'admin-create-purchase-form' }}) }}
+		{{ form_start(adminCreatePurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'admin-purchase-create-form' }}) }}
 		{# status #}
 		<div class="form-field">
 			{{ form_label(adminCreatePurchaseForm, 'Statut :', { 'label_attr': { 'class': 'form-field__label' }}) }}
@@ -68,7 +68,7 @@
 			{{ form_errors(adminCreatePurchaseForm.bill) }}
 		</div>
 		{# adminCreatePurchaseForm submit button #}
-		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-create-purchase-button">
+		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-purchase-create-button">
 			Créer
 		</button>
 		{{ form_end(adminCreatePurchaseForm) }}

@@ -20,7 +20,7 @@
 				<p>{{ user.civilityTitle }}</p>
 				<p>{{ user.firstName }}
 					{{ user.lastName }}</p>
-				<a class="page__text-link page__text-link page__link_color_blue" id="" href="mailto:{{ user.email }}">{{ user.email }}</a>
+				<a class="page__text-link page__text-link page__link_color_blue" href="mailto:{{ user.email }}">{{ user.email }}</a>
 				<p>{{ user.roles|json_encode() }}</p>
 				<a class="page__text-link page__text-link page__link_color_blue" href="{{ path('admin_address_user_list', {'id': user.id}) }}">Adresses</a>
 				<a class="page__text-link page__text-link page__link_color_blue" href="{{ path('admin_purchase_user_list', {'id': user.id}) }}">Commandes</a>
@@ -65,7 +65,7 @@
 					<tr>
 						<th>E-mail</th>
 						<td>
-							<a class="page__text-link page__link_color_blue" id="" href="mailto:{{ user.email }}">{{ user.email }}</a>
+							<a class="page__text-link page__link_color_blue" href="mailto:{{ user.email }}">{{ user.email }}</a>
 						</td>
 					</tr>
 					<tr>

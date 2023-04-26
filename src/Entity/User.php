@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     // The path to the folder of the user picture. 
-    public const USER_PICTURE_UPLOAD_FOLDER_PATH = 'assets/uploads/users';
+    public const PICTURE_UPLOAD_FOLDER_PATH = 'assets/uploads/users';
 
     // The User civilityTitle for man.
     public const MAN_CIVILITY_TITLE = 'Monsieur';

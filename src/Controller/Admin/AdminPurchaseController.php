@@ -168,7 +168,7 @@ class AdminPurchaseController extends AbstractController
             [
                 'user' => $user,
                 'adminCreatePurchaseForm' => $form->createView(),
-                'deliveryModePictureUploadFolderPath' => DeliveryMode::DELIVERY_MODE_PICTURE_UPLOAD_FOLDER_PATH,
+                'deliveryModePictureUploadFolderPath' => DeliveryMode::PICTURE_UPLOAD_FOLDER_PATH,
                 'deliveryModePictures' => $deliveryModePictures,
             ],
             // We specify the related HTTP response status code.

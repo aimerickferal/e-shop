@@ -43,21 +43,21 @@ class FileUploader
             $form->getName() === 'user' ||
             $form->getName() === 'admin_user'
         ) {
-            // // The value of $uploadeFolder is the value of the .env variable USER_PICTURE_UPLOAD_FOLDER_PATH.
-            // $uploadFolder = $_ENV['USER_PICTURE_UPLOAD_FOLDER_PATH'];
+            // // The value of $uploadeFolder is the value of the .env variable PICTURE_UPLOAD_FOLDER_PATH.
+            // $uploadFolder = $_ENV['PICTURE_UPLOAD_FOLDER_PATH'];
 
-            // The value of $uploadeFolder is the value of the PHP constant User::USER_PICTURE_UPLOAD_FOLDER_PATH. 
-            $uploadFolder = User::USER_PICTURE_UPLOAD_FOLDER_PATH;
+            // The value of $uploadeFolder is the value of the PHP constant User::PICTURE_UPLOAD_FOLDER_PATH. 
+            $uploadFolder = User::PICTURE_UPLOAD_FOLDER_PATH;
         }
         // Else if the name of the form is strictly equal to "admin_product".
         else if ($form->getName() === 'admin_product') {
-            // The value of $uploadeFolder is the value of the PHP constant Product::PRODUCT_PICTURE_UPLOAD_FOLDER_PATH.  
-            $uploadFolder = Product::PRODUCT_PICTURE_UPLOAD_FOLDER_PATH;
+            // The value of $uploadeFolder is the value of the PHP constant Product::PICTURE_UPLOAD_FOLDER_PATH.  
+            $uploadFolder = Product::PICTURE_UPLOAD_FOLDER_PATH;
         }
         // Else if the name of the form is strictly equal to "admin_delivery_mode".
         else if ($form->getName() === 'admin_delivery_mode') {
-            // The value of $uploadeFolder is the value of the PHP constant DeliveryMode::DELIVERY_MODE_PICTURE_UPLOAD_FOLDER_PATH.  
-            $uploadFolder = DeliveryMode::DELIVERY_MODE_PICTURE_UPLOAD_FOLDER_PATH;
+            // The value of $uploadeFolder is the value of the PHP constant DeliveryMode::PICTURE_UPLOAD_FOLDER_PATH.  
+            $uploadFolder = DeliveryMode::PICTURE_UPLOAD_FOLDER_PATH;
         }
         // Else if the name of the form is strictly equal to "admin_purchase".
         else if ($form->getName() === 'admin_purchase') {

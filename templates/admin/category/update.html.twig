@@ -13,7 +13,7 @@
 		<h2>Mettre à jour Catégorie :
 			{{ category.name }}</h2>
 		{# START :adminUpdateCategoryForm #}
-		{{ form_start(adminUpdateCategoryForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-update-category-form' }}) }}
+		{{ form_start(adminUpdateCategoryForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-category-update-form' }}) }}
 		{# name #}
 		<div class="form-field">
 			{{ form_label(adminUpdateCategoryForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__category-name-label display-none' }}) }}
@@ -25,7 +25,7 @@
 			{{ form_errors(adminUpdateCategoryForm.name) }}
 		</div>
 		{# adminUpdateCategoryForm submit button #}
-		<button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-update-category-button">
+		<button type="submit" class="page__button page__update-button page__submit-button page__button_background-color_orange page__button_color_white" id="admin-category-update-button">
 			Mettre à jour
 		</button>
 		{{ form_end(adminUpdateCategoryForm) }}
