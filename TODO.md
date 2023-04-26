@@ -1,6 +1,6 @@
 # **Todo**
 
-- update commentaries in checkIfInputIsChecked + handlePurchaseSteps handleAddressesStep + handleDeliveryModeStep + handleCheckoutMethodSteps
+- update commentaries handlePurchaseSteps handleAddressesStep + handleDeliveryModeStep + handleCheckoutMethodSteps
 - use class for titles
 - term = galatea
 - fix header

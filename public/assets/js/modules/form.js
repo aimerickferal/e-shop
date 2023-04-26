@@ -1614,7 +1614,7 @@ const form = {
     }
   },
   /**
-   * Method that check if a input is checked and call the methods that display the related error message.
+   * Method that check if a input is checked or not, increment form.numberOfErrors if not and call the methods that display the related error message.
    * @param {HTMLInputElement} input
    * @param {HTMLParagraphElement} errorMessageNotChecked
    * @return {void}
@@ -1625,65 +1625,46 @@ const form = {
     // We initialize a counter.
     let numberOfCheckedInput = 0;
 
-    // If the number of input is superior to 1.
+    // According on whether the inputs are checked or not not checked we:
+    // - Display or hide the related error message
+    // - Increment form.numberOfErrors if we have a error.
     if (input.length > 1) {
       console.log(input.length);
       console.log(input);
       console.log(Array.from(input));
-      // We count the number of checked input.
+      // We extrat the index of each input from its length in order to know their positions.
       for (let index = 0; index < input.length; index++) {
-        // If a input is checked.
         if (input[index].checked) {
-          // We add one to the counter.
+          // We Increment the number of checked input.
           numberOfCheckedInput++;
           console.log(numberOfCheckedInput);
           console.log(input[index].value);
         }
       }
 
-      // If the number of checked input is superior to 0.
       if (numberOfCheckedInput > 0) {
-        // We call tools.addDisplayNone() to add the display-none class to one or several elements.
         tools.addDisplayNone(errorMessageNotChecked);
-      }
-      // Else the number of checked input is egual to 0.
-      else {
-        // We call tools.removeDisplayNone() to remove the display-none class from one or several elements..
+      } else {
         tools.removeDisplayNone(errorMessageNotChecked);
-        // We add 1 to form.numberOfErrors.
         form.numberOfErrors++;
       }
-    }
-    // Else the number of input is 1.
-    else {
+    } else {
       // We can have one input which is a NodeList and when one input is a NodeList it as key 0 which is the input.
       // If we have have a input[0] (so a NodeList) and if the input[0] nodeTye is strictly equal to Node.ELEMENT_NODE.
       if (input[0] && input[0].nodeType === Node.ELEMENT_NODE) {
-        // If the input is checked.
         if (input[0].checked) {
-          //We call tools.addDisplayNone() to add the display-none class to one or several elements.
           tools.addDisplayNone(errorMessageNotChecked);
-        }
-        // Else the input is not checked.
-        else {
-          // We call tools.removeDisplayNone() to remove the display-none class from one or several elements.
+        } else {
           tools.removeDisplayNone(errorMessageNotChecked);
-          // We add 1 to form.numberOfErrors.
           form.numberOfErrors++;
         }
       }
       // Else the input input[0] doesn't exist so its nodeType is not identical to Node.ELEMENT_NODE beause is doesn't exist.
       else {
-        // If the input is checked or if the first input of the NodeList of input is checked.
         if (input.checked) {
-          // We call tools.addDisplayNone() to add the display-none class to one or several elements.
           tools.addDisplayNone(errorMessageNotChecked);
-        }
-        // Else the input is not checked.
-        else {
-          // We call tools.removeDisplayNone() to remove the display-none class from one or several elements.
+        } else {
           tools.removeDisplayNone(errorMessageNotChecked);
-          // We add 1 to form.numberOfErrors.
           form.numberOfErrors++;
         }
       }

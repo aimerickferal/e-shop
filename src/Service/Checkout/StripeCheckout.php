@@ -35,8 +35,8 @@ class StripeCheckout
             // We set the sucess URL in order to redirect the user in the case of a successful checkout.
             'success_url' => $this->urlGeneratorInterface->generate(
                 'purchase_stripe_success',
+                // We set a array of optional data.
                 [
-                    // We set a array of optional data.
                     'reference' => $purchase->getReference()
                 ],
                 UrlGeneratorInterface::ABSOLUTE_URL
@@ -85,10 +85,10 @@ class StripeCheckout
         // We return the URL generate by Stripe to make the checkout on their interface. 
         return $session;
 
-        // If checkout is accepted : OK. 
+        // If checkout is accepted: OK. 
 
-        // If the user backup : the user is redirect to the cancel_url and the purchase is remove from the database. Other option will be to use START : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT. 
+        // If the user backup: the user is redirect to the cancel_url and the purchase is remove from the database. Other option will be to use START : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT. 
 
-        // If the checkout is decline because of insufficient funds : the user is redirect to the cancel_url and the purchase is remove from the database. Other option is to use : START : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT and take back the started purchase insted of create a new one.
+        // If the checkout is decline because of insufficient funds: the user is redirect to the cancel_url and the purchase is remove from the database. Other option is to use: START: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT and take back the started purchase insted of create a new one.
     }
 }
