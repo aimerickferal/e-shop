@@ -8,11 +8,11 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : purchase_list #}
+{# START: purchase_list #}
 {% block body %}
 	<section class="page">
 		<h2>Mes Commandes</h2>
-		{# START : searchPurchaseForm #}
+		{# START: searchPurchaseForm #}
 		{{ form_start(searchPurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'purchase-search-form' }}
 		) }}
 		<div class="form-field">
@@ -30,10 +30,10 @@
 			Rechercher
 		</button>
 		{{ form_end(searchPurchaseForm) }}
-		{# END : searchPurchaseForm #}
+		{# END: searchPurchaseForm #}
 		<div
 			class="neptune">
-			{# START : card for mobile #}
+			{# START: card for mobile #}
 			{% for purchase in purchases %}
 				<div class="saturn saturn_border-color_blue">
 					<p>
@@ -69,8 +69,8 @@
 					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('purchase_detail', {'reference': purchase.reference}) }}">Détails</a>
 				</div>
 			{% endfor %}
-			{# END : card for mobile #}
-			{# START : table for desktop #}
+			{# END: card for mobile #}
+			{# START: table for desktop #}
 			<table class="table table-purchase table_background-color_blue table_color_white table_border-color_blue">
 				<thead>
 					<tr>
@@ -121,7 +121,7 @@
 				{% endfor %}
 			</table>
 		</div>
-		{# END : table for desktop #}
+		{# END: table for desktop #}
 	</section>
 {% endblock %}
-{# START : purchase_list #}
+{# START: purchase_list #}

@@ -66,7 +66,6 @@ class PurchaseController extends AbstractController
 
         // We create a array to backup each address.
         $addresses = [];
-        // For each $adress in $user->getAddresses().
         foreach ($user->getAddresses() as $address) {
             // We push each $address in the array .
             $addresses[] = $address;
@@ -90,7 +89,6 @@ class PurchaseController extends AbstractController
         $deliveryModePrices = [];
         // We create a array to backup the pictures of each delivery mode.
         $deliveryModePictures = [];
-        // For each $deliveryMode in $deliveryModeRepository->findAll().
         foreach ($deliveryModeRepository->findAll() as $deliveryMode) {
             // We push each $deliveryModePrices in the array.
             $deliveryModePrices[] = $deliveryMode->getPrice();
@@ -123,7 +121,6 @@ class PurchaseController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We set the billing address to the purchase.
             $purchase->setBillingAddress($this->purchaseAddress->insertBreakLineCharactersInAddress($user, $form->get('billingAddress')->getData()));
@@ -153,7 +150,6 @@ class PurchaseController extends AbstractController
             // We call the persit() method of the EntityManagerInterface to put on hold the data.
             $this->entityManagerInterface->persist($purchase);
 
-            // For each $cartItems in $this->cart->getItems().
             foreach ($this->cart->getItems() as $cartItems) {
                 // We create a new  PurchaseItem.
                 $purchaseItem = new PurchaseItem();
@@ -171,7 +167,7 @@ class PurchaseController extends AbstractController
                 $this->entityManagerInterface->persist($purchaseItem);
             }
 
-            //! START : Stripe checkout
+            //! START: Stripe checkout
             // If the payment method chosen by the user have the value of the PHP constant CHECKOUT_METHOD_CREDIT_CARD we start a Stripe checkout. 
             if ($form->get('checkoutMethod')->getData() === Purchase::CHECKOUT_METHOD_CREDIT_CARD) {
                 // We create a new StripeCheckout with in argument the value of the environnement variable STRIPE_SECRET_KEY, the UrlGeneratorInterface and the EntityManagerInterface.
@@ -194,8 +190,8 @@ class PurchaseController extends AbstractController
                 // We call the startStripeCheckout() method of the SripeCheckout service with the cart, the purchase, the delivery mode price and the delivery mode description in argument so that the method return us the URL of the Stripe interface on wich we redirect the user.
                 return $this->redirect($stripeSession['url']);
             }
-            //! END : Stripe checkout 
-            // TODO #3 START : Paypal checkout
+            //! END: Stripe checkout 
+            // TODO #3 START: Paypal checkout
             // Else if the payment method chosen by the user have the value of the PHP constant CHECKOUT_METHOD_PAYPAL we start a Paypal checkout. 
             else if ($form->get('checkoutMethod')->getData() === Purchase::CHECKOUT_METHOD_PAYPAL) {
                 // We create a new PaypalCheckout with in argument the cart.
@@ -203,9 +199,9 @@ class PurchaseController extends AbstractController
                 // We call the showUserInterface() method of the PaypalCheckout service. 
                 $paypalCheckout->showUserInterface();
             }
-            // TODO #3 END : Paypal checkout
+            // TODO #3 END: Paypal checkout
 
-            //! START : if no checkout
+            //! START: if no checkout
             // // We call the flush() method of the EntityManagerInterface to backup the data in the database.
             // $this->entityManagerInterface->flush();
 
@@ -219,7 +215,7 @@ class PurchaseController extends AbstractController
             //     // We specify the related HTTP response status code.
             //     301
             // );
-            //! END : if no checkout. 
+            //! END: if no checkout. 
         }
 
         // We display our template.
@@ -259,15 +255,15 @@ class PurchaseController extends AbstractController
         $purchases = [];
         // For each $purchase in $user->getPurchases().
         foreach ($user->getPurchases() as $purchase) {
-            //! START : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
+            //! START: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
             // // if the status of the purchase status is identical to the value of the PHP constant STATUS_ABANDONNED_CHECKOUT.
             // if ($purchase->getStatus() === Purchase::STATUS_ABANDONNED_CHECKOUT) {
             //     // We begin the next iteration of the loop so we don't put the purchase in the purchases array. 
             //     continue;
             // }
-            //! END : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
+            //! END: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
 
-            // We push each $address in the array.
+            // We push each $purchase in the array.
             $purchases[] = $purchase;
         }
 
@@ -447,9 +443,9 @@ class PurchaseController extends AbstractController
         $purchase
             // We set the purchase status with the value of the PHP constant Purchase::STATUS_PAID because the checkout is confirm. 
             ->setStatus(Purchase::STATUS_PAID);
-        // TODO START : set the bill of the purchase.
+        // TODO START: set the bill of the purchase.
 
-        // TODO END : set the bill of the purchase.
+        // TODO END: set the bill of the purchase.
 
 
 
@@ -511,7 +507,7 @@ class PurchaseController extends AbstractController
     }
 
 
-    //! START : test of templated email
+    //! START: test of templated email
     // #[Route('/emails/purchase-confirmation', name: 'purchase_confirmation', methods: 'GET')]
     // public function confimPurchaseToUser(): Response
     // {
@@ -547,6 +543,6 @@ class PurchaseController extends AbstractController
     //         new Response('', 200)
     //     );
     // }
-    //! END : test of templated email
+    //! END: test of templated email
 
 }

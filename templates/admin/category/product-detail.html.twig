@@ -8,16 +8,16 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_category_product_detail #}
+{# START: admin_category_product_detail #}
 {% block body %}
 	<section class="page">
 		<h2>{{ product.name }}
 		</h2>
 		<div
 			class="neptune">
-			{# START : card for mobile #}
+			{# START: card for mobile #}
 			<div class="saturn saturn_border-color_blue">
-				<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+				<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image-{{ product.name }}"/>
 				<p>
 					{{ product.name }}
 				</p>
@@ -49,8 +49,8 @@
 				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
 				<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
 			</div>
-			{# END : card for mobile #}
-			{# START : table for desktop #}
+			{# END: card for mobile #}
+			{# START: table for desktop #}
 			<table class="table table-product table_background-color_blue table_color_white table_border-color_blue">
 				<thead>
 					<tr>
@@ -61,7 +61,7 @@
 				<tbody>
 					<tr>
 						<th>Image</th>
-						<td><img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"></td>
+						<td><img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image-{{ product.name }}"></td>
 					</tr>
 					<tr>
 						<th>Nom</th>
@@ -111,4 +111,4 @@
 		</tbody>
 	</table>
 </div>
-{# END : table for desktop #}</section>{% endblock %}{# START : admin_category_product_detail #}
+{# END: table for desktop #}</section>{% endblock %}{# START: admin_category_product_detail #}

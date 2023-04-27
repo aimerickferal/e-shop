@@ -348,7 +348,7 @@ class AdminProductController extends AbstractController
             );
         }
 
-        //! START : if we use the API
+        //! START: if we use the API
         // // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
         // $this->entityManagerInterface->remove($product);
         // // We call the flush() method of the EntityManagerInterface to backup the data in the database.
@@ -365,6 +365,6 @@ class AdminProductController extends AbstractController
         //     // We specify the related HTTP response status code.
         //     301
         // );
-        //! END : if we use the API
+        //! END: if we use the API
     }
 }

@@ -35,9 +35,9 @@ class UserController extends AbstractController
          */
         $user = $this->getUser();
 
-        // TODO #2 START : solve issue on switch civilityTitle.  
+        // TODO #2 START: solve issue on switch civilityTitle.  
         // dd($user->getCivilityTitle());
-        // TODO #2 END : solve issue on switch civilityTitle.   
+        // TODO #2 END: solve issue on switch civilityTitle.   
 
         // We create the form.
         $form = $this->createForm(UserType::class, $user);
@@ -46,10 +46,10 @@ class UserController extends AbstractController
 
         // If the form is submitted and valid. 
         if ($form->isSubmitted() && $form->isValid()) {
-            // TODO #2 END : solve issue on switch civilityTitle.   
+            // TODO #2 END: solve issue on switch civilityTitle.   
             // dump($user->getCivilityTitle());
             // dd(42);
-            // TODO #2 END : solve issue on switch civilityTitle.
+            // TODO #2 END: solve issue on switch civilityTitle.
 
             // We call the uploadFile() method of the FileUploader service to upload the picture submitted by the user. 
             $picture = $fileUploader->uploadFile($form, 'upload');
@@ -102,12 +102,12 @@ class UserController extends AbstractController
                 }
             }
 
-            // TODO #2 START : solve issue on switch civilityTitle.  
+            // TODO #2 START: solve issue on switch civilityTitle.  
             // The civility title doesn't switch normaly like all the other properties.
             // If we use onPreSubmit() in UserType.php : the civility title switch correctly to the new one. 
             // If don't use onPreSubmit() in UserType.php : the civility title doesn't switch, he keep is hold value.
             // Why we have to use onPreSubmit() so that the civility title switch correctly ? 
-            // TODO #2 END : solve issue on switch civilityTitle.    
+            // TODO #2 END: solve issue on switch civilityTitle.    
             // }
 
             // We call the flush() method of the EntityManagerInterface to backup the data in the database. 
@@ -207,7 +207,7 @@ class UserController extends AbstractController
         }
     }
 
-    //! START : user account deactivation
+    //! START: user account deactivation
     // /** 
     //  * Method that allow a user to delete is account. 
     //  * @return Response
@@ -224,7 +224,7 @@ class UserController extends AbstractController
     //         new Response('', 200)
     //     );
     // }
-    //! END : user account deactivation
+    //! END: user account deactivation
 
     /** 
      * Method that deactivate the user. 

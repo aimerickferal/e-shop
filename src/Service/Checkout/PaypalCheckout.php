@@ -19,7 +19,7 @@ class PaypalCheckout
      */
     public function showUserInterface(): string
     {
-        // TODO #3 START : Make Paypal checkout.
+        // TODO #3 START: Make Paypal checkout.
         // 6fcf417f36eA@0581f69
         // ETzID^t3
 
@@ -154,6 +154,6 @@ class PaypalCheckout
 
         dd($response);
     }
-    // TODO #3 END : Paypal checkout
+    // TODO #3 END: Paypal checkout
 
 }

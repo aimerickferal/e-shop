@@ -241,7 +241,7 @@ class MainController extends AbstractController
         );
     }
 
-    //! START : test of templated email
+    //! START: test of templated email
     // /**
     //  * ...
     //  * @return Response
@@ -298,5 +298,5 @@ class MainController extends AbstractController
     //         new Response('', 200)
     //     );
     // }
-    //! END : test of templated email
+    //! END: test of templated email
 }

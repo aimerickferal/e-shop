@@ -8,12 +8,12 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_user_detail #}
+{# START: admin_user_detail #}
 {% block body %}
 	<section class="page">
 		<h2>{{ user.firstName }}
 			{{ user.lastName }}</h2>
-		{# START : card for mobile #}
+		{# START: card for mobile #}
 		<div class="neptune">
 			<div class="saturn saturn_border-color_blue">
 				<img class="page__user-picture" src="{{ asset('assets/uploads/users/'~ user.picture) }}" alt="image {{ user.firstName }}"/>
@@ -32,8 +32,8 @@
 				<a class="page__link page__delete-link page__delete-user-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
 					Supprimer</a>
 			</div>
-			{# END : card for mobile #}
-			{# START : table for desktop #}
+			{# END: card for mobile #}
+			{# START: table for desktop #}
 			<table class="table table-user table_background-color_blue table_color_white table_border-color_blue">
 				<thead>
 					<tr>
@@ -102,8 +102,8 @@
 					</tr>
 				</tbody>
 			</table>
-			{# END : table for desktop #}
+			{# END: table for desktop #}
 		</div>
 	</section>
 {% endblock %}
-{# START : admin_user_detail #}
+{# START: admin_user_detail #}

@@ -283,7 +283,7 @@ const form = {
     form.regexMatchTenNumericCharacters = /^\d{10}$/;
     // Regex that match only value that start with the numeric value 06 or 07.
     form.regexMatchStartBy06Or07 = /^((06)|(07))[0-9]{8}$/;
-    //! START : regex not used
+    //! START: regex not used
     // Regex that match only alphabetical characters with or without diacritical marks.
     regexMatchAlphabeticalCharactersWithOrWithoutDiacriticalMarks =
       /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;

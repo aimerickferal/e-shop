@@ -5,11 +5,11 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : app_login #}
+{# START: app_login #}
 {% block body %}
 	<section class="page">
 		<h2>Connexion</h2>
-		{# START : loginForm #}
+		{# START: loginForm #}
 		<form class="form" id="login-form" method="post">
 			{% if error %}
 				<p
@@ -61,7 +61,7 @@
 			<button class="page__button page__login-button page__submit-button page__button_background-color_blue page__button_color_white" id="login-button" type="submit">
 				Se connecter</button>
 		</form>
-		{# END : loginForm #}
+		{# END: loginForm #}
 		<div>
 			<a class="page__text-link page__link_color_blue" id="forgotten-password-link" href="#">Mot de passe oublié ?
 			</a>
@@ -70,4 +70,4 @@
 		</div>
 	</section>
 {% endblock %}
-{# START : app_login #}
+{# START: app_login #}

@@ -5,14 +5,14 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : app_sign_up #}
+{# START: app_sign_up #}
 {% block body %}
 	<section class="page">
 		<h2>Inscrpition</h2>
 		{% for flashError in app.flashes('verify_email_error') %}
 			<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 		{% endfor %}
-		{# START : signUpForm #}
+		{# START: signUpForm #}
 		{{ form_start(signUpForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'sign-up-form' }}) }}
 		{# gender #}
 		<div class="form-field">
@@ -99,7 +99,7 @@
 		{# signUpForm submit button #}
 		<button type="submit" class="page__button page__sign-up-button page__submit-button page__button_background-color_blue page__button_color_white" id="sign-up-button">S'inscrire</button>
 		{{ form_end(signUpForm) }}
-		{# END : signUpForm #}
+		{# END: signUpForm #}
 	</section>
 {% endblock %}
-{# END : app_sign_up #}
+{# END: app_sign_up #}

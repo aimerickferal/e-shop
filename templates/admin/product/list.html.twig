@@ -5,11 +5,11 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_product_list #}
+{# START: admin_product_list #}
 {% block body %}
 	<section class="page">
 		<h2>Produits</h2>
-		{# START : searchProductForm #}
+		{# START: searchProductForm #}
 		{{ form_start(searchProductForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-product-form' }}
 		) }}
 		<div class="form-field">
@@ -25,13 +25,13 @@
 			Rechercher
 		</button>
 		{{ form_end(searchProductForm) }}
-		{# END : searchProductForm #}
+		{# END: searchProductForm #}
 		<a class="page__link page__create-link  page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_product_create') }}" id="create-product-link">Créer</a>
 		<div class="neptune">
 			{% for product in products %}
-				{# START : card for mobile #}
+				{# START: card for mobile #}
 				<div class="saturn saturn_border-color_blue">
-					<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+					<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image-{{ product.name }}"/>
 					<p>{{ product.name }}</p>
 					<p>{{ product.category }}</p>
 					<p>
@@ -48,8 +48,8 @@
 					<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
 				</div>
 			{% endfor %}
-			{# END : card for mobile #}
-			{# START : table for desktop #}
+			{# END: card for mobile #}
+			{# START: table for desktop #}
 			<table class="table table-product table_background-color_blue table_color_white table_border-color_blue">
 				<thead>
 					<tr>
@@ -66,7 +66,7 @@
 					<tbody>
 						<tr>
 							<td>
-								<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+								<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image-{{ product.name }}"/>
 							</td>
 							<td>{{ product.name }}</td>
 							<td>{{ product.category }}</td>
@@ -86,8 +86,8 @@
 					</tbody>
 				{% endfor %}
 			</table>
-			{# END : table for desktop #}
+			{# END: table for desktop #}
 		</div>
 	</section>
 {% endblock %}
-{# END : admin_product_list #}
+{# END: admin_product_list #}

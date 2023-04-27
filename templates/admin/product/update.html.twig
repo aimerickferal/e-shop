@@ -7,7 +7,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_product_update #}
+{# START: admin_product_update #}
 {% block body %}
 	<section class="page">
 		<h2>Mettre à jour Produit :
@@ -16,7 +16,7 @@
 		{{ form_start(adminUpdateProductForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-product-update-form' }}) }}
 		{# picture #}
 		<div class="form-field-picture">
-			<img class="page__product-picture" src="{{ asset('assets/uploads/products/' ~ product.picture) }}" alt="image {{ product.name }}"/>
+			<img class="page__product-picture" src="{{ asset('assets/uploads/products/' ~ product.picture) }}" alt="image-{{ product.name }}"/>
 		</div>
 		{# upload #}
 		<div class="form-field">
@@ -79,7 +79,7 @@
 			Mettre à jour
 		</button>
 		{{ form_end(adminUpdateProductForm) }}
-		{# END : adminUpdateProductForm #}
+		{# END: adminUpdateProductForm #}
 	</section>
 {% endblock %}
-{# END : admin_product_update #}
+{# END: admin_product_update #}

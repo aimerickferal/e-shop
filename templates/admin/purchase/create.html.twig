@@ -8,7 +8,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_purchase_create #}
+{# START: admin_purchase_create #}
 {% block body %}
 	<section class="page">
 		<h2>
@@ -16,7 +16,7 @@
 			{{ user.firstName }}
 			{{ user.lastName }}
 		</h2>
-		{# START : adminCreatePurchaseForm #}
+		{# START: adminCreatePurchaseForm #}
 		{{ form_start(adminCreatePurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'admin-purchase-create-form' }}) }}
 		{# status #}
 		<div class="form-field">
@@ -72,7 +72,7 @@
 			Créer
 		</button>
 		{{ form_end(adminCreatePurchaseForm) }}
-		{# END : adminCreatePurchaseForm #}
+		{# END: adminCreatePurchaseForm #}
 	</section>
 {% endblock %}
-{# END : admin_purchase_create #}
+{# END: admin_purchase_create #}

@@ -8,13 +8,13 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_address_create #}
+{# START: admin_address_create #}
 {% block body %}
 	<section class="page">
 		<h2>Créer une Adresse :
 			{{ user.firstName }}
 			{{ user.lastName }}</h2>
-		{# START : adminCreateAddressForm #}
+		{# START: adminCreateAddressForm #}
 		{{ form_start(adminCreateAddressForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-address-create-form' }}) }}
 		{# firstName #}
 		<div class="form-field">
@@ -93,7 +93,7 @@
 			Créer
 		</button>
 		{{ form_end(adminCreateAddressForm) }}
-		{# END : adminCreateAddressForm #}
+		{# END: adminCreateAddressForm #}
 	</section>
 {% endblock %}
-{# END : admin_address_create #}
+{# END: admin_address_create #}

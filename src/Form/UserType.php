@@ -80,7 +80,7 @@ class UserType extends AbstractType
         // We get the data of the user.
         $user = $event->getData();
 
-        // TODO #2 START : solve issue on switch civilityTitle. 
+        // TODO #2 START: solve issue on switch civilityTitle. 
         // dump($user);
         // dd($user['civilityTitle']);
 
@@ -94,7 +94,7 @@ class UserType extends AbstractType
                 'data' => $user['civilityTitle'],
                 'expanded' => true,
             ]);
-        // TODO #2 END : solve issue on switch civilityTitle.  
+        // TODO #2 END: solve issue on switch civilityTitle.  
 
         // We set the data of the event with the new data of the user.
         $event->setData($user);

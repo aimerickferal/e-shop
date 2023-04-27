@@ -7,9 +7,9 @@
 - add img size in % as much as possible if not use em
 - check if image-link improvements is possible
 - Fix delete Product blocked by the PurchaseItem constraint
-- TODO #4 START : handle catch $errors in the uploadPicture() method of FileUploader service.
-- TODO #3 START : Make Paypal checkout.
-- TODO #2 START : solve issue on switch civilityTitle.
+- TODO #4 START: handle catch $errors in the uploadPicture() method of FileUploader service.
+- TODO #3 START: Make Paypal checkout.
+- TODO #2 START: solve issue on switch civilityTitle.
 - Test reset password feature
 - Fix delete my user account feature : id = delete-my-user-account-link
 

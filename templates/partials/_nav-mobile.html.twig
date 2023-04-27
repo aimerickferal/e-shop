@@ -1,4 +1,4 @@
-{# START : NAV MOBILE #}
+{# START: NAV MOBILE #}
 <nav class="nav-mobile">
 	<ul>
 		<li class="nav__item nav-mobile__item nav-mobile__item_border-top nav-mobile__item_border-top-color_blue">
@@ -7,7 +7,7 @@
 		<li class="nav__item nav-mobile__item nav-mobile__item_border-top nav-mobile__item_border-top-color_blue">
 			<a class="nav__link nav__mobile-link" href="{{ path('category_list') }}">Catégories</a>
 		</li>
-		{# START : admin access #}
+		{# START: admin access #}
 		{% if is_granted('ROLE_ADMIN') %}
 			<li class="nav__item nav-mobile__item nav-mobile__item_border-top nav-mobile__item_border-top-color_blue">
 				<a class="nav__link nav__mobile-link" href="{{ path('admin_dashboard') }}">Dashboard</a>
@@ -31,7 +31,7 @@
 				<a class="nav__link nav__mobile-link" href="{{ path('admin_delivery_mode_list') }}">Gestion Modes de Livraison</a>
 			</li>
 		{% endif %}
-		{# END : admin access #}
+		{# END: admin access #}
 		{% if app.user %}
 			<li class="nav__item nav-mobile__item nav-mobile__item_border-top nav-mobile__item_border-bottom nav-mobile__item_border-top-color_blue nav-mobile__item_border-bottom-color_blue">
 				<a class="page__mobile-logout-link page__link_color_red" id="mobile-logout-link" href="{{ path('app_logout') }}">Déconnexion</a>
@@ -49,4 +49,4 @@
 		{% endif %}
 	</ul>
 </nav>
-{# END : NAV MOBILE #}
+{# END: NAV MOBILE #}

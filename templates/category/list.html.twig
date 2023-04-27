@@ -5,11 +5,11 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : category_list #}
+{# START: category_list #}
 {% block body %}
 	<section class="page">
 		<h2>Nos Catégories</h2>
-		{# START : searchCategoryForm #}
+		{# START: searchCategoryForm #}
 		{{ form_start(searchCategoryForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'category-search-form' }}
 		) }}
 		<div class="form-field">
@@ -24,7 +24,7 @@
 			Rechercher
 		</button>
 		{{ form_end(searchCategoryForm) }}
-		{# END : searchCategoryForm #}
+		{# END: searchCategoryForm #}
 		<div class="neptune">
 			{% for category in categories %}
 				<div class="square square_border-color_blue">
@@ -34,4 +34,4 @@
 		</div>
 	</section>
 {% endblock %}
-{# END : category_list #}
+{# END: category_list #}

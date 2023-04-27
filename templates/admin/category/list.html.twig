@@ -5,11 +5,11 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_category_list #}
+{# START: admin_category_list #}
 {% block body %}
 	<section class="page">
 		<h2>Catégories</h2>
-		{# START : searchCategoryForm #}
+		{# START: searchCategoryForm #}
 		{{ form_start(searchCategoryForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'category-search-form' }}
 		) }}
 		<div class="form-field">
@@ -25,11 +25,11 @@
 			Rechercher
 		</button>
 		{{ form_end(searchCategoryForm) }}
-		{# END : searchCategoryForm #}
+		{# END: searchCategoryForm #}
 		<a class="page__link page__create-link page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_category_create') }}" id="create-category-link">Créer</a>
 		<div class="neptune">
 			{% for category in categories %}
-				{# START : card for mobile #}
+				{# START: card for mobile #}
 				<div class="saturn saturn_border-color_blue">
 					<p>{{ category.name }}</p>
 					<a class="page__text-link page__link_color_blue" href="{{ path('admin_category_product_list', {'slug': category.slug}) }}">Liste  des
@@ -39,8 +39,8 @@
 					<a class=" page__link page__delete-link page__delete-link-category page__link_background-color_red page__link_color_white" href="{{ path('admin_category_delete', {'id':category.id, 'token':csrf_token('admin-category-delete' ~ category.id)} ) }}" data-categoryname="{{ category.name }}">Supprimer</a>
 				</div>
 			{% endfor %}
-			{# END : card for mobile #}
-			{# START : table for desktop #}
+			{# END: card for mobile #}
+			{# START: table for desktop #}
 			<table class="table table-category table_background-color_blue table_color_white table_border-color_blue">
 				<thead>
 					<tr>
@@ -67,8 +67,8 @@
 					</tbody>
 				{% endfor %}
 			</table>
-			{# END : table for desktop #}
+			{# END: table for desktop #}
 		</div>
 	</section>
 {% endblock %}
-{# START : admin_category_list #}
+{# START: admin_category_list #}

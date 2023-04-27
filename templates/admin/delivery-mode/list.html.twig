@@ -5,11 +5,11 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_delivery_mode_list #}
+{# START: admin_delivery_mode_list #}
 {% block body %}
 	<section class="page">
 		<h2>Modes de Livraison</h2>
-		{# START : searchProductForm #}
+		{# START: searchProductForm #}
 		{{ form_start(searchDeliveryModeForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'delivery-mode-search-form' }}
 		) }}
 		{# Name #}
@@ -26,11 +26,11 @@
 			Rechercher
 		</button>
 		{{ form_end(searchDeliveryModeForm) }}
-		{# END : searchProductForm #}
+		{# END: searchProductForm #}
 		<a class="page__link page__create-link  page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_delivery_mode_create') }}" id="create-delivery-mode-link">Créer</a>
 		<div class="neptune">
 			{% for deliveryMode in deliveryModes %}
-				{# START : card for mobile #}
+				{# START: card for mobile #}
 				<div class="saturn saturn_border-color_blue">
 					<img class="page__delivery-mode-picture" src="{{ asset('assets/uploads/delivery-modes/'~ deliveryMode.picture) }}" alt="image {{ deliveryMode.name }}"/>
 					<p>{{ deliveryMode.name }}</p>
@@ -43,8 +43,8 @@
 					<a class="page__link page__delete-link page__delete-link-delivery-mode page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
 				</div>
 			{% endfor %}
-			{# END : card for mobile #}
-			{# START : table for desktop #}
+			{# END: card for mobile #}
+			{# START: table for desktop #}
 			<table class="table table-delivery-mode table_background-color_blue table_color_white table_border-color_blue">
 				<thead>
 					<tr>
@@ -76,8 +76,8 @@
 					</tbody>
 				{% endfor %}
 			</table>
-			{# END : table for desktop #}
+			{# END: table for desktop #}
 		</div>
 	</section>
 {% endblock %}
-{# END : admin_delivery_mode_list #}
+{# END: admin_delivery_mode_list #}

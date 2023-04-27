@@ -10,7 +10,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_purchase_update #}
+{# START: admin_purchase_update #}
 {% block body %}
 	<section class="page">
 		<h2>
@@ -20,7 +20,7 @@
 			{{ user.firstName }}
 			{{ user.lastName }}
 		</h2>
-		{# START : adminUpdatePurchaseForm #}
+		{# START: adminUpdatePurchaseForm #}
 		{{ form_start(adminUpdatePurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-purchase-update-form' }}) }}
 		{# status #}
 		<div class="form-field">
@@ -48,7 +48,7 @@
 			Mettre à jour
 		</button>
 		{{ form_end(adminUpdatePurchaseForm) }}
-		{# END : adminUpdatePurchaseForm #}
+		{# END: adminUpdatePurchaseForm #}
 	</section>
 {% endblock %}
-{# END : admin_purchase_update #}
+{# END: admin_purchase_update #}

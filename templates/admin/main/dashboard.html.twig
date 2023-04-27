@@ -5,7 +5,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_dashboard #}
+{# START: admin_dashboard #}
 {% block body %}
 	<section class="page">
 		<h2>Dashboard</h2>
@@ -19,18 +19,18 @@
 					Administrateurs
 				</p>
 				{# <p>
-									{{ numberOfUsers }}
-									Utilisateurs
-								</p>
-								<p>
-									{{ users }}
-									Utilisateurs avec un rôle Utilisateur
-								</p>
-								<p>
-									{{ admins }}
-									Utilisateur avec un rôle Administrateur
-								</p>
-								<a class="page__link square__link page__link_color_blue" href="#">Utilisateurs désactivés</a> #}
+													{{ numberOfUsers }}
+													Utilisateurs
+												</p>
+												<p>
+													{{ users }}
+													Utilisateurs avec un rôle Utilisateur
+												</p>
+												<p>
+													{{ admins }}
+													Utilisateur avec un rôle Administrateur
+												</p>
+												<a class="page__link square__link page__link_color_blue" href="#">Utilisateurs désactivés</a> #}
 				<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_statistics') }}">Statistiques</a>
 			</div>
 			<div class="square square_border-color_blue">
@@ -71,4 +71,4 @@
 		</div>
 	</section>
 {% endblock %}
-{# START : admin_dashboard #}
+{# START: admin_dashboard #}

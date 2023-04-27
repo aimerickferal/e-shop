@@ -8,7 +8,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : address_detail #}
+{# START: address_detail #}
 {% block body %}
 	<section class="page">
 		<h2>Adresse :
@@ -17,7 +17,7 @@
 		</h2>
 		<div
 			class="neptune">
-			{# START : card for mobile #}
+			{# START: card for mobile #}
 			<div class="saturn saturn_border-color_blue">
 				<p>
 					{{ address.firstName }}
@@ -41,8 +41,8 @@
 				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('address_update', {'id': address.id}) }}">Modifier</a>
 				<a class="page__link page__delete-link page__delete-address-link page__link_background-color_red page__link_color_white" href="{{ path('address_delete', {'id': address.id, 'token':csrf_token('address-delete' ~ address.id)} ) }}" data-userfirstname="{{ address.user.firstName }}" data-userlastname="{{ address.user.lastName }}">Supprimer</a>
 			</div>
-			{# END : card for mobile #}
-			{# START : table for desktop #}
+			{# END: card for mobile #}
+			{# START: table for desktop #}
 			<table class="table table-address table_background-color_blue table_color_white table_border-color_blue">
 				<thead>
 					<tr>
@@ -94,8 +94,8 @@
 					</tr>
 				</tbody>
 			</table>
-			{# END : table for desktop #}
+			{# END: table for desktop #}
 		</div>
 	</section>
 {% endblock %}
-{# START : address_detail #}
+{# START: address_detail #}

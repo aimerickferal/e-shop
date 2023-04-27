@@ -187,7 +187,7 @@ class AdminPurchaseController extends AbstractController
         // We find all the purchases.
         $purchases = $this->purchaseRepository->findAll();
 
-        //! START : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
+        //! START: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
         // // For each purchase in $purchases.
         // foreach ($purchases as $index => $purchase) {
         //     // if the status of the purchase status is identical to the value of the PHP constant STATUS_ABANDONNED_CHECKOUT.
@@ -196,7 +196,7 @@ class AdminPurchaseController extends AbstractController
         //         unset($purchases[$index]);
         //     }
         // }
-        //! END : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
+        //! END: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
 
         // If we don't find any purchase.
         if (!$purchases) {
@@ -274,13 +274,13 @@ class AdminPurchaseController extends AbstractController
         $references = [];
         // For each $purchase in $user->getPurchases().
         foreach ($user->getPurchases() as $purchase) {
-            //! START : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
+            //! START: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
             // // if the status of the purchase status is identical to the value of the PHP constant STATUS_ABANDONNED_CHECKOUT.
             // if ($purchase->getStatus() === Purchase::STATUS_ABANDONNED_CHECKOUT) {
             //     // We begin the next iteration of the loop so we don't put the purchase in the purchases array. 
             //     continue;
             // }
-            //! END : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
+            //! END: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
 
             // We push each $purchase in the array .
             $purchases[] = $purchase;
@@ -656,7 +656,7 @@ class AdminPurchaseController extends AbstractController
             );
         }
 
-        //! START : if we use the API
+        //! START: if we use the API
         // // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
         // $this->entityManagerInterface->remove($purchase);
         // // We call the flush() method of the EntityManagerInterface to backup the data in the database.
@@ -675,7 +675,7 @@ class AdminPurchaseController extends AbstractController
         //     // We specify the related HTTP response status code.
         //     301
         // );
-        //! END : if we use the API
+        //! END: if we use the API
     }
 
     /**

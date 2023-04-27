@@ -8,14 +8,14 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_purchase_user_list #}
+{# START: admin_purchase_user_list #}
 {% block body %}
 	<section class="page">
 		<h2>Commandes :
 			{{ user.firstName }}
 			{{ user.lastName }}
 		</h2>
-		{# START : searchPurchaseForm #}
+		{# START: searchPurchaseForm #}
 		{{ form_start(searchPurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'purchase-search-form' }}
 		) }}
 		<div class="form-field">
@@ -33,11 +33,11 @@
 			Rechercher
 		</button>
 		{{ form_end(searchPurchaseForm) }}
-		{# END : searchPurchaseForm #}
+		{# END: searchPurchaseForm #}
 		<a class="page__link page__create-link page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_purchase_create', {'id': user.id}) }}" id="create-purchase-link">Créer</a>
 		<div
 			class="neptune">
-			{# START : card for mobile #}
+			{# START: card for mobile #}
 			{% for purchase in purchases %}
 				<div class="saturn saturn_border-color_blue">
 					<p>
@@ -74,8 +74,8 @@
 					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_purchase_update', {'userId': user.id, 'reference': purchase.reference}) }}?returnToAdminPurchaseUserList=true">Modifier</a>
 				</div>
 			{% endfor %}
-			{# END : card for mobile #}
-			{# START : table for desktop #}
+			{# END: card for mobile #}
+			{# START: table for desktop #}
 			<table class="table table-purchase table_background-color_blue table_color_white table_border-color_blue">
 				<thead>
 					<tr>
@@ -127,8 +127,8 @@
 					</tbody>
 				{% endfor %}
 			</table>
-			{# END : table for desktop #}
+			{# END: table for desktop #}
 		</div>
 	</section>
 {% endblock %}
-{# START : admin_purchase_user_list #}
+{# START: admin_purchase_user_list #}

@@ -5,7 +5,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : contact #}
+{# START: contact #}
 {% block body %}
 	<section class="page">
 		<h2>Informations</h2>
@@ -16,7 +16,7 @@
 			<a class="page__link-text page__link_color_blue" id="contact-email-link" href="mailto:contact@eshop.fr">contact@eshop.fr</a>
 		</div>
 		<h2>Contactez-nous</h2>
-		{# START : contactForm #}
+		{# START: contactForm #}
 		{{ form_start(contactForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'contact-form' }}) }}
 		{# subject #}
 		<div class="form-field">
@@ -103,7 +103,7 @@
 		{# Submit button #}
 		<button type="submit" class="page__button page__contact-button page__submit-button page__button_background-color_blue page__button_color_white" id="contact-button">Envoyer</button>
 		{{ form_end(contactForm) }}
-		{# END : contactForm #}
+		{# END: contactForm #}
 	</section>
 {% endblock %}
-{# END : contact #}
+{# END: contact #}

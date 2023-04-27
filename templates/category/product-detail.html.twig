@@ -8,13 +8,13 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : category_product_detail #}
+{# START: category_product_detail #}
 {% block body %}
 	<section
 		class="page">
-		{# START : layout mobile #}
+		{# START: layout mobile #}
 		<div class="product-detail">
-			<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+			<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image-{{ product.name }}"/>
 			<h2>{{ product.name }}</h2>
 			<p>{{ product.price|amount }}</p>
 			<p>
@@ -27,11 +27,11 @@
 				<p class="availability unavailable availability__unavailable_color_red">Indisponible</p>
 			{% endif %}
 		</div>
-		{# END : layout mobile #}
-		{# START : layout tablet and desktop #}
+		{# END: layout mobile #}
+		{# START: layout tablet and desktop #}
 		<div class="product-detail-from-tablet">
 			<div class="product-detail-property">
-				<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+				<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image-{{ product.name }}"/>
 			</div>
 			<div class="product-detail-property">
 				<h2>{{ product.name }}</h2>
@@ -48,7 +48,7 @@
 
 			</div>
 		</div>
-		{# END : layout tablet and desktop #}
+		{# END: layout tablet and desktop #}
 	</section>
 {% endblock %}
-{# END : category_product_detail #}
+{# END: category_product_detail #}

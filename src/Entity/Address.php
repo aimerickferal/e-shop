@@ -77,7 +77,6 @@ class Address
     {
         $this->createdAt = new DateTimeImmutable();
         $this->updatedAt = new DateTimeImmutable();
-        // $this->purchases = new ArrayCollection();
     }
 
     public function __toString()

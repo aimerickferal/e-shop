@@ -7,11 +7,11 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : admin_category_detail #}
+{# START: admin_category_detail #}
 {% block body %}
 	<section class="page">
 		<h2>{{ category.name }}</h2>
-		{# START : card for mobile #}
+		{# START: card for mobile #}
 		<div class="neptune">
 			<div class="saturn saturn_border-color_blue">
 				<p>{{ category.name }}</p>
@@ -28,8 +28,8 @@
 				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_category_update', {'slug': category.slug}) }}">Modifier</a>
 				<a class="page__link page__delete-link page__delete-link-category page__link_background-color_red page__link_color_white" href="{{ path('admin_category_delete', {'id':category.id, 'token':csrf_token('admin-category-delete' ~ category.id)} ) }}" data-categoryname="{{ category.name }}">Supprimer</a>
 			</div>
-			{# END : card for mobile #}
-			{# START : table for desktop #}
+			{# END: card for mobile #}
+			{# START: table for desktop #}
 			<table class="table table-category table_background-color_blue table_color_white table_border-color_blue">
 				<thead>
 					<tr>
@@ -69,8 +69,8 @@
 					</tr>
 				</tbody>
 			</table>
-			{# END : table for desktop #}
+			{# END: table for desktop #}
 		</div>
 	</section>
 {% endblock %}
-{# START : admin_category_detail #}
+{# START: admin_category_detail #}

@@ -5,11 +5,11 @@
 	{{ parent() }}
 {% endblock %}
 
-{# START : home #}
+{# START: home #}
 {% block body %}
 	<section class="page">
 		<h2>Nos Produits</h2>
-		{# START : searchProductForm #}
+		{# START: searchProductForm #}
 		{{ form_start(searchProductForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-product-form' }}
 		) }}
 		<div class="form-field">
@@ -24,12 +24,12 @@
 			Rechercher
 		</button>
 		{{ form_end(searchProductForm) }}
-		{# END : searchProductForm #}
+		{# END: searchProductForm #}
 		<div class="neptune">
 			{% for product in products %}
 				<div class="venus">
 					<a class="image-link" href="{{ path('product_detail', {'slug': product.slug}) }}">
-						<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image {{ product.name }}"/>
+						<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image-{{ product.name }}"/>
 					</a>
 					<p>{{ product.name }}</p>
 					<p>{{ product.price|amount }}</p>
@@ -45,4 +45,4 @@
 		</div>
 	</section>
 {% endblock %}
-{# END : home #}
+{# END: home #}

@@ -171,10 +171,10 @@ class CartController extends AbstractController
 
         // If we find a purchase with a status equal to the the value of the PHP constant Purchase::STATUS_PENDING_CHECKOUT that mean that the user has abandoned the checkout process and the purchase status remained with the value of the PHP constant Purchase::STATUS_PENDING_CHECKOUT that wat set in the purchase() method of the PurchaseController.
         if ($purchase) {
-            //! START : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
+            //! START: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
             // // We set the purchase status with the value of the PHP constant Purchase::STATUS_ABANDONNED_CHECKOUT.
             // $purchase->setStatus(Purchase::STATUS_ABANDONNED_CHECKOUT);
-            //! END : purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
+            //! END: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
 
             // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
             $entityManagerInterface->remove($purchase);
@@ -296,7 +296,7 @@ class CartController extends AbstractController
     {
         // We find the product by is id.
         $product = $this->productRepository->find($id);
-        
+
         // If we don't find any product.
         if (!$product) {
             // We display a flash message for the user.
