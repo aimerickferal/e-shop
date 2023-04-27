@@ -38,7 +38,6 @@ class AdminUserController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We set the hashed password to the user.
             $user->setPassword(
@@ -48,7 +47,7 @@ class AdminUserController extends AbstractController
                 )
             );
 
-            // We call the uploadFile() method of the FileUploader service to upload the picture submitted by the user.
+            // We upload the picture submitted by the user.
             $picture = $this->fileUploader->uploadFile($form, 'picture');
 
             // If we have a picture to upload.
@@ -70,9 +69,9 @@ class AdminUserController extends AbstractController
                 }
             }
 
-            // We call the persit() method of the EntityManagerInterface to put on hold the data.
+            // We put on hold the data.
             $this->entityManagerInterface->persist($user);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -134,7 +133,6 @@ class AdminUserController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the user by its last name.
             $users = $this->userRepository->findUserByLastName($search);
@@ -202,9 +200,8 @@ class AdminUserController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
-            // We call the uploadFile() method of the FileUploader service to upload the picture submitted by the user.
+            // We upload the picture submitted by the user.
             $picture = $this->fileUploader->uploadFile($form, 'upload');
 
             // If we have a picture to upload.
@@ -255,7 +252,7 @@ class AdminUserController extends AbstractController
                 }
             }
 
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -296,7 +293,7 @@ class AdminUserController extends AbstractController
         // We get the CSRF token.
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
-        // If the CSRF token is valid.
+
         if ($this->isCsrfTokenValid('delete-user-picture' . $user->getId(), $submittedToken)) {
             // We get the picture of the user. 
             $picture = $user->getPicture();
@@ -321,7 +318,7 @@ class AdminUserController extends AbstractController
                 $user->setPicture(User::WOMAN_PICTURE);
             }
 
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -338,7 +335,7 @@ class AdminUserController extends AbstractController
         }
         // Else the CSRF token is not valid.
         else {
-            // We redirect the user to the page 403.
+            // We redirect the user to the 403 page. 
             return new Response(
                 'Action interdite',
                 // We specify the related HTTP response status code.
@@ -402,14 +399,13 @@ class AdminUserController extends AbstractController
         // dump($request->query->get('token'));
         // dump($request->attributes->get('token'));
 
-        // If the CSRF token is valid.
         if ($this->isCsrfTokenValid('admin-user-delete' . $user->getId(), $submittedToken)) {
             // We get the picture of the user. 
             $picture = $user->getPicture();
 
             // For each $adresse in $user->getAddresses().
             foreach ($user->getAddresses() as $address) {
-                // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+                // We delete our object.
                 $this->entityManagerInterface->remove($address);
             }
 
@@ -419,9 +415,9 @@ class AdminUserController extends AbstractController
                 $purchase->setUser(null);
             }
 
-            // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+            // We delete our object.
             $this->entityManagerInterface->remove($user);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // If the picture of the user is different than User::MAN_PICTURE and than User::WOMAN_PICTURE.
@@ -447,7 +443,7 @@ class AdminUserController extends AbstractController
         }
         // Else the CSRF token is not valid.
         else {
-            // We redirect the user to the page 403.
+            // We redirect the user to the 403 page. 
             return new Response(
                 'Action interdite',
                 // We specify the related HTTP response status code.
@@ -456,9 +452,9 @@ class AdminUserController extends AbstractController
         }
 
         //! START: if we use the API
-        // // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+        // // We delete our object.
         // $this->entityManagerInterface->remove($user);
-        // // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+        // // We backup the data in the database. 
         // $this->entityManagerInterface->flush();
 
         // // We display a flash message for the user.

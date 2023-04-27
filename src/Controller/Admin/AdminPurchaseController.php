@@ -42,7 +42,7 @@ class AdminPurchaseController extends AbstractController
         // $addresses = [];
         // // For each $adresse in $user->getAddresses().
         // foreach ($user->getAddresses() as $address) {
-        //     // We push each $address in the array .
+        //     // We push each address in the array.
         //     $addresses[] = $address;
         // }
         // // If we don't find any address.
@@ -73,13 +73,11 @@ class AdminPurchaseController extends AbstractController
 
         // We create a array to backup the pictures of each delivery mode.
         $deliveryModePictures = [];
-        // For each $deliveryMode in $deliveryModeRepository->findAll().
         foreach ($deliveryModeRepository->findAll() as $deliveryMode) {
-            // We push each $deliveryModePictures in the array .
+            // We push each delivery mode pictures in the array .
             $deliveryModePictures[] = $deliveryMode->getPicture();
         }
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // If we don't find any CartItems() in the cart.
             if (!$cart->getItems()) {
@@ -125,7 +123,7 @@ class AdminPurchaseController extends AbstractController
                     ->setQuantity($cartItems->quantity)
                     ->setTotal($cartItems->getTotal());
 
-                // We call the persit() method of the EntityManagerInterface to put on hold the data.
+                // We put on hold the data.
                 $this->entityManagerInterface->persist($purchaseItem);
             }
 
@@ -138,9 +136,9 @@ class AdminPurchaseController extends AbstractController
                 $purchase->setBill($bill);
             }
 
-            // We call the persit() method of the EntityManagerInterface to put on hold the data.
+            // We put on hold the data.
             $this->entityManagerInterface->persist($purchase);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We remove the cart form the session.
@@ -220,7 +218,6 @@ class AdminPurchaseController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the purchase by its reference.
             $purchases = $this->purchaseRepository->findPurchaseByReference($search);
@@ -272,7 +269,6 @@ class AdminPurchaseController extends AbstractController
         $purchases = [];
         // We create a array to backup each reference.
         $references = [];
-        // For each $purchase in $user->getPurchases().
         foreach ($user->getPurchases() as $purchase) {
             //! START: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
             // // if the status of the purchase status is identical to the value of the PHP constant STATUS_ABANDONNED_CHECKOUT.
@@ -282,7 +278,7 @@ class AdminPurchaseController extends AbstractController
             // }
             //! END: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
 
-            // We push each $purchase in the array .
+            // We push each purchase in the array.
             $purchases[] = $purchase;
             // We push each purchase reference in the array.
             $references[] = $purchase->getReference();
@@ -312,7 +308,6 @@ class AdminPurchaseController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the purchase by its reference.
             $purchases = $this->purchaseRepository->findPurchaseByReference($search);
@@ -334,7 +329,6 @@ class AdminPurchaseController extends AbstractController
                 );
             }
 
-            // Foreach $purchase in $purchases.
             foreach ($purchases as $purchase) {
                 // If the user of the purchase is not identical to the user.
                 if ($purchase->getUser() !== $user) {
@@ -387,9 +381,8 @@ class AdminPurchaseController extends AbstractController
 
         // We create a array to backup each purchase item.
         $purchaseItems = [];
-        // For each $adresse in $purchase->getAddresses().
         foreach ($purchase->getPurchaseItems() as $purchaseItem) {
-            // We push each $address in the array .
+            // We push each address in the array.
             $purchaseItems[] = $purchaseItem;
         }
 
@@ -439,9 +432,8 @@ class AdminPurchaseController extends AbstractController
 
         // We create a array to backup each purchase item.
         $purchaseItems = [];
-        // For each $adresse in $purchase->getAddresses().
         foreach ($purchase->getPurchaseItems() as $purchaseItem) {
-            // We push each $address in the array .
+            // We push each address in the array.
             $purchaseItems[] = $purchaseItem;
         }
 
@@ -540,7 +532,6 @@ class AdminPurchaseController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We call the uploadFile() method of the FileUploader service to upload the bill submited by the user.
             $bill = $this->fileUploader->uploadFile($form, 'upload');
@@ -565,9 +556,9 @@ class AdminPurchaseController extends AbstractController
                 $purchase->setBill($purchase->getBill());
             }
 
-            // We call the persit() method of the EntityManagerInterface to put on hold the data.
+            // We put on hold the data.
             $this->entityManagerInterface->persist($purchase);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -625,11 +616,10 @@ class AdminPurchaseController extends AbstractController
         // We get the CSRF token.
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
-        // If the CSRF token is valid.
         if ($this->isCsrfTokenValid('admin-purchase-delete' . $purchase->getId(), $submittedToken)) {
-            // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+            // We delete our object.
             $this->entityManagerInterface->remove($purchase);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -648,7 +638,7 @@ class AdminPurchaseController extends AbstractController
         }
         // Else the CSRF token is not valid.
         else {
-            // We redirect the user to the page 403.
+            // We redirect the user to the 403 page. 
             return new Response(
                 'Action interdite',
                 // We specify the related HTTP response status code.
@@ -657,9 +647,9 @@ class AdminPurchaseController extends AbstractController
         }
 
         //! START: if we use the API
-        // // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+        // // We delete our object.
         // $this->entityManagerInterface->remove($purchase);
-        // // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+        // // We backup the data in the database. 
         // $this->entityManagerInterface->flush();
 
         // // We display a flash message for the user.

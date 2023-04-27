@@ -43,6 +43,7 @@ class PurchaseController extends AbstractController
     {
         // We get all the CartItems that exist in the cart.
         $cartItems = $this->cart->getItems();
+
         // If we don't find any cart items.
         if (!$cartItems) {
             // We display a flash message for the user.
@@ -67,7 +68,7 @@ class PurchaseController extends AbstractController
         // We create a array to backup each address.
         $addresses = [];
         foreach ($user->getAddresses() as $address) {
-            // We push each $address in the array .
+            // We push each address in the array.
             $addresses[] = $address;
         }
         // If we don't find any addresses.
@@ -90,9 +91,9 @@ class PurchaseController extends AbstractController
         // We create a array to backup the pictures of each delivery mode.
         $deliveryModePictures = [];
         foreach ($deliveryModeRepository->findAll() as $deliveryMode) {
-            // We push each $deliveryModePrices in the array.
+            // We push each delivery mode prices in the array.
             $deliveryModePrices[] = $deliveryMode->getPrice();
-            // We push each $deliveryModePictures in the array .
+            // We push each delivery mode pictures in the array .
             $deliveryModePictures[] = $deliveryMode->getPicture();
         }
 
@@ -147,7 +148,7 @@ class PurchaseController extends AbstractController
                 // We set the bill of the purchase with the value of the PHP constant Purchase::BILL_BY_DEFAULT because the payment has not yet been made and therefore the purchase is not yet confirmed so it should not have a specific bill. 
                 ->setBill(Purchase::BILL_BY_DEFAULT);
 
-            // We call the persit() method of the EntityManagerInterface to put on hold the data.
+            // We put on hold the data.
             $this->entityManagerInterface->persist($purchase);
 
             foreach ($this->cart->getItems() as $cartItems) {
@@ -163,7 +164,7 @@ class PurchaseController extends AbstractController
                     ->setQuantity($cartItems->quantity)
                     ->setTotal($cartItems->getTotal());
 
-                // We call the persit() method of the EntityManagerInterface to put on hold the data.
+                // We put on hold the data.
                 $this->entityManagerInterface->persist($purchaseItem);
             }
 
@@ -184,7 +185,7 @@ class PurchaseController extends AbstractController
                 // We set the Stripe Session Id to the purchase.
                 $purchase->setStripeSessionId($stripeSession['id']);
 
-                // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+                // We backup the data in the database. 
                 $this->entityManagerInterface->flush();
 
                 // We call the startStripeCheckout() method of the SripeCheckout service with the cart, the purchase, the delivery mode price and the delivery mode description in argument so that the method return us the URL of the Stripe interface on wich we redirect the user.
@@ -202,7 +203,7 @@ class PurchaseController extends AbstractController
             // TODO #3 END: Paypal checkout
 
             //! START: if no checkout
-            // // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // // We backup the data in the database. 
             // $this->entityManagerInterface->flush();
 
             // // We redirect the user.
@@ -289,7 +290,6 @@ class PurchaseController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the purchase by its reference.
             $purchases = $this->purchaseRepository->findPurchaseByReference($search);
@@ -371,9 +371,8 @@ class PurchaseController extends AbstractController
 
         // We create a array to backup each purchase item.
         $purchaseItems = [];
-        // For each $adresse in $purchase->getAddresses().
         foreach ($purchase->getPurchaseItems() as $purchaseItem) {
-            // We push each $address in the array .
+            // We push each address in the array.
             $purchaseItems[] = $purchaseItem;
         }
 
@@ -449,7 +448,7 @@ class PurchaseController extends AbstractController
 
 
 
-        // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+        // We backup the data in the database. 
         $this->entityManagerInterface->flush();
 
         // We remove the cart form the session.
@@ -457,7 +456,6 @@ class PurchaseController extends AbstractController
 
         // We create a array to backup each purchase items.
         $purchaseItems = [];
-        // For each $purchaseItem in $purchase->getPurchaseItems().
         foreach ($purchase->getPurchaseItems() as $purchaseItem) {
             // We push each $purchaseItem in the array.
             $purchaseItems[] = $purchaseItem;

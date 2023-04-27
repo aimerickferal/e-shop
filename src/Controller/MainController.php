@@ -58,7 +58,6 @@ class MainController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid. 
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the product by its name.
             $products = $productRepository->findProductByName($search);
@@ -108,7 +107,6 @@ class MainController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid. 
         if ($form->isSubmitted() && $form->isValid()) {
             // We call the sendEmailFromUser() method of the Email service with the value of $form->getData() in argument.
             $email->sendEmailFromUser($form->getData());

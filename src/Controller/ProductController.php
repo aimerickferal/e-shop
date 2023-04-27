@@ -57,7 +57,6 @@ class ProductController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid. 
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the product by its name.
             $products = $this->productRepository->findProductByName($search);

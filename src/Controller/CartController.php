@@ -36,6 +36,7 @@ class CartController extends AbstractController
     {
         // We find the product by is id.
         $product = $this->productRepository->find($id);
+
         // If we don't find any product.
         if (!$product) {
             // We display a flash message for the user.
@@ -56,7 +57,6 @@ class CartController extends AbstractController
 
         // We create a array with our return values which is indicate in each link to add a product to the cart.  
         $retunValues = ['returnToHome', 'returnToProductList', 'returnToProductDetail', 'returnToCategoryProductList', 'returnToCategoryProductDetail', 'returnToAdminPurchaseCreate'];
-        // For each $value in $retunValues.
         foreach ($retunValues as $value) {
             // If the query of the request contain one of the $retunValues.
             if ($request->query->get($value)) {
@@ -176,10 +176,10 @@ class CartController extends AbstractController
             // $purchase->setStatus(Purchase::STATUS_ABANDONNED_CHECKOUT);
             //! END: purchase backup with a status value to STATUS_ABANDONNED_CHECKOUT.
 
-            // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+            // We delete our object.
             $entityManagerInterface->remove($purchase);
 
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $entityManagerInterface->flush();
 
             // // We display a flash message for the user.
@@ -209,9 +209,8 @@ class CartController extends AbstractController
 
         // We create a array to backup the prices of each delivery mode. 
         $deliveryModePrices = [];
-        // For each $deliveryMode in $deliveryModeRepository->findAll().
         foreach ($deliveryModeRepository->findAll() as $deliveryMode) {
-            // We push each $deliveryModePrices in the array .
+            // We push each delivery mode prices in the array .
             $deliveryModePrices[] = $deliveryMode->getPrice();
         }
         // We use the PHP function min() to find lowest value in $deliveryModePrices.  
@@ -255,6 +254,7 @@ class CartController extends AbstractController
     {
         // We find the product by is id.
         $product = $this->productRepository->find($id);
+        
         // If we don't find any product.
         if (!$product) {
             // We display a flash message for the user.

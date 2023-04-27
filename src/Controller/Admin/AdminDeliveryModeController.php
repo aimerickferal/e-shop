@@ -36,9 +36,8 @@ class AdminDeliveryModeController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
-            // We call the uploadFile() method of the FileUploader service to upload the picture submitted by the user.
+            // We upload the picture submitted by the user.
             $picture = $fileUploader->uploadFile($form, 'picture');
 
             // If we have a picture to upload.
@@ -47,9 +46,9 @@ class AdminDeliveryModeController extends AbstractController
                 $deliveryMode->setPicture($picture);
             }
 
-            // We call the persit() method of the EntityManagerInterface to put on hold the data.
+            // We put on hold the data.
             $this->entityManagerInterface->persist($deliveryMode);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -87,6 +86,7 @@ class AdminDeliveryModeController extends AbstractController
     {
         // We find all the delivery modes.
         $deliveryModes = $this->deliveryModeRepository->findAll();
+
         // If we don't find any delivery modes.
         if (!$deliveryModes) {
             // We display a flash message for the user.
@@ -110,7 +110,6 @@ class AdminDeliveryModeController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the delivery mode by its name.
             $deliveryModes = $this->deliveryModeRepository->findDeliveryModeByName($search);
@@ -178,9 +177,8 @@ class AdminDeliveryModeController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
-            // We call the uploadFile() method of the FileUploader service to upload the picture submitted by the user.
+            // We upload the picture submitted by the user.
             $picture = $fileUploader->uploadFile($form, 'upload');
             // If we have a picture to upload.
             if ($picture) {
@@ -197,7 +195,7 @@ class AdminDeliveryModeController extends AbstractController
                 }
             }
 
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -239,14 +237,13 @@ class AdminDeliveryModeController extends AbstractController
         // We get the CSRF token.
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
-        // If the CSRF token is valid.
         if ($this->isCsrfTokenValid('admin-delivery-mode-delete' . $deliveryMode->getId(), $submittedToken)) {
             // We get the picture of the delivery mode. 
             $picture = $deliveryMode->getPicture();
 
-            // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+            // We delete our object.
             $this->entityManagerInterface->remove($deliveryMode);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -269,7 +266,7 @@ class AdminDeliveryModeController extends AbstractController
         }
         // Else the CSRF token is not valid.
         else {
-            // We redirect the user to the page 403.
+            // We redirect the user to the 403 page. 
             return new Response(
                 'Action interdite',
                 // We specify the related HTTP response status code.
@@ -278,9 +275,9 @@ class AdminDeliveryModeController extends AbstractController
         }
 
         //! START: if we use the API
-        // // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+        // // We delete our object.
         // $this->entityManagerInterface->remove($deliveryMode);
-        // // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+        // // We backup the data in the database. 
         // $this->entityManagerInterface->flush();
 
         // // We display a flash message for the user.

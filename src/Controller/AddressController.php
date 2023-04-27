@@ -38,14 +38,13 @@ class AddressController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We set the logged in user to the address.
             $address->setUser($this->getUser());
 
-            // We call the persit() method of the EntityManagerInterface to put on hold the data.
+            // We put on hold the data.
             $this->entityManagerInterface->persist($address);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -101,9 +100,8 @@ class AddressController extends AbstractController
 
         // We create a array to backup each address.
         $addresses = [];
-        // For each $adresse in $user->getAddresses().
         foreach ($user->getAddresses() as $address) {
-            // We push each $address in the array.
+            // We push each address in the array.
             $addresses[] = $address;
         }
         // If we don't find any address.
@@ -128,12 +126,10 @@ class AddressController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the city by its name.
             $addresses = $this->addressRepository->findAddressByCity($search);
 
-            // For each $address in $addresses .
             foreach ($addresses as $index => $address) {
                 // If the user of the adress is not identical to the logged in user.
                 if ($address->getUser() !== $user) {
@@ -252,11 +248,10 @@ class AddressController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid.
         if ($form->isSubmitted() && $form->isValid()) {
-            // We call the persit() method of the EntityManagerInterface to put on hold the data.
+            // We put on hold the data.
             $this->entityManagerInterface->persist($address);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -308,11 +303,11 @@ class AddressController extends AbstractController
         // We get the CSRF token.
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
-        // If the CSRF token is valid.
+
         if ($this->isCsrfTokenValid('address-delete' . $address->getId(), $submittedToken)) {
-            // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+            // We delete our object.
             $this->entityManagerInterface->remove($address);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -329,7 +324,7 @@ class AddressController extends AbstractController
         }
         // Else the CSRF token is not valid.
         else {
-            // We redirect the user to the page 403.
+            // We redirect the user to the 403 page. 
             return new Response(
                 'Action interdite',
                 // We specify the related HTTP response status code.
@@ -338,9 +333,9 @@ class AddressController extends AbstractController
         }
 
         //! START: if we use the API
-        // // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+        // // We delete our object.
         // $this->entityManagerInterface->remove($address);
-        // // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+        // // We backup the data in the database. 
         // $this->entityManagerInterface->flush();
 
         // // We display a flash message for the user.

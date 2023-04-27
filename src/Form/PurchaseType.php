@@ -104,7 +104,7 @@ class PurchaseType extends AbstractType
         $addresses = [];
         // For each $adresse in $purchase->getUser()->getAddresses().
         foreach ($purchase->getUser()->getAddresses() as $address) {
-            // We push each $address in the array .
+            // We push each address in the array.
             $addresses[] = $address;
         }
 

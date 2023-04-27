@@ -43,7 +43,7 @@ class SignUpController extends AbstractController
                 )
             );
 
-            // We call the uploadFile() method of the FileUploader service to upload the picture submitted by the user. 
+            // We upload the picture submitted by the user. 
             $picture = $fileUploader->uploadFile($form, 'picture');
 
             // If we have a picture to upload.

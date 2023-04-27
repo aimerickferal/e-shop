@@ -44,14 +44,13 @@ class UserController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid. 
         if ($form->isSubmitted() && $form->isValid()) {
             // TODO #2 END: solve issue on switch civilityTitle.   
             // dump($user->getCivilityTitle());
             // dd(42);
             // TODO #2 END: solve issue on switch civilityTitle.
 
-            // We call the uploadFile() method of the FileUploader service to upload the picture submitted by the user. 
+            // We upload the picture submitted by the user. 
             $picture = $fileUploader->uploadFile($form, 'upload');
 
             // If we have a picture to upload.
@@ -110,7 +109,7 @@ class UserController extends AbstractController
             // TODO #2 END: solve issue on switch civilityTitle.    
             // }
 
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database. 
+            // We backup the data in the database.  
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user. 
@@ -156,7 +155,6 @@ class UserController extends AbstractController
         // We catch the csrfToken that the user submit after his click on the delete my picture button.
         $submittedToken = $request->query->get('token');
 
-        // If the submitted token is valid.
         if ($this->isCsrfTokenValid('delete-my-user-picture' . $user->getId(), $submittedToken)) {
             // We get the picture of the user. 
             $picture = $user->getPicture();
@@ -181,7 +179,7 @@ class UserController extends AbstractController
                 $user->setPicture(User::WOMAN_PICTURE);
             }
 
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database. 
+            // We backup the data in the database.  
             $this->entityManagerInterface->flush();
 
             // We display a flash message for the user.
@@ -198,7 +196,7 @@ class UserController extends AbstractController
         }
         // Else the submitted token is not valid.
         else {
-            // We redirect the user to the page 403.
+            // We redirect the user to the 403 page. 
             return new Response(
                 'Action interdite',
                 // We specify the related HTTP response status code.
@@ -243,7 +241,6 @@ class UserController extends AbstractController
         // We get the CSRF token.
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
-        // If the CSRF token is valid. 
         if ($this->isCsrfTokenValid('user-delete' . $user->getId(), $submittedToken)) {
 
             dd(42);
@@ -262,19 +259,19 @@ class UserController extends AbstractController
 
             // For each $adresse in $user->getAddresses().
             foreach ($user->getAddresses() as $address) {
-                // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+                // We delete our object.
                 $this->entityManagerInterface->remove($address);
             }
 
             // For each $purchase in $user->getPurchases().
             foreach ($user->getPurchases() as $purchase) {
-                // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+                // We delete our object.
                 $this->entityManagerInterface->remove($purchase);
             }
 
-            // We call the remove() method of the EntityManagerInterface with the value of the object we want to remove.
+            // We delete our object.
             $this->entityManagerInterface->remove($user);
-            // We call the flush() method of the EntityManagerInterface to backup the data in the database.
+            // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 
             // We redirect the user.
@@ -288,7 +285,7 @@ class UserController extends AbstractController
         }
         // Else the CSRF token is not valid.
         else {
-            // We redirect the user to the page 403.
+            // We redirect the user to the 403 page. 
             return new Response(
                 'Action interdite',
                 // We specify the related HTTP response status code.

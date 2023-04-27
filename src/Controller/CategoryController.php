@@ -53,7 +53,6 @@ class CategoryController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid. 
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the category by its name.
             $categories = $this->categoryRepository->findCategoryByName($search);
@@ -117,9 +116,8 @@ class CategoryController extends AbstractController
 
         // We create a array to backup each products. 
         $products = [];
-        // For each $product in $category->getProducts().
         foreach ($category->getProducts() as $product) {
-            // We push each $product in the array. 
+            // We push each product in the array. 
             $products[] = $product;
         }
 
@@ -145,12 +143,10 @@ class CategoryController extends AbstractController
         // We link the form to the request.
         $form->handleRequest($request);
 
-        // If the form is submitted and valid. 
         if ($form->isSubmitted() && $form->isValid()) {
             // We find the product by its name.
             $products = $this->productRepository->findProductByName($search);
 
-            // For each $product in $products .
             foreach ($products as $index => $product) {
                 // If the category of the purchase is not identical to the category.
                 if ($product->getCategory() !== $category) {
