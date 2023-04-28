@@ -123,7 +123,7 @@ class AdminPurchaseController extends AbstractController
                     ->setQuantity($cartItems->quantity)
                     ->setTotal($cartItems->getTotal());
 
-                // We put on hold the data.
+                // We put the data on hold.
                 $this->entityManagerInterface->persist($purchaseItem);
             }
 
@@ -136,7 +136,7 @@ class AdminPurchaseController extends AbstractController
                 $purchase->setBill($bill);
             }
 
-            // We put on hold the data.
+            // We put the data on hold.
             $this->entityManagerInterface->persist($purchase);
             // We backup the data in the database. 
             $this->entityManagerInterface->flush();
@@ -556,7 +556,7 @@ class AdminPurchaseController extends AbstractController
                 $purchase->setBill($purchase->getBill());
             }
 
-            // We put on hold the data.
+            // We put the data on hold.
             $this->entityManagerInterface->persist($purchase);
             // We backup the data in the database. 
             $this->entityManagerInterface->flush();

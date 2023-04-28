@@ -46,7 +46,7 @@ class AdminDeliveryModeController extends AbstractController
                 $deliveryMode->setPicture($picture);
             }
 
-            // We put on hold the data.
+            // We put the data on hold.
             $this->entityManagerInterface->persist($deliveryMode);
             // We backup the data in the database. 
             $this->entityManagerInterface->flush();

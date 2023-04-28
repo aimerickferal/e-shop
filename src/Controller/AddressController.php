@@ -42,7 +42,7 @@ class AddressController extends AbstractController
             // We set the logged in user to the address.
             $address->setUser($this->getUser());
 
-            // We put on hold the data.
+            // We put the data on hold.
             $this->entityManagerInterface->persist($address);
             // We backup the data in the database. 
             $this->entityManagerInterface->flush();
@@ -249,7 +249,7 @@ class AddressController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // We put on hold the data.
+            // We put the data on hold.
             $this->entityManagerInterface->persist($address);
             // We backup the data in the database. 
             $this->entityManagerInterface->flush();

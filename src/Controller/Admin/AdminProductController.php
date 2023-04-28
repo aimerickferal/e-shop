@@ -45,7 +45,7 @@ class AdminProductController extends AbstractController
                 $product->setPicture($picture);
             }
 
-            // We put on hold the data.
+            // We put the data on hold.
             $this->entityManagerInterface->persist($product);
             // We backup the data in the database. 
             $this->entityManagerInterface->flush();

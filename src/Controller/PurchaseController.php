@@ -147,7 +147,7 @@ class PurchaseController extends AbstractController
                 ->setStatus(Purchase::STATUS_PENDING_CHECKOUT)
                 ->setBill(Purchase::BILL_BY_DEFAULT);
 
-            // We put on hold the data.
+            // We put the data on hold.
             $this->entityManagerInterface->persist($purchase);
 
             foreach ($this->cart->getItems() as $cartItems) {
@@ -163,7 +163,7 @@ class PurchaseController extends AbstractController
                     ->setQuantity($cartItems->quantity)
                     ->setTotal($cartItems->getTotal());
 
-                // We put on hold the data.
+                // We put the data on hold.
                 $this->entityManagerInterface->persist($purchaseItem);
             }
 

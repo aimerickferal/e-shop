@@ -2038,7 +2038,7 @@ const form = {
       clickedElement === form.purchaseConfirmButton ||
       clickedElement === form.checkoutMethodStep
     ) {
-      form.handleCheckoutMethodSteps(clickedElement);
+      form.handleCheckoutMethodStep(clickedElement);
     }
   },
   /**
@@ -2194,8 +2194,8 @@ const form = {
    * @param {HTMLElement} clickedElement
    * @return {void}
    */
-  handleCheckoutMethodSteps: function (clickedElement) {
-    console.log("form.handleCheckoutMethodSteps()");
+  handleCheckoutMethodStep: function (clickedElement) {
+    console.log("form.handleCheckoutMethodStep()");
 
     if (clickedElement === form.purchaseConfirmButton) {
       // We check if the checkout method input and terms of sale input are checked.
@@ -2253,7 +2253,7 @@ const form = {
         form.addressStepIconChecked.classList.contains("display-none") ||
         form.deliveryModeStepIconChecked.classList.contains("display-none")
       ) {
-        // We leave form.handleCheckoutMethodSteps() beause the delivery mode input is not checked.
+        // We leave form.handleCheckoutMethodStep() beause the delivery mode input is not checked.
         return;
       }
     }

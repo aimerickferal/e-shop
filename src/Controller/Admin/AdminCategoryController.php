@@ -39,7 +39,7 @@ class AdminCategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // We put on hold the data.
+            // We put the data on hold.
             $this->entityManagerInterface->persist($category);
             // We backup the data in the database. 
             $this->entityManagerInterface->flush();

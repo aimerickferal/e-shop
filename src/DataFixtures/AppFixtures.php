@@ -182,7 +182,7 @@ class AppFixtures extends Fixture
         }
 
         foreach ($users as $user) {
-            // We put on hold the data.
+            // We put the data on hold.
             $objectManager->persist($user);
         }
 
@@ -321,7 +321,7 @@ class AppFixtures extends Fixture
                 // We push the address in the array of addresses.
                 $addresses[] = $address;
 
-                // We put on hold the data.
+                // We put the data on hold.
                 $objectManager->persist($address);
 
                 // If the last name of the user is identical to the give last name. 
@@ -349,7 +349,7 @@ class AppFixtures extends Fixture
                     // We push the address in the array of addresses.
                     $addresses[] = $address;
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($address);
 
                     // If the last name of the user is identical to the give last name. 
@@ -373,7 +373,7 @@ class AppFixtures extends Fixture
                         // We push the address in the array of addresses.
                         $addresses[] = $address;
 
-                        // We put on hold the data.
+                        // We put the data on hold.
                         $objectManager->persist($address);
                     }
                 }
@@ -403,7 +403,7 @@ class AppFixtures extends Fixture
                         // We push the address in the array of addresses.
                         $addresses[] = $address;
 
-                        // We put on hold the data.
+                        // We put the data on hold.
                         $objectManager->persist($address);
                     }
                     // Else if the last name of the user is identical to the give last name. 
@@ -424,7 +424,7 @@ class AppFixtures extends Fixture
                         // We push the address in the array of addresses.
                         $addresses[] = $address;
 
-                        // We put on hold the data.
+                        // We put the data on hold.
                         $objectManager->persist($address);
                     }
                     // Else if the last name of the user is identical to the give last name. 
@@ -445,7 +445,7 @@ class AppFixtures extends Fixture
                         // We push the address in the array of addresses.
                         $addresses[] = $address;
 
-                        // We put on hold the data.
+                        // We put the data on hold.
                         $objectManager->persist($address);
                     }
                 }
@@ -471,7 +471,7 @@ class AppFixtures extends Fixture
                 // We push the address in the array of addresses.
                 $addresses[] = $address;
 
-                // We put on hold the data.
+                // We put the data on hold.
                 $objectManager->persist($address);
             }
         }
@@ -1178,7 +1178,7 @@ class AppFixtures extends Fixture
             // We push each category in the array of categories.
             $categories[] = $category;
 
-            // We put on hold the data.
+            // We put the data on hold.
             $objectManager->persist($category);
         }
 
@@ -1210,7 +1210,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($product);
                 }
             }
@@ -1240,7 +1240,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($product);
                 }
             }
@@ -1270,7 +1270,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($product);
                 }
             }
@@ -1300,7 +1300,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($product);
                 }
             }
@@ -1330,7 +1330,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($product);
                 }
             }
@@ -1360,7 +1360,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($product);
                 }
             }
@@ -1390,7 +1390,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($product);
                 }
             }
@@ -1420,7 +1420,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($product);
                 }
             }
@@ -1466,7 +1466,7 @@ class AppFixtures extends Fixture
             // We push the delivery mode in the array of delivery modes.
             $deliveryModes[] = $deliveryMode;
 
-            // We put on hold the data.
+            // We put the data on hold.
             $objectManager->persist($deliveryMode);
         }
 
@@ -1498,7 +1498,7 @@ class AppFixtures extends Fixture
 
                 $purchases[] = $purchase;
 
-                // We put on hold the data.
+                // We put the data on hold.
                 $objectManager->persist($purchase);
 
                 // PurchaseItem
@@ -1527,7 +1527,7 @@ class AppFixtures extends Fixture
                         break;
                     }
 
-                    // We put on hold the data.
+                    // We put the data on hold.
                     $objectManager->persist($purchaseItem);
                 }
             }
