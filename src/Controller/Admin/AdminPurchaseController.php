@@ -113,7 +113,7 @@ class AdminPurchaseController extends AbstractController
             foreach ($cart->getItems() as $cartItems) {
                 // We create a new PurchaseItem.
                 $purchaseItem = new PurchaseItem();
-                // We set the properties of the $purchaseItem.
+                // We set the properties of the purchaseItem.
                 $purchaseItem
                     ->setPurchase($purchase)
                     ->setProductName($cartItems->product->getName())

@@ -293,7 +293,6 @@ class AdminUserController extends AbstractController
         // We get the CSRF token.
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
-
         if ($this->isCsrfTokenValid('delete-user-picture' . $user->getId(), $submittedToken)) {
             // We get the picture of the user. 
             $picture = $user->getPicture();

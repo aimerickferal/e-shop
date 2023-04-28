@@ -629,14 +629,11 @@ body {
     width: 1.2em;
   }
 
-  .image-link .page__product-picture {
-    width: 80%;
-    margin: 0;
-  }
-
+  .image-link .page__product-picture,
   .product-detail .page__product-picture,
   .product-detail-property .page__product-picture {
     width: 80%;
+    border-radius: 50%;
   }
 
   .page__cross-mark-icon {
@@ -656,6 +653,14 @@ body {
   .product-property__image {
     vertical-align: middle;
     width: 1em;
+  }
+
+  .page__user-picture,
+  .page__product-picture,
+  .page__delivery-mode-picture {
+    border-radius: 50%;
+    width: 50%;
+    margin: 1em 0 1em;
   }
 
   .form-field-picture .page__delivery-mode-picture {
@@ -1531,7 +1536,7 @@ body {
   }
 
   .page h3.page__title-delivery-mode-step,
-  .page h3.page__title-payment-method-step {
+  .page h3.page__title-checkout-method-step {
     margin: 1em 0 0 0;
   }
 

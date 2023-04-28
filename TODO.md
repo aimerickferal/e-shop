@@ -1,6 +1,5 @@
 # **Todo**
 
-- update commentaries handlePurchaseSteps handleAddressesStep + handleDeliveryModeStep + handleCheckoutMethodSteps
 - use class for titles
 - term = galatea
 - fix header
@@ -10,7 +9,6 @@
 - TODO #4 START: handle catch $errors in the uploadPicture() method of FileUploader service.
 - TODO #3 START: Make Paypal checkout.
 - TODO #2 START: solve issue on switch civilityTitle.
-- Test reset password feature
 - Fix delete my user account feature : id = delete-my-user-account-link
 
 ## **Commit**

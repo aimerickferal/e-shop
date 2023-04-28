@@ -166,7 +166,6 @@ class AppFixtures extends Fixture
             ],
         ];
 
-        // For each userToCreate in usersToCreate.
         foreach ($usersToCreate as $userToCreate) {
             // We create a new User. 
             $user = new User();
@@ -182,9 +181,8 @@ class AppFixtures extends Fixture
             $users[] = $user;
         }
 
-        // For each user in users. 
         foreach ($users as $user) {
-            // We call the persit() method of the ObjectManager to put on hold the data.
+            // We put on hold the data.
             $objectManager->persist($user);
         }
 
@@ -293,7 +291,6 @@ class AppFixtures extends Fixture
         // We create a array of addresses. 
         $addresses = [];
 
-        // For each user in users.
         foreach ($users as $user) {
             // If the last name of the user is identical to the given last names. 
             if (
@@ -324,7 +321,7 @@ class AppFixtures extends Fixture
                 // We push the address in the array of addresses.
                 $addresses[] = $address;
 
-                // We call the persit() method of the ObjectManager to put on hold the data.
+                // We put on hold the data.
                 $objectManager->persist($address);
 
                 // If the last name of the user is identical to the give last name. 
@@ -352,7 +349,7 @@ class AppFixtures extends Fixture
                     // We push the address in the array of addresses.
                     $addresses[] = $address;
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($address);
 
                     // If the last name of the user is identical to the give last name. 
@@ -376,7 +373,7 @@ class AppFixtures extends Fixture
                         // We push the address in the array of addresses.
                         $addresses[] = $address;
 
-                        // We call the persit() method of the ObjectManager to put on hold the data.
+                        // We put on hold the data.
                         $objectManager->persist($address);
                     }
                 }
@@ -406,7 +403,7 @@ class AppFixtures extends Fixture
                         // We push the address in the array of addresses.
                         $addresses[] = $address;
 
-                        // We call the persit() method of the ObjectManager to put on hold the data.
+                        // We put on hold the data.
                         $objectManager->persist($address);
                     }
                     // Else if the last name of the user is identical to the give last name. 
@@ -427,7 +424,7 @@ class AppFixtures extends Fixture
                         // We push the address in the array of addresses.
                         $addresses[] = $address;
 
-                        // We call the persit() method of the ObjectManager to put on hold the data.
+                        // We put on hold the data.
                         $objectManager->persist($address);
                     }
                     // Else if the last name of the user is identical to the give last name. 
@@ -448,7 +445,7 @@ class AppFixtures extends Fixture
                         // We push the address in the array of addresses.
                         $addresses[] = $address;
 
-                        // We call the persit() method of the ObjectManager to put on hold the data.
+                        // We put on hold the data.
                         $objectManager->persist($address);
                     }
                 }
@@ -474,16 +471,10 @@ class AppFixtures extends Fixture
                 // We push the address in the array of addresses.
                 $addresses[] = $address;
 
-                // We call the persit() method of the ObjectManager to put on hold the data.
+                // We put on hold the data.
                 $objectManager->persist($address);
             }
         }
-
-        // // For each address in addresses. 
-        // foreach ($addresses as $address) {
-        //     // We call the persit() method of the ObjectManager to put on hold the data.
-        //     $objectManager->persist($address);
-        // }
 
         // Category & Product
 
@@ -1170,7 +1161,6 @@ class AppFixtures extends Fixture
             ]
         ];
 
-
         // We create a array of categories. 
         $categories = [];
 
@@ -1188,7 +1178,7 @@ class AppFixtures extends Fixture
             // We push each category in the array of categories.
             $categories[] = $category;
 
-            // We call the persit() method of the ObjectManager to put on hold the data.
+            // We put on hold the data.
             $objectManager->persist($category);
         }
 
@@ -1220,7 +1210,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($product);
                 }
             }
@@ -1250,7 +1240,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($product);
                 }
             }
@@ -1280,7 +1270,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($product);
                 }
             }
@@ -1310,7 +1300,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($product);
                 }
             }
@@ -1340,7 +1330,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($product);
                 }
             }
@@ -1370,7 +1360,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($product);
                 }
             }
@@ -1400,7 +1390,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($product);
                 }
             }
@@ -1430,7 +1420,7 @@ class AppFixtures extends Fixture
                     // We push the product in the array of products.
                     $products[] = $product;
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($product);
                 }
             }
@@ -1463,7 +1453,6 @@ class AppFixtures extends Fixture
         // We create a array of delivery modes. 
         $deliveryModes = [];
 
-        // For each deliveryModeToCreate in deliveryModesToCreate.
         foreach ($deliveryModesToCreate as $deliveryModeToCreate) {
             // We create a new DeliveryMode. 
             $deliveryMode = new DeliveryMode();
@@ -1477,7 +1466,7 @@ class AppFixtures extends Fixture
             // We push the delivery mode in the array of delivery modes.
             $deliveryModes[] = $deliveryMode;
 
-            // We call the persit() method of the ObjectManager to put on hold the data.
+            // We put on hold the data.
             $objectManager->persist($deliveryMode);
         }
 
@@ -1503,14 +1492,13 @@ class AppFixtures extends Fixture
                     ->setDeliveryMode($deliveryModes[0])
                     ->setDeliveryModePrice(999)
                     ->setTotal($purchase->getSubtotal() + $purchase->getDeliveryModePrice())
-                    ->setCheckoutMethod(Purchase::CHECKOUT_METHOD_CREDIT_CARD)
+                    ->setCheckoutMethod(Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE)
                     ->setStatus(Purchase::STATUS_PAID)
                     ->setBill(Purchase::BILL_BY_DEFAULT);
 
-
                 $purchases[] = $purchase;
 
-                // We call the persit() method of the ObjectManager to put on hold the data.
+                // We put on hold the data.
                 $objectManager->persist($purchase);
 
                 // PurchaseItem
@@ -1518,7 +1506,6 @@ class AppFixtures extends Fixture
                 // We create a array of purchased products. 
                 $purchasedProducts = [];
 
-                // For each product in products. 
                 foreach ($products as $product) {
                     // We create a new PurchaseItem.
                     $purchaseItem = new PurchaseItem();
@@ -1540,13 +1527,13 @@ class AppFixtures extends Fixture
                         break;
                     }
 
-                    // We call the persit() method of the ObjectManager to put on hold the data.
+                    // We put on hold the data.
                     $objectManager->persist($purchaseItem);
                 }
             }
         }
 
-        // We call the flush() method of the ObjectManager to backup the data in the database.
+        // We backup the data in the database.
         $objectManager->flush();
     }
 }

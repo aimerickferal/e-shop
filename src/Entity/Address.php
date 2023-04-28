@@ -56,11 +56,11 @@ class Address
     #[Assert\NotBlank(message: 'Merci de saisir un numéro de téléphone mobile.')]
     #[Assert\Regex(
         pattern: '/^\d{10}$/',
-        message: 'Merci de saisir un numéro de téléphone mobile valide.',
+        message: 'Merci de saisir un numéro de téléphone mobile.',
     )]
     #[Assert\Regex(
         pattern: '/^((06)|(07))[0-9]{8}$/',
-        message: 'Merci de saisir un numéro de téléphone mobile valide.',
+        message: 'Merci de saisir un numéro de téléphone mobile.',
     )]
     private $phoneNumber;
 

@@ -15,7 +15,7 @@ class Purchase
 {
     // The the differents checkoutMethod.
     // const CHECKOUT_PENDING = 'En attente de choix';
-    public const CHECKOUT_METHOD_CREDIT_CARD = 'Paiment par carte bancaire';
+    public const CHECKOUT_METHOD_CARD_WITH_STRIPE = 'Paiment par carte bancaire via Stripe';
     public const CHECKOUT_METHOD_PAYPAL = 'Paiment via Paypal';
     public const CHECKOUT_METHOD_DISPOSAL = 'Commande interne';
 

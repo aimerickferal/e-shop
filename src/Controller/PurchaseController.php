@@ -109,7 +109,7 @@ class PurchaseController extends AbstractController
         if ($subtotal >= $deliveryMode->getMinCartAmountForFreeDelivery()) {
             // The delivery price change is value to DeliveryMode::DELIVERY_PRICE_FREE.
             $deliveryModePrice = DeliveryMode::DELIVERY_PRICE_FREE;
-            // The total is only the subtotal.
+            // The total is equal to the subtotal.
             $total = $subtotal;
         }
 
@@ -143,9 +143,8 @@ class PurchaseController extends AbstractController
                 ->setSubtotal($this->cart->getTotal())
                 ->setDeliveryModePrice($deliveryModePrice)
                 ->setTotal($this->cart->getTotal() + $deliveryModePrice)
-                // We set the status of the purchase with the value of the PHP constant Purchase::STATUS_PENDING_CHECKOUT because the payment has not yet been made and therefore the purchase is not yet confirmed. 
+                // The status and the bill of the purchase are set accordingly to the fact that its not confirmed yet. 
                 ->setStatus(Purchase::STATUS_PENDING_CHECKOUT)
-                // We set the bill of the purchase with the value of the PHP constant Purchase::BILL_BY_DEFAULT because the payment has not yet been made and therefore the purchase is not yet confirmed so it should not have a specific bill. 
                 ->setBill(Purchase::BILL_BY_DEFAULT);
 
             // We put on hold the data.
@@ -154,7 +153,7 @@ class PurchaseController extends AbstractController
             foreach ($this->cart->getItems() as $cartItems) {
                 // We create a new  PurchaseItem.
                 $purchaseItem = new PurchaseItem();
-                // We set the properties of the $purchaseItem.
+                // We set the properties of the purchaseItem.
                 $purchaseItem
                     ->setPurchase($purchase)
                     ->setProductName($cartItems->product->getName())
@@ -168,9 +167,8 @@ class PurchaseController extends AbstractController
                 $this->entityManagerInterface->persist($purchaseItem);
             }
 
-            //! START: Stripe checkout
-            // If the payment method chosen by the user have the value of the PHP constant CHECKOUT_METHOD_CREDIT_CARD we start a Stripe checkout. 
-            if ($form->get('checkoutMethod')->getData() === Purchase::CHECKOUT_METHOD_CREDIT_CARD) {
+            // If the checkout method chosen by the user have the value of the PHP constant CHECKOUT_METHOD_CARD_WITH_STRIPE we start a Stripe checkout. 
+            if ($form->get('checkoutMethod')->getData() === Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE) {
                 // We create a new StripeCheckout with in argument the value of the environnement variable STRIPE_SECRET_KEY, the UrlGeneratorInterface and the EntityManagerInterface.
                 $stripeCheckout = new StripeCheckout($_ENV['STRIPE_SECRET_KEY'], $urlGeneratorInterface, $this->entityManagerInterface);
 
@@ -191,9 +189,8 @@ class PurchaseController extends AbstractController
                 // We call the startStripeCheckout() method of the SripeCheckout service with the cart, the purchase, the delivery mode price and the delivery mode description in argument so that the method return us the URL of the Stripe interface on wich we redirect the user.
                 return $this->redirect($stripeSession['url']);
             }
-            //! END: Stripe checkout 
             // TODO #3 START: Paypal checkout
-            // Else if the payment method chosen by the user have the value of the PHP constant CHECKOUT_METHOD_PAYPAL we start a Paypal checkout. 
+            // Else if the checkout method chosen by the user have the value of the PHP constant CHECKOUT_METHOD_PAYPAL we start a Paypal checkout. 
             else if ($form->get('checkoutMethod')->getData() === Purchase::CHECKOUT_METHOD_PAYPAL) {
                 // We create a new PaypalCheckout with in argument the cart.
                 $paypalCheckout = new PaypalCheckout($this->cart);
@@ -201,22 +198,6 @@ class PurchaseController extends AbstractController
                 $paypalCheckout->showUserInterface();
             }
             // TODO #3 END: Paypal checkout
-
-            //! START: if no checkout
-            // // We backup the data in the database. 
-            // $this->entityManagerInterface->flush();
-
-            // // We redirect the user.
-            // return $this->redirectToRoute(
-            //     'purchase_stripe_success',
-            //     [
-            //         // We set a array of optional data.
-            //         'reference' => $purchase->getReference()
-            //     ],
-            //     // We specify the related HTTP response status code.
-            //     301
-            // );
-            //! END: if no checkout. 
         }
 
         // We display our template.
@@ -376,11 +357,6 @@ class PurchaseController extends AbstractController
             $purchaseItems[] = $purchaseItem;
         }
 
-        // // Add "<br />" when find "\n".
-        // $billingAddress = nl2br($purchase->getBillingAddress());
-        // // Convert "\n" to "<br />".
-        // $billingAddress = str_replace("\n", '<br>', $purchase->getBillingAddress());
-
         // We display our template.
         return $this->render(
             'purchase/detail.html.twig',
@@ -419,13 +395,10 @@ class PurchaseController extends AbstractController
         // We find the purchase by its reference. 
         $purchase = $this->purchaseRepository->findOneBy(['reference' => $request->attributes->get('reference')]);
 
-        // If
+        // If the purchase doesn't exist or the user of the purchase is not identical to the logged in user or the status of the purchase not identical to the value of the PHP constant STATUS_PENDING_CHECKOUT.
         if (
-            // the purchase doesn't exist or
             !$purchase ||
-            // the user of the purchase is not identical to the logged in user or 
             $purchase->getUser() !== $user ||
-            // the status of the purchase not identical to the value of the PHP constant STATUS_PENDING_CHECKOUT.
             $purchase->getStatus() !== Purchase::STATUS_PENDING_CHECKOUT
         ) {
             // We redirect the user.
@@ -445,8 +418,6 @@ class PurchaseController extends AbstractController
         // TODO START: set the bill of the purchase.
 
         // TODO END: set the bill of the purchase.
-
-
 
         // We backup the data in the database. 
         $this->entityManagerInterface->flush();

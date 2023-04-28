@@ -233,8 +233,8 @@ const form = {
   // Step #2 : delivery mode
   deliveryModeStep: null,
   deliveryModeStepIconChecked: null,
-  // Step #3. payment method
-  paymentMethodStep: null,
+  // Step #3. checkout method
+  checkoutMethodStep: null,
   paypalButtonContainer: null,
   paypalButton: null,
   init: function () {
@@ -667,7 +667,7 @@ const form = {
       form.createDivForEachInputAndLabelOfCheckField(
         form.purchaseCheckoutMethodInputs
       );
-      // We call form.createImgTagForPaymentMethodPicture() to create a HTML img tag before each payment method field label.
+      // We call form.createImgTagForPaymentMethodPicture() to create a HTML img tag before each checkout method field label.
       form.createImgTagForPaymentMethodPicture();
     }
     form.purchaseBillInput = document.querySelector(
@@ -1015,21 +1015,21 @@ const form = {
       step.addEventListener("click", form.handlePurchaseSteps);
     }
 
-    // Step #1 : address
+    // Step #1: Address
     form.addressStep = document.getElementById("addresses-step");
 
     form.addressStepIconChecked = document.getElementById(
       "icon-checked-addresses-step"
     );
 
-    // Step #2 : delivery mode
+    // Step #2: Delivery mode
     form.deliveryModeStep = document.getElementById("delivery-mode-step");
     form.deliveryModeStepIconChecked = document.getElementById(
       "icon-checked-delivery-mode-step"
     );
 
-    // Step #3. payment method
-    form.paymentMethodStep = document.getElementById("payment-method-step");
+    // Step #3: Checkout Method
+    form.checkoutMethodStep = document.getElementById("checkout-method-step");
     form.paypalButtonContainer = document.getElementById(
       "paypal-button-container"
     );
@@ -2014,7 +2014,7 @@ const form = {
     }
   },
   /**
-   * Method that handle the layout of the purchase steps during the purchase process.
+   * Method that start to handle multi-step form of the purchase. Accordingly to the clicked element its call other methods to which will respectively handle the steps related to the address, delivery mode and checkout.
    * @param {Event} event
    * @return {void}
    */
@@ -2036,13 +2036,13 @@ const form = {
       form.handleDeliveryModeStep(clickedElement);
     } else if (
       clickedElement === form.purchaseConfirmButton ||
-      clickedElement === form.paymentMethodStep
+      clickedElement === form.checkoutMethodStep
     ) {
       form.handleCheckoutMethodSteps(clickedElement);
     }
   },
   /**
-   * Method that handle the layout of the addresses step.
+   * Method that handle the address step of the purchase multi-step form.
    * @param {HTMLElement} clickedElement
    * @return {void}
    */
@@ -2050,6 +2050,7 @@ const form = {
     console.log("form.handleAddressesStep()");
 
     if (clickedElement === form.purchaseAddressConfirmButton) {
+      // We check if the billing address input and the delivery address are checked
       form.checkIfInputIsChecked(
         form.purchaseBillingAddressInputs,
         form.errorMessagePurchaseBillingAddressNotChecked
@@ -2058,6 +2059,7 @@ const form = {
         form.purchaseDeliveryAddressInputs,
         form.errorMessagePurchaseDeliveryAddressNotChecked
       );
+      // The purchase multi-step form contain at least one error beacause at least one of the billing address input or the delivery address input are not checked.
       if (form.numberOfErrors > 0) {
         tools.addDisplayNone(
           form.addressStepIconChecked,
@@ -2073,13 +2075,14 @@ const form = {
         tools.addClassToElements(
           "page__title-purchase-step_color_spanish-grey",
           form.deliveryModeStep,
-          form.paymentMethodStep
+          form.checkoutMethodStep
         );
-        // We reset form.numberOfErrors for the next submit control.
+        // We reset the number of errors counter for the next submit control.
         form.numberOfErrors = 0;
       }
-      // Else we don't count any error.
+      // The purchase multi-step form doesn't contain any error beacause the billing address input and the delivery address input are checked.
       else {
+        // We display and hide several elements of the purchase multi-step form to display only the next step which is the delivery mode step.
         tools.removeDisplayNone(
           form.addressStepIconChecked,
           form.purchaseDeliveryModeField,
@@ -2096,7 +2099,9 @@ const form = {
           "page__title-purchase-step_color_spanish-grey"
         );
       }
-    } else if (clickedElement === form.addressStep) {
+    }
+    // We display and hide several elements of the purchase multi-step form to display only the address step.
+    else if (clickedElement === form.addressStep) {
       tools.addDisplayNone(
         form.addressStepIconChecked,
         form.deliveryModeStepIconChecked,
@@ -2115,12 +2120,12 @@ const form = {
       tools.addClassToElements(
         "page__title-purchase-step_color_spanish-grey",
         form.deliveryModeStep,
-        form.paymentMethodStep
+        form.checkoutMethodStep
       );
     }
   },
   /**
-   * Method that handle the layout of the delivery mode step.
+   * Method that handle the delivery mode step of the purchase multi-step form.
    * @param {HTMLElement} clickedElement
    * @return {void}
    */
@@ -2128,16 +2133,19 @@ const form = {
     console.log("form.handleDeliveryModeStep()");
 
     if (clickedElement === form.purchaseDeliveryModeConfirmButton) {
+      // We check if the delivery mode input is checked.
       form.checkIfInputIsChecked(
         form.purchaseDeliveryModeInputs,
         form.errorMessagePurchaseDeliveryModeNotChecked
       );
+      // The purchase multi-step form contain one error beacause the delivery mode input is not checked.
       if (form.numberOfErrors > 0) {
-        // We reset form.numberOfErrors for the next submit control.
+        // We reset the number of errors counter for the next submit control.
         form.numberOfErrors = 0;
       }
-      // Else we don't count any error.
+      // The purchase multi-step form doesn't contain any error beacause the delivery mode input is checked.
       else {
+        // We display and hide several elements of the purchase multi-step form to display only the next step which is the checkout method step.
         tools.removeDisplayNone(
           form.deliveryModeStepIconChecked,
           form.purchaseCheckoutMethodField,
@@ -2150,14 +2158,16 @@ const form = {
           form.purchaseDeliveryModeConfirmButton
         );
         tools.removeClassesFromElement(
-          form.paymentMethodStep,
+          form.checkoutMethodStep,
           "page__title-purchase-step_color_spanish-grey"
         );
         // form.displayDeliveryModePriceAndTotal();
       }
-    } else if (clickedElement === form.deliveryModeStep) {
+    }
+    // We display and hide several elements of the purchase multi-step form to display only the delivery mode step.
+    else if (clickedElement === form.deliveryModeStep) {
       if (form.addressStepIconChecked.classList.contains("display-none")) {
-        // We leave form.handleDeliveryModeStep() beause form.purchaseAddressesInputs is not checked.
+        // We leave form.handleDeliveryModeStep() beause the billing address input and the delivery address input are not checked.
         return;
       }
       tools.addDisplayNone(
@@ -2175,12 +2185,12 @@ const form = {
       );
       tools.addClassToElements(
         "page__title-purchase-step_color_spanish-grey",
-        form.paymentMethodStep
+        form.checkoutMethodStep
       );
     }
   },
   /**
-   * Method that handle the layout of the payment method step.
+   * Method that handle the checkout method step of the purchase multi-step form.
    * @param {HTMLElement} clickedElement
    * @return {void}
    */
@@ -2188,6 +2198,7 @@ const form = {
     console.log("form.handleCheckoutMethodSteps()");
 
     if (clickedElement === form.purchaseConfirmButton) {
+      // We check if the checkout method input and terms of sale input are checked.
       form.checkIfInputIsChecked(
         form.purchaseCheckoutMethodInputs,
         form.errorMessagePurchasePaymentMethodNotChecked
@@ -2196,7 +2207,7 @@ const form = {
         form.termsOfSaleInput,
         form.errorMessageGeneralTermsOfSaleNotChecked
       );
-      // We count the number of checked form.purchaseCheckoutMethodInputs.
+      // We extract the index of each inputs by counting them from the lenght of form.purchaseCheckoutMethodInputs in order to know their positions and act accordingly to the value of each. .
       for (
         let index = 0;
         index < form.purchaseCheckoutMethodInputs.length;
@@ -2206,7 +2217,7 @@ const form = {
         if (form.purchaseCheckoutMethodInputs[index].checked) {
           console.log(form.purchaseCheckoutMethodInputs[index]);
 
-          //! START. Stripe checkout.
+          //! START: Stripe checkout.
           let stripeInput = document.querySelector(".form-field__stripe-input");
           let paypalInput = document.querySelector(".form-field__paypal-input");
 
@@ -2218,9 +2229,9 @@ const form = {
               stripeInput.dataset.value + " ✅. init Stripe checkout 💳"
             );
           }
-          //! END. Stripe checkout
+          //! END: Stripe checkout
 
-          // TODO #3 START. Make Paypal checkout.
+          // TODO #3 START: Make Paypal checkout.
           // The value of the PHP constante Purchase::CHECKOUT_METHOD_PAYPAL in is a HTML dataset attribut whose name is data-value.
           // If the value of the input is identical to the value of this attribut.
           if (
@@ -2232,17 +2243,17 @@ const form = {
             // form.paypalButton.click();
             // return;
           }
-          // TODO #3 END. Paypal checkout
+          // TODO #3 END: Paypal checkout
         }
       }
 
       form.submitFormIfNoError(form.purchaseForm);
-    } else if (clickedElement === form.paymentMethodStep) {
+    } else if (clickedElement === form.checkoutMethodStep) {
       if (
         form.addressStepIconChecked.classList.contains("display-none") ||
         form.deliveryModeStepIconChecked.classList.contains("display-none")
       ) {
-        // We leave form.handleCheckoutMethodSteps() beause form.purchaseDeliveryModeInputs is not checked.
+        // We leave form.handleCheckoutMethodSteps() beause the delivery mode input is not checked.
         return;
       }
     }
@@ -2341,13 +2352,13 @@ const form = {
     }
   },
   /**
-   * Methot that create multiplie HTML elements <img> before each label content in the payment method field and call form.displayPaymentMethodPicture() to display the picture of each created <img> .
+   * Methot that create multiplie HTML elements <img> before each label content in the checkout method field and call form.displayPaymentMethodPicture() to display the picture of each created <img> .
    * @return {void}
    */
   createImgTagForPaymentMethodPicture: function () {
     console.log("form.createImgTagForPaymentMethodPicture()");
 
-    // We get the div in which all the payment methodes fields are store.
+    // We get the div in which all the checkout methodes fields are store.
     const purchaseConfirmPayementMethod = document.getElementById(
       "purchase_checkoutMethod"
     );
@@ -2387,7 +2398,7 @@ const form = {
       labels[0].insertAdjacentElement("afterend", img);
     }
 
-    // We create a fourth img tag for the second field which is the Paypal payment method.
+    // We create a fourth img tag for the second field which is the Paypal checkout method.
     let fifthImg = document.createElement("img");
 
     // We set a className to the imgTag.
@@ -2399,11 +2410,11 @@ const form = {
     // We insert fifthImg after the second label.
     labels[1].insertAdjacentElement("afterend", fifthImg);
 
-    // We call form.displayPaymentMethodPicture() to display after each payment method label the picture related to the payment method.
+    // We call form.displayPaymentMethodPicture() to display after each checkout method label the picture related to the checkout method.
     form.displayPaymentMethodPicture();
   },
   /**
-   * Methot that display in each payment method label the picture related to the payment method.
+   * Methot that display in each checkout method label the picture related to the checkout method.
    * @return {void}
    */
   displayPaymentMethodPicture: function () {
@@ -2415,7 +2426,7 @@ const form = {
     // The path of the folder where the images of the logos are located.
     const folderPath = "/assets/images/logos/";
 
-    // We set a src attribute with a path to the folder where we backup the pictures of each payment method. We the change the name of the picture we want to dislay according to the input.
+    // We set a src attribute with a path to the folder where we backup the pictures of each checkout method. We the change the name of the picture we want to dislay according to the input.
     imgs[0].setAttribute("src", folderPath + "visa.svg");
     imgs[1].setAttribute("src", folderPath + "mastercard.svg");
     imgs[2].setAttribute("src", folderPath + "cb.svg");

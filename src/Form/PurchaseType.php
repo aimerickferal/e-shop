@@ -50,14 +50,14 @@ class PurchaseType extends AbstractType
             ])
             ->add('checkoutMethod', ChoiceType::class, [
                 'choices' => [
-                    Purchase::CHECKOUT_METHOD_CREDIT_CARD => Purchase::CHECKOUT_METHOD_CREDIT_CARD,
+                    Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE => Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE,
                     Purchase::CHECKOUT_METHOD_PAYPAL => Purchase::CHECKOUT_METHOD_PAYPAL,
                     // Purchase::CHECKOUT_PENDING => Purchase::CHECKOUT_PENDING,
                 ],
                 'choice_attr' => [
-                    Purchase::CHECKOUT_METHOD_CREDIT_CARD => [
+                    Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE => [
                         'class' => 'form-field__purchase-checkout-method-input form-field__stripe-input',
-                        'data-value' => Purchase::CHECKOUT_METHOD_CREDIT_CARD
+                        'data-value' => Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE
 
                     ],
                     Purchase::CHECKOUT_METHOD_PAYPAL => [
