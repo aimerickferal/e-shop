@@ -1635,7 +1635,7 @@ const form = {
       // We extrat the index of each input from its length in order to know their positions.
       for (let index = 0; index < input.length; index++) {
         if (input[index].checked) {
-          // We Increment the number of checked input.
+          // We increment the number of checked input.
           numberOfCheckedInput++;
           console.log(numberOfCheckedInput);
           console.log(input[index].value);
