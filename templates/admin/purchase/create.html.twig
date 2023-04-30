@@ -16,63 +16,63 @@
 			{{ user.firstName }}
 			{{ user.lastName }}
 		</h2>
-		{# START: adminCreatePurchaseForm #}
-		{{ form_start(adminCreatePurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'admin-purchase-create-form' }}) }}
+		{# START: adminPurchaseCreateForm #}
+		{{ form_start(adminPurchaseCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'admin-purchase-create-form' }}) }}
 		{# status #}
 		<div class="form-field">
-			{{ form_label(adminCreatePurchaseForm, 'Statut :', { 'label_attr': { 'class': 'form-field__label' }}) }}
-			{{ form_widget(adminCreatePurchaseForm.status) }}
+			{{ form_label(adminPurchaseCreateForm, 'Statut :', { 'label_attr': { 'class': 'form-field__label' }}) }}
+			{{ form_widget(adminPurchaseCreateForm.status) }}
 			<p class="error-message error-message_color_red error-message-purchase-status-not-checked display-none">
 				Merci de sélectionner un statut.
 			</p>
-			{{ form_errors(adminCreatePurchaseForm.status) }}
+			{{ form_errors(adminPurchaseCreateForm.status) }}
 		</div>
 		{# billingAddress #}
 		<div class="form-field form-field-address">
-			{{ form_label(adminCreatePurchaseForm, 'Adresse de facturation :', { 'label_attr': { 'class': 'form-field__label' }}) }}
-			{{ form_widget(adminCreatePurchaseForm.billingAddress)|replace({"[br]":"</br>"})|raw }}
+			{{ form_label(adminPurchaseCreateForm, 'Adresse de facturation :', { 'label_attr': { 'class': 'form-field__label' }}) }}
+			{{ form_widget(adminPurchaseCreateForm.billingAddress)|replace({"[br]":"</br>"})|raw }}
 			<p class="error-message error-message_color_red error-message-purchase-billing-address-not-checked display-none">
 				Merci de sélectionner une adresse de facturation.
 			</p>
-			{{ form_errors(adminCreatePurchaseForm.billingAddress) }}
+			{{ form_errors(adminPurchaseCreateForm.billingAddress) }}
 		</div>
 		{# deliveryAddress #}
 		<div class="form-field form-field-address">
-			{{ form_label(adminCreatePurchaseForm, 'Adresse de livraison :', { 'label_attr': { 'class': 'form-field__label' }}) }}
-			{{ form_widget(adminCreatePurchaseForm.deliveryAddress)|replace({"[br]":"</br>"})|raw }}
+			{{ form_label(adminPurchaseCreateForm, 'Adresse de livraison :', { 'label_attr': { 'class': 'form-field__label' }}) }}
+			{{ form_widget(adminPurchaseCreateForm.deliveryAddress)|replace({"[br]":"</br>"})|raw }}
 			<p class="error-message error-message_color_red error-message-purchase-delivery-address-not-checked display-none">
 				Merci de sélectionner une adresse de livraison.
 			</p>
-			{{ form_errors(adminCreatePurchaseForm.deliveryAddress) }}
+			{{ form_errors(adminPurchaseCreateForm.deliveryAddress) }}
 		</div>
 		<a class="page__link-text page__link_color_blue" id="add-new-address-link" href="{{ path('admin_address_create', {'id': user.id}) }}?returnToAdminPurchaseCreate=true">+ Ajouter une nouvelle adresse.</a>
 		{# deliveryMode #}
 		<div class="form-field form-field-purchase-delivery-mode" data-folderpath={{ deliveryModePictureUploadFolderPath }} data-pictures={{ deliveryModePictures|json_encode }}>
-			{{ form_label(adminCreatePurchaseForm, 'Mode de livraison :', { 'label_attr': { 'class': 'form-field__label' }}) }}
-			{{ form_widget(adminCreatePurchaseForm.deliveryMode) }}
+			{{ form_label(adminPurchaseCreateForm, 'Mode de livraison :', { 'label_attr': { 'class': 'form-field__label' }}) }}
+			{{ form_widget(adminPurchaseCreateForm.deliveryMode) }}
 			<p class="error-message error-message_color_red error-message-purchase-delivery-mode-not-checked display-none">
 				Merci de sélectionner un mode de livraison.
 			</p>
-			{{ form_errors(adminCreatePurchaseForm.deliveryMode) }}
+			{{ form_errors(adminPurchaseCreateForm.deliveryMode) }}
 		</div>
 		{# bill #}
 		<div class="form-field">
-			{{ form_label(adminCreatePurchaseForm, 'Facture :', { 'label_attr': { 'class': 'form-field__label form-field__bill-label' }}) }}
-			{{ form_widget(adminCreatePurchaseForm.bill, { 'id': 'purchase-bill-input', 'attr': { 'class': 'form-field__input form-field__purchase-bill-input form-field__input_color_black' }}) }}
+			{{ form_label(adminPurchaseCreateForm, 'Facture :', { 'label_attr': { 'class': 'form-field__label form-field__bill-label' }}) }}
+			{{ form_widget(adminPurchaseCreateForm.bill, { 'id': 'purchase-bill-input', 'attr': { 'class': 'form-field__input form-field__purchase-bill-input form-field__input_color_black' }}) }}
 			<p class="error-message error-message_color_red error-message-purchase-bill-mime-type display-none">
 				Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.
 			</p>
 			<p class="error-message error-message_color_red error-message-purchase-bill-size display-none">
 				Merci de télécharger un fichier de maximum 300 000 bytes.
 			</p>
-			{{ form_errors(adminCreatePurchaseForm.bill) }}
+			{{ form_errors(adminPurchaseCreateForm.bill) }}
 		</div>
-		{# adminCreatePurchaseForm submit button #}
+		{# adminPurchaseCreateForm submit button #}
 		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-purchase-create-button">
 			Créer
 		</button>
-		{{ form_end(adminCreatePurchaseForm) }}
-		{# END: adminCreatePurchaseForm #}
+		{{ form_end(adminPurchaseCreateForm) }}
+		{# END: adminPurchaseCreateForm #}
 	</section>
 {% endblock %}
 {# END: admin_purchase_create #}

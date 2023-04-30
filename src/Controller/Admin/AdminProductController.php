@@ -68,7 +68,7 @@ class AdminProductController extends AbstractController
             'admin/product/create.html.twig',
             // We set a array of optional data.
             [
-                'adminCreateProductForm' => $form->createView()
+                'adminProductCreateForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -133,7 +133,7 @@ class AdminProductController extends AbstractController
             'admin/product/list.html.twig',
             // We set a array of optional data.
             [
-                'searchProductForm' => $form->createView(),
+                'productSearchForm' => $form->createView(),
                 'products' => $products,
                 'available' => Product::AVAILABLE,
                 'unavailable' => Product::UNAVAILABLE
@@ -287,7 +287,7 @@ class AdminProductController extends AbstractController
             // We set a array of optional data.
             [
                 'product' => $product,
-                'adminUpdateProductForm' => $form->createView()
+                'adminProductUpdateForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -334,7 +334,7 @@ class AdminProductController extends AbstractController
                 301
             );
         }
-        // Else the CSRF token is not valid.
+        // The submitted CSRF token is not valid.
         else {
             // We redirect the user to the 403 page. 
             return new Response(

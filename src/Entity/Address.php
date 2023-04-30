@@ -28,7 +28,7 @@ class Address
     #[Assert\NotBlank(message: 'Merci de saisir un numéro de rue.')]
     #[Assert\Regex(
         pattern: '/\d+/',
-        message: 'Merci de saisir un numéro de rue valide.',
+        message: 'Merci de saisir un numéro de rue.',
     )]
     private $streetNumber;
 
@@ -40,7 +40,7 @@ class Address
     #[Assert\NotBlank(message: 'Merci de saisir un code postal.')]
     #[Assert\Regex(
         pattern: '/^\d{5}$/',
-        message: 'Merci de saisir un code postal valide.',
+        message: 'Merci de saisir un code postal.',
     )]
     private $zipCode;
 

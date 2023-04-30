@@ -9,25 +9,25 @@
 {% block body %}
 	<section class="page">
 		<h2>Commandes</h2>
-		{# START: searchPurchaseForm #}
-		{{ form_start(searchPurchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'purchase-search-form' }}
+		{# START: purchaseSearchForm #}
+		{{ form_start(purchaseSearchForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'purchase-search-form' }}
 		) }}
 		<div class="form-field">
-			{{ form_label(searchPurchaseForm, 'Référence', { 'label_attr': { 'class': 'form-field__label form-field__purchase-reference-label display-none' }}) }}
-			{{ form_widget(searchPurchaseForm.reference, { 'id': 'purchase-reference-input', 'attr': {'class': 'form-field__input form-field__purchase-reference-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par référence' }}) }}
+			{{ form_label(purchaseSearchForm, 'Référence', { 'label_attr': { 'class': 'form-field__label form-field__purchase-reference-label display-none' }}) }}
+			{{ form_widget(purchaseSearchForm.reference, { 'id': 'purchase-reference-input', 'attr': {'class': 'form-field__input form-field__purchase-reference-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par référence' }}) }}
 			<p class="error-message error-message_color_red error-message-purchase-reference-empty display-none">
 				Merci de saisir une référence.
 			</p>
 			<p class="error-message error-message_color_red error-message-purchase-reference-length display-none">
 				La référence doit contenir 12 cactères.
 			</p>
-			{{ form_errors(searchPurchaseForm.reference) }}
+			{{ form_errors(purchaseSearchForm.reference) }}
 		</div>
 		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="purchase-search-button">
 			Rechercher
 		</button>
-		{{ form_end(searchPurchaseForm) }}
-		{# END: searchPurchaseForm #}
+		{{ form_end(purchaseSearchForm) }}
+		{# END: purchaseSearchForm #}
 		<div
 			class="neptune">
 			{# START: card for mobile #}

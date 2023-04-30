@@ -74,22 +74,29 @@ class SignUpFormType extends AbstractType
                         'max' => 4096,
                     ]),
                     new Regex([
+                        // Regex that match only value that contain at least 1 lowercase alphabetical character.
                         'pattern' => '/(?=.*[a-z])/',
                         'message' => 'Le mot de passe doit contenir au moins une minuscule.'
                     ]),
                     new Regex([
+                        // Regex that match only value that contain at least 1 uppercase alphabetical character.
                         'pattern' => '/(?=.*[A-Z])/',
                         'message' => 'Le mot de passe doit contenir au moins une majuscule.'
                     ]),
                     new Regex([
+                        // Regex that match only value that contain at least 1 numeric character.
                         'pattern' => '/(?=.*[0-9])/',
                         'message' => 'Le mot de passe doit contenir au moins un chiffre.'
                     ]),
                     new Regex([
+                        // Regex that match only value that contain at least 1 one special character, but we are escaping reserved RegEx characters to avoid conflict.
                         'pattern' => '/(?=.*[!@#$%^&*])/',
-                        'message' => 'Le mot de passe doit contenir au moins un caractére spécial.'
+                        new Regex([
+                            'pattern' => '/(?=.*[!@#$%^&*])/',
+                            'message' => 'Le mot de passe doit contenir au moins un caractére spécial.'
+                        ])
                     ])
-                ],
+                ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,

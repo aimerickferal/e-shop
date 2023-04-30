@@ -62,7 +62,7 @@ class AdminPurchaseController extends AbstractController
         //     );
         // }
 
-        // We create a new Purchase.
+        // We create a new purchase.
         $purchase = new Purchase();
         // We set the user to the purchase.
         $purchase->setUser($user);
@@ -165,7 +165,7 @@ class AdminPurchaseController extends AbstractController
             // We set a array of optional data.
             [
                 'user' => $user,
-                'adminCreatePurchaseForm' => $form->createView(),
+                'adminPurchaseCreateForm' => $form->createView(),
                 'deliveryModePictureUploadFolderPath' => DeliveryMode::PICTURE_UPLOAD_FOLDER_PATH,
                 'deliveryModePictures' => $deliveryModePictures,
             ],
@@ -243,7 +243,7 @@ class AdminPurchaseController extends AbstractController
             'admin/purchase/list.html.twig',
             // We set a array of optional data.
             [
-                'searchPurchaseForm' => $form->createView(),
+                'purchaseSearchForm' => $form->createView(),
                 'purchases' => $purchases,
                 'statusPaid' => Purchase::STATUS_PAID,
                 'statusInProgress' => Purchase::STATUS_IN_PROGRESS,
@@ -355,7 +355,7 @@ class AdminPurchaseController extends AbstractController
             // We set a array of optional data.
             [
                 'user' => $user,
-                'searchPurchaseForm' => $form->createView(),
+                'purchaseSearchForm' => $form->createView(),
                 'purchases' => $purchases,
                 'statusPaid' => Purchase::STATUS_PAID,
                 'statusInProgress' => Purchase::STATUS_IN_PROGRESS,
@@ -597,7 +597,7 @@ class AdminPurchaseController extends AbstractController
             [
                 'user' => $user,
                 'purchase' => $purchase,
-                'adminUpdatePurchaseForm' => $form->createView(),
+                'adminPurchaseUpdateForm' => $form->createView(),
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -636,7 +636,7 @@ class AdminPurchaseController extends AbstractController
                 301
             );
         }
-        // Else the CSRF token is not valid.
+        // The submitted CSRF token is not valid.
         else {
             // We redirect the user to the 403 page. 
             return new Response(

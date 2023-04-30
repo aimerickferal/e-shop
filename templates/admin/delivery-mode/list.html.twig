@@ -9,24 +9,24 @@
 {% block body %}
 	<section class="page">
 		<h2>Modes de Livraison</h2>
-		{# START: searchProductForm #}
-		{{ form_start(searchDeliveryModeForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'delivery-mode-search-form' }}
+		{# START: productSearchForm #}
+		{{ form_start(adminDeliveryModeSearchForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'delivery-mode-search-form' }}
 		) }}
 		{# Name #}
 		<div class="form-field">
-			{{ form_label(searchDeliveryModeForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__delivery-mode-name-label display-none' }}) }}
-			{{ form_widget(searchDeliveryModeForm.name, { 'id': 'delivery-mode-name-input', 'attr': {'class': 'form-field__input form-field__delivery-mode-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}
+			{{ form_label(adminDeliveryModeSearchForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__delivery-mode-name-label display-none' }}) }}
+			{{ form_widget(adminDeliveryModeSearchForm.name, { 'id': 'delivery-mode-name-input', 'attr': {'class': 'form-field__input form-field__delivery-mode-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}
 			) }}
 			<p class="error-message error-message_color_red error-message-delivery-mode-name-empty display-none">
 				Merci de saisir un nom.
 			</p>
-			{{ form_errors(searchDeliveryModeForm.name) }}
+			{{ form_errors(adminDeliveryModeSearchForm.name) }}
 		</div>
 		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="delivery-mode-search-button">
 			Rechercher
 		</button>
-		{{ form_end(searchDeliveryModeForm) }}
-		{# END: searchProductForm #}
+		{{ form_end(adminDeliveryModeSearchForm) }}
+		{# END: productSearchForm #}
 		<a class="page__link page__create-link  page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_delivery_mode_create') }}" id="create-delivery-mode-link">Créer</a>
 		<div class="neptune">
 			{% for deliveryMode in deliveryModes %}

@@ -29,7 +29,7 @@ class AdminDeliveryModeController extends AbstractController
     #[Route('/admin/modes-de-livraison/creer', name: 'admin_delivery_mode_create', methods: 'GET|POST')]
     public function create(Request $request, FileUploader $fileUploader): Response
     {
-        // We create a new DeliveryMode.
+        // We create a new delivery mode.
         $deliveryMode = new DeliveryMode();
         // We create the form.
         $form = $this->createForm(AdminDeliveryModeType::class, $deliveryMode);
@@ -69,7 +69,7 @@ class AdminDeliveryModeController extends AbstractController
             'admin/delivery-mode/create.html.twig',
             // We set a array of optional data.
             [
-                'adminCreateDeliveryModeForm' => $form->createView()
+                'adminDeliveryModeCreateForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -135,7 +135,7 @@ class AdminDeliveryModeController extends AbstractController
             // We set a array of optional data.
             [
                 'deliveryModes' => $deliveryModes,
-                'searchDeliveryModeForm' => $form->createView()
+                'adminDeliveryModeSearchForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -217,7 +217,7 @@ class AdminDeliveryModeController extends AbstractController
             // We set a array of optional data.
             [
                 'deliveryMode' => $deliveryMode,
-                'adminUpdateDeliveryModeForm' => $form->createView()
+                'adminDeliveryModeUpdateForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -264,7 +264,7 @@ class AdminDeliveryModeController extends AbstractController
                 301
             );
         }
-        // Else the CSRF token is not valid.
+        // The submitted CSRF token is not valid.
         else {
             // We redirect the user to the 403 page. 
             return new Response(

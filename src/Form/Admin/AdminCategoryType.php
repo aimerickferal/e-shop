@@ -29,7 +29,7 @@ class AdminCategoryType extends AbstractType
     }
 
     /**
-     * Method that slugify the name of a category.
+     * Method that create a slug from a category name.
      * @param FormEvent
      * @return void
      */

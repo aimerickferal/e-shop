@@ -79,7 +79,7 @@ class CategoryController extends AbstractController
             // We set a array of optional data.
             [
                 'categories' => $categories,
-                'searchCategoryForm' => $form->createView()
+                'categorySearchForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -179,7 +179,7 @@ class CategoryController extends AbstractController
             // We set a array of optional data.
             [
                 'category' =>  $category,
-                'searchProductForm' => $form->createView(),
+                'productSearchForm' => $form->createView(),
                 'products' => $products,
                 'available' => Product::AVAILABLE,
                 'unavailable' => Product::UNAVAILABLE,

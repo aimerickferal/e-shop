@@ -31,7 +31,7 @@ class AdminCategoryController extends AbstractController
     #[Route('/admin/categories/creer', name: 'admin_category_create', methods: 'GET|POST')]
     public function create(Request $request): Response
     {
-        // We create a new Category.
+        // We create a new category.
         $category = new Category();
         // We create the form.
         $form = $this->createForm(AdminCategoryType::class, $category);
@@ -62,7 +62,7 @@ class AdminCategoryController extends AbstractController
             'admin/category/create.html.twig',
             // We set a array of optional data.
             [
-                'adminCreateCategoryForm' => $form->createView()
+                'adminCategoryCreateForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -128,7 +128,7 @@ class AdminCategoryController extends AbstractController
             // We set a array of optional data.
             [
                 'categories' => $categories,
-                'searchCategoryForm' => $form->createView()
+                'categorySearchForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -233,7 +233,7 @@ class AdminCategoryController extends AbstractController
             [
                 'category' => $category,
                 'products' => $products,
-                'searchProductForm' => $form->createView(),
+                'productSearchForm' => $form->createView(),
                 'available' => Product::AVAILABLE,
                 'unavailable' => Product::UNAVAILABLE,
             ],
@@ -390,7 +390,7 @@ class AdminCategoryController extends AbstractController
             // We set a array of optional data.
             [
                 'category' => $category,
-                'adminUpdateCategoryForm' => $form->createView()
+                'adminCategoryUpdateForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -443,7 +443,7 @@ class AdminCategoryController extends AbstractController
                 301
             );
         }
-        // Else the CSRF token is not valid.
+        // The submitted CSRF token is not valid.
         else {
             // We redirect the user to the 403 page. 
             return new Response(

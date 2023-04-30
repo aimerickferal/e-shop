@@ -93,7 +93,7 @@ class AdminUserController extends AbstractController
             'admin/user/create.html.twig',
             // We set a array of optional data.
             [
-                'adminCreateUserForm' => $form->createView()
+                'adminUserCreateForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -159,7 +159,7 @@ class AdminUserController extends AbstractController
             // We set a array of optional data.
             [
                 'users' => $users,
-                'searchUserForm' => $form->createView()
+                'adminUserSearchForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -274,7 +274,7 @@ class AdminUserController extends AbstractController
             // We set a array of optional data.
             [
                 'user' => $user,
-                'adminUpdateUserForm' => $form->createView()
+                'adminUserUpdateForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -332,7 +332,7 @@ class AdminUserController extends AbstractController
                 301
             );
         }
-        // Else the CSRF token is not valid.
+        // The submitted CSRF token is not valid.
         else {
             // We redirect the user to the 403 page. 
             return new Response(
@@ -440,7 +440,7 @@ class AdminUserController extends AbstractController
                 301
             );
         }
-        // Else the CSRF token is not valid.
+        // The submitted CSRF token is not valid.
         else {
             // We redirect the user to the 403 page. 
             return new Response(

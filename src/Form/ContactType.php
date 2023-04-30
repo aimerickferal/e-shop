@@ -39,7 +39,7 @@ class ContactType extends AbstractType
                 'expanded' => true,
                 'constraints'   => [
                     new NotBlank([
-                        'message' => 'Merci de sélectionnner un sujet.',
+                        'message' => 'Merci de sélectionner un sujet.',
                     ]),
                 ],
             ])

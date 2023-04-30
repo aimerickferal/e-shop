@@ -84,7 +84,7 @@ class MainController extends AbstractController
             // We set a array of optional data.
             [
                 'products' => $products,
-                'searchProductForm' => $form->createView(),
+                'productSearchForm' => $form->createView(),
                 'available' => Product::AVAILABLE,
                 'unavailable' => Product::UNAVAILABLE,
             ],

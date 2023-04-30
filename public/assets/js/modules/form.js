@@ -12,13 +12,13 @@ const form = {
   regexMatchAtLeastOneUppercase: null,
   regexMatchAtLeastOneNumericCharacter: null,
   regexMatchAtLeastOneSpecialCharacter: null,
-  //! START. regex not used
+  //! START: regex not used
   regexMatchAlphabeticalCharactersWithOrWithoutDiacriticalMarks: null,
   regexMatchAccentedAlphabeticalCharacters: null,
   regexMatchAlphabeticalCharacters: null,
   regexMatchAlphabeticalCharactersAndSpace: null,
   regexMatchAlphabeticalCharactersWithHyphen: null,
-  //! END. regex not used
+  //! END: regex not used
   regexMatchNumber: null,
   regexMatchAtLeastTweleCharacters: null,
   // ======================= DOM ELEMENTS =======================
@@ -49,7 +49,7 @@ const form = {
   adminPurchaseCreateForm: null,
   adminPurchaseUpdateForm: null,
   purchaseSearchForm: null,
-  purchaseForm: null,
+  purchaseCreateForm: null,
   // Delivery mode's forms
   adminDeliveryModeCreateForm: null,
   adminDeliveryModeUpdateForm: null,
@@ -79,7 +79,7 @@ const form = {
   userLastNameInput: null,
   userPictureInput: null,
   userRolesInputs: [],
-  userTermsOfUseInput: null,
+  generalTermsOfUseInput: null,
   // Category's inputs
   categoryNameInput: null,
   // Product's inputs
@@ -164,7 +164,7 @@ const form = {
   errorMessagePurchaseStatusNotChecked: null,
   errorMessagePurchaseBillingAddressNotChecked: null,
   errorMessagePurchaseDeliveryAddressNotChecked: null,
-  errorMessagePurchasePaymentMethodNotChecked: null,
+  errorMessagePurchaseCheckoutMethodNotChecked: null,
   errorMessagePurchaseBillMimeType: null,
   errorMessagePurchaseBillSize: null,
   errorMessagePurchaseDeliveryModeNotChecked: null,
@@ -227,13 +227,13 @@ const form = {
   addNewAddressLink: null,
   // Purchase's steps
   purchaseSteps: [],
-  // Step #1 : address
+  // Step #1: address
   addressStep: null,
   addressStepIconChecked: null,
-  // Step #2 : delivery mode
+  // Step #2: delivery mode
   deliveryModeStep: null,
   deliveryModeStepIconChecked: null,
-  // Step #3. checkout method
+  // Step #3: checkout method
   checkoutMethodStep: null,
   paypalButtonContainer: null,
   paypalButton: null,
@@ -262,11 +262,11 @@ const form = {
 
     // Regex
 
-    // The $ means. ????
-    // The +$ means. ????
-    // The *$ means. match, from beginning to end, any character that appears zero or more times. Basically, that means. match everything from start to end of the string.
+    // The $ means: ????
+    // The +$ means: ????
+    // The *$ means: match, from beginning to end, any character that appears zero or more times. Basically, that means. match everything from start to end of the string.
 
-    // Regex that match only type of e-mail value.
+    // Regex that match only value of type e-mail.
     form.regexMatchEmail = /^(.+)@(\S+)$/;
     // Regex that match only value that contain at least 8 characters.
     form.regexMatchAtLeastHeightCharacters = /(?=.{8,})/;
@@ -295,7 +295,7 @@ const form = {
     form.regexMatchAlphabeticalCharactersWithHyphen = /^[A-Za-z-]+$/;
     // Regex that match alphabetical characters in uppercase and lowercase with accentend characters for uppercase and lowercase.
     form.regexMatchAccentedAlphabeticalCharacters = /[A-Za-zÀ-Ÿa-ÿ]/;
-    //! EN : regex not used
+    //! EN: regex not used
     // The regex accepting only value that contain a digit number.
     form.regexMatchNumber = /\d+/;
     // Regex that match only value who contain 5 numeric characters.
@@ -358,7 +358,7 @@ const form = {
       "admin-purchase-update-form"
     );
     form.purchaseSearchForm = document.getElementById("purchase-search-form");
-    form.purchaseForm = document.getElementById("purchase-form");
+    form.purchaseCreateForm = document.getElementById("purchase-create-form");
 
     // Delivery mode's forms
     form.adminDeliveryModeCreateForm = document.getElementById(
@@ -457,13 +457,13 @@ const form = {
       // We call the form.createDivForEachInputAndLabelOfCheckField() to create a div with a form-field class for each pair of input and label.
       form.createDivForEachInputAndLabelOfCheckField(form.userRolesInputs);
     }
-    form.userTermsOfUseInput = document.querySelector(
-      ".form-field__terms-of-use-input"
+    form.generalTermsOfUseInput = document.querySelector(
+      ".form-field__general-terms-of-use-input"
     );
-    if (form.userTermsOfUseInput) {
-      // We get the label related to form.userTermsOfUseInput.
-      label = form.userTermsOfUseInput.nextElementSibling;
-      label.setAttribute("for", "user-terms-of-use-input");
+    if (form.generalTermsOfUseInput) {
+      // We get the label related to form.generalTermsOfUseInput.
+      label = form.generalTermsOfUseInput.nextElementSibling;
+      label.setAttribute("for", "general-terms-of-use-input");
     }
 
     // Category's inputs
@@ -674,12 +674,12 @@ const form = {
       ".form-field__purchase-bill-input"
     );
     form.termsOfSaleInput = document.querySelector(
-      ".form-field__terms-of-sale-input"
+      ".form-field__general-terms-of-sale-input"
     );
     if (form.termsOfSaleInput) {
-      // We get the label related to form.userTermsOfUseInput.
+      // We get the label related to form.termsOfSaleInput.
       label = form.termsOfSaleInput.nextElementSibling;
-      label.setAttribute("for", "purchase-terms-of-sale-input");
+      label.setAttribute("for", "purchase-general-terms-of-sale-input");
     }
     form.purchasePendingCheckoutInput = document.querySelector(
       ".form-field__pending-checkout-input"
@@ -727,7 +727,7 @@ const form = {
 
     // User's error messages
     form.errorMessageGeneralTermsOfUseNotChecked = document.querySelector(
-      ".error-message-terms-of-use-not-checked"
+      ".error-message-general-terms-of-sale-not-checked"
     );
     form.errorMessageUserEmail = document.querySelector(
       ".error-message-user-e-mail"
@@ -833,8 +833,8 @@ const form = {
     form.errorMessagePurchaseDeliveryModeNotChecked = document.querySelector(
       ".error-message-purchase-delivery-mode-not-checked"
     );
-    form.errorMessagePurchasePaymentMethodNotChecked = document.querySelector(
-      ".error-message-purchase-payment-method-not-checked"
+    form.errorMessagePurchaseCheckoutMethodNotChecked = document.querySelector(
+      ".error-message-purchase-checkout-method-not-checked"
     );
     form.errorMessagePurchaseBillMimeType = document.querySelector(
       ".error-message-purchase-bill-mime-type"
@@ -843,7 +843,7 @@ const form = {
       ".error-message-purchase-bill-size"
     );
     form.errorMessageGeneralTermsOfSaleNotChecked = document.querySelector(
-      ".error-message-terms-of-sale-not-checked"
+      ".error-message-general-terms-of-sale-not-checked"
     );
 
     // Delivery Mode's error messages
@@ -1199,7 +1199,7 @@ const form = {
 
     if (clickedButton === form.signUpButton) {
       form.checkIfInputIsChecked(
-        form.userTermsOfUseInput,
+        form.generalTermsOfUseInput,
         form.errorMessageGeneralTermsOfUseNotChecked
       );
       form.submitFormIfNoError(form.signUpForm);
@@ -2201,7 +2201,7 @@ const form = {
       // We check if the checkout method input and terms of sale input are checked.
       form.checkIfInputIsChecked(
         form.purchaseCheckoutMethodInputs,
-        form.errorMessagePurchasePaymentMethodNotChecked
+        form.errorMessagePurchaseCheckoutMethodNotChecked
       );
       form.checkIfInputIsChecked(
         form.termsOfSaleInput,
@@ -2247,7 +2247,7 @@ const form = {
         }
       }
 
-      form.submitFormIfNoError(form.purchaseForm);
+      form.submitFormIfNoError(form.purchaseCreateForm);
     } else if (clickedElement === form.checkoutMethodStep) {
       if (
         form.addressStepIconChecked.classList.contains("display-none") ||

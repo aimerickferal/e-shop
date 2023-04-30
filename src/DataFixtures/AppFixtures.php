@@ -167,7 +167,7 @@ class AppFixtures extends Fixture
         ];
 
         foreach ($usersToCreate as $userToCreate) {
-            // We create a new User. 
+            // We create a new user. 
             $user = new User();
             $user
                 ->setCivilityTitle($userToCreate['Civility Title'])
@@ -305,7 +305,7 @@ class AppFixtures extends Fixture
                 $user->getLastName() === 'CURRY' ||
                 $user->getLastName() === 'STONE'
             ) {
-                // We create a new Address.
+                // We create a new address.
                 $address = new Address();
                 $address
                     ->setUser($user)
@@ -333,7 +333,7 @@ class AppFixtures extends Fixture
                     $user->getLastName() === 'ROSS' ||
                     $user->getLastName() === 'OLSON'
                 ) {
-                    // We create a new Address.
+                    // We create a new address.
                     $address = new Address();
                     $address
                         ->setUser($user)
@@ -357,7 +357,7 @@ class AppFixtures extends Fixture
                         $user->getLastName() === 'KENT' ||
                         $user->getLastName() === 'LANE'
                     ) {
-                        // We create a new Address.
+                        // We create a new address.
                         $address = new Address();
                         $address
                             ->setUser($user)
@@ -387,7 +387,7 @@ class AppFixtures extends Fixture
 
                     // If the last name of the user is identical to the give last name. 
                     if ($user->getLastName() === 'ALLEN') {
-                        // We create a new Address.
+                        // We create a new address.
                         $address = new Address();
                         $address
                             ->setUser($user)
@@ -408,7 +408,7 @@ class AppFixtures extends Fixture
                     }
                     // Else if the last name of the user is identical to the give last name. 
                     else if ($user->getLastName() === 'QUEEN') {
-                        // We create a new Address.
+                        // We create a new address.
                         $address = new Address();
                         $address
                             ->setUser($user)
@@ -429,7 +429,7 @@ class AppFixtures extends Fixture
                     }
                     // Else if the last name of the user is identical to the give last name. 
                     else if ($user->getLastName() === 'CURRY') {
-                        // We create a new Address.
+                        // We create a new address.
                         $address = new Address();
                         $address
                             ->setUser($user)
@@ -455,7 +455,7 @@ class AppFixtures extends Fixture
                 $user->getLastName() === 'LUTHOR' ||
                 $user->getLastName() === 'MERCER'
             ) {
-                // We create a new Address.
+                // We create a new address.
                 $address = new Address();
                 $address
                     ->setUser($user)
@@ -1191,7 +1191,7 @@ class AppFixtures extends Fixture
             ) {
                 // For each tShirt in tShirts.
                 foreach ($tShirts as $tShirt) {
-                    // We create a new Product.
+                    // We create a new product.
                     $product = new Product();
                     $product
                         ->setName($tShirt['Name'])
@@ -1221,7 +1221,7 @@ class AppFixtures extends Fixture
             ) {
                 // For each sweat in sweats.
                 foreach ($sweats as $sweat) {
-                    // We create a new Product.
+                    // We create a new product.
                     $product = new Product();
                     $product
                         ->setName($sweat['Name'])
@@ -1251,7 +1251,7 @@ class AppFixtures extends Fixture
             ) {
                 // For each jean in jeans.
                 foreach ($jeans as $jean) {
-                    // We create a new Product.
+                    // We create a new product.
                     $product = new Product();
                     $product
                         ->setName($jean['Name'])
@@ -1281,7 +1281,7 @@ class AppFixtures extends Fixture
             ) {
                 // For each jogging in joggings.
                 foreach ($joggings as $jogging) {
-                    // We create a new Product.
+                    // We create a new product.
                     $product = new Product();
                     $product
                         ->setName($jogging['Name'])
@@ -1311,7 +1311,7 @@ class AppFixtures extends Fixture
             ) {
                 // For each shortInJean in shortsInJean.
                 foreach ($shortsInJean as $shortInJean) {
-                    // We create a new Product.
+                    // We create a new product.
                     $product = new Product();
                     $product
                         ->setName($shortInJean['Name'])
@@ -1341,7 +1341,7 @@ class AppFixtures extends Fixture
             ) {
                 // For each shortInJogging in shortsInJogging.
                 foreach ($shortsInJogging as $shortInJogging) {
-                    // We create a new Product.
+                    // We create a new product.
                     $product = new Product();
                     $product
                         ->setName($shortInJogging['Name'])
@@ -1371,7 +1371,7 @@ class AppFixtures extends Fixture
             ) {
                 // For each basket in baskets.
                 foreach ($baskets as $basket) {
-                    // We create a new Product.
+                    // We create a new product.
                     $product = new Product();
                     $product
                         ->setName($basket['Name'])
@@ -1401,7 +1401,7 @@ class AppFixtures extends Fixture
             ) {
                 // For each shoes in shoess.
                 foreach ($shoess as $shoes) {
-                    // We create a new Product.
+                    // We create a new product.
                     $product = new Product();
                     $product
                         ->setName($shoes['Name'])
@@ -1454,7 +1454,7 @@ class AppFixtures extends Fixture
         $deliveryModes = [];
 
         foreach ($deliveryModesToCreate as $deliveryModeToCreate) {
-            // We create a new DeliveryMode. 
+            // We create a new delivery mode. 
             $deliveryMode = new DeliveryMode();
             $deliveryMode
                 ->setName($deliveryModeToCreate['Name'])
@@ -1481,7 +1481,7 @@ class AppFixtures extends Fixture
         foreach ($users as $user) {
             // We start a counter at 0 and we run some code untill he reach 50.
             for ($count = 0; $count < 2; $count++) {
-                // We create a new Purchase. 
+                // We create a new purchase. 
                 $purchase = new Purchase();
                 $purchase
                     ->setUser($user)

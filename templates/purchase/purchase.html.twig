@@ -9,27 +9,27 @@
 {% block body %}
 	<section class="page">
 		<h2>Commande</h2>
-		{{ form_start(purchaseForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'purchase-form' }}) }}
+		{{ form_start(purchaseCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'purchase-create-form' }}) }}
 		<h3 class="page__title-purchase-step page__title-address-step page__purchase-step" id="addresses-step">1 - Adresses 📮
 			<img class="display-none page__checked-icon page__image_color_green" id="icon-checked-addresses-step" src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="icon-checked"/>
 		</h3>
 		{# billingAddress #}
 		<div class="form-field form-field-address form-field-purchase-billing-address">
-			{{ form_label(purchaseForm, 'Adresse de facturation :', { 'label_attr': { 'class': 'form-field__label' }}) }}
-			{{ form_widget(purchaseForm.billingAddress)|replace({"[br]":"</br>"})|raw }}
+			{{ form_label(purchaseCreateForm, 'Adresse de facturation :', { 'label_attr': { 'class': 'form-field__label' }}) }}
+			{{ form_widget(purchaseCreateForm.billingAddress)|replace({"[br]":"</br>"})|raw }}
 			<p class="error-message error-message_color_red error-message-purchase-billing-address-not-checked display-none">
 				Merci de sélectionner une adresse de facturation.
 			</p>
-			{{ form_errors(purchaseForm.billingAddress) }}
+			{{ form_errors(purchaseCreateForm.billingAddress) }}
 		</div>
 		{# deliveryAddress #}
 		<div class="form-field form-field-address form-field-purchase-delivery-address">
-			{{ form_label(purchaseForm, 'Adresse de livraison :', { 'label_attr': { 'class': 'form-field__label' }}) }}
-			{{ form_widget(purchaseForm.deliveryAddress)|replace({"[br]":"</br>"})|raw  }}
+			{{ form_label(purchaseCreateForm, 'Adresse de livraison :', { 'label_attr': { 'class': 'form-field__label' }}) }}
+			{{ form_widget(purchaseCreateForm.deliveryAddress)|replace({"[br]":"</br>"})|raw  }}
 			<p class="error-message error-message_color_red error-message-purchase-delivery-address-not-checked display-none">
 				Merci de sélectionner une adresse de livraison.
 			</p>
-			{{ form_errors(purchaseForm.deliveryAddress) }}
+			{{ form_errors(purchaseCreateForm.deliveryAddress) }}
 		</div>
 		<a class="page__link-text page__link-add-new-address page__purchase-step page__link_color_blue" id="add-new-address-link" href="{{ path('address_create') }}?returnToPurchase=true">
 			+ Ajouter une nouvelle adresse.</a>
@@ -41,45 +41,45 @@
 		</h3>
 		{# deliveryMode #}
 		<div class="form-field form-field-purchase-delivery-mode display-none" data-folderpath={{ deliveryModePictureUploadFolderPath }} data-pictures={{ deliveryModePictures|json_encode }}>
-			{{ form_label(purchaseForm, 'Mode de livraison :', { 'label_attr': { 'class': 'display-none' }}) }}
-			{{ form_widget(purchaseForm.deliveryMode) }}
-			{# {{ form_widget(purchaseForm.deliveryMode)|replace({"[img]":"<img>" })|raw }} #}
+			{{ form_label(purchaseCreateForm, 'Mode de livraison :', { 'label_attr': { 'class': 'display-none' }}) }}
+			{{ form_widget(purchaseCreateForm.deliveryMode) }}
+			{# {{ form_widget(purchaseCreateForm.deliveryMode)|replace({"[img]":"<img>" })|raw }} #}
 			<p class="error-message error-message_color_red error-message-purchase-delivery-mode-not-checked display-none">
 				Merci de sélectionner un mode de livraison.
 			</p>
-			{{ form_errors(purchaseForm.deliveryMode) }}
+			{{ form_errors(purchaseCreateForm.deliveryMode) }}
 		</div>
 		<button type="button" class="page__purchase-step page__button page__purchase-confirm-delivery-mode-button page__button_background-color_blue page__button_color_white display-none" id="purchase-delivery-mode-confirm-button">
 			Continuer
 		</button>
 		<h3 class="page__title-purchase-step page__title-checkout-method-step page__purchase-step page__title-purchase-step_color_spanish-grey" id="checkout-method-step">3 - Paiement Sécurisé 🔐</h3>
-		{# paymentMethod #}
+		{# checkoutMethod #}
 		<div class="form-field form-field-purchase-checkout-method display-none">
 			{#! TODO #3 START: Make Paypal checkout.  #}
 			{# Paypal #}
 			{# {{ paypalCheckout.showUserInterface()|raw }} #}
 			{#! TODO #3 END: Paypal checkout  #}
-			{{ form_label(purchaseForm, 'Mode de paiment :', { 'label_attr': { 'class': 'display-none' }}
+			{{ form_label(purchaseCreateForm, 'Méthode de paiment:', { 'label_attr': { 'class': 'form-field__label form-field__checkout-method-label display-none' }}
 			) }}
-			{{ form_widget(purchaseForm.checkoutMethod) }}
-				<p class="error-message error-message_color_red error-message-purchase-payment-method-not-checked display-none"> Merci de sélectionner un moyen de paiement.
+			{{ form_widget(purchaseCreateForm.checkoutMethod) }}
+				<p class="error-message error-message_color_red error-message-purchase-checkout-method-not-checked display-none"> Merci de sélectionner un moyen de paiement.
 			</p>
-			{{ form_errors(purchaseForm.checkoutMethod) }}
+			{{ form_errors(purchaseCreateForm.checkoutMethod) }}
 		</div>
 		{# agreeTerms #}
 		<div class="form-field form-field-purchase-terms-of-sale display-none">
-			{{ form_widget(purchaseForm.agreeTerms, { 'id': 'purchase-terms-of-sale-input', 'attr': {'class': 'form-field__terms-of-sale-input' }}) }}
-			{{ form_label(purchaseForm, 'J\'ai lu et j\'accepte les ', { 'label_attr': { 'class': '' }}) }}
-			<a class="page__text-link page__link_color_blue" id="terms-of-service-link" href="{{ path('general_terms_of_sale') }}">Conditions Générales de Vente</a>.
-			<p class="error-message error-message_color_red error-message-terms-of-sale-not-checked display-none">
+			{{ form_widget(purchaseCreateForm.agreeTerms, { 'id': 'purchase-general-terms-of-sale-input', 'attr': {'class': 'form-field__general-terms-of-sale-input' }}) }}
+			{{ form_label(purchaseCreateForm, 'J\'ai lu et j\'accepte les ', { 'label_attr': { 'class': 'form-field__general-terms-of-sale-label' }}) }}
+			<a class="page__text-link page__link_color_blue" id="general-terms-of-sale-link" href="{{ path('general_terms_of_sale') }}">Conditions Générales de Vente</a>.
+			<p class="error-message error-message_color_red error-message-general-terms-of-sale-not-checked display-none">
 				Merci de confirmer avoir lu et accepter nos Conditions Générales de Vente.
 			</p>
-			{{ form_errors(purchaseForm.agreeTerms) }}
+			{{ form_errors(purchaseCreateForm.agreeTerms) }}
 		</div>
-		{# Submit purchaseForm button #}
+		{# Submit purchaseCreateForm button #}
 		<button type="button" class="page__purchase-step page__button page__purchase-confirm-button page__button_background-color_blue page__button_color_white display-none" id="purchase-confirm-button">Commander</button>
-		{{ form_end(purchaseForm) }}
-		{# END: purchaseForm #}
+		{{ form_end(purchaseCreateForm) }}
+		{# END: purchaseCreateForm #}
 		<h4 class="page__title-your-cart">
 			Votre Panier</h4>
 		{% for item in cartItems %}

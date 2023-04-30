@@ -145,7 +145,7 @@ class AdminProductType extends AbstractType
     }
 
     /**
-     * Method that slugify the name of a product and create a unique reference from its name.
+     * Method that create a slug from a product name and create a uniq reference. 
      * @param FormEvent
      * @return void
      */

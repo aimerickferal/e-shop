@@ -83,7 +83,7 @@ class AdminAddressController extends AbstractController
             // We set a array of optional data.
             [
                 'user' => $user,
-                'adminCreateAddressForm' => $form->createView(),
+                'adminAddressCreateForm' => $form->createView(),
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -148,7 +148,7 @@ class AdminAddressController extends AbstractController
             'admin/address/list.html.twig',
             // We set a array of optional data.
             [
-                'searchAddressForm' => $form->createView(),
+                'addressSearchForm' => $form->createView(),
                 'addresses' => $addresses
             ],
             // We specify the related HTTP response status code.
@@ -240,7 +240,7 @@ class AdminAddressController extends AbstractController
             // We set a array of optional data.
             [
                 'user' => $user,
-                'searchAddressForm' => $form->createView(),
+                'addressSearchForm' => $form->createView(),
                 'addresses' => $addresses
             ],
             // We specify the related HTTP response status code.
@@ -362,7 +362,7 @@ class AdminAddressController extends AbstractController
             // We set a array of optional data.
             [
                 'user' => $user,
-                'adminUpdateAddressForm' => $form->createView(),
+                'adminAddressUpdateForm' => $form->createView(),
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -421,7 +421,7 @@ class AdminAddressController extends AbstractController
                 301
             );
         }
-        // Else the CSRF token is not valid.
+        // The submitted CSRF token is not valid.
         else {
             // We redirect the user to the 403 page. 
             return new Response(

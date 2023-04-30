@@ -32,7 +32,7 @@ class PurchaseController extends AbstractController
     }
 
     /**
-     * Methot that display the purchase page.
+     * Methot that allow the user to create a purchase.
      * @param Request $request
      * @param DeliveryModeRepository $deliveryModeRepository
      * @param UrlGeneratorInterface $urlGeneratorInterface
@@ -113,7 +113,7 @@ class PurchaseController extends AbstractController
             $total = $subtotal;
         }
 
-        // We create a new Purchase.
+        // We create a new purchase.
         $purchase = new Purchase();
         // We set the user to the purchase.
         $purchase->setUser($user);
@@ -132,7 +132,7 @@ class PurchaseController extends AbstractController
             // The delivery price is the price of the selected delivery mode.
             $deliveryModePrice = $form->get('deliveryMode')->getData()->getPrice();
 
-            // If the price total of the cart is superior or equal than the minCartAmountForFreeDelivery of the selected deliveryMode.
+            // If the price total of the cart is superior or equal than the min cart amount for free delivery of the selected delivery mode.
             if ($this->cart->getTotal() >= $form->get('deliveryMode')->getData()->getMinCartAmountForFreeDelivery()) {
                 // The delivery price is Purchase::DELIVERY_PRICE_FREE.
                 $deliveryModePrice = DeliveryMode::DELIVERY_PRICE_FREE;
@@ -151,9 +151,9 @@ class PurchaseController extends AbstractController
             $this->entityManagerInterface->persist($purchase);
 
             foreach ($this->cart->getItems() as $cartItems) {
-                // We create a new  PurchaseItem.
+                // We create a new purchase item.
                 $purchaseItem = new PurchaseItem();
-                // We set the properties of the purchaseItem.
+                // We set the properties of the purchase item.
                 $purchaseItem
                     ->setPurchase($purchase)
                     ->setProductName($cartItems->product->getName())
@@ -205,7 +205,7 @@ class PurchaseController extends AbstractController
             'purchase/purchase.html.twig',
             // We set a array of optional data.
             [
-                'purchaseForm' => $form->createView(),
+                'purchaseCreateForm' => $form->createView(),
                 'cartItems' => $cartItems,
                 'subtotal' => $subtotal,
                 'deliveryModePrice' => $deliveryModePrice,
@@ -314,7 +314,7 @@ class PurchaseController extends AbstractController
             'purchase/list.html.twig',
             // We set a array of optional data.
             [
-                'searchPurchaseForm' => $form->createView(),
+                'purchaseSearchForm' => $form->createView(),
                 'purchases' => $purchases,
                 'statusPaid' => Purchase::STATUS_PAID,
                 'statusInProgress' => Purchase::STATUS_IN_PROGRESS,

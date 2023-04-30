@@ -40,8 +40,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180, unique: true)]
     #[Assert\NotBlank(message: 'Merci de saisir un e-mail.')]
     #[Assert\Regex(
+        // Regex that match only value of type e-mail.
         pattern: '/^(.+)@(\S+)$/',
-        message: 'Merci de saisir un e-mail valide.',
+        message: 'Merci de saisir un e-mail.',
     )]
     private ?string $email = null;
 
@@ -66,7 +67,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $picture = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: 'Merci de sélectionnner une valeur.')]
+    #[Assert\NotBlank(message: 'Merci de sélectionner une valeur.')]
     private ?string $civilityTitle = null;
 
     #[ORM\Column]

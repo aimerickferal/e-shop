@@ -38,7 +38,7 @@
 		<div class="form-field">
 			{{ form_widget(userProfileForm.civilityTitle) }}
 			<p class="error-message error-message_color_red error-message-user-gender-not-checked display-none">
-				Merci de sélectionnner une valeur.
+				Merci de sélectionner une valeur.
 			</p>
 			{{ form_errors(userProfileForm.civilityTitle) }}
 		</div>
@@ -78,10 +78,10 @@
 			Mettre à jour
 		</button>
 		{{ form_end(userProfileForm) }}
-		{# END: userProfileForm #}
+	{# END: userProfileForm #}
 		{# <a class="display-none page__link page__delete-link page__delete-my-user-account-link page__delete-user-link page__link_background-color_red page__link_color_white" id="delete-my-user-account-link" href="{{ path('user_delete', {'id':app.user.id, 'token':csrf_token('user-delete' ~ app.user.id)} ) }}" data-userfirstname="{{ app.user.firstName }}" data-userlastname="{{ app.user.lastName }}">
-			Supprimer mon compte
-		</a> #}
+					Supprimer mon compte
+				</a> #}
 	</section>
 {% endblock %}
 {# START: user_profile #}

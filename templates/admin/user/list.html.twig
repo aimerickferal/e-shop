@@ -9,23 +9,23 @@
 {% block body %}
 	<section class="page">
 		<h2>Utilisateurs</h2>
-		{# START: searchUserForm #}
-		{{ form_start(searchUserForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-user-search-form' }}
+		{# START: adminUserSearchForm #}
+		{{ form_start(adminUserSearchForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-user-search-form' }}
 		) }}
 		<div class="form-field">
-			{{ form_label(searchUserForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__user-last-name-label display-none' }}) }}
-			{{ form_widget(searchUserForm.lastName, { 'id': 'user-last-name-input', 'attr': {'class': 'form-field__input form-field__user-last-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}
+			{{ form_label(adminUserSearchForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__user-last-name-label display-none' }}) }}
+			{{ form_widget(adminUserSearchForm.lastName, { 'id': 'user-last-name-input', 'attr': {'class': 'form-field__input form-field__user-last-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}
 			) }}
 			<p class="error-message error-message_color_red error-message-user-last-name-empty display-none">
 				Merci de saisir un nom.
 			</p>
-			{{ form_errors(searchUserForm.lastName) }}
+			{{ form_errors(adminUserSearchForm.lastName) }}
 		</div>
 		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="admin-user-search-button">
 			Rechercher
 		</button>
-		{{ form_end(searchUserForm) }}
-		{# END: searchUserForm #}
+		{{ form_end(adminUserSearchForm) }}
+		{# END: adminUserSearchForm #}
 		<a class="page__link page__create-link page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_user_create') }}" id="create-user-link">Créer</a>
 		<div class="neptune">
 			{% for user in users %}
@@ -35,7 +35,7 @@
 					<p>{{ user.civilityTitle }}</p>
 					<p>{{ user.firstName }}
 						{{ user.lastName }}</p>
-					<a class="page__text-link page__link_color_blue" id="" href="{{ path('admin_user_detail', {'id': user.id}) }}">{{ user.email }}</a>
+					<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_detail', {'id': user.id}) }}">{{ user.email }}</a>
 					<p>{{ user.roles|json_encode() }}</p>
 					<a class="page__text-link page__link_color_blue" href="{{ path('admin_address_user_list', {'id': user.id}) }}">Adresses</a>
 					<a class="page__text-link page__link_color_blue" href="{{ path('admin_purchase_user_list', {'id': user.id}) }}">Commandes</a>

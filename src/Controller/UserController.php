@@ -194,7 +194,7 @@ class UserController extends AbstractController
                 301
             );
         }
-        // Else the submitted token is not valid.
+        // The submitted CSRF token is not valid.
         else {
             // We redirect the user to the 403 page. 
             return new Response(
@@ -283,7 +283,7 @@ class UserController extends AbstractController
                 301
             );
         }
-        // Else the CSRF token is not valid.
+        // The submitted CSRF token is not valid.
         else {
             // We redirect the user to the 403 page. 
             return new Response(
