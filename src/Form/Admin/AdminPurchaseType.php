@@ -72,7 +72,7 @@ class AdminPurchaseType extends AbstractType
     }
 
     /**
-     * Method that display the form fields with differents value adepending on whether we are in creation or update mode.
+     * Method that diplay the form fields dynamically according to the fact that we are in case of creation or in case of update. 
      * @param FormEvent $event
      * @return void
      */
@@ -84,7 +84,7 @@ class AdminPurchaseType extends AbstractType
         // We get the data of the purchase.
         $purchase = $event->getData();
 
-        // We create a array to backup each address.
+        // We create a empty array to backup each address.
         $addresses = [];
 
         // For each $adress in $purchase->getUser()->getAddresses().

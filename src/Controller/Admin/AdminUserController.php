@@ -294,7 +294,7 @@ class AdminUserController extends AbstractController
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
         if ($this->isCsrfTokenValid('delete-user-picture' . $user->getId(), $submittedToken)) {
-            // We get the picture of the user. 
+            // We get the user's picture.
             $picture = $user->getPicture();
 
             // If the picture of the user is different than User::MAN_PICTURE and than User::WOMAN_PICTURE.
@@ -399,7 +399,7 @@ class AdminUserController extends AbstractController
         // dump($request->attributes->get('token'));
 
         if ($this->isCsrfTokenValid('admin-user-delete' . $user->getId(), $submittedToken)) {
-            // We get the picture of the user. 
+            // We get the user's picture.
             $picture = $user->getPicture();
 
             // For each $adresse in $user->getAddresses().

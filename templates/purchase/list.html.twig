@@ -16,7 +16,7 @@
 		{{ form_start(purchaseSearchForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'purchase-search-form' }}
 		) }}
 		<div class="form-field">
-			{{ form_label(purchaseSearchForm, 'Référence', { 'label_attr': { 'class': 'form-field__label form-field__purchase-reference-label display-none' }}) }}
+			{{ form_label(purchaseSearchForm, 'Référence:', { 'label_attr': { 'class': 'form-field__label form-field__purchase-reference-label display-none' }}) }}
 			{{ form_widget(purchaseSearchForm.reference, { 'id': 'purchase-reference-input', 'attr': {'class': 'form-field__input form-field__purchase-reference-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par référence' }}) }}
 			<p class="error-message error-message_color_red error-message-purchase-reference-empty display-none">
 				Merci de saisir une référence.

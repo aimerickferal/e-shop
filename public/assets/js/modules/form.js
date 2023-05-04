@@ -111,7 +111,7 @@ const form = {
   purchaseDeliveryModeInputs: [],
   purchaseCheckoutMethodInputs: [],
   purchaseBillInput: null,
-  termsOfSaleInput: null,
+  generalTermsOfSaleInput: null,
   purchasePendingCheckoutInput: null,
   // Delivery mode's inputs
   deliveryModeNameInput: null,
@@ -276,7 +276,7 @@ const form = {
     form.regexMatchAtLeastOneUppercase = /(?=.*[A-Z])/;
     // Regex that match only value that contain at least 1 numeric character.
     form.regexMatchAtLeastOneNumericCharacter = /(?=.*[0-9])/;
-    // Regex that match only value that contain at least 1 one special character, but we are escaping reserved RegEx characters to avoid conflict.
+    // Regex that match only value that contain at least 1 one special character, but we are escaping reserved Regex characters to avoid conflict.
     form.regexMatchAtLeastOneSpecialCharacter = /(?=.*[!@#$%^&*])/;
     // Regex that match only value that contain at least 1 lowercase alphabetical character.
     // Regex that match only value that contain 10 numeric characters.
@@ -673,12 +673,12 @@ const form = {
     form.purchaseBillInput = document.querySelector(
       ".form-field__purchase-bill-input"
     );
-    form.termsOfSaleInput = document.querySelector(
+    form.generalTermsOfSaleInput = document.querySelector(
       ".form-field__general-terms-of-sale-input"
     );
-    if (form.termsOfSaleInput) {
-      // We get the label related to form.termsOfSaleInput.
-      label = form.termsOfSaleInput.nextElementSibling;
+    if (form.generalTermsOfSaleInput) {
+      // We get the label related to form.generalTermsOfSaleInput.
+      label = form.generalTermsOfSaleInput.nextElementSibling;
       label.setAttribute("for", "purchase-general-terms-of-sale-input");
     }
     form.purchasePendingCheckoutInput = document.querySelector(
@@ -894,8 +894,6 @@ const form = {
         submitButton.addEventListener("click", form.handleFormSubmit);
       }
     }
-
-    // Each button
 
     // User's buttons
     form.signUpButton = document.getElementById("sign-up-button");
@@ -1806,7 +1804,7 @@ const form = {
     }
   },
   /**
-   * Method that check if a input contain a value type of number and call the methods that display the related error message.
+   * Method that check if a input contain a value of type alphabetical characters and call the methods that display the related error message.
    * @param {HTMLInputElement} input
    * @param {HTMLParagraphElement} errorMessage
    * @return {void}
@@ -1822,7 +1820,7 @@ const form = {
     if (input.value) {
       tools.addDisplayNone(errorMessage);
 
-      if (form.regexMatchAtLeastOneSpecialCharacter.test(input.value)) {
+      if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
         form.switchInputOutlineColor(input, form.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
@@ -2204,7 +2202,7 @@ const form = {
         form.errorMessagePurchaseCheckoutMethodNotChecked
       );
       form.checkIfInputIsChecked(
-        form.termsOfSaleInput,
+        form.generalTermsOfSaleInput,
         form.errorMessageGeneralTermsOfSaleNotChecked
       );
       // We extract the index of each inputs by counting them from the lenght of form.purchaseCheckoutMethodInputs in order to know their positions and act accordingly to the value of each. .

@@ -38,7 +38,7 @@ class AdminPurchaseController extends AbstractController
     public function create(Request $request, User $user, Cart $cart, DeliveryModeRepository $deliveryModeRepository): Response
     {
 
-        // // We create a array to backup each address.
+        // // We create a empty array to backup each address.
         // $addresses = [];
         // // For each $adresse in $user->getAddresses().
         // foreach ($user->getAddresses() as $address) {

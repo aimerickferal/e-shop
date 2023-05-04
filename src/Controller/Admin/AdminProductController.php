@@ -41,7 +41,7 @@ class AdminProductController extends AbstractController
 
             // If we have a picture to upload.
             if ($picture) {
-                // We set to the picture property the value of $picture.
+                //  We set to the picture property the value of picture.
                 $product->setPicture($picture);
             }
 
@@ -308,7 +308,7 @@ class AdminProductController extends AbstractController
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
         if ($this->isCsrfTokenValid('admin-product-delete' . $product->getId(), $submittedToken)) {
-            // We get the picture of the product. 
+            // We get the product's picture. 
             $picture = $product->getPicture();
 
             // We delete our object.

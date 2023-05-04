@@ -15,7 +15,7 @@
 		</h3>
 		{# billingAddress #}
 		<div class="form-field form-field-address form-field-purchase-billing-address">
-			{{ form_label(purchaseCreateForm, 'Adresse de facturation :', { 'label_attr': { 'class': 'form-field__label' }}) }}
+			{{ form_label(purchaseCreateForm, 'Adresse de facturation:', { 'label_attr': { 'class': 'form-field__label' }}) }}
 			{{ form_widget(purchaseCreateForm.billingAddress)|replace({"[br]":"</br>"})|raw }}
 			<p class="error-message error-message_color_red error-message-purchase-billing-address-not-checked display-none">
 				Merci de sélectionner une adresse de facturation.
@@ -24,7 +24,7 @@
 		</div>
 		{# deliveryAddress #}
 		<div class="form-field form-field-address form-field-purchase-delivery-address">
-			{{ form_label(purchaseCreateForm, 'Adresse de livraison :', { 'label_attr': { 'class': 'form-field__label' }}) }}
+			{{ form_label(purchaseCreateForm, 'Adresse de livraison:', { 'label_attr': { 'class': 'form-field__label' }}) }}
 			{{ form_widget(purchaseCreateForm.deliveryAddress)|replace({"[br]":"</br>"})|raw  }}
 			<p class="error-message error-message_color_red error-message-purchase-delivery-address-not-checked display-none">
 				Merci de sélectionner une adresse de livraison.
@@ -41,7 +41,7 @@
 		</h3>
 		{# deliveryMode #}
 		<div class="form-field form-field-purchase-delivery-mode display-none" data-folderpath={{ deliveryModePictureUploadFolderPath }} data-pictures={{ deliveryModePictures|json_encode }}>
-			{{ form_label(purchaseCreateForm, 'Mode de livraison :', { 'label_attr': { 'class': 'display-none' }}) }}
+			{{ form_label(purchaseCreateForm, 'Mode de livraison:', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(purchaseCreateForm.deliveryMode) }}
 			{# {{ form_widget(purchaseCreateForm.deliveryMode)|replace({"[img]":"<img>" })|raw }} #}
 			<p class="error-message error-message_color_red error-message-purchase-delivery-mode-not-checked display-none">

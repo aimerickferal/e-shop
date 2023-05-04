@@ -44,14 +44,14 @@ class UserType extends AbstractType
                 'constraints' => [
                     new File([
                         'maxSize' => '300k',
-                        'maxSizeMessage' => 'Merci de télécharger un fichier de maximum {{ limit }} bytes.',
+                        'maxSizeMessage' => 'Merci de téléverser un fichier de maximum {{ limit }} bytes.',
                         'mimeTypes' => [
                             'application/pdf',
                             'image/png',
                             'image/jpeg',
                             'image/svg+xml'
                         ],
-                        'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                        'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
                     ])
                 ]
             ])

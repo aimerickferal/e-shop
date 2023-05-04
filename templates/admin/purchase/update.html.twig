@@ -24,7 +24,7 @@
 		{{ form_start(adminPurchaseUpdateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-purchase-update-form' }}) }}
 		{# status #}
 		<div class="form-field">
-			{{ form_label(adminPurchaseUpdateForm, 'Statut :', { 'label_attr': { 'class': 'form-field__label form-field__purchase-status-label' }}) }}
+			{{ form_label(adminPurchaseUpdateForm, 'Statut:', { 'label_attr': { 'class': 'form-field__label form-field__purchase-status-label' }}) }}
 			{{ form_widget(adminPurchaseUpdateForm.status) }}
 			<p class="error-message error-message_color_red error-message-purchase-status-not-checked display-none">
 				Merci de sélectionner un statut.
@@ -33,7 +33,7 @@
 		</div>
 		{# upload #}
 		<div class="form-field">
-			{{ form_label(adminPurchaseUpdateForm, 'Facture :', { 'label_attr': { 'class': 'form-field__label form-field__purchase-bill-label' }}) }}
+			{{ form_label(adminPurchaseUpdateForm, 'Facture:', { 'label_attr': { 'class': 'form-field__label form-field__purchase-bill-label' }}) }}
 			{{ form_widget(adminPurchaseUpdateForm.upload, { 'id': 'purchase-bill-input', 'attr': { 'class': 'form-field__input form-field__purchase-bill-input form-field__input_color_black' }}) }}
 			<p class="error-message error-message_color_red error-message-purchase-bill-mime-type display-none">
 				Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.

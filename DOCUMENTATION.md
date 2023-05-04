@@ -25,7 +25,6 @@
 - purchases | OneToMany
 - createdAt
 - updatesAt
-<!-- - isActivated : bool (0 or 1) -->
 
 | id  | email                | roles          | password                                  | first_name | last_name | civility_title | picture  | created_at          | updated_at          |
 | --- | -------------------- | -------------- | ----------------------------------------- | ---------- | --------- | -------------- | -------- | ------------------- | ------------------- |
@@ -265,11 +264,6 @@ Relation between **PurchaseItem** & **Purchase** :
 | /demande-reactivation-compte                                      | user_reactivate_request       | GET          | UserController              | reactivateRequest()          | ❌     |
 | /reactivation                                                     | user_reactivate               | GET, POST    | UserController              | reactivate()                 | ❌     |
 
-## Data Dictionnary
-
-| Fields | Types | Particularities | Descriptions |
-| ------ | ----- | --------------- | ------------ |
-
 ## Divers
 
 Frais de préparation  
@@ -278,8 +272,7 @@ Frais d'expédition
 
 Frais d'expédition = frais de préparation + frais de port
 
-## Markdown Array Template
+## Data Dictionnary
 
-|     |     |     |
-| --- | --- | --- |
-|     |     |     |
+| Fields | Types | Particularities | Descriptions |
+| ------ | ----- | --------------- | ------------ |

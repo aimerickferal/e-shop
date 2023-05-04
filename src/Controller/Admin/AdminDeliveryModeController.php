@@ -42,7 +42,7 @@ class AdminDeliveryModeController extends AbstractController
 
             // If we have a picture to upload.
             if ($picture) {
-                // We set to the picture property the value of $picture.
+                //  We set to the picture property the value of picture.
                 $deliveryMode->setPicture($picture);
             }
 
@@ -238,7 +238,7 @@ class AdminDeliveryModeController extends AbstractController
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
         if ($this->isCsrfTokenValid('admin-delivery-mode-delete' . $deliveryMode->getId(), $submittedToken)) {
-            // We get the picture of the delivery mode. 
+            // We get the delivery mode's picture. 
             $picture = $deliveryMode->getPicture();
 
             // We delete our object.

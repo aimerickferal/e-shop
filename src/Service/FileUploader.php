@@ -29,7 +29,7 @@ class FileUploader
         // We get the file to upload. 
         $uploadedFile = $form->get($fieldName)->getData();
 
-        // If we don't have a file. 
+        // We don't have a file to upload. 
         if (!$uploadedFile) {
             // We leave the method. 
             return;
@@ -37,31 +37,19 @@ class FileUploader
 
         // dd($form->getName());
 
-        // If the name of the form is strictly equal to at least one of the compared forms. 
+        // The value of the upload folder path is set accordingly of the form name. 
         if (
             $form->getName() === 'sign_up_form' ||
             $form->getName() === 'user' ||
             $form->getName() === 'admin_user'
         ) {
-            // // The value of $uploadeFolder is the value of the .env variable PICTURE_UPLOAD_FOLDER_PATH.
             // $uploadFolder = $_ENV['PICTURE_UPLOAD_FOLDER_PATH'];
-
-            // The value of $uploadeFolder is the value of the PHP constant User::PICTURE_UPLOAD_FOLDER_PATH. 
             $uploadFolder = User::PICTURE_UPLOAD_FOLDER_PATH;
-        }
-        // Else if the name of the form is strictly equal to "admin_product".
-        else if ($form->getName() === 'admin_product') {
-            // The value of $uploadeFolder is the value of the PHP constant Product::PICTURE_UPLOAD_FOLDER_PATH.  
+        } else if ($form->getName() === 'admin_product') {
             $uploadFolder = Product::PICTURE_UPLOAD_FOLDER_PATH;
-        }
-        // Else if the name of the form is strictly equal to "admin_delivery_mode".
-        else if ($form->getName() === 'admin_delivery_mode') {
-            // The value of $uploadeFolder is the value of the PHP constant DeliveryMode::PICTURE_UPLOAD_FOLDER_PATH.  
+        } else if ($form->getName() === 'admin_delivery_mode') {
             $uploadFolder = DeliveryMode::PICTURE_UPLOAD_FOLDER_PATH;
-        }
-        // Else if the name of the form is strictly equal to "admin_purchase".
-        else if ($form->getName() === 'admin_purchase') {
-            // The value of $uploadeFolder is the value of the PHP constant Purchase::BILL_UPLOAD_FOLDER_PATH.  
+        } else if ($form->getName() === 'admin_purchase') {
             $uploadFolder = Purchase::BILL_UPLOAD_FOLDER_PATH;
         }
 

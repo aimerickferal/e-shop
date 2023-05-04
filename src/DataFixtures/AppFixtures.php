@@ -24,7 +24,7 @@ class AppFixtures extends Fixture
     {
         // User 
 
-        // We create a array of users. 
+        // We create a empty array for the users. 
         $users = [];
 
         // We create a new User with a ROLE_ADMIN. 
@@ -39,8 +39,11 @@ class AppFixtures extends Fixture
             ->setPassword($this->userPasswordHasherInterface->hashPassword($userAdmin, '2CBb4cb73201f865638932A41@'))
             ->setPicture(User::MAN_PICTURE);
 
-        // We the userAdmin in the array of users.
+        // We push the user admin in the array of users.
         $users[] = $userAdmin;
+
+        // We put the data on hold.
+        $objectManager->persist($userAdmin);
 
         // We create a array of users with the data of the users we want to create. 
         $usersToCreate = [
@@ -179,9 +182,7 @@ class AppFixtures extends Fixture
 
             // We push the user in the array of users.
             $users[] = $user;
-        }
 
-        foreach ($users as $user) {
             // We put the data on hold.
             $objectManager->persist($user);
         }
@@ -288,7 +289,7 @@ class AppFixtures extends Fixture
         //     'Phone Number' => '0642424242',
         // ];
 
-        // We create a array of addresses. 
+        // We create a empty array for the addresses. 
         $addresses = [];
 
         foreach ($users as $user) {
@@ -1161,15 +1162,14 @@ class AppFixtures extends Fixture
             ]
         ];
 
-        // We create a array of categories. 
+        // We create a empty array for the categories. 
         $categories = [];
 
-        // We create a array of products. 
+        // We create a empty array for the products. 
         $products = [];
 
-        // For each categorieToCreate in categoriesToCreate.
         foreach ($categoriesToCreate as $categorieToCreate) {
-            // we create a new Category.
+            // we create a new category.
             $category = new Category();
             $category
                 ->setName($categorieToCreate['Name'])
@@ -1182,7 +1182,6 @@ class AppFixtures extends Fixture
             $objectManager->persist($category);
         }
 
-        // For each category in categories.
         foreach ($categories as $category) {
             // If the name of the category is identical to the name of the first categoriesToCreate. 
             if (
@@ -1450,7 +1449,7 @@ class AppFixtures extends Fixture
             ],
         ];
 
-        // We create a array of delivery modes. 
+        // We create a empty array for the delivery modes. 
         $deliveryModes = [];
 
         foreach ($deliveryModesToCreate as $deliveryModeToCreate) {
@@ -1474,10 +1473,9 @@ class AppFixtures extends Fixture
 
         // dd($addresses);
 
-        // We create a array of purchases. 
+        // We create a empty array for the purchases. 
         $purchases = [];
 
-        // For each user in users.
         foreach ($users as $user) {
             // We start a counter at 0 and we run some code untill he reach 50.
             for ($count = 0; $count < 2; $count++) {
@@ -1503,7 +1501,7 @@ class AppFixtures extends Fixture
 
                 // PurchaseItem
 
-                // We create a array of purchased products. 
+                // We create a empty array for the purchased products. 
                 $purchasedProducts = [];
 
                 foreach ($products as $product) {

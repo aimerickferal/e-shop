@@ -70,7 +70,7 @@ class AdminProductType extends AbstractType
     }
 
     /**
-     * Method that modify the form and display the picture field in case of product creation and the upload field in case of product update.
+     * Method that diplay the form fields dynamically according to the fact that we are in case of creation or in case of update. 
      * @param FormEvent $event
      * @return void
      */
@@ -89,18 +89,18 @@ class AdminProductType extends AbstractType
                     "required" => true,
                     'constraints' => [
                         new NotBlank([
-                            'message' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
+                            'message' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                         ]),
                         new File([
                             'maxSize' => '300k',
-                            'maxSizeMessage' => 'Merci de télécharger un fichier de maximum {{ limit }} bytes.',
+                            'maxSizeMessage' => 'Merci de téléverser un fichier de maximum {{ limit }} bytes.',
                             'mimeTypes' => [
                                 'application/pdf',
                                 'image/png',
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
                         ])
                     ]
                 ]);
@@ -115,14 +115,14 @@ class AdminProductType extends AbstractType
                     'constraints' => [
                         new File([
                             'maxSize' => '300k',
-                            'maxSizeMessage' => 'Merci de télécharger un fichier de maximum {{ limit }} bytes.',
+                            'maxSizeMessage' => 'Merci de téléverser un fichier de maximum {{ limit }} bytes.',
                             'mimeTypes' => [
                                 'application/pdf',
                                 'image/png',
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
                         ])
                     ]
                 ])

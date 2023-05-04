@@ -65,7 +65,7 @@ class PurchaseController extends AbstractController
          */
         $user = $this->getUser();
 
-        // We create a array to backup each address.
+        // We create a empty array to backup each address.
         $addresses = [];
         foreach ($user->getAddresses() as $address) {
             // We push each address in the array.
@@ -290,9 +290,8 @@ class PurchaseController extends AbstractController
                 );
             }
 
-            // Foreach $purchase in $purchases.
             foreach ($purchases as $purchase) {
-                // If the user of the purchase is not identical to the user.
+                // If the user of the purchase is not identical to the  logged in user.
                 if ($purchase->getUser() !== $user) {
                     // We display a flash message for the user.
                     $this->addFlash('error', 'La commande ' . $form->get('reference')->getData() . ' ne figure pas dans votre liste de commandes.');

@@ -20,7 +20,7 @@
 		{{ form_start(contactForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'contact-form' }}) }}
 		{# subject #}
 		<div class="form-field">
-			{{ form_label(contactForm, 'Sujet :', { 'label_attr': { 'class': 'form__label form__contact-subject-label' }}) }}
+			{{ form_label(contactForm, 'Sujet:', { 'label_attr': { 'class': 'form__label form__contact-subject-label' }}) }}
 			{{ form_widget(contactForm.subject) }}
 			<p class="error-message error-message_color_red error-message-contact-subject-not-checked display-none">
 				Merci de sélectionner une valeur.
@@ -37,7 +37,7 @@
 		</div>
 		{# firstName #}
 		<div class="form-field">
-			{{ form_label(contactForm, 'Prénom', { 'label_attr': { 'class': 'display-none' }}) }}
+			{{ form_label(contactForm, 'Prénom:', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.firstName, { 'id': 'contact-first-name-input', 'attr': {'class': 'form-field__input form-field__user-first-name-input form-field__input_color_black', 'placeholder': 'Prénom' }}) }}
 			<p class="error-message error-message_color_red error-message-user-first-name-blank display-none">
 				Merci de saisir un prénom.
@@ -46,7 +46,7 @@
 		</div>
 		{# lastName #}
 		<div class="form-field">
-			{{ form_label(contactForm, 'Nom', { 'label_attr': { 'class': 'display-none' }}) }}
+			{{ form_label(contactForm, 'Nom:', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.lastName, { 'id': 'contact-last-name-input', 'attr': {'class': 'form-field__input form-field__user-last-name-input form-field__input_color_black', 'placeholder': 'Nom'}}) }}
 			<p class="error-message error-message_color_red error-message-user-last-name-blank display-none">
 				Merci de saisir un nom.
@@ -55,45 +55,38 @@
 		</div>
 		{# email #}
 		<div class="form-field">
-			{{ form_label(contactForm, 'E-mail', { 'label_attr': { 'class': 'display-none' }}) }}
+			{{ form_label(contactForm, 'E-mail:', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.email, { 'id': 'contact-email-input', 'attr': {'class': 'form-field__input form-field__user-e-mail-input form-field__input_color_black', 'placeholder': 'E-mail' }}) }}
-
-			<p class="error-message error-message_color_red error-message-user-e-mail-blank error-message-user-e-mail-blank display-none ">
+			<p class="error-message error-message_color_red error-message-user-e-mail display-none">
 				Merci de saisir un e-mail.
-			</p>
-			<p class="error-message error-message_color_red error-message-user-e-mail-validity display-none">
-				Merci de saisir un e-mail valide.
 			</p>
 			{{ form_errors(contactForm.email) }}
 		</div>
 		{# phoneNumber #}
 		<div class="form-field">
-			{{ form_label(contactForm, 'Numéro de téléphone mobile', { 'label_attr': { 'class': 'display-none' }}) }}
+			{{ form_label(contactForm, 'Numéro de téléphone mobile:', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.phoneNumber, { 'id': 'contact-phone-number-input', 'attr': {'class': 'form-field__input form-field__phone-number-input form-field__input_color_black', 'placeholder': 'Numéro de téléphone mobile' }}) }}
-			<p class="error-message error-message_color_red error-message-blank-phone-number display-none">
-				Merci de saisir un numéro de téléphone mobile.
-			</p>
-			<p class="error-message error-message_color_red error-message-validity-phone-number display-none">
+			<p class="error-message error-message_color_red error-message-phone-number display-none">
 				Merci de saisir un numéro de téléphone mobile.
 			</p>
 			{{ form_errors(contactForm.phoneNumber) }}
 		</div>
 		{# upload #}
 		<div class="form-field">
-			{{ form_label(contactForm, 'Fichier', { 'label_attr': { 'class': 'display-none' }}) }}
+			{{ form_label(contactForm, 'Fichier:', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.upload, { 'id': 'contact-upload-input', 'attr': { 'class': 'form-field__input form-field__contact-file-input form-field__input_color_black' }}) }}
 			<p class="error-message error-message_color_red error-message-contact-file-mime-type display-none">
-				Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.
+				Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.
 			</p>
 			<p class="error-message error-message_color_red error-message-contact-file-size display-none">
-				Merci de télécharger un fichier de maximum 300 000 bytes.
+				Merci de téléverser un fichier de maximum 300 000 bytes.
 			</p>
 			{{ form_errors(contactForm.upload) }}
 
 		</div>
 		{# message #}
 		<div class="form-field">
-			{{ form_label(contactForm, 'Message', { 'label_attr': { 'class': 'display-none' }}) }}
+			{{ form_label(contactForm, 'Message:', { 'label_attr': { 'class': 'display-none' }}) }}
 			{{ form_widget(contactForm.message, { 'id': 'contact-message-input', 'attr': {'class': 'form-field__input form-field__input-contact-message form-field__input_color_black form-field__contact-message-input form-field__input_color_black', 'placeholder': 'Message' }}) }}
 			<p class="error-message error-message_color_red error-message-contact-message-blank display-none">
 				Merci de saisir un message.

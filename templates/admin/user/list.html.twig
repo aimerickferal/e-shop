@@ -13,7 +13,7 @@
 		{{ form_start(adminUserSearchForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-user-search-form' }}
 		) }}
 		<div class="form-field">
-			{{ form_label(adminUserSearchForm, 'Nom', { 'label_attr': { 'class': 'form-field__label form-field__user-last-name-label display-none' }}) }}
+			{{ form_label(adminUserSearchForm, 'Nom:', { 'label_attr': { 'class': 'form-field__label form-field__user-last-name-label display-none' }}) }}
 			{{ form_widget(adminUserSearchForm.lastName, { 'id': 'user-last-name-input', 'attr': {'class': 'form-field__input form-field__user-last-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}
 			) }}
 			<p class="error-message error-message_color_red error-message-user-last-name-empty display-none">

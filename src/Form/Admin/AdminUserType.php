@@ -67,7 +67,7 @@ class AdminUserType extends AbstractType
     }
 
     /**
-     * Method that modify the form and display somes fields only if we are in case of user creation so we don't dislay the password field on user update.
+     * Method that diplay the form fields dynamically according to the fact that we are in case of creation or in case of update.
      * @param FormEvent $event
      * @return void
      */
@@ -88,14 +88,14 @@ class AdminUserType extends AbstractType
                     'constraints' => [
                         new File([
                             'maxSize' => '300k',
-                            'maxSizeMessage' => 'Merci de télécharger un fichier de maximum {{ limit }} bytes.',
+                            'maxSizeMessage' => 'Merci de téléverser un fichier de maximum {{ limit }} bytes.',
                             'mimeTypes' => [
                                 'application/pdf',
                                 'image/png',
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
                         ])
                     ]
                 ])
@@ -162,14 +162,14 @@ class AdminUserType extends AbstractType
                     'constraints' => [
                         new File([
                             'maxSize' => '300k',
-                            'maxSizeMessage' => 'Merci de télécharger un fichier de maximum {{ limit }} bytes.',
+                            'maxSizeMessage' => 'Merci de téléverser un fichier de maximum {{ limit }} bytes.',
                             'mimeTypes' => [
                                 'application/pdf',
                                 'image/png',
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
                         ])
                     ]
                 ]);

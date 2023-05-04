@@ -156,7 +156,7 @@ class UserController extends AbstractController
         $submittedToken = $request->query->get('token');
 
         if ($this->isCsrfTokenValid('delete-my-user-picture' . $user->getId(), $submittedToken)) {
-            // We get the picture of the user. 
+            // We get the user's picture.
             $picture = $user->getPicture();
 
             // If the picture of the user is different than User::MAN_PICTURE and than User::WOMAN_PICTURE.
@@ -245,7 +245,7 @@ class UserController extends AbstractController
 
             dd(42);
 
-            // We get the picture of the user. 
+            // We get the user's picture.
             $picture = $user->getPicture();
 
             // If the picture of the user is different than User::MAN_PICTURE and than User::WOMAN_PICTURE.

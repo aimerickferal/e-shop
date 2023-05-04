@@ -165,7 +165,7 @@ class AdminAddressController extends AbstractController
     #[Route('/admin/utilisateurs/{id}/adresses', name: 'admin_address_user_list', methods: 'GET', requirements: ['id' => '\d+'], priority: 2)]
     public function userList(Request $request, User $user): Response
     {
-        // We create a array to backup each address.
+        // We create a empty array to backup each address.
         $addresses = [];
         foreach ($user->getAddresses() as $address) {
             // We push each address in the array.

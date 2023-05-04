@@ -25,7 +25,7 @@ class AdminUserSearchType extends AbstractType
     }
 
     /**
-     * Method that clean the parameters of the query in the url.
+     * Method that clean the parameters of the query in the URL.
      */
     public function getBlockPrefix()
     {

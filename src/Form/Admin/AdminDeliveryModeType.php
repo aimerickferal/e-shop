@@ -42,7 +42,7 @@ class AdminDeliveryModeType extends AbstractType
 
 
     /**
-     * Method that modify the form and display the picture field in case of delivery mode creation and the upload field in case of delivery mode update. 
+     * Method that diplay the form fields dynamically according to the fact that we are in case of creation or in case of update. 
      * @param FormEvent $event
      * @return void
      */

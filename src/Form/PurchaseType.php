@@ -100,9 +100,8 @@ class PurchaseType extends AbstractType
         // We get the data of the purchase.
         $purchase = $event->getData();
 
-        // We create a array to backup each address. 
+        // We create a array to backup each address of the logged in user. 
         $addresses = [];
-        // For each $adresse in $purchase->getUser()->getAddresses().
         foreach ($purchase->getUser()->getAddresses() as $address) {
             // We push each address in the array.
             $addresses[] = $address;

@@ -98,7 +98,7 @@ class AddressController extends AbstractController
          */
         $user = $this->getUser();
 
-        // We create a array to backup each address.
+        // We create a empty array to backup each address.
         $addresses = [];
         foreach ($user->getAddresses() as $address) {
             // We push each address in the array.
