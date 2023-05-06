@@ -460,11 +460,6 @@ const form = {
     form.generalTermsOfUseInput = document.querySelector(
       ".form-field__general-terms-of-use-input"
     );
-    if (form.generalTermsOfUseInput) {
-      // We get the label related to form.generalTermsOfUseInput.
-      label = form.generalTermsOfUseInput.nextElementSibling;
-      label.setAttribute("for", "general-terms-of-use-input");
-    }
 
     // Category's inputs
     form.categoryNameInput = document.querySelector(
@@ -676,11 +671,6 @@ const form = {
     form.generalTermsOfSaleInput = document.querySelector(
       ".form-field__general-terms-of-sale-input"
     );
-    if (form.generalTermsOfSaleInput) {
-      // We get the label related to form.generalTermsOfSaleInput.
-      label = form.generalTermsOfSaleInput.nextElementSibling;
-      label.setAttribute("for", "purchase-general-terms-of-sale-input");
-    }
     form.purchasePendingCheckoutInput = document.querySelector(
       ".form-field__pending-checkout-input"
     );
@@ -2456,7 +2446,7 @@ const form = {
     // We submit ou don't submit the form according to the number of error it's contains.
     if (form.numberOfErrors > 0) {
       console.log("Form not submitted ❌");
-      console.log("Number of error. " + form.numberOfErrors);
+      console.log("Number of error: " + form.numberOfErrors);
       // We reset form.numberOfErrors for the next submit control made by form.handleFormSubmit().
       form.numberOfErrors = 0;
       return;

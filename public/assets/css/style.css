@@ -1081,6 +1081,11 @@ body {
     font-weight: bold;
   }
 
+  .form-field__general-terms-of-use-label,
+  .form-field__general-terms-of-sale-label {
+    user-select: none;
+  }
+
   .form-field__input {
     /* border: var(--border, none); */
     border: none;

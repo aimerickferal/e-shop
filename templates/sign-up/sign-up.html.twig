@@ -89,7 +89,7 @@
 		{# agreeTerms #}
 		<div class="form-field">
 			{{ form_widget(signUpForm.agreeTerms, { 'id': 'general-terms-of-use-input', 'attr': {'class': 'form-field__general-terms-of-use-input' }}) }}
-			{{ form_label(signUpForm, 'J\'ai lu et j\'accepte les ', { 'label_attr': { 'class': 'form-field__general-terms-of-use-label' }}) }}
+			{{ form_label(signUpForm, 'J\'ai lu et j\'accepte les ', { 'label_attr': { 'class': 'form-field__general-terms-of-use-label', 'for': 'general-terms-of-use-input' }}) }}
 			<a class="page__text-link page__link_color_blue page__link_font-weight_normal" id="general-terms-of-use-link" href="{{ path('general_terms_of_use') }}">Conditions Générales d'Utilisation</a>.
 			<p class="error-message error-message_color_red error-message-general-terms-of-sale-not-checked display-none">
 				Merci de confirmer avoir lu et accepter nos Conditions Générales d'Utilisation.

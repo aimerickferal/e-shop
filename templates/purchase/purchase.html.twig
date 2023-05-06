@@ -69,7 +69,7 @@
 		{# agreeTerms #}
 		<div class="form-field form-field-purchase-terms-of-sale display-none">
 			{{ form_widget(purchaseCreateForm.agreeTerms, { 'id': 'purchase-general-terms-of-sale-input', 'attr': {'class': 'form-field__general-terms-of-sale-input' }}) }}
-			{{ form_label(purchaseCreateForm, 'J\'ai lu et j\'accepte les ', { 'label_attr': { 'class': 'form-field__general-terms-of-sale-label' }}) }}
+			{{ form_label(purchaseCreateForm, 'J\'ai lu et j\'accepte les ', { 'label_attr': { 'class': 'form-field__general-terms-of-sale-label', 'for': 'purchase-general-terms-of-sale-input' }}) }}
 			<a class="page__text-link page__link_color_blue" id="general-terms-of-sale-link" href="{{ path('general_terms_of_sale') }}">Conditions Générales de Vente</a>.
 			<p class="error-message error-message_color_red error-message-general-terms-of-sale-not-checked display-none">
 				Merci de confirmer avoir lu et accepter nos Conditions Générales de Vente.
