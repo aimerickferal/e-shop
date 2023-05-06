@@ -36,7 +36,7 @@ class AppFixtures extends Fixture
             ->setFirstName('Clark')
             ->setLastName('Kent')
             ->setEmail('clark.kent@email.com')
-            ->setPassword($this->userPasswordHasherInterface->hashPassword($userAdmin, '2CBb4cb73201f865638932A41@'))
+            ->setPassword($this->userPasswordHasherInterface->hashPassword($userAdmin, 'b673c78c-A985E643c60!2fe'))
             ->setPicture(User::MAN_PICTURE);
 
         // We push the user admin in the array of users.
@@ -52,7 +52,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Lana',
                 'Last Name' => 'Lang',
                 'E-mail' => 'lana.lang@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::WOMAN_PICTURE,
             ],
             1 => [
@@ -60,7 +60,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Chloe',
                 'Last Name' => 'Sullivan',
                 'E-mail' => 'chloe.sullivan@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::WOMAN_PICTURE,
             ],
             2 => [
@@ -68,7 +68,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Lois',
                 'Last Name' => 'Lane',
                 'E-mail' => 'lois.lane@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::WOMAN_PICTURE,
             ],
             3 => [
@@ -76,7 +76,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Pete',
                 'Last Name' => 'Ross',
                 'E-mail' => 'pete.ross@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::MAN_PICTURE,
             ],
             4 => [
@@ -84,7 +84,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Jonathan',
                 'Last Name' => 'Kent',
                 'E-mail' => 'jonathan.kent@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::MAN_PICTURE,
             ],
             5 => [
@@ -92,7 +92,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Martha',
                 'Last Name' => 'Kent',
                 'E-mail' => 'martha.kent@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::WOMAN_PICTURE,
             ],
             6 => [
@@ -100,7 +100,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Kara',
                 'Last Name' => 'Kent',
                 'E-mail' => 'kara.kent@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::WOMAN_PICTURE,
             ],
             7 => [
@@ -108,7 +108,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Lex',
                 'Last Name' => 'Luthor',
                 'E-mail' => 'lex.luthor@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::MAN_PICTURE,
             ],
             8 => [
@@ -116,7 +116,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Lionel',
                 'Last Name' => 'Luthor',
                 'E-mail' => 'lionel.luthor@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::MAN_PICTURE,
             ],
             9 => [
@@ -124,7 +124,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Tess',
                 'Last Name' => 'Mercer',
                 'E-mail' => 'tess.mercer@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::WOMAN_PICTURE,
             ],
             10 => [
@@ -132,7 +132,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Jimmy',
                 'Last Name' => 'Olson',
                 'E-mail' => 'jimmy.olson@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::MAN_PICTURE,
             ],
             11 => [
@@ -140,7 +140,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Bart',
                 'Last Name' => 'Allen',
                 'E-mail' => 'bart.allen@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::MAN_PICTURE,
             ],
             12 => [
@@ -148,7 +148,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Oliver',
                 'Last Name' => 'Queen',
                 'E-mail' => 'oliver.queen@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::MAN_PICTURE,
             ],
             13 => [
@@ -156,7 +156,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Arthur',
                 'Last Name' => 'Curry',
                 'E-mail' => 'arthur.curry@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::MAN_PICTURE,
             ],
             14 => [
@@ -164,7 +164,7 @@ class AppFixtures extends Fixture
                 'First Name' => 'Victor',
                 'Last Name' => 'Stone',
                 'E-mail' => 'victor.stone@email.com',
-                'Password' => '2CBb4cb73201f865638932A41@',
+                'Password' => '2CBb4cb73201f865638932A41',
                 'Picture' => User::MAN_PICTURE,
             ],
         ];

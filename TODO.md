@@ -1,5 +1,7 @@
 # **Todo**
 
+- add regex commentaries in Purchase and PurchaseItem entities
+- address-last-name-input?
 - text align to switch
 - use class for titles
 - term = galatea

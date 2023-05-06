@@ -95,7 +95,7 @@ class AdminUserType extends AbstractType
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ])
@@ -103,13 +103,13 @@ class AdminUserType extends AbstractType
                     'mapped' => false,
                     'constraints' => [
                         new NotBlank([
-                            'message' => 'Merci de saisir un mot de passe.',
+                            'message' => 'Merci de saisir un mot de passe.'
                         ]),
                         new Length([
                             'min' => 8,
                             'minMessage' => 'Le mot de passe doit contenir au moins {{ limit }} caractères.',
                             // max length allowed by Symfony for security reasons
-                            'max' => 4096,
+                            'max' => 4096
                         ]),
                         new Regex([
                             // Regex that match only value that contain at least 1 lowercase alphabetical character.
@@ -151,8 +151,8 @@ class AdminUserType extends AbstractType
                             'class' => 'form-field__user-civility-title-input form-field__user-civility-title-man-input',
                         ],
                         User::WOMAN_CIVILITY_TITLE => [
-                            'class' => 'form-field__user-civility-title-input form-field__user-civility-title-woman-input',
-                        ],
+                            'class' => 'form-field__user-civility-title-input form-field__user-civility-title-woman-input'
+                        ]
                     ],
                     'expanded' => true,
                 ])
@@ -169,7 +169,7 @@ class AdminUserType extends AbstractType
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ]);
@@ -179,7 +179,7 @@ class AdminUserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => User::class
         ]);
     }
 }

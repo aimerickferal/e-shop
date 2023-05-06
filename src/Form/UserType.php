@@ -31,11 +31,11 @@ class UserType extends AbstractType
                         'class' => 'form-field__user-civility-title-input form-field__user-civility-title-man-input form-field__user-civility-title-profile-input',
                     ],
                     User::WOMAN_CIVILITY_TITLE => [
-                        'class' => 'form-field__user-civility-title-input form-field__user-civility-title-woman-input form-field__user-civility-title-profile-input',
-                    ],
+                        'class' => 'form-field__user-civility-title-input form-field__user-civility-title-woman-input form-field__user-civility-title-profile-input'
+                    ]
                 ],
                 'expanded' => true,
-                'disabled'  => true,
+                'disabled'  => true
             ])
             ->add('picture', HiddenType::class, [])
             ->add('upload', FileType::class, [
@@ -51,7 +51,7 @@ class UserType extends AbstractType
                             'image/jpeg',
                             'image/svg+xml'
                         ],
-                        'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
+                        'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                     ])
                 ]
             ])
@@ -92,7 +92,7 @@ class UserType extends AbstractType
                     User::WOMAN_CIVILITY_TITLE => User::WOMAN_CIVILITY_TITLE
                 ],
                 'data' => $user['civilityTitle'],
-                'expanded' => true,
+                'expanded' => true
             ]);
         // TODO #2 END: solve issue on switch civilityTitle.  
 
@@ -103,7 +103,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => User::class
         ]);
     }
 }

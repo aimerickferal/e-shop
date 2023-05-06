@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['email'], message: 'Il existe déjà un compte avec cet e-mail.')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     // The path to the folder of the user picture. 
@@ -57,10 +57,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un prénom.')]
+    #[Assert\Regex(
+        // Regex that match only value that contain at least 1 numeric character.
+        pattern: '/(?=.*[0-9])/',
+        message: 'Merci de saisir un prénom.',
+    )]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un nom.')]
+    #[Assert\Regex(
+        // Regex that match only value that contain at least 1 numeric character.
+        pattern: '/(?=.*[0-9])/',
+        message: 'Merci de saisir un nom.',
+    )]
     private ?string $lastName = null;
 
     #[ORM\Column(length: 255, nullable: true)]

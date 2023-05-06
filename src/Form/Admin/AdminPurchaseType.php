@@ -42,27 +42,27 @@ class AdminPurchaseType extends AbstractType
                 ],
                 'choice_attr' => [
                     Purchase::STATUS_PAID => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-paid-input',
+                        'class' => 'form-field__purchase-status-input form-field__purchase-status-paid-input'
                     ],
                     Purchase::STATUS_IN_PROGRESS => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-in-progress-input',
+                        'class' => 'form-field__purchase-status-input form-field__purchase-status-in-progress-input'
                     ],
                     Purchase::STATUS_SEND => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-send-input',
+                        'class' => 'form-field__purchase-status-input form-field__purchase-status-send-input'
                     ],
                     Purchase::STATUS_DELIVER => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-deliver-input',
+                        'class' => 'form-field__purchase-status-input form-field__purchase-status-deliver-input'
                     ],
                     Purchase::STATUS_ANNUL => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-annul-input',
-                    ],
+                        'class' => 'form-field__purchase-status-input form-field__purchase-status-annul-input'
+                    ]
                 ],
                 'expanded' => true,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Merci de sélectionner un statut.',
-                    ]),
-                ],
+                        'message' => 'Merci de sélectionner un statut.'
+                    ])
+                ]
             ])
             ->add('billingAddress', HiddenType::class, [])
             ->add('deliveryAddress', HiddenType::class, [])
@@ -141,7 +141,7 @@ class AdminPurchaseType extends AbstractType
                     'choice_label' => function (DeliveryMode $deliveryMode) {
                         return $deliveryMode->getName() . ' à ' . $this->amountExtension->amount($deliveryMode->getPrice()) . '. ' . $deliveryMode->getDescription() . ' Gratuit si commande interne.';
                     },
-                    'expanded'      => true,
+                    'expanded'      => true
                 ])
                 ->add('bill', FileType::class, [
                     'required' => true,
@@ -158,7 +158,7 @@ class AdminPurchaseType extends AbstractType
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ]);
@@ -180,7 +180,7 @@ class AdminPurchaseType extends AbstractType
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ]);
@@ -213,7 +213,7 @@ class AdminPurchaseType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Purchase::class,
+            'data_class' => Purchase::class
         ]);
     }
 }

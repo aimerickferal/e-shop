@@ -52,6 +52,7 @@ class Product
     #[ORM\Column]
     #[Assert\NotBlank(message: 'Merci de saisir un prix en euros.')]
     #[Assert\Regex(
+        // The regex accepting only value that contain a digit number.
         pattern: '/\d+/',
         message: 'Merci de saisir un prix en euros.',
     )]

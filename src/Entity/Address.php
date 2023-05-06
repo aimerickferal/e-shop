@@ -18,15 +18,26 @@ class Address
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un prénom.')]
+    #[Assert\Regex(
+        // Regex that match only value that contain at least 1 numeric character.
+        pattern: '/(?=.*[0-9])/',
+        message: 'Merci de saisir un prénom.',
+    )]
     private $firstName;
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un nom.')]
+    #[Assert\Regex(
+        // Regex that match only value that contain at least 1 numeric character.
+        pattern: '/(?=.*[0-9])/',
+        message: 'Merci de saisir un nom.',
+    )]
     private $lastName;
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un numéro de rue.')]
     #[Assert\Regex(
+        // The regex accepting only value that contain a digit number.
         pattern: '/\d+/',
         message: 'Merci de saisir un numéro de rue.',
     )]
@@ -34,11 +45,17 @@ class Address
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un nom de rue.')]
+    #[Assert\Regex(
+        // Regex that match only value that contain at least 1 numeric character.
+        pattern: '/(?=.*[0-9])/',
+        message: 'Merci de saisir un nom de rue.',
+    )]
     private $streetName;
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un code postal.')]
     #[Assert\Regex(
+        // Regex that match only value who contain 5 numeric characters.
         pattern: '/^\d{5}$/',
         message: 'Merci de saisir un code postal.',
     )]
@@ -46,19 +63,31 @@ class Address
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un nom de ville.')]
+    #[Assert\Regex(
+        // Regex that match only value that contain at least 1 numeric character.
+        pattern: '/(?=.*[0-9])/',
+        message: 'Merci de saisir un nom de ville.',
+    )]
     private $city;
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un nom de pays.')]
+    #[Assert\Regex(
+        // Regex that match only value that contain at least 1 numeric character.
+        pattern: '/(?=.*[0-9])/',
+        message: 'Merci de saisir un nom de pays.',
+    )]
     private $country;
 
     #[ORM\Column(type: 'string')]
     #[Assert\NotBlank(message: 'Merci de saisir un numéro de téléphone mobile.')]
     #[Assert\Regex(
+        // Regex that match only value that contain 10 numeric characters.
         pattern: '/^\d{10}$/',
         message: 'Merci de saisir un numéro de téléphone mobile.',
     )]
     #[Assert\Regex(
+        // Regex that match only value that start with the numeric value 06 or 07.
         pattern: '/^((06)|(07))[0-9]{8}$/',
         message: 'Merci de saisir un numéro de téléphone mobile.',
     )]

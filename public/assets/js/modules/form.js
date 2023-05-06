@@ -1113,7 +1113,7 @@ const form = {
     }
 
     if (clickedButton === form.adminUserSearchButton) {
-      form.checkIfInputContainValue(
+      form.checkIfAlphabeticalCharacters(
         form.userLastNameInput,
         form.errorMessageUserLastNameEmpty
       );
@@ -1148,11 +1148,11 @@ const form = {
       clickedButton === form.adminAddressCreateButton ||
       clickedButton === form.adminAddressUpdateButton
     ) {
-      form.checkIfInputContainValue(
+      form.checkIfAlphabeticalCharacters(
         form.userFirstNameInput,
         form.errorMessageUserFirstNameEmpty
       );
-      form.checkIfInputContainValue(
+      form.checkIfAlphabeticalCharacters(
         form.userLastNameInput,
         form.errorMessageUserLastNameEmpty
       );
@@ -1325,7 +1325,7 @@ const form = {
       clickedButton === form.adminAddressUpdateButton ||
       clickedButton === form.addressSearchButton
     ) {
-      form.checkIfInputContainValue(
+      form.checkIfAlphabeticalCharacters(
         form.addressCityInput,
         form.errorMessageAddressCityEmpty
       );
@@ -1341,7 +1341,7 @@ const form = {
         form.addressStreetNumberInput,
         form.errorMessageAddressStreetNumber
       );
-      form.checkIfInputContainValue(
+      form.checkIfAlphabeticalCharacters(
         form.addressStreetNameInput,
         form.errorMessageAddressStreetNameEmpty
       );
@@ -1349,11 +1349,11 @@ const form = {
         form.addressZipCodeInput,
         form.errorMessageAddressZipCode
       );
-      form.checkIfInputContainValue(
+      form.checkIfAlphabeticalCharacters(
         form.addressCityInput,
         form.errorMessageAddressCityEmpty
       );
-      form.checkIfInputContainValue(
+      form.checkIfAlphabeticalCharacters(
         form.addressCountryInput,
         form.errorMessageAddressCountryEmpty
       );
@@ -1436,7 +1436,7 @@ const form = {
       clickedButton === form.adminDeliveryModeUpdateButton ||
       clickedButton === form.deliveryModeSearchButton
     ) {
-      form.checkIfInputContainValue(
+      form.checkIfAlphabeticalCharacters(
         form.deliveryModeNameInput,
         form.errorMessageDeliveryModeNameEmpty
       );
@@ -1608,6 +1608,37 @@ const form = {
     } else {
       form.switchInputOutlineColor(input, form.colors.red);
       tools.removeDisplayNone(errorMessageEmpty);
+      form.numberOfErrors++;
+    }
+  },
+  /**
+   * Method that check if a input contain a value of type alphabetical characters and call the methods that display the related error message.
+   * @param {HTMLInputElement} input
+   * @param {HTMLParagraphElement} errorMessage
+   * @return {void}
+   */
+  checkIfAlphabeticalCharacters: function (input, errorMessage) {
+    console.log("form.checkIfAlphabeticalCharacters()");
+
+    // According on whether the input contain a doesn't a value we:
+    // - Check if it's value match our regex
+    // - Switch the input ouline color
+    // - Display or hide the related error message
+    // - Increment form.numberOfErrors if we have a error.
+    if (input.value) {
+      tools.addDisplayNone(errorMessage);
+
+      if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
+        form.switchInputOutlineColor(input, form.colors.red);
+        tools.removeDisplayNone(errorMessage);
+        form.numberOfErrors++;
+      } else {
+        form.switchInputOutlineColor(input, form.colors.green);
+        tools.addDisplayNone(errorMessage);
+      }
+    } else {
+      form.switchInputOutlineColor(input, form.colors.red);
+      tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
   },
@@ -1796,37 +1827,6 @@ const form = {
         form.switchInputOutlineColor(input, form.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
-      }
-    } else {
-      form.switchInputOutlineColor(input, form.colors.red);
-      tools.removeDisplayNone(errorMessage);
-      form.numberOfErrors++;
-    }
-  },
-  /**
-   * Method that check if a input contain a value of type alphabetical characters and call the methods that display the related error message.
-   * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessage
-   * @return {void}
-   */
-  checkIfAlphabeticalCharacters: function (input, errorMessage) {
-    console.log("form.checkIfAlphabeticalCharacters()");
-
-    // According on whether the input contain a doesn't a value we:
-    // - Check if it's value match our regex
-    // - Switch the input ouline color
-    // - Display or hide the related error message
-    // - Increment form.numberOfErrors if we have a error.
-    if (input.value) {
-      tools.addDisplayNone(errorMessage);
-
-      if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.red);
-        tools.removeDisplayNone(errorMessage);
-        form.numberOfErrors++;
-      } else {
-        form.switchInputOutlineColor(input, form.colors.green);
-        tools.addDisplayNone(errorMessage);
       }
     } else {
       form.switchInputOutlineColor(input, form.colors.red);

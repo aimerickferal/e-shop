@@ -36,8 +36,8 @@ class SignUpFormType extends AbstractType
                         'class' => 'form-field__user-civility-title-input form-field__user-civility-title-man-input',
                     ],
                     'Madame' => [
-                        'class' => 'form-field__user-civility-title-input form-field__user-civility-title-woman-input',
-                    ],
+                        'class' => 'form-field__user-civility-title-input form-field__user-civility-title-woman-input'
+                    ]
                 ],
                 'data' =>   User::MAN_CIVILITY_TITLE,
                 'expanded' => true
@@ -50,9 +50,9 @@ class SignUpFormType extends AbstractType
                         'mimeTypes' => [
                             'application/pdf',
                             'image/png',
-                            'image/jpeg',
+                            'image/jpeg'
                         ],
-                        'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                        'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
                     ])
                 ]
             ])
@@ -102,16 +102,16 @@ class SignUpFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'Merci de confirmer avoir lu et accepter nos Conditions Générales d\'Utilisation.',
-                    ]),
-                ],
+                        'message' => 'Merci de confirmer avoir lu et accepter nos Conditions Générales d\'Utilisation.'
+                    ])
+                ]
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => User::class
         ]);
     }
 }

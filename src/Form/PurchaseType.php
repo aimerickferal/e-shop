@@ -40,18 +40,18 @@ class PurchaseType extends AbstractType
                         'class' => 'form-field__purchase-delivery-mode-input',
                         'data-deliverymodeprice' => $deliveryMode->getPrice(),
                         'data-deliverymodeamount' => $this->amountExtension->amount($deliveryMode->getPrice()),
-                        'data-mincartamountforfreedelivery' => $deliveryMode->getMinCartAmountForFreeDelivery(),
+                        'data-mincartamountforfreedelivery' => $deliveryMode->getMinCartAmountForFreeDelivery()
                     ];
                 },
                 'choice_label' => function (DeliveryMode $deliveryMode) {
                     return $deliveryMode->getName() . ' à ' . $this->amountExtension->amount($deliveryMode->getPrice()) . '. ' . $deliveryMode->getDescription();
                 },
-                'expanded'      => true,
+                'expanded'      => true
             ])
             ->add('checkoutMethod', ChoiceType::class, [
                 'choices' => [
                     Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE => Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE,
-                    Purchase::CHECKOUT_METHOD_PAYPAL => Purchase::CHECKOUT_METHOD_PAYPAL,
+                    Purchase::CHECKOUT_METHOD_PAYPAL => Purchase::CHECKOUT_METHOD_PAYPAL
                     // Purchase::CHECKOUT_PENDING => Purchase::CHECKOUT_PENDING,
                 ],
                 'choice_attr' => [
@@ -63,7 +63,7 @@ class PurchaseType extends AbstractType
                     Purchase::CHECKOUT_METHOD_PAYPAL => [
                         'class' => 'form-field__purchase-checkout-method-input form-field__paypal-input',
                         'data-value' => Purchase::CHECKOUT_METHOD_PAYPAL
-                    ],
+                    ]
                     // Purchase::CHECKOUT_PENDING => [
                     //     'class' => 'form-field__pending-checkout-input display-none',
                     // ],
@@ -72,17 +72,17 @@ class PurchaseType extends AbstractType
                 'expanded' => true,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Merci de sélectionner un moyen de paiement.',
-                    ]),
-                ],
+                        'message' => 'Merci de sélectionner un moyen de paiement.'
+                    ])
+                ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'Merci de confirmer avoir lu et accepter nos Conditions Générales de Vente.',
-                    ]),
-                ],
+                        'message' => 'Merci de confirmer avoir lu et accepter nos Conditions Générales de Vente.'
+                    ])
+                ]
             ])
             ->add('reference', HiddenType::class, []);
     }
@@ -165,7 +165,7 @@ class PurchaseType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Purchase::class,
+            'data_class' => Purchase::class
         ]);
     }
 }

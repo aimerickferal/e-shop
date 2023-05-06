@@ -33,15 +33,15 @@ class ContactType extends AbstractType
                         'class' => 'form-field__contact-subject-input',
                     ],
                     'Problème informatique' => [
-                        'class' => 'form-field__contact-subject-input',
+                        'class' => 'form-field__contact-subject-input'
                     ]
                 ],
                 'expanded' => true,
                 'constraints'   => [
                     new NotBlank([
                         'message' => 'Merci de sélectionner un sujet.',
-                    ]),
-                ],
+                    ])
+                ]
             ])
             ->add('civilityTitle', ChoiceType::class, [
                 'choices' => [
@@ -51,10 +51,10 @@ class ContactType extends AbstractType
                 'data' =>   'Monsieur',
                 'choice_attr' => [
                     'Monsieur' => [
-                        'class' => 'form-field__user-civility-title-input form-field__user-civility-title-man-input',
+                        'class' => 'form-field__user-civility-title-input form-field__user-civility-title-man-input'
                     ],
                     'Madame' => [
-                        'class' => 'form-field__user-civility-title-input form-field__user-civility-title-woman-input',
+                        'class' => 'form-field__user-civility-title-input form-field__user-civility-title-woman-input'
                     ],
                 ],
                 'expanded' => true,
@@ -63,14 +63,14 @@ class ContactType extends AbstractType
                 'constraints'   => [
                     new NotBlank([
                         'message' => 'Merci de saisir un prénom.'
-                    ]),
+                    ])
                 ]
             ])
             ->add('lastName', null, [
                 'constraints'   => [
                     new NotBlank([
                         'message' => 'Merci de saisir un nom.'
-                    ]),
+                    ])
                 ]
             ])
             ->add('email', EmailType::class, [
@@ -108,9 +108,9 @@ class ContactType extends AbstractType
                         'mimeTypes' => [
                             'application/pdf',
                             'image/png',
-                            'image/jpeg',
+                            'image/jpeg'
                         ],
-                        'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
+                        'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                     ])
                 ]
             ])
@@ -118,7 +118,7 @@ class ContactType extends AbstractType
                 'constraints'   => [
                     new NotBlank([
                         'message' => 'Merci de saisir un message.'
-                    ]),
+                    ])
                 ]
             ]);
     }

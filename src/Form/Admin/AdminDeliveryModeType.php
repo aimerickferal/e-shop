@@ -72,7 +72,7 @@ class AdminDeliveryModeType extends AbstractType
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ]);
@@ -94,7 +94,7 @@ class AdminDeliveryModeType extends AbstractType
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ]);
@@ -104,7 +104,7 @@ class AdminDeliveryModeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => DeliveryMode::class,
+            'data_class' => DeliveryMode::class
         ]);
     }
 }

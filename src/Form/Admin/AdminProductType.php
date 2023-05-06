@@ -100,7 +100,7 @@ class AdminProductType extends AbstractType
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ]);
@@ -122,7 +122,7 @@ class AdminProductType extends AbstractType
                                 'image/jpeg',
                                 'image/svg+xml'
                             ],
-                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.',
+                            'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ])
@@ -133,13 +133,13 @@ class AdminProductType extends AbstractType
                     ],
                     'choice_attr' => [
                         Product::AVAILABLE => [
-                            'class' => 'form-field__product-availability-input form-field__product-availability-available-input',
+                            'class' => 'form-field__product-availability-input form-field__product-availability-available-input'
                         ],
                         Product::UNAVAILABLE => [
-                            'class' => 'form-field__product-availability-input form-field__product-availability-unavailable-input',
-                        ],
+                            'class' => 'form-field__product-availability-input form-field__product-availability-unavailable-input'
+                        ]
                     ],
-                    'expanded' => true,
+                    'expanded' => true
                 ]);
         }
     }
@@ -173,7 +173,7 @@ class AdminProductType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Product::class,
+            'data_class' => Product::class
         ]);
     }
 }
