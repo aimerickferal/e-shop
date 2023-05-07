@@ -27,11 +27,6 @@ class DeliveryMode
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un nom.')]
-    #[Assert\Regex(
-        // Regex that match only value that contain at least 1 numeric character.
-        pattern: '/(?=.*[0-9])/',
-        message: 'Merci de saisir un nom.',
-    )]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]

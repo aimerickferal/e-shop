@@ -394,8 +394,11 @@ body {
   }
 
   .page__disabled-link {
+    /* TODO */
     cursor: not-allowed;
+    /* TODO */
     user-select: none;
+    /* TODO */
     pointer-events: none;
     opacity: 0.5;
     background-color: #808080;

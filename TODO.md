@@ -1,5 +1,7 @@
 # **Todo**
 
+- request first
+- confirm delete
 - add regex commentaries in Purchase and PurchaseItem entities
 - address-last-name-input?
 - text align to switch
