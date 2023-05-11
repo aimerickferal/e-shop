@@ -1,59 +1,71 @@
 const confirmDelete = {
   // Proprietes availables in the object.
   // ======================= DOM ELEMENTS =======================
-  deleteUserLinks: [],
-  deleteAddressLinks: [],
-  deleteProductLinks: [],
-  deleteCategoryLinks: [],
-  deleteDeliveyModeLinks: [],
+  userDeleteLinks: [],
+  addressDeleteLinks: [],
+  productDeleteLinks: [],
+  categoryDeleteLinks: [],
+  deliveryModeDeleteLinks: [],
   init: function () {
     console.log("Hello world, I'm confirmDelete.js 🗑");
 
     // ======================= DOM ELEMENTS =======================
 
     // User
-    confirmDelete.deleteUserLinks = document.querySelectorAll(
-      ".page__delete-user-link"
+    confirmDelete.userDeleteLinks = document.querySelectorAll(
+      ".page__user-delete-link"
     );
-    for (let link of confirmDelete.deleteUserLinks) {
+    for (let userDeleteLink of confirmDelete.userDeleteLinks) {
       // We add a listener and a handler on the click event.
-      link.addEventListener("click", confirmDelete.handleDeleteUserLinks);
+      userDeleteLink.addEventListener(
+        "click",
+        confirmDelete.handleDeleteUserLinks
+      );
     }
 
     // Address
-    confirmDelete.deleteAddressLinks = document.querySelectorAll(
-      ".page__delete-address-link"
+    confirmDelete.addressDeleteLinks = document.querySelectorAll(
+      ".page__address-delete-link"
     );
-    for (let link of confirmDelete.deleteAddressLinks) {
+    for (let addressDeleteLink of confirmDelete.addressDeleteLinks) {
       // We add a listener and a handler on the click event.
-      link.addEventListener("click", confirmDelete.handleDeleteAddressLinks);
+      addressDeleteLink.addEventListener(
+        "click",
+        confirmDelete.handleDeleteAddressLinks
+      );
     }
 
     // Product
-    confirmDelete.deleteProductLinks = document.querySelectorAll(
-      ".page__delete-product-link"
+    confirmDelete.productDeleteLinks = document.querySelectorAll(
+      ".page__product-delete-link"
     );
-    for (let link of confirmDelete.deleteProductLinks) {
+    for (let productDeleteLink of confirmDelete.productDeleteLinks) {
       // We add a listener and a handler on the click event.
-      link.addEventListener("click", confirmDelete.handleDeleteProductLinks);
+      productDeleteLink.addEventListener(
+        "click",
+        confirmDelete.handleDeleteProductLinks
+      );
     }
 
     // Category
-    confirmDelete.deleteCategoryLinks = document.querySelectorAll(
-      ".page__delete-link-category"
+    confirmDelete.categoryDeleteLinks = document.querySelectorAll(
+      ".page__category-delete-link"
     );
-    for (let link of confirmDelete.deleteCategoryLinks) {
+    for (let categoryDeleteLink of confirmDelete.categoryDeleteLinks) {
       // We add a listener and a handler on the click event.
-      link.addEventListener("click", confirmDelete.handleDeleteCategoryLinks);
+      categoryDeleteLink.addEventListener(
+        "click",
+        confirmDelete.handleDeleteCategoryLinks
+      );
     }
 
     // DeliveryMode
-    confirmDelete.deleteDeliveyModeLinks = document.querySelectorAll(
-      ".page__delete-link-delivery-mode"
+    confirmDelete.deliveryModeDeleteLinks = document.querySelectorAll(
+      ".page__delievry-mode-delete-link"
     );
-    for (let link of confirmDelete.deleteDeliveyModeLinks) {
+    for (let deliveryModeDeleteLink of confirmDelete.deliveryModeDeleteLinks) {
       // We add a listener and a handler on the click event.
-      link.addEventListener(
+      deliveryModeDeleteLink.addEventListener(
         "click",
         confirmDelete.handleDeleteDeliveryModeLinks
       );

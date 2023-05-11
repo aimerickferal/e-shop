@@ -47,7 +47,7 @@
 					{% endif %}
 					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_category_product_detail', {'categorySlug': category.slug, 'productSlug': product.slug}) }}">Détails</a>
 					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
-					<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
+					<a class="page__link page__delete-link page__product-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
 				</div>
 			{% endfor %}
 			{# END: card for mobile #}
@@ -82,7 +82,7 @@
 							<td>
 								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_category_product_detail', {'categorySlug': category.slug, 'productSlug': product.slug}) }}">Détails</a>
 								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
-								<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
+								<a class="page__link page__delete-link page__product-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
 							</td>
 						</tr>
 					</tbody>

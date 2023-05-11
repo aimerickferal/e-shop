@@ -23,6 +23,8 @@
   --dodger-blue: #1e90ff;
   --spanish-grey: #999999;
   --slimy-green: #009933;
+  --argentinian-blue: #66b5fa;
+  --thulian-pink: #d96da0;
   /* flash-success */
   --ao-english: #00802b;
   --mint-green: #b3ffb3;
@@ -365,6 +367,7 @@ body {
   }
 
   .page__login-button {
+    width: 60%;
     margin: 2em 0 1em 0;
   }
 
@@ -538,7 +541,7 @@ body {
     margin: 0 0 0.5em;
   }
 
-  .square__link {
+  .page__square-link {
     font-weight: bold;
     font-size: 1.5em;
   }
@@ -1866,6 +1869,10 @@ body {
   .page__button {
     width: 30%;
   }
+
+  .page__login-button {
+    width: 40%;
+  }
   /* ============================================================ */
   /* ======================= END: BUTTONS ======================= */
   /* ============================================================ */
@@ -1884,7 +1891,7 @@ body {
   }
 
   .page__create-link {
-    width: 10.5%;
+    width: 7%;
   }
 
   .page__link.page__delete-my-user-account-link {
@@ -2061,8 +2068,11 @@ body {
     width: 40%;
   }
 
-  .information,
   .form {
+    width: 22.5%;
+  }
+
+  .information {
     width: 35%;
   }
 

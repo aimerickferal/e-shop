@@ -88,12 +88,12 @@ class CategoryController extends AbstractController
 
     /** 
      * Method that display the list of the products related to its category.
-     * @param string $slug 
      * @param Request $request 
+     * @param string $slug 
      * @return Response
      */
     #[Route('/categories/{slug}/produits', name: 'category_product_list', methods: 'GET', priority: 2)]
-    public function productList(string $slug, Request $request): Response
+    public function productList(Request $request, string $slug): Response
     {
         // We find the category by its slug. 
         $category = $this->categoryRepository->findOneBy(

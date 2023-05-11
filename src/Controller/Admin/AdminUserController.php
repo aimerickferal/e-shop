@@ -344,10 +344,10 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * Metho that show some statistics for the User.
+     * Metho that show some statistics for the user.
      * @return Response
      */
-    #[Route('/admin/utilisateurs/statistiques', name: 'admin_user_statistics', methods: 'GET|POST', requirements: ['id' => '\d+'])]
+    #[Route('/admin/utilisateurs/statistiques', name: 'admin_user_statistics', methods: 'GET', requirements: ['id' => '\d+'])]
     public function statistics(): Response
     {
         // We find all the users.
@@ -402,13 +402,11 @@ class AdminUserController extends AbstractController
             // We get the user's picture.
             $picture = $user->getPicture();
 
-            // For each $adresse in $user->getAddresses().
             foreach ($user->getAddresses() as $address) {
                 // We delete our object.
                 $this->entityManagerInterface->remove($address);
             }
 
-            // For each $purchase in $user->getPurchases().
             foreach ($user->getPurchases() as $purchase) {
                 // The user property of the purchase will be null. 
                 $purchase->setUser(null);

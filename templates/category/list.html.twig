@@ -28,7 +28,7 @@
 		<div class="neptune">
 			{% for category in categories %}
 				<div class="square square_border-color_blue">
-					<a class="page__text-link square__link page__link_color_blue" href="{{ path('category_product_list', {'slug': category.slug}) }}">{{ category.name }}</a>
+					<a class="page__text-link page__square-linkpage__link_color_blue" href="{{ path('category_product_list', {'slug': category.slug}) }}">{{ category.name }}</a>
 				</div>
 			{% endfor %}
 		</div>

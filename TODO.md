@@ -1,9 +1,6 @@
 # **Todo**
 
-- request first
-- confirm delete
 - add regex commentaries in Purchase and PurchaseItem entities
-- address-last-name-input?
 - text align to switch
 - use class for titles
 - term = galatea
@@ -17,11 +14,13 @@
 
 ## **Commit**
 
+
+
 ## Video script:
 
 - registration
 - login
-- infinite scrool
+- infinite scroolidod
 - add 1 t shirt
 - click detail 1 t shirt add
 - search red

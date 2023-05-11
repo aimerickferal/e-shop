@@ -69,10 +69,10 @@ class StripeCheckout
                         'type' => 'fixed_amount',
                         'fixed_amount' => [
                             'amount' => $deliveryModePrice,
-                            'currency' => 'eur',
+                            'currency' => 'eur'
                         ],
                         // The name of the shipping rate display to the customer will be the description of the chosen delivery mode.
-                        'display_name' => $deliveryModeDescription,
+                        'display_name' => $deliveryModeDescription
                     ]
                 ],
             ],

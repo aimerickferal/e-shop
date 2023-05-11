@@ -27,12 +27,12 @@ class CartController extends AbstractController
 
     /**
      * Method that allow the user to add a product to his cart.
-     * @param int $id
      * @param Request $request
+     * @param int $id
      * @return Response
      */
     #[Route('/panier/ajouter/produits/{id}', name: 'cart_add', methods: 'GET', requirements: ['id' => '\d+'])]
-    public function add(int $id, Request $request): Response
+    public function add(Request $request, int $id): Response
     {
         // We find the product by is id.
         $product = $this->productRepository->find($id);
@@ -254,7 +254,7 @@ class CartController extends AbstractController
     {
         // We find the product by is id.
         $product = $this->productRepository->find($id);
-        
+
         // If we don't find any product.
         if (!$product) {
             // We display a flash message for the user.

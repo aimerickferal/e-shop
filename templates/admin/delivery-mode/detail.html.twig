@@ -31,7 +31,7 @@
 					{{ deliveryMode.updatedAt|format_datetime('short', 'none', locale='fr') }}
 				</p>
 				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_delivery_mode_update', {'id': deliveryMode.id}) }}">Modifier</a>
-				<a class="page__link page__delete-link page__delete-link-delivery-mode page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
+				<a class="page__link page__delete-link page__delivery-mode-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
 			</div>
 			{# END: card for mobile #}
 			{# START: table for desktop #}
@@ -78,7 +78,7 @@
 						<th>Actions</th>
 						<td>
 							<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_delivery_mode_update', {'id': deliveryMode.id}) }}">Modifier</a>
-							<a class="page__link page__delete-link page__delete-link-delivery-mode page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
+							<a class="page__link page__delete-link page__delivery-mode-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
 						</td>
 					</tr>
 				</tbody>

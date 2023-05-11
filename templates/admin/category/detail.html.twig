@@ -26,7 +26,7 @@
 					{{ category.updatedAt|format_datetime('short', 'none', locale='fr') }}
 				</p>
 				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_category_update', {'slug': category.slug}) }}">Modifier</a>
-				<a class="page__link page__delete-link page__delete-link-category page__link_background-color_red page__link_color_white" href="{{ path('admin_category_delete', {'id':category.id, 'token':csrf_token('admin-category-delete' ~ category.id)} ) }}" data-categoryname="{{ category.name }}">Supprimer</a>
+				<a class="page__link page__delete-link page__category-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_category_delete', {'id':category.id, 'token':csrf_token('admin-category-delete' ~ category.id)} ) }}" data-categoryname="{{ category.name }}">Supprimer</a>
 			</div>
 			{# END: card for mobile #}
 			{# START: table for desktop #}
@@ -63,7 +63,7 @@
 						<th>Actions</th>
 						<td>
 							<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_category_update', {'slug': category.slug}) }}">Modifier</a>
-							<a class="page__link page__delete-link page__delete-link-category page__link_background-color_red page__link_color_white" href="{{ path('admin_category_delete', {'id':category.id, 'token':csrf_token('admin-category-delete' ~ category.id)} ) }}" data-categoryname="{{ category.name }}">Supprimer</a>
+							<a class="page__link page__delete-link page__category-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_category_delete', {'id':category.id, 'token':csrf_token('admin-category-delete' ~ category.id)} ) }}" data-categoryname="{{ category.name }}">Supprimer</a>
 
 						</td>
 					</tr>

@@ -460,12 +460,12 @@ class AdminPurchaseController extends AbstractController
 
     /**
      * Method that update a purchase related to a user.
-     * @param string $reference
      * @param Request $request
+     * @param string $reference
      * @return Response
      */
     #[Route('/admin/utilisateurs/{userId}/commandes/{reference}/mettre-a-jour', name: 'admin_purchase_update', methods: 'GET|POST')]
-    public function update(string $reference, Request $request): Response
+    public function update(Request $request, string $reference): Response
     {
         // We find the purchase by its reference.
         $purchase =  $this->purchaseRepository->findOneBy(['reference' => $reference]);

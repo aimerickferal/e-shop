@@ -1,6 +1,5 @@
 const chart = {
   // Proprietes availables in the object.
-  statisticsTitle: null,
   fontFamily: null,
   titleFontSize: null,
   legendFontSize: null,
@@ -9,6 +8,7 @@ const chart = {
   labelsColor: null,
   titleColor: null,
   // ======================= DOM ELEMENTS =======================
+  statisticsTitle: null,
   // User's roles
   pieCanvasUserRolesByNumber: null,
   pieChartUserRolesByNumber: {},
@@ -22,13 +22,43 @@ const chart = {
   init: function () {
     console.log("Hello world, I'm chart.js 📊");
 
+    // All the colors of the app are set in CSS variables.
+    // We use getComputedStyle(document.documentElement).getPropertyValue() to get the value of the CSS variables.
+    chart.colors = {
+      black: getComputedStyle(document.documentElement).getPropertyValue(
+        "--black"
+      ),
+      white: getComputedStyle(document.documentElement).getPropertyValue(
+        "--white"
+      ),
+      red: getComputedStyle(document.documentElement).getPropertyValue("--red"),
+      green: getComputedStyle(document.documentElement).getPropertyValue(
+        "--green"
+      ),
+      yellow: getComputedStyle(document.documentElement).getPropertyValue(
+        "--yellow"
+      ),
+      blue: getComputedStyle(document.documentElement).getPropertyValue(
+        "--blue"
+      ),
+      orange: getComputedStyle(document.documentElement).getPropertyValue(
+        "--orange"
+      ),
+      argentinianBlue: getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("--argentinian-blue"),
+      thulianPink: getComputedStyle(document.documentElement).getPropertyValue(
+        "--thulian-pink"
+      ),
+    };
+
     chart.fontFamily = "Roboto";
     chart.titleFontSize = 16;
     chart.legendFontSize = 14;
-    chart.borderColor = form.colors.white;
-    chart.datalabelsColor = form.colors.black;
-    chart.labelsColor = form.colors.black;
-    chart.titleColor = form.colors.black;
+    chart.borderColor = chart.colors.white;
+    chart.datalabelsColor = chart.colors.black;
+    chart.labelsColor = chart.colors.black;
+    chart.titleColor = chart.colors.black;
 
     // ======================= DOM ELEMENTS =======================
 
@@ -82,7 +112,7 @@ const chart = {
                 chart.pieCanvasUserRolesByNumber.dataset.users,
                 chart.pieCanvasUserRolesByNumber.dataset.admins,
               ],
-              backgroundColor: [form.colors.green, form.colors.red],
+              backgroundColor: [chart.colors.green, chart.colors.red],
               borderColor: chart.borderColor,
               hoverOffset: 8,
             },
@@ -150,7 +180,7 @@ const chart = {
                 chart.pieCanvaUserRolesByProportion.dataset.users,
                 chart.pieCanvaUserRolesByProportion.dataset.admins,
               ],
-              backgroundColor: [form.colors.green, form.colors.red],
+              backgroundColor: [chart.colors.green, chart.colors.red],
               borderColor: chart.borderColor,
               hoverOffset: 8,
             },
@@ -220,8 +250,10 @@ const chart = {
                 chart.pieCanvaUserCivilityTitleByNumber.dataset.numberofmans,
                 chart.pieCanvaUserCivilityTitleByNumber.dataset.numberofwomans,
               ],
-              //   backgroundColor: ["#66b5fa", "#ff00ff"],
-              backgroundColor: ["#66b5fa", "#D96DA0"],
+              backgroundColor: [
+                chart.colors.argentinianBlue,
+                chart.colors.thulianPink,
+              ],
               borderColor: chart.borderColor,
               hoverOffset: 8,
             },
@@ -285,8 +317,10 @@ const chart = {
                 chart.pieCanvaUserCivilityTitleByProportion.dataset
                   .numberofwomans,
               ],
-              //   backgroundColor: ["#66b5fa", "#ff00ff"],
-              backgroundColor: ["#66b5fa", "#D96DA0"],
+              backgroundColor: [
+                chart.colors.argentinianBlue,
+                chart.colors.thulianPink,
+              ],
               borderColor: chart.borderColor,
               hoverOffset: 8,
             },

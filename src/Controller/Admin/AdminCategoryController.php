@@ -138,12 +138,12 @@ class AdminCategoryController extends AbstractController
 
     /**
      * Method that display the list of the products related to its category.
-     * @param string $slug
      * @param Request $request
+     * @param string $slug
      * @return Response
      */
     #[Route('/admin/categories/{slug}/produits', name: 'admin_category_product_list', methods: 'GET', priority: 1)]
-    public function productList(string $slug, Request $request): Response
+    public function productList(Request $request, string $slug): Response
     {
         // We find the category by its slug.
         $category = $this->categoryRepository->findOneBy(
@@ -283,13 +283,13 @@ class AdminCategoryController extends AbstractController
 
     /**
      * Method that display the detail of a product according to its category.
+     * @param Request $request
      * @param string $categorySlug
      * @param string $productSlug
-     * @param Request $request
      * @return Response
      */
     #[Route('/admin/categories/{categorySlug}/produits/{productSlug}', name: 'admin_category_product_detail', methods: 'GET')]
-    public function productDetail(string $categorySlug, string $productSlug, Request $request): Response
+    public function productDetail(Request $request, string $categorySlug, string $productSlug): Response
     {
         // We find the category by its slug.
         $category = $this->categoryRepository->findOneBy(
@@ -336,12 +336,12 @@ class AdminCategoryController extends AbstractController
 
     /**
      * Method that update a category.
-     * @param string $slug
      * @param Request $request
+     * @param string $slug
      * @return Response
      */
     #[Route('/admin/categories/{slug}/mettre-a-jour', name: 'admin_category_update', methods: 'GET|POST')]
-    public function update(string $slug, Request $request): Response
+    public function update(Request $request, string $slug): Response
     {
         // We find the category by its slug.
         $category =  $this->categoryRepository->findOneBy(

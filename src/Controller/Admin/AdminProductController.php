@@ -186,12 +186,12 @@ class AdminProductController extends AbstractController
 
     /**
      * Method that update a product.
-     * @param string $slug
      * @param Request $request
+     * @param string $slug
      * @return Response
      */
     #[Route('/admin/produits/{slug}/mettre-a-jour', name: 'admin_product_update', methods: 'GET|POST')]
-    public function update(string $slug, Request $request): Response
+    public function update(Request $request, string $slug): Response
     {
         // We find the product by its slug.
         $product =  $this->productRepository->findOneBy(

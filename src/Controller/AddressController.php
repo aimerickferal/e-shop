@@ -7,7 +7,6 @@ use App\Entity\AddressSearch;
 use App\Form\AddressSearchType;
 use App\Form\AddressType;
 use App\Repository\AddressRepository;
-use App\Repository\UserRepository;
 use App\Service\Cart\Cart;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;

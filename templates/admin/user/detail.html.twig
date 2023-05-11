@@ -29,7 +29,7 @@
 				<p>Mis à jour le
 					{{ user.updatedAt|format_datetime('short', 'none', locale='fr') }}</p>
 				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_user_update', {'id': user.id} ) }}">Modifier</a>
-				<a class="page__link page__delete-link page__delete-user-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
+				<a class="page__link page__delete-link page__user-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
 					Supprimer</a>
 			</div>
 			{# END: card for mobile #}
@@ -96,7 +96,7 @@
 						<th>Actions</th>
 						<td>
 							<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_user_update', {'id': user.id} ) }}">Modifier</a>
-							<a class="page__link page__delete-link page__delete-user-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
+							<a class="page__link page__delete-link page__user-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
 								Supprimer</a>
 						</td>
 					</tr>

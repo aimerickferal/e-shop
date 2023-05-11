@@ -41,7 +41,7 @@
 					<a class="page__text-link page__link_color_blue" href="{{ path('admin_purchase_user_list', {'id': user.id}) }}">Commandes</a>
 					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_user_detail', {'id': user.id}) }}">Détails</a>
 					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_user_update', {'id': user.id}) }}">Modifier</a>
-					<a class="page__link page__delete-link page__delete-user-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
+					<a class="page__link page__delete-link page__user-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
 						Supprimer</a>
 				</div>
 			{% endfor %}
@@ -84,7 +84,7 @@
 							<td>
 								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_user_detail', {'id': user.id}) }}">Détails</a>
 								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_user_update', {'id': user.id}) }}">Modifier</a>
-								<a class="page__link page__delete-link page__delete-user-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
+								<a class="page__link page__delete-link page__user-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_user_delete', {'id':user.id, 'token':csrf_token('admin-user-delete' ~ user.id)} ) }}" data-userfirstname="{{ user.firstName }}" data-userlastname="{{ user.lastName }}">
 									Supprimer</a>
 							</td>
 						</tr>

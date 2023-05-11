@@ -47,7 +47,7 @@
 					{{ product.updatedAt|format_datetime('short', 'none', locale='fr') }}
 				</p>
 				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
-				<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
+				<a class="page__link page__delete-link page__product-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
 			</div>
 			{# END: card for mobile #}
 			{# START: table for desktop #}
@@ -71,44 +71,45 @@
 						<th>Catégorie</th>
 						<td>{{ product.category }}</td>
 					</tr>
+					<tr>
+						<th>Référence</th>
+						<td>{{ product.reference }}</td>
+					</tr>
+					<tr>
+						<th>Prix</th>
+						<td>{{ product.price | amount }}</td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td>{{ product.description }}</td>
+					</tr>
+					<tr>
+						<th>Disponibilité</th>
+						{% if product.availability == available %}
+							<td class="availability available availability__avialable_color_green">Disponible</td>
+						{% elseif product.availability == unavailable %}
+							<td class="availability unavailable availability__unavailable_color_red">Indisponible</td>
+						{% endif %}
+					</tr>
+					<tr>
+						<th>Crée le</th>
+						<td>{{ product.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+					</tr>
+					<tr>
+						<th>Mis à jour le</th>
+						<td>{{ product.updatedAt|format_datetime('short', 'none', locale='fr') }}</td>
+					</tr>
+					<tr>
+						<th>Actions</th>
+						<td>
+							<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
+							<a class="page__link page__delete-link page__product-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
+						</td>
+					</tr>
 				</tbody>
-			</tr>
-			<tr>
-				<th>Référence</th>
-				<td>{{ product.reference }}</td>
-			</tr>
-			<tr>
-				<th>Prix</th>
-				<td>{{ product.price | amount }}</td>
-			</tr>
-			<tr>
-				<th>Description</th>
-				<td>{{ product.description }}</td>
-			</tr>
-			<tr>
-				<th>Disponibilité</th>
-				{% if product.availability == available %}
-					<td class="availability available availability__avialable_color_green">Disponible</td>
-				{% elseif product.availability == unavailable %}
-					<td class="availability unavailable availability__unavailable_color_red">Indisponible</td>
-				{% endif %}
-			</tr>
-			<tr>
-				<th>Crée le</th>
-				<td>{{ product.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
-			</tr>
-			<tr>
-				<th>Mis à jour le</th>
-				<td>{{ product.updatedAt|format_datetime('short', 'none', locale='fr') }}</td>
-			</tr>
-			<tr>
-				<th>Actions</th>
-				<td>
-					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminCategoryProductList=true">Modifier</a>
-					<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-{# END: table for desktop #}</section>{% endblock %}{# START: admin_category_product_detail #}
+			</table>
+		</div>
+		{# END: table for desktop #}
+	</section>
+{% endblock %}
+{# START: admin_category_product_detail #}

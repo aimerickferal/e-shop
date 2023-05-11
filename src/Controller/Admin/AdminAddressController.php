@@ -250,12 +250,12 @@ class AdminAddressController extends AbstractController
 
     /**
      * Method that display the detail of a address related to a user.
-     * @param int $addressId
      * @param Request $request
+     * @param int $addressId
      * @return Response
      */
     #[Route('/admin/utilisateurs/{userId}/adresses/{addressId}', name: 'admin_address_detail', methods: 'GET', requirements: ['id' => '\d+'])]
-    public function detail(int $addressId, Request $request): Response
+    public function detail(Request $request, int $addressId): Response
     {
         // We find the address by its id.
         $address =  $this->addressRepository->find($addressId);
@@ -289,12 +289,12 @@ class AdminAddressController extends AbstractController
 
     /**
      * Method that update a address related to a user.
-     * @param int $addressId
      * @param Request $request
+     * @param int $addressId
      * @return Response
      */
     #[Route('/admin/utilisateurs/{userId}/adresses/{addressId}/mettre-a-jour', name: 'admin_address_update', methods: 'GET|POST', requirements: ['id' => '\d+'])]
-    public function update(int $addressId, Request $request): Response
+    public function update(Request $request, int $addressId): Response
     {
         // We find the address by its id.
         $address = $this->addressRepository->find($addressId);
@@ -371,12 +371,12 @@ class AdminAddressController extends AbstractController
 
     /**
      * Method that delete a address related to a user.
-     * @param int $addressId
      * @param Request $request
+     * @param int $addressId
      * @return Response
      */
     #[Route('/admin/utilisateurs/{userId}/adresses/{addressId}/supprimer', name: 'admin_address_delete', methods: 'GET|POST', requirements: ['id' => '\d+'])]
-    public function delete(int $addressId, Request $request): Response
+    public function delete(Request $request, int $addressId): Response
     {
         // We find the address by its id.
         $address = $this->addressRepository->find($addressId);
