@@ -68,16 +68,16 @@ class AdminUserType extends AbstractType
 
     /**
      * Method that diplay the form fields dynamically according to the fact that we are in case of creation or in case of update.
-     * @param FormEvent $event
+     * @param FormEvent $formEvent
      * @return void
      */
-    public function onPreSetData(FormEvent $event)
+    public function onPreSetData(FormEvent $formEvent)
     {
         // We get the form. 
-        $form = $event->getForm();
+        $form = $formEvent->getForm();
 
         // We get the data of the user.
-        $user = $event->getData();
+        $user = $formEvent->getData();
 
         // If we don't find any user in the database. This mean we are in creation mode. 
         if (!$user->getId()) {

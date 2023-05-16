@@ -1,6 +1,5 @@
 const form = {
   // Proprietes availables in the object.
-  colors: {},
   numberOfErrors: null,
   // Regex
   regexMatchTenNumericCharacters: null,
@@ -159,8 +158,7 @@ const form = {
   errorMessageAddressCountryEmpty: null,
   // Purchase's error messages
   errorMessagePurchaseProductsNotChecked: null,
-  errorMessagePurchaseReferenceEmpty: null,
-  errorMessagePurchaseReferenceLength: null,
+  errorMessagePurchaseReference: null,
   errorMessagePurchaseStatusNotChecked: null,
   errorMessagePurchaseBillingAddressNotChecked: null,
   errorMessagePurchaseDeliveryAddressNotChecked: null,
@@ -239,23 +237,6 @@ const form = {
   paypalButton: null,
   init: function () {
     console.log("Hello world, I'm form.js 📝");
-
-    // All the colors of the app are set in CSS variables.
-    // We use getComputedStyle(document.documentElement).getPropertyValue() to get the value of the CSS variables.
-    form.colors = {
-      // We set the green color to the outline of the input in case of absence of error.
-      green: getComputedStyle(document.documentElement).getPropertyValue(
-        "--green"
-      ),
-      // We set the red color to the outline of the input in case of error.
-      red: getComputedStyle(document.documentElement).getPropertyValue("--red"),
-      black: getComputedStyle(document.documentElement).getPropertyValue(
-        "--black"
-      ),
-      white: getComputedStyle(document.documentElement).getPropertyValue(
-        "--white"
-      ),
-    };
 
     // We initialize a counter for the number errors.
     form.numberOfErrors = 0;
@@ -805,11 +786,8 @@ const form = {
     form.errorMessagePurchaseProductsNotChecked = document.querySelector(
       ".error-message-purchase-products-not-checked"
     );
-    form.errorMessagePurchaseReferenceEmpty = document.querySelector(
-      ".error-message-purchase-reference-empty"
-    );
-    form.errorMessagePurchaseReferenceLength = document.querySelector(
-      ".error-message-purchase-reference-length"
+    form.errorMessagePurchaseReference = document.querySelector(
+      ".error-message-purchase-reference"
     );
     form.errorMessagePurchaseStatusNotChecked = document.querySelector(
       ".error-message-purchase-status-not-checked"
@@ -1057,7 +1035,7 @@ const form = {
 
     for (let input of form.inputs) {
       if (clickedInput === input) {
-        form.switchInputOutlineColor(clickedInput, form.colors.black);
+        form.switchInputOutlineColor(clickedInput, app.colors.black);
       }
     }
   },
@@ -1414,8 +1392,7 @@ const form = {
     if (clickedButton === form.purchaseSearchButton) {
       form.checkIfPurchaseReference(
         form.purchaseReferenceInput,
-        form.errorMessagePurchaseReferenceEmpty,
-        form.errorMessagePurchaseReferenceLength
+        form.errorMessagePurchaseReference
       );
 
       form.submitFormIfNoError(form.purchaseSearchForm);
@@ -1486,15 +1463,15 @@ const form = {
     if (input.value) {
       tools.addDisplayNone(errorMessage);
       if (form.regexMatchEmail.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessage);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
     } else {
-      form.switchInputOutlineColor(input, form.colors.red);
+      form.switchInputOutlineColor(input, app.colors.red);
       tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
@@ -1530,51 +1507,51 @@ const form = {
       tools.addDisplayNone(errorMessageEmpty);
 
       if (form.regexMatchAtLeastHeightCharacters.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessageLength);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageLength);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchAtLeastOneLowercase.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessageLowercase);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageLowercase);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchAtLeastOneUppercase.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessageUppercase);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageUppercase);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessageNumber);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageNumber);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchAtLeastOneSpecialCharacter.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessageSpecialCharacter);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageSpecialCharacter);
         form.numberOfErrors++;
       }
     } else {
-      form.switchInputOutlineColor(input, form.colors.red);
+      form.switchInputOutlineColor(input, app.colors.red);
       tools.removeDisplayNone(errorMessageEmpty);
       form.numberOfErrors++;
     }
@@ -1593,10 +1570,10 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      form.switchInputOutlineColor(input, form.colors.green);
+      form.switchInputOutlineColor(input, app.colors.green);
       tools.addDisplayNone(errorMessageEmpty);
     } else {
-      form.switchInputOutlineColor(input, form.colors.red);
+      form.switchInputOutlineColor(input, app.colors.red);
       tools.removeDisplayNone(errorMessageEmpty);
       form.numberOfErrors++;
     }
@@ -1619,15 +1596,15 @@ const form = {
       tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       } else {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessage);
       }
     } else {
-      form.switchInputOutlineColor(input, form.colors.red);
+      form.switchInputOutlineColor(input, app.colors.red);
       tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
@@ -1719,14 +1696,12 @@ const form = {
     // We extract the index of each elements from the length of the .files object in order to know their positions.
     for (let index = 0; index < input.files.length; index++) {
       for (let authorizedMimeType of authorizedMimeTypes) {
-        // If the file mine type is strictly equal to authorizedMimeType.
+        // If the file mine type is strictly equal to authorized mime type.
         if (input.files[index].type === authorizedMimeType) {
-          console.log(input.files[index].type);
-          console.log("File mime type accepted ✅");
-          // We confirm that a authorizedMimeTypes has been authorized.
+          // We confirm that a authorized mime type has been authorized.
           isAuthorized = true;
           // We switch the input ouline color because the file mime type has been authorized.
-          form.switchInputOutlineColor(input, form.colors.green);
+          form.switchInputOutlineColor(input, app.colors.green);
           // We hide the error message related to the file mime type.
           tools.addDisplayNone(errorMessageFileMimeType);
           // We check the size of the uploded file.
@@ -1741,7 +1716,7 @@ const form = {
       console.log(input.files[index].type);
       console.log("File mime type denied ❌");
       // We switch the input ouline color because the file mime type is not authorized.
-      form.switchInputOutlineColor(input, form.colors.red);
+      form.switchInputOutlineColor(input, app.colors.red);
       // We display the error message related to the file mime type.
       tools.removeDisplayNone(errorMessageFileMimeType);
       // We increment the number of errors.
@@ -1767,7 +1742,7 @@ const form = {
         console.log(input.files[index].size);
         console.log("File size denied ❌");
         // We switch the input ouline color because the input is invalid.
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         // We display the error message related to the file mime type.
         tools.removeDisplayNone(errorMessageFileSize);
         // We increment the number of errors.
@@ -1778,7 +1753,7 @@ const form = {
         console.log(input.files[index].size);
         console.log("File size accepted ✅");
         // We switch the input ouline color because the file size is valid.
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         // We hide the error message related to the file mime type.
         tools.addDisplayNone(errorMessageFileSize);
       }
@@ -1802,24 +1777,24 @@ const form = {
       tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchTenNumericCharacters.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessage);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchStartBy06Or07.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessage);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
     } else {
-      form.switchInputOutlineColor(input, form.colors.red);
+      form.switchInputOutlineColor(input, app.colors.red);
       tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
@@ -1842,15 +1817,15 @@ const form = {
       tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchNumber.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessage);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
     } else {
-      form.switchInputOutlineColor(input, form.colors.red);
+      form.switchInputOutlineColor(input, app.colors.red);
       tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
@@ -1873,15 +1848,15 @@ const form = {
       tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessage);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
     } else {
-      form.switchInputOutlineColor(input, form.colors.red);
+      form.switchInputOutlineColor(input, app.colors.red);
       tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
@@ -1904,30 +1879,25 @@ const form = {
       tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchFiveNumericCharacters.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
+        form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessage);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
+        form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
     } else {
-      form.switchInputOutlineColor(input, form.colors.red);
+      form.switchInputOutlineColor(input, app.colors.red);
       tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
   },
   /**
-   *  Method that check if a input contain a value type of reference and call the methods that display the related error messages.
+   *  Method that check if a input contain a value type of reference and call the methods that display the related error message.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessageEmpty
-   * @param {HTMLParagraphElement} errorMessageLength
+   * @param {HTMLParagraphElement} errorMessage
    */
-  checkIfPurchaseReference: function (
-    input,
-    errorMessageEmpty,
-    errorMessageLength
-  ) {
+  checkIfPurchaseReference: function (input, errorMessage) {
     console.log("form.checkIfPurchaseReference()");
 
     // According on whether the input contain a doesn't a value we:
@@ -1936,19 +1906,19 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorMessageEmpty);
+      tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchAtLeastTweleCharacters.test(input.value)) {
-        form.switchInputOutlineColor(input, form.colors.green);
-        tools.addDisplayNone(errorMessageLength);
+        form.switchInputOutlineColor(input, app.colors.green);
+        tools.addDisplayNone(errorMessage);
       } else {
-        form.switchInputOutlineColor(input, form.colors.red);
-        tools.removeDisplayNone(errorMessageLength);
+        form.switchInputOutlineColor(input, app.colors.red);
+        tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
       }
     } else {
-      form.switchInputOutlineColor(input, form.colors.red);
-      tools.removeDisplayNone(errorMessageEmpty);
+      form.switchInputOutlineColor(input, app.colors.red);
+      tools.removeDisplayNone(errorMessage);
       form.numberOfErrors++;
     }
   },

@@ -94,7 +94,7 @@ class PurchaseAddress
 
         $streetNameAndStreetNumber = strtok($address, "\n");
         $address = substr($address, strlen($streetNameAndStreetNumber) + 1);
-
+        
         $zipCodeAndCity = strtok($address, "\n");
         $address = substr($address, strlen($zipCodeAndCity) + 1);
 

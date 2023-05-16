@@ -2,7 +2,7 @@
 
 namespace App\Form\Admin;
 
-use App\Entity\DeliveryModeSearch;
+use App\Entity\Admin\AdminDeliveryModeSearch;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +18,7 @@ class AdminDeliveryModeSearchType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => DeliveryModeSearch::class,
+            'data_class' => AdminDeliveryModeSearch::class,
             'method' => 'GET',
             'csrf_protection' => false
         ]);

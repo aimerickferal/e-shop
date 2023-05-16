@@ -1,6 +1,7 @@
 # **Todo**
 
-- add regex commentaries in Purchase and PurchaseItem entities
+- add ROLE_SUPER_ADMIN
+
 - text align to switch
 - use class for titles
 - term = galatea
@@ -13,8 +14,6 @@
 - Fix delete my user account feature : id = delete-my-user-account-link
 
 ## **Commit**
-
-
 
 ## Video script:
 

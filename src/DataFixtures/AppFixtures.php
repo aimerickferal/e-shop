@@ -31,7 +31,7 @@ class AppFixtures extends Fixture
         $userAdmin = new User();
         // We set the properties of the user. 
         $userAdmin
-            ->setRoles(['ROLE_ADMIN'])
+            ->setRoles([User::ROLE_ADMIN])
             ->setCivilityTitle(User::MAN_CIVILITY_TITLE)
             ->setFirstName('Clark')
             ->setLastName('Kent')

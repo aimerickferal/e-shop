@@ -2,8 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Admin\AdminDeliveryModeSearch;
 use App\Entity\DeliveryMode;
-use App\Entity\DeliveryModeSearch;
 use App\Form\Admin\AdminDeliveryModeSearchType;
 use App\Form\Admin\AdminDeliveryModeType;
 use App\Repository\DeliveryModeRepository;
@@ -103,8 +103,8 @@ class AdminDeliveryModeController extends AbstractController
         }
 
 
-        // We create a new delivery mode search.
-        $search = new DeliveryModeSearch();
+        // We create a new admin delivery mode search.
+        $search = new AdminDeliveryModeSearch();
         // We create the form.
         $form = $this->createForm(AdminDeliveryModeSearchType::class, $search);
         // We link the form to the request.

@@ -29,8 +29,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     // The User picture by default for the woman.
     public const WOMAN_PICTURE = 'wonderwoman.png';
 
-    // The admin's role for User.
+    // The admin's role. 
     public const ROLE_ADMIN = 'ROLE_ADMIN';
+
+    // The super admin's role. 
+    public const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
 
     #[ORM\Id]
     #[ORM\GeneratedValue]

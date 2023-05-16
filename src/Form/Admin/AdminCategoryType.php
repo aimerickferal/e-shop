@@ -30,22 +30,22 @@ class AdminCategoryType extends AbstractType
 
     /**
      * Method that create a slug from a category name.
-     * @param FormEvent
+     * @param FormEvent $formEvent
      * @return void
      */
-    public function onPreSubmit(FormEvent $event)
+    public function onPreSubmit(FormEvent $formEvent)
     {
         // We get the form. 
-        $form = $event->getForm();
+        $form = $formEvent->getForm();
 
         // We get the data of the category.
-        $category = $event->getData();
+        $category = $formEvent->getData();
 
         // We set the reference of the category. 
         $category['slug'] = strtolower($this->sluggerInterface->slug($category['name']));
 
-        // We set the data of the event with the new data of the category.
-        $event->setData($category);
+        // We set the data of the form event with the new data of the category.
+        $formEvent->setData($category);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

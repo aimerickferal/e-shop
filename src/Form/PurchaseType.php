@@ -89,19 +89,20 @@ class PurchaseType extends AbstractType
 
     /**
      * Method that get the addresses of the logged in user before the form display. 
-     * @param FormEvent $event
+     * @param FormEvent $formEvent
      * @return void
      */
-    public function onPreSetData(FormEvent $event)
+    public function onPreSetData(FormEvent $formEvent)
     {
         // We get the form. 
-        $form = $event->getForm();
+        $form = $formEvent->getForm();
 
         // We get the data of the purchase.
-        $purchase = $event->getData();
+        $purchase = $formEvent->getData();
 
         // We create a array to backup each address of the logged in user. 
         $addresses = [];
+
         foreach ($purchase->getUser()->getAddresses() as $address) {
             // We push each address in the array.
             $addresses[] = $address;
@@ -144,22 +145,22 @@ class PurchaseType extends AbstractType
 
     /**
      * Method that create a unique reference for the purchase.
-     * @param FormEvent
+     * @param FormEvent $formEvent
      * @return void
      */
-    public function onPreSubmit(FormEvent $event)
+    public function onPreSubmit(FormEvent $formEvent)
     {
         // We get the form. 
-        $form = $event->getForm();
+        $form = $formEvent->getForm();
 
         // We get the data of the purchase.
-        $purchase = $event->getData();
+        $purchase = $formEvent->getData();
 
         // We set the reference property of the purchase. 
         $purchase['reference'] = bin2hex(random_bytes(6));
 
         // We set the data of the event with the new data of the purchase.
-        $event->setData($purchase);
+        $formEvent->setData($purchase);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

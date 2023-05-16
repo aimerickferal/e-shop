@@ -50,15 +50,15 @@ class ProductRepository extends ServiceEntityRepository
     */
 
     /**
-     * Method to find a Product by his name.
+     * Method to find a product by his name.
      * @param ProductSearch $productSearch
      * @return array
      */
     public function findProductByName(ProductSearch $productSearch): array
     {
-        // We instanciate the QueryBuilder and we refers to the Product.
+        // We instanciate the QueryBuilder and we refers to the product.
         $queryBuilder = $this->createQueryBuilder('product');
-        // We say that the :name is egual to the name property of the Product Entity. 
+        // We say that the :name is egual to the name property of the product entity. 
         $queryBuilder->where('product.name LIKE :name');
         // We secure the query by setting a parameter to avoid the SQL injections. 
         $queryBuilder->setParameter(':name', "%$productSearch%");

@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
-use App\Entity\UserSearch;
+use App\Entity\Admin\AdminUserSearch;
 use App\Form\Admin\AdminUserType;
 use App\Form\Admin\AdminUserSearchType;
 use App\Repository\UserRepository;
@@ -126,8 +126,8 @@ class AdminUserController extends AbstractController
             );
         }
 
-        // We create a new user search.
-        $search = new UserSearch();
+        // We create a new admin user search.
+        $search = new AdminUserSearch();
         // We create the form.
         $form = $this->createForm(AdminUserSearchType::class, $search);
         // We link the form to the request.
@@ -376,7 +376,7 @@ class AdminUserController extends AbstractController
                 'numberOfRolesUser' => count($this->userRepository->findUsersByRoles("[]")),
                 'numberOfRolesAdmin' => count($this->userRepository->findUsersByRoles(User::ROLE_ADMIN)),
                 'numberOfMans' => count($this->userRepository->findByCivilityTitle([User::MAN_CIVILITY_TITLE])),
-                'numberOfWomans' => count($this->userRepository->findByCivilityTitle([User::WOMAN_CIVILITY_TITLE])),
+                'numberOfWomans' => count($this->userRepository->findByCivilityTitle([User::WOMAN_CIVILITY_TITLE]))
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)

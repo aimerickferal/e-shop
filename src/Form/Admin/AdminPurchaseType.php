@@ -73,21 +73,20 @@ class AdminPurchaseType extends AbstractType
 
     /**
      * Method that diplay the form fields dynamically according to the fact that we are in case of creation or in case of update. 
-     * @param FormEvent $event
+     * @param FormEvent $formEvent
      * @return void
      */
-    public function onPreSetData(FormEvent $event)
+    public function onPreSetData(FormEvent $formEvent)
     {
         // We get the form.
-        $form = $event->getForm();
+        $form = $formEvent->getForm();
 
         // We get the data of the purchase.
-        $purchase = $event->getData();
+        $purchase = $formEvent->getData();
 
         // We create a empty array to backup each address.
         $addresses = [];
 
-        // For each $adress in $purchase->getUser()->getAddresses().
         foreach ($purchase->getUser()->getAddresses() as $address) {
             // We push each address in the array.
             $addresses[] = $address;
@@ -189,16 +188,16 @@ class AdminPurchaseType extends AbstractType
 
     /**
      * Method that create a unique reference for the purchase.
-     * @param FormEvent
+     * @param FormEvent $formEvent
      * @return void
      */
-    public function onPreSubmit(FormEvent $event)
+    public function onPreSubmit(FormEvent $formEvent)
     {
         // We get the form.
-        $form = $event->getForm();
+        $form = $formEvent->getForm();
 
         // We get the data of the purchase.
-        $purchase = $event->getData();
+        $purchase = $formEvent->getData();
 
         // If the submit doesn't contain a purchase with a reference.
         if (!$purchase['reference']) {
@@ -206,8 +205,8 @@ class AdminPurchaseType extends AbstractType
             $purchase['reference'] = bin2hex(random_bytes(6));
         }
 
-        // We set the data of the event with the new data of the product.
-        $event->setData($purchase);
+        // We set the data of the form event with the new data of the product.
+        $formEvent->setData($purchase);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

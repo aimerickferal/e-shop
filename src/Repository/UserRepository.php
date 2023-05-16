@@ -2,8 +2,8 @@
 
 namespace App\Repository;
 
+use App\Entity\Admin\AdminUserSearch;
 use App\Entity\User;
-use App\Entity\UserSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -89,9 +89,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      */
     public function findUsersByRoles(string $roles): array
     {
-        // We instanciate the QueryBuilder and we refers to the User Entity.
+        // We instanciate the QueryBuilder and we refers to the user entity.
         $queryBuilder = $this->createQueryBuilder('user');
-        // We say that the :roles is egual to the roles property of the User Entity. 
+        // We say that the :roles is egual to the roles property of the user entity. 
         $queryBuilder->where('user.roles LIKE :roles');
         // We secure the query by setting a parameter to avoid the SQL injections. 
         $queryBuilder->setParameter(':roles', "%$roles%");
@@ -100,18 +100,18 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * Method to find a User by his last name.
-     * @param UserSearch $userSearch
+     * Method to find a user by his last name.
+     * @param AdminUserSearch $adminUserSearch
      * @return array
      */
-    public function findUserByLastName(UserSearch $userSearch): array
+    public function findUserByLastName(AdminUserSearch $adminUserSearch): array
     {
-        // We instanciate the QueryBuilder and we refers to the User Entity.
+        // We instanciate the QueryBuilder and we refers to the user entity.
         $queryBuilder = $this->createQueryBuilder('user');
-        // We say that the :email is egual to the last name property of the User Entity. 
+        // We say that the :lastName is egual to the last name property of the user entity. 
         $queryBuilder->where('user.lastName LIKE :lastName');
         // We secure the query by setting a parameter to avoid the SQL injections. 
-        $queryBuilder->setParameter(':lastName', "%$userSearch%");
+        $queryBuilder->setParameter(':lastName', "%$adminUserSearch%");
         // We return the result of the query. 
         return $queryBuilder->getQuery()->getResult();
     }

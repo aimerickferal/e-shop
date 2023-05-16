@@ -2,7 +2,7 @@
 
 namespace App\Form\Admin;
 
-use App\Entity\UserSearch;
+use App\Entity\Admin\AdminUserSearch;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +18,7 @@ class AdminUserSearchType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => UserSearch::class,
+            'data_class' => AdminUserSearch::class,
             'method' => 'GET',
             'csrf_protection' => false
         ]);

@@ -22,43 +22,13 @@ const chart = {
   init: function () {
     console.log("Hello world, I'm chart.js 📊");
 
-    // All the colors of the app are set in CSS variables.
-    // We use getComputedStyle(document.documentElement).getPropertyValue() to get the value of the CSS variables.
-    chart.colors = {
-      black: getComputedStyle(document.documentElement).getPropertyValue(
-        "--black"
-      ),
-      white: getComputedStyle(document.documentElement).getPropertyValue(
-        "--white"
-      ),
-      red: getComputedStyle(document.documentElement).getPropertyValue("--red"),
-      green: getComputedStyle(document.documentElement).getPropertyValue(
-        "--green"
-      ),
-      yellow: getComputedStyle(document.documentElement).getPropertyValue(
-        "--yellow"
-      ),
-      blue: getComputedStyle(document.documentElement).getPropertyValue(
-        "--blue"
-      ),
-      orange: getComputedStyle(document.documentElement).getPropertyValue(
-        "--orange"
-      ),
-      argentinianBlue: getComputedStyle(
-        document.documentElement
-      ).getPropertyValue("--argentinian-blue"),
-      thulianPink: getComputedStyle(document.documentElement).getPropertyValue(
-        "--thulian-pink"
-      ),
-    };
-
     chart.fontFamily = "Roboto";
     chart.titleFontSize = 16;
     chart.legendFontSize = 14;
-    chart.borderColor = chart.colors.white;
-    chart.datalabelsColor = chart.colors.black;
-    chart.labelsColor = chart.colors.black;
-    chart.titleColor = chart.colors.black;
+    chart.borderColor = app.colors.white;
+    chart.datalabelsColor = app.colors.black;
+    chart.labelsColor = app.colors.black;
+    chart.titleColor = app.colors.black;
 
     // ======================= DOM ELEMENTS =======================
 
@@ -112,7 +82,7 @@ const chart = {
                 chart.pieCanvasUserRolesByNumber.dataset.users,
                 chart.pieCanvasUserRolesByNumber.dataset.admins,
               ],
-              backgroundColor: [chart.colors.green, chart.colors.red],
+              backgroundColor: [app.colors.green, app.colors.red],
               borderColor: chart.borderColor,
               hoverOffset: 8,
             },
@@ -180,7 +150,7 @@ const chart = {
                 chart.pieCanvaUserRolesByProportion.dataset.users,
                 chart.pieCanvaUserRolesByProportion.dataset.admins,
               ],
-              backgroundColor: [chart.colors.green, chart.colors.red],
+              backgroundColor: [app.colors.green, app.colors.red],
               borderColor: chart.borderColor,
               hoverOffset: 8,
             },
@@ -251,8 +221,8 @@ const chart = {
                 chart.pieCanvaUserCivilityTitleByNumber.dataset.numberofwomans,
               ],
               backgroundColor: [
-                chart.colors.argentinianBlue,
-                chart.colors.thulianPink,
+                app.colors.argentinianBlue,
+                app.colors.thulianPink,
               ],
               borderColor: chart.borderColor,
               hoverOffset: 8,
@@ -318,8 +288,8 @@ const chart = {
                   .numberofwomans,
               ],
               backgroundColor: [
-                chart.colors.argentinianBlue,
-                chart.colors.thulianPink,
+                app.colors.argentinianBlue,
+                app.colors.thulianPink,
               ],
               borderColor: chart.borderColor,
               hoverOffset: 8,

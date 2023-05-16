@@ -44,7 +44,6 @@ class AdminAddressController extends AbstractController
 
             // We put the data on hold.
             $this->entityManagerInterface->persist($address);
-
             // We backup the data in the database. 
             $this->entityManagerInterface->flush();
 

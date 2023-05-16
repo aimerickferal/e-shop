@@ -71,16 +71,16 @@ class AdminProductType extends AbstractType
 
     /**
      * Method that diplay the form fields dynamically according to the fact that we are in case of creation or in case of update. 
-     * @param FormEvent $event
+     * @param FormEvent $formEvent
      * @return void
      */
-    public function onPreSetData(FormEvent $event)
+    public function onPreSetData(FormEvent $formEvent)
     {
         // We get the form.
-        $form = $event->getForm();
+        $form = $formEvent->getForm();
 
         // We get the data of the product.
-        $product = $event->getData();
+        $product = $formEvent->getData();
 
         // If we don't find any product in the database. This mean we are in creation mode.
         if (!$product->getId()) {
@@ -146,16 +146,16 @@ class AdminProductType extends AbstractType
 
     /**
      * Method that create a slug from a product name and create a uniq reference. 
-     * @param FormEvent
+     * @param FormEvent $formEvent
      * @return void
      */
-    public function onPreSubmit(FormEvent $event)
+    public function onPreSubmit(FormEvent $formEvent)
     {
         // We get the form.
-        $form = $event->getForm();
+        $form = $formEvent->getForm();
 
         // We get the data of the product.
-        $product = $event->getData();
+        $product = $formEvent->getData();
 
         // We set the slug with the value of the product's name slugged.
         $product['slug'] = strtolower($this->sluggerInterface->slug($product['name']));
@@ -166,8 +166,8 @@ class AdminProductType extends AbstractType
             $product['reference'] = strtoupper(substr(str_replace(' ', '', $product['name']), 0, 4) . bin2hex(random_bytes(4)));
         }
 
-        // We set the data of the event with the new data of the product.
-        $event->setData($product);
+        // We set the data of the form event with the new data of the product.
+        $formEvent->setData($product);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

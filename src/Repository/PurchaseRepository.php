@@ -66,15 +66,15 @@ class PurchaseRepository extends ServiceEntityRepository
     //    }
 
     /**
-     * Method to find a Purchase by his reference.
+     * Method to find a purchase by his reference.
      * @param PurchaseSearch $purchaseSearch
      * @return array
      */
     public function findPurchaseByReference(PurchaseSearch $purchaseSearch): array
     {
-        // We instanciate the QueryBuilder and we refers to the Purchase.
+        // We instanciate the QueryBuilder and we refers to the purchase.
         $queryBuilder = $this->createQueryBuilder('purchase');
-        // We say that the :reference is egual to the reference property of the Purchase Entity. 
+        // We say that the :reference is egual to the reference property of the purchase entity. 
         $queryBuilder->where('purchase.reference LIKE :reference');
         // We secure the query by setting a parameter to avoid the SQL injections. 
         $queryBuilder->setParameter(':reference', "%$purchaseSearch%");

@@ -69,16 +69,16 @@ class UserType extends AbstractType
 
     /**
      * Method that change the data of the civility title property according to the user input. 
-     * @param FormEvent
+     * @param FormEvent $formEvent
      * @return void
      */
-    public function onPreSubmit(FormEvent $event)
+    public function onPreSubmit(FormEvent $formEvent)
     {
         // We get the form. 
-        $form = $event->getForm();
+        $form = $formEvent->getForm();
 
         // We get the data of the user.
-        $user = $event->getData();
+        $user = $formEvent->getData();
 
         // TODO #2 START: solve issue on switch civilityTitle. 
         // dump($user);
@@ -96,8 +96,8 @@ class UserType extends AbstractType
             ]);
         // TODO #2 END: solve issue on switch civilityTitle.  
 
-        // We set the data of the event with the new data of the user.
-        $event->setData($user);
+        // We set the data of the form event with the new data of the user.
+        $formEvent->setData($user);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

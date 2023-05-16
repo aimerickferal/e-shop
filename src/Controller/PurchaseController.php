@@ -186,7 +186,7 @@ class PurchaseController extends AbstractController
                 // We backup the data in the database. 
                 $this->entityManagerInterface->flush();
 
-                // We call the startStripeCheckout() method of the SripeCheckout service with the cart, the purchase, the delivery mode price and the delivery mode description in argument so that the method return us the URL of the Stripe interface on wich we redirect the user.
+                // We redirect the user on the URL (success_url or the cancel_url) returned by the StripeCheckout service.
                 return $this->redirect($stripeSession['url']);
             }
             // TODO #3 START: Paypal checkout
