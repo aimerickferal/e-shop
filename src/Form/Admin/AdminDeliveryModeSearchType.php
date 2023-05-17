@@ -26,8 +26,9 @@ class AdminDeliveryModeSearchType extends AbstractType
 
     /**
      * Method that clean the parameters of the query in the URL.
+     * @return string
      */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string 
     {
         return '';
     }

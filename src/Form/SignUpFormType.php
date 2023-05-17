@@ -90,10 +90,8 @@ class SignUpFormType extends AbstractType
                     ]),
                     new Regex([
                         // Regex that match only value that contain at least 1 one special character, but we are escaping reserved RegEx characters to avoid conflict.
-                        new Regex([
-                            'pattern' => '/(?=.*[!@#$%^&*])/',
-                            'message' => 'Le mot de passe doit contenir au moins un caractére spécial.'
-                        ])
+                        'pattern' => '/(?=.*[!@#$%^&*])/',
+                        'message' => 'Le mot de passe doit contenir au moins un caractére spécial.'
                     ])
                 ]
             ])
