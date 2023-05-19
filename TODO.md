@@ -1,11 +1,12 @@
 # **Todo**
 
+- check route annotations 
 - add ROLE_SUPER_ADMIN
 
 - text align to switch
 - use class for titles
 - term = galatea
-- fix header
+- fix the header
 - add img size in % as much as possible if not use em
 - Fix delete Product blocked by the PurchaseItem constraint
 - TODO #4 START: handle catch $errors in the uploadPicture() method of FileUploader service.
@@ -38,27 +39,4 @@
 - category CRUD
 - delivery mode CRUD
 
-Stuffs:
 
-E-Shop / aimerickferal :
-
-- neptune
-- venus
-- saturn
-- sagittarius-a (404)
-- square
-
-e-Shop :
-
-- galatea
-
-aimerickferal :
-
-- earth
-- jupiter
-- europa
-- io
-- ganymede
-- callisto
-- mars
-- mercury

@@ -19,6 +19,7 @@ class StripeCheckout
     }
 
     /**
+     * Methot that create a Stripe Checkout session to enable a online checkout with the Stripe API. 
      * @param Cart $cart
      * @param Purchase $purchase
      * @param int $deliveryModePrice

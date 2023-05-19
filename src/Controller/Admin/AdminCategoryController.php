@@ -197,7 +197,6 @@ class AdminCategoryController extends AbstractController
             // We find the product by its name.
             $products = $this->productRepository->findProductByName($search);
 
-            // For each $product in $products .
             foreach ($products as $index => $product) {
                 // If the category of the product is not identical to the category.
                 if ($product->getCategory() !== $category) {
