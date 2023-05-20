@@ -84,7 +84,7 @@ class AddressController extends AbstractController
     }
 
     /**
-     *  Method that display the logged in user's addresses.
+     *  Method that display the list of the logged in user's addresses.
      * @param Request $request
      * @return Response
      */

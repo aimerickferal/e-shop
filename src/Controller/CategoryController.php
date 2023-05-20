@@ -21,7 +21,7 @@ class CategoryController extends AbstractController
     }
 
     /** 
-     * Method that display the list of the categories.
+     * Method that display the list of categories.
      * @param Request $request
      * @return Response
      */

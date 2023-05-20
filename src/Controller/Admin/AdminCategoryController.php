@@ -70,7 +70,7 @@ class AdminCategoryController extends AbstractController
     }
 
     /**
-     * Method that display the list of the categories.
+     * Method that display the list of categories.
      * @param Request $request
      * @return Response
      */
@@ -137,7 +137,7 @@ class AdminCategoryController extends AbstractController
 
 
     /**
-     * Method that display the list of the products related to its category.
+     * Method that display the list of products related to its category.
      * @param Request $request
      * @param string $slug
      * @return Response

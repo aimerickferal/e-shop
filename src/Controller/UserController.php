@@ -21,7 +21,7 @@ class UserController extends AbstractController
     }
 
     /** 
-     * Method that display the detail of the logged in user's profile. 
+     * Method that display the detail of the logged in user's profile.
      * @param Request $request
      * @param FileUploader $fileUploader
      * @return Response
@@ -139,7 +139,7 @@ class UserController extends AbstractController
     }
 
     /** 
-     * Method that delete the user picture and update the picture with the a picture according to the user civility title.
+     * Method that delete the user picture and update the picture with the a picture according to the user's civility title.
      * @param Request $request
      * @return Response
      */
@@ -225,7 +225,7 @@ class UserController extends AbstractController
     //! END: user account deactivation
 
     /** 
-     * Method that deactivate the user. 
+     * Method that delete a user. 
      * @param Request $request
      * @return Response
      */

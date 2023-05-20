@@ -90,7 +90,7 @@ class AdminAddressController extends AbstractController
     }
 
     /**
-     * Method that display the addresses related to a user.
+     * Method that display the list of addresses.
      * @param Request $request
      * @return Response
      */
@@ -156,7 +156,7 @@ class AdminAddressController extends AbstractController
     }
 
     /**
-     * Method that display the addresses related to a user.
+     * Method that display list of addresses related to a user.
      * @param Request $request
      * @param User $user
      * @return Response

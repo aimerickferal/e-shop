@@ -220,7 +220,7 @@ class PurchaseController extends AbstractController
     }
 
     /**
-     * Method that display the logged in user's purchases.
+     * Method that display the list of the logged in user's purchases.
      * @param Request $request
      * @return Response
      */

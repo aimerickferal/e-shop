@@ -384,7 +384,7 @@ class AdminUserController extends AbstractController
     }
 
     /**
-     * Method that delete a user account 30 days after the request.
+     * Method that delete a user.
      * @param Request $request
      * @param User $user
      * @return Response

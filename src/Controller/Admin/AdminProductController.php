@@ -76,7 +76,7 @@ class AdminProductController extends AbstractController
     }
 
     /**
-     * Method that display the list of the products.
+     * Method that display the list of products.
      * @param Request $request
      * @return Response
      */

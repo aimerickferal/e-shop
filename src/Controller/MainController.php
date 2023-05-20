@@ -94,7 +94,7 @@ class MainController extends AbstractController
     }
 
     /** 
-     * Method that display the contact page and handle the ContactType. 
+     * Method that display the contact page. 
      * @param Request $request
      * @param Email $email
      * @return Response
@@ -154,7 +154,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * Method that display the legal_notices page. 
+     * Method that display the legal notices page. 
      * @return Response
      */
     #[Route('/mentions-legales', name: 'legal_notices', methods: 'GET')]
@@ -172,7 +172,7 @@ class MainController extends AbstractController
 
 
     /**
-     * Method that display the general_terms_of_sale page. 
+     * Method that display the general terms of sale page. 
      * @return Response
      */
     #[Route('/conditions-generales-de-vente', name: 'general_terms_of_sale', methods: 'GET')]
@@ -189,7 +189,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * Method that display the general_terms_of_use page. 
+     * Method that display the general terms of use page. 
      * @return Response
      */
     #[Route('/conditions-generales-d-utilisation', name: 'general_terms_of_use', methods: 'GET')]
@@ -206,7 +206,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * Method that display the delivery_and_customer_service page. 
+     * Method that display the delivery and customer service page. 
      * @return Response
      */
     #[Route('/livraison-et-service-apres-vente', name: 'delivery_and_customer_service', methods: 'GET')]
@@ -223,7 +223,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * Method that display the secure_payment page. 
+     * Method that display the secure payment page. 
      * @return Response
      */
     #[Route('/paiement-securise', name: 'secure_payment', methods: 'GET')]

@@ -152,7 +152,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * Method that display the user's cart.
+     * Method that display the cart.
      * @param DeliveryModeRepository $deliveryModeRepository
      * @param PurchaseRepository $purchaseRepository
      * @param EntityManagerInterface entityManagerInterface
@@ -287,7 +287,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * Method that decremente a product from the user's cart.
+     * Method that decremente a product from the cart.
      * @param int $id
      * @return Response
      */

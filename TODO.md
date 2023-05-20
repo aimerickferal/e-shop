@@ -1,7 +1,6 @@
 # **Todo**
 
-- check route annotations 
-- add ROLE_SUPER_ADMIN
+- add a role hierarchy with a ROLE_SUPER_ADMIN
 
 - text align to switch
 - use class for titles
@@ -16,7 +15,8 @@
 
 ## **Commit**
 
-## Video script:
+
+## Video script
 
 - registration
 - login
@@ -27,7 +27,7 @@
 - add
 - panier
 - incrementation / decremenation
-- continier shooping
+- continuer shooping
 - category
 - go purchase
 - detail purchase

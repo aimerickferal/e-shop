@@ -77,7 +77,7 @@ class AdminDeliveryModeController extends AbstractController
     }
 
     /**
-     * Method that display the list of the delivery mode.
+     * Method that display the list of delivery modes.
      * @param Request $request
      * @return Response
      */

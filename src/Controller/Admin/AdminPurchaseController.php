@@ -27,7 +27,7 @@ class AdminPurchaseController extends AbstractController
     }
 
     /**
-     * Method that create a purchase for a user according to the CartItems() present in the cart.
+     * Method that create a purchase for a user according to the cart items present in the cart.
      * @return Request $request
      * @param User $user
      * @return Cart $cart
