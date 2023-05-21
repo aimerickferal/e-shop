@@ -10,6 +10,7 @@ use App\Repository\UserRepository;
 use App\Service\Email;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -156,6 +157,96 @@ class AdminUserController extends AbstractController
         // We display our template.
         return $this->render(
             'admin/user/list.html.twig',
+            // We set a array of optional data.
+            [
+                'users' => $users,
+                'adminUserSearchForm' => $form->createView()
+            ],
+            // We specify the related HTTP response status code.
+            new Response('', 200)
+        );
+    }
+
+    /**
+     * Method that display the list of admin who have a ROLE_ADMIN or a ROLE_SUPER_ADMIN.
+     * @param Request $request
+     * @return Response
+     */
+    #[Route('/admin/utilisateurs/administrateurs', name: 'admin_user_admin_list', methods: 'GET')]
+    #[IsGranted(User::ROLE_SUPER_ADMIN)]
+    public function adminList(Request $request): Response
+    {
+        // We create a empty array for the admin uers.
+        $users = [];
+
+        // We find all the users with a ROLE_SUPER_ADMIN. 
+        $roleSuperAdminUsers = $this->userRepository->findUsersByRoles(User::ROLE_SUPER_ADMIN);
+
+        // We find all the users with a ROLE_ADMIN.
+        $roleAdminUsers = $this->userRepository->findUsersByRoles(User::ROLE_ADMIN);
+
+        // We use the PHP method array_merge() to merge the two array together so that we can have all the admins user (ROLE_ADMIN and ROLE_SUPER_ADMIN) in the same array.
+        $users = array_merge($roleSuperAdminUsers, $roleAdminUsers);
+
+        // If we don't find any admin user.
+        if (!$users) {
+            // We display a flash message for the user.
+            $this->addFlash('warning', 'La liste des administrateurs est vide. Nous vous invitons à vous en créer un.');
+
+            // We redirect the user.
+            return $this->redirectToRoute(
+                'admin_user_create',
+                // We set a array of optional data.
+                [],
+                // We specify the related HTTP response status code.
+                301
+            );
+        }
+
+        // We create a new admin user search.
+        $search = new AdminUserSearch();
+        // We create the form.
+        $form = $this->createForm(AdminUserSearchType::class, $search);
+        // We link the form to the request.
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // We find the user by its last name.
+            $users = $this->userRepository->findUserByLastName($search);
+
+            foreach ($users as $index => $user) {
+                // If the user have only one role that mean its the ROLE_USER so the user is not a admin.
+                if (count($user->getRoles()) === 1) {
+                    // We use the PHP method unset() to remove the user from the user array so that he is can't be display to the user because he is not a admin user.
+                    unset($users[$index]);
+                }
+
+                // dump(in_array(User::ROLE_ADMIN, $user->getRoles()));
+                // dump(in_array(User::ROLE_SUPER_ADMIN, $user->getRoles()));
+                // dd(42);
+            }
+
+            // dd($users);
+
+            // If we don't find a user with the submitted last name.
+            if (!$users) {
+                // We display a flash message for the user.
+                $this->addFlash('error', 'Le nom ' . strtoupper($form->get('lastName')->getData()) . ' ne correspond à aucun administrateur.');
+
+                // We redirect the user.
+                return $this->redirectToRoute(
+                    'admin_user_admin_list',
+                    // We set a array of optional data.
+                    [],
+                    // We specify the related HTTP response status code.
+                    301
+                );
+            }
+        }
+
+        // We display our template.
+        return $this->render(
+            'admin/user/admin-list.html.twig',
             // We set a array of optional data.
             [
                 'users' => $users,
@@ -352,6 +443,9 @@ class AdminUserController extends AbstractController
     {
         // We find all the users.
         $users = $this->userRepository->findAll();
+
+        $numberOfAdmins = count($this->userRepository->findUsersByRoles(User::ROLE_ADMIN)) + count($this->userRepository->findUsersByRoles(User::ROLE_SUPER_ADMIN));
+
         // If we don't find any user.
         if (!$users) {
             // We display a flash message for the user.
@@ -374,7 +468,7 @@ class AdminUserController extends AbstractController
             [
                 'numberOfUsers' => count($users),
                 'numberOfRolesUser' => count($this->userRepository->findUsersByRoles("[]")),
-                'numberOfRolesAdmin' => count($this->userRepository->findUsersByRoles(User::ROLE_ADMIN)),
+                'numberOfAdmins' => $numberOfAdmins,
                 'numberOfMans' => count($this->userRepository->findByCivilityTitle([User::MAN_CIVILITY_TITLE])),
                 'numberOfWomans' => count($this->userRepository->findByCivilityTitle([User::WOMAN_CIVILITY_TITLE]))
             ],

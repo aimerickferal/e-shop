@@ -4,6 +4,7 @@ namespace App\Form\Admin;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -20,6 +21,10 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 class AdminUserType extends AbstractType
 {
+    public function __construct(private Security $security)
+    {
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -54,11 +59,15 @@ class AdminUserType extends AbstractType
             ->add('password', HiddenType::class, [])
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'Administrateur' => User::ROLE_ADMIN
+                    'Admin' => User::ROLE_ADMIN,
+                    'Super Admin' => User::ROLE_SUPER_ADMIN
                 ],
                 'choice_attr' => [
-                    'Administrateur' => [
+                    'Admin' => [
                         'class' => 'form-field__user-roles-input form-field__user-roles-admin-input'
+                    ],
+                    'Super Admin' => [
+                        'class' => 'form-field__user-roles-input form-field__user-roles-super-admin-input'
                     ]
                 ],
                 'expanded' => true,
@@ -171,6 +180,38 @@ class AdminUserType extends AbstractType
                     ]
                 ]);
         }
+
+        // TODO START: only ROLE_ADMIN can update user roles
+        // // dd($this->security->getUser()->getRoles());
+        // // dd($this->security->isGranted(User::ROLE_ADMIN));
+        // // dd($this->security->isGranted(User::ROLE_SUPER_ADMIN));
+
+        // // If the logged in user have a ROLE_SUPER_ADMIN. 
+        // if ($this->security->isGranted(User::ROLE_SUPER_ADMIN)) {
+        //     // We add the roles field.
+        //     $form
+        //         ->add('roles', ChoiceType::class, [
+        //             'choices' => [
+        //                 'Admin' => User::ROLE_ADMIN,
+        //                 'Super Admin' => User::ROLE_SUPER_ADMIN
+        //             ],
+        //             'choice_attr' => [
+        //                 'Admin' => [
+        //                     'class' => 'form-field__user-roles-input form-field__user-roles-admin-input'
+        //                 ],
+        //                 'Super Admin' => [
+        //                     'class' => 'form-field__user-roles-input form-field__user-roles-super-admin-input'
+        //                 ]
+        //             ],
+        //             'expanded' => true,
+        //             'multiple' => true
+        //         ]);
+        // }
+        // // Else the logged in user doesn't have a ROLE_SUPER_ADMIN. 
+        // else {
+        //     // We remove the roles field.
+        // }
+        // TODO END: only ROLE_ADMIN can update user roles
     }
 
     public function configureOptions(OptionsResolver $resolver): void

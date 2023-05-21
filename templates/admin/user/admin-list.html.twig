@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Utilisateurs |
+	Administrateurs |
 	{{ parent() }}
 {% endblock %}
 
-{# START: admin_user_list #}
+{# START: admin_user_admin_list #}
 {% block body %}
 	<section class="page">
-		<h2>Utilisateurs</h2>
+		<h2>Administrateurs</h2>
 		{# START: adminUserSearchForm #}
 		{{ form_start(adminUserSearchForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-user-search-form' }}
 		) }}
@@ -94,4 +94,4 @@
 		</div>
 	</section>
 {% endblock %}
-{# START: admin_user_list #}
+{# START: admin_user_admin_list #}

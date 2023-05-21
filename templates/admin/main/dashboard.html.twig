@@ -14,24 +14,14 @@
 				<a class="page__text-link page__square-link page__link_color_blue" href="{{ path('admin_user_list') }}">Utilisateurs</a>
 				<p>
 					{{ numberOfUsers }}
-					Utilisateurs dont
-					{{ admins }}
-					Administrateurs
-				</p>
-				{# <p>
-					{{ numberOfUsers }}
 					Utilisateurs
 				</p>
-				<p>
-					{{ users }}
-					Utilisateurs avec un rôle Utilisateur
-				</p>
-				<p>
-					{{ admins }}
-					Utilisateur avec un rôle Administrateur
-				</p>
-				<a class="page__link page__square-linkpage__link_color_blue" href="#">Utilisateurs désactivés</a> #}
-				<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_statistics') }}">Statistiques</a>
+				{% if is_granted('ROLE_SUPER_ADMIN') %}
+					<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_admin_list') }}">
+						{{ numberOfAdmins }}
+						Administrateurs</a>
+					<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_statistics') }}">Statistiques</a>
+				{% endif %}
 			</div>
 			<div class="square square_border-color_blue">
 				<a class="page__text-link page__square-link page__link_color_blue" href="{{ path('admin_address_list') }}">Adresses</a>

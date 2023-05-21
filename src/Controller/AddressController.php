@@ -302,7 +302,6 @@ class AddressController extends AbstractController
         // We get the CSRF token.
         $submittedToken = $request->request->get('token') ?? $request->query->get('token');
 
-
         if ($this->isCsrfTokenValid('address-delete' . $address->getId(), $submittedToken)) {
             // We delete our object.
             $this->entityManagerInterface->remove($address);

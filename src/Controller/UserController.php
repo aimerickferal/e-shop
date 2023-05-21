@@ -35,7 +35,7 @@ class UserController extends AbstractController
          */
         $user = $this->getUser();
 
-        // TODO #2 START: solve issue on switch civilityTitle.  
+        // TODO: solve issue on switch civilityTitle.  
         // dd($user->getCivilityTitle());
         // TODO #2 END: solve issue on switch civilityTitle.   
 
@@ -101,7 +101,7 @@ class UserController extends AbstractController
                 }
             }
 
-            // TODO #2 START: solve issue on switch civilityTitle.  
+            // TODO: solve issue on switch civilityTitle.  
             // The civility title doesn't switch normaly like all the other properties.
             // If we use onPreSubmit() in UserType.php : the civility title switch correctly to the new one. 
             // If don't use onPreSubmit() in UserType.php : the civility title doesn't switch, he keep is hold value.

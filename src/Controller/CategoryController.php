@@ -97,9 +97,7 @@ class CategoryController extends AbstractController
     {
         // We find the category by its slug. 
         $category = $this->categoryRepository->findOneBy(
-            [
-                'slug' => $slug
-            ]
+            ['slug' => $slug]
         );
 
         // If we don't find any category. 
@@ -204,14 +202,10 @@ class CategoryController extends AbstractController
             // We set a array of optional data.
             [
                 'category' =>  $this->categoryRepository->findOneBy(
-                    [
-                        'slug' => $categorySlug
-                    ]
+                    ['slug' => $categorySlug]
                 ),
                 'product' =>  $this->productRepository->findOneBy(
-                    [
-                        'slug' => $productSlug
-                    ]
+                    ['slug' => $productSlug]
                 ),
                 'available' => Product::AVAILABLE,
                 'unavailable' => Product::UNAVAILABLE,

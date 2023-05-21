@@ -153,11 +153,9 @@ class AdminProductController extends AbstractController
     {
         // We find the product by its slug.
         $product =  $this->productRepository->findOneBy(
-            [
-                'slug' => $slug
-            ]
+            ['slug' => $slug]
         );
-        // dd($product->getReference()); // T-SH80015814
+
         // If we don't find any product.
         if (!$product) {
             // We redirect the user.
@@ -195,10 +193,9 @@ class AdminProductController extends AbstractController
     {
         // We find the product by its slug.
         $product =  $this->productRepository->findOneBy(
-            [
-                'slug' => $slug
-            ]
+            ['slug' => $slug]
         );
+        
         // If we don't find any product.
         if (!$product) {
             // If the query of the request contain the key returnToAdminProductList.

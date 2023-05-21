@@ -28,14 +28,15 @@ class AdminMainController extends AbstractController
     #[Route('/admin', name: 'admin_dashboard', methods: 'GET', priority: 3)]
     public function dashboard(UserRepository $userRepository, AddressRepository $addressRepository, CategoryRepository $categoryRepository, ProductRepository $productRepository, DeliveryModeRepository $deliveryModeRepository, PurchaseRepository $purchaseRepository): Response
     {
+        $numberOfAdmins = count($userRepository->findUsersByRoles(User::ROLE_ADMIN)) + count($userRepository->findUsersByRoles(User::ROLE_SUPER_ADMIN));
+
         // We display our template. 
         return $this->render(
             'admin/main/dashboard.html.twig',
             // We set a array of optional data.
             [
                 'numberOfUsers' => count($userRepository->findAll()),
-                // 'users' => count($userRepository->findUsersByRoles("[]")),
-                'admins' => count($userRepository->findUsersByRoles(User::ROLE_ADMIN)),
+                'numberOfAdmins' => $numberOfAdmins,
                 'addresses' => count($addressRepository->findAll()),
                 'categories' => count($categoryRepository->findAll()),
                 'products' => count($productRepository->findAll()),

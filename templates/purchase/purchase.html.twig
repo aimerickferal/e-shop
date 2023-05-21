@@ -55,10 +55,10 @@
 		<h3 class="page__title-purchase-step page__title-checkout-method-step page__purchase-step page__title-purchase-step_color_spanish-grey" id="checkout-method-step">3 - Paiement Sécurisé 🔐</h3>
 		{# checkoutMethod #}
 		<div class="form-field form-field-purchase-checkout-method display-none">
-			{#! TODO #3 START: Make Paypal checkout.  #}
+			{#! TODO START: Make Paypal checkout.  #}
 			{# Paypal #}
 			{# {{ paypalCheckout.showUserInterface()|raw }} #}
-			{#! TODO #3 END: Paypal checkout  #}
+			{#! TODO END: Paypal checkout  #}
 			{{ form_label(purchaseCreateForm, 'Méthode de paiment:', { 'label_attr': { 'class': 'form-field__label form-field__checkout-method-label display-none' }}
 			) }}
 			{{ form_widget(purchaseCreateForm.checkoutMethod) }}

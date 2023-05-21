@@ -2189,7 +2189,7 @@ const form = {
           }
           //! END: Stripe checkout
 
-          // TODO #3 START: Make Paypal checkout.
+          // TODO START: Make Paypal checkout.
           // The value of the PHP constante Purchase::CHECKOUT_METHOD_PAYPAL in is a HTML dataset attribut whose name is data-value.
           // If the value of the input is identical to the value of this attribut.
           if (
@@ -2201,7 +2201,7 @@ const form = {
             // form.paypalButton.click();
             // return;
           }
-          // TODO #3 END: Paypal checkout
+          // TODO END: Paypal checkout
         }
       }
 
@@ -2222,7 +2222,7 @@ const form = {
    * @return {void}
    */
   createDivForEachInputAndLabelOfCheckField: function (inputs) {
-    console.log("form.createDivForEachInputAndLabelOfCheckField()");
+    // console.log("form.createDivForEachInputAndLabelOfCheckField()");
 
     // We create a empty array for the choice fields.
     let checkFields = [];

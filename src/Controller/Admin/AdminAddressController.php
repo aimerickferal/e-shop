@@ -196,14 +196,6 @@ class AdminAddressController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // // We find the city by its name.
-            // $addresses = $this->addressRepository->findBy(
-            //     [
-            //         'city' => $form->get('city')->getData(),
-            //         'user' => $user
-            //     ]
-            // );
-
             // We find the city by its name.
             $addresses = $this->addressRepository->findAddressByCity($search);
 

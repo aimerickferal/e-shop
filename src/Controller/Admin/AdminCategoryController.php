@@ -147,9 +147,7 @@ class AdminCategoryController extends AbstractController
     {
         // We find the category by its slug.
         $category = $this->categoryRepository->findOneBy(
-            [
-                'slug' => $slug
-            ]
+            ['slug' => $slug]
         );
 
         // If we don't find any category.
@@ -251,9 +249,7 @@ class AdminCategoryController extends AbstractController
     {
         // We find the category by its slug.
         $category = $this->categoryRepository->findOneBy(
-            [
-                'slug' => $slug
-            ]
+            ['slug' => $slug]
         );
 
         // If we don't find any category.
@@ -292,16 +288,12 @@ class AdminCategoryController extends AbstractController
     {
         // We find the category by its slug.
         $category = $this->categoryRepository->findOneBy(
-            [
-                'slug' => $categorySlug
-            ]
+            ['slug' => $categorySlug]
         );
 
         // We find the product by its slug.
         $product = $this->productRepository->findOneBy(
-            [
-                'slug' => $productSlug
-            ]
+            ['slug' => $productSlug]
         );
 
         // If we don't find any category or any product.

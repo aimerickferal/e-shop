@@ -8,13 +8,13 @@
 {# START: admin_user_statistics #}
 {% block body %}
 	<section class="page">
-		<h2 class="page__statistics-title">Utilisateurs : statistiques</h2>
+		<h2 class="page__statistics-title">Statistiques Utilisateurs</h2>
 		<div class="neptune">
 			<div class="block-chart">
-				<canvas class="block-chart__chart block-chart__pie-chart" id="pie-canvas-user-roles-by-number" aria-label="chart" role="img" data-users="{{ numberOfRolesUser }}" data-admins="{{ numberOfRolesAdmin }}"></canvas>
+				<canvas class="block-chart__chart block-chart__pie-chart" id="pie-canvas-user-roles-by-number" aria-label="chart" role="img" data-numberofusers="{{ numberOfRolesUser }}" data-numberofadmins="{{ numberOfAdmins }}"></canvas>
 			</div>
 			<div class="block-chart">
-				<canvas class="block-chart__chart block-chart__pie-chart" id="pie-canvas-user-roles-by-proportion" aria-label="chart" role="img" data-numberofusers="{{ numberOfUsers }}" data-users="{{ numberOfRolesUser }}" data-admins="{{ numberOfRolesAdmin }}"></canvas>
+				<canvas class="block-chart__chart block-chart__pie-chart" id="pie-canvas-user-roles-by-proportion" aria-label="chart" role="img" data-numberofusers="{{ numberOfUsers }}" data-numberofusers="{{ numberOfRolesUser }}" data-numberofadmins="{{ numberOfAdmins }}"></canvas>
 			</div>
 			<div class="block-chart">
 				<canvas class="block-chart__chart block-chart__pie-chart" id="pie-canvas-user-civility-title-by-number" aria-label="chart" role="img" data-numberofmans="{{ numberOfMans }}" data-numberofwomans="{{ numberOfWomans }}"></canvas>

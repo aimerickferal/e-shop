@@ -189,7 +189,7 @@ class PurchaseController extends AbstractController
                 // We redirect the user on the URL (success_url or the cancel_url) returned by the StripeCheckout service.
                 return $this->redirect($stripeSession['url']);
             }
-            // TODO #3 START: Paypal checkout
+            // TODO START: Paypal checkout
             // Else if the checkout method chosen by the user have the value of the PHP constant CHECKOUT_METHOD_PAYPAL we start a Paypal checkout. 
             else if ($form->get('checkoutMethod')->getData() === Purchase::CHECKOUT_METHOD_PAYPAL) {
                 // We create a new PaypalCheckout with in argument the cart.
@@ -197,7 +197,7 @@ class PurchaseController extends AbstractController
                 // We call the showUserInterface() method of the PaypalCheckout service. 
                 $paypalCheckout->showUserInterface();
             }
-            // TODO #3 END: Paypal checkout
+            // TODO END: Paypal checkout
         }
 
         // We display our template.

@@ -206,6 +206,7 @@ Relation between **PurchaseItem** & **Purchase** :
 | /admin                                                            | admin_dashboard               | GET          | AdminMainController         | dashboard()                  | ✅     |
 | /admin/utilisateurs/creer                                         | admin_user_create             | GET, POST    | AdminUserController         | create()                     | ✅     |
 | /admin/utilisateurs                                               | admin_user_list               | GET          | AdminUserController         | list()                       | ✅     |
+| /admin/utilisateurs/administrateurs                               | admin_user_admin_list         | GET          | AdminUserController         | adminList()                  | ✅     |
 | /admin/utilisateurs/{id}                                          | admin_user_detail             | GET          | AdminUserController         | detail()                     | ✅     |
 | /admin/utilisateurs/{id}/mettre-a-jour                            | admin_user_update             | GET, POST    | AdminUserController         | update()                     | ✅     |
 | /admin/utilisateurs/{id}/supprimer-photo                          | admin_user_delete_picture     | GET, POST    | AdminUserController         | deletePicture()              | ✅     |
@@ -261,8 +262,17 @@ Relation between **PurchaseItem** & **Purchase** :
 | /commandes/{reference}/telecharger/facture                        | purchase_download_bill        | GET          | PurchaseController          | downloadBill()               | ✅     |
 | /demande-supression-compte                                        | user_delete_request           | GET          | UserController              | deleteRequest()              | ❌     |
 | /supprimer-mon-compte                                             | user_delete_my-account        | GET, POST    | UserController              | delete()                     | ❌     |
-| /demande-reactivation-compte                                      | user_reactivate_request       | GET          | UserController              | reactivateRequest()          | ❌     |
-| /reactivation                                                     | user_reactivate               | GET, POST    | UserController              | reactivate()                 | ❌     |
+
+## **Role Hierarchy**
+
+ROLE_ADMIN:
+
+- User:
+  - CREATE ❌ (ROLE_SUPER_ADMIN only) 
+  - READ ✅  
+  - UPDATE only for ROLE_USER except password ❌ & roles ❌ (ROLE_SUPER_ADMIN only) ✅ 
+  - DELETE ❌ (ROLE_SUPER_ADMIN only)  
+
 
 ## Divers
 

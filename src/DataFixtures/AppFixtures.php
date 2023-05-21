@@ -27,145 +27,163 @@ class AppFixtures extends Fixture
         // We create a empty array for the users. 
         $users = [];
 
-        // We create a new User with a ROLE_ADMIN. 
-        $userAdmin = new User();
+        // We create a new User with a ROLE_SUPER_ADMIN. 
+        $roleSuperAdminUser = new User();
         // We set the properties of the user. 
-        $userAdmin
-            ->setRoles([User::ROLE_ADMIN])
+        $roleSuperAdminUser
+            ->setRoles([User::ROLE_SUPER_ADMIN])
             ->setCivilityTitle(User::MAN_CIVILITY_TITLE)
-            ->setFirstName('Clark')
-            ->setLastName('Kent')
-            ->setEmail('clark.kent@email.com')
-            ->setPassword($this->userPasswordHasherInterface->hashPassword($userAdmin, 'b673c78c-A985E643c60!2fe'))
+            ->setFirstName('Aimerick')
+            ->setLastName('Feral')
+            ->setEmail('contact@aimerickferal.com')
+            ->setPassword($this->userPasswordHasherInterface->hashPassword($roleSuperAdminUser, 'b673c78c-A985E643c60!2fe'))
             ->setPicture(User::MAN_PICTURE);
 
-        // We push the user admin in the array of users.
-        $users[] = $userAdmin;
+        // We push the user in the array of users.
+        $users[] = $roleSuperAdminUser;
 
         // We put the data on hold.
-        $objectManager->persist($userAdmin);
+        $objectManager->persist($roleSuperAdminUser);
+
+        // We create a new User with a ROLE_ADMIN. 
+        $roleAdminUser = new User();
+        // We set the properties of the user. 
+        $roleAdminUser
+            ->setRoles([User::ROLE_ADMIN])
+            ->setCivilityTitle(User::WOMAN_CIVILITY_TITLE)
+            ->setFirstName('Chloe')
+            ->setLastName('Sullivan')
+            ->setEmail('chloesullivan@email.com')
+            ->setPassword($this->userPasswordHasherInterface->hashPassword($roleAdminUser, 'b673c78c-A985E643c60!2fe'))
+            ->setPicture(User::WOMAN_PICTURE);
+
+        // We push the user in the array of users.
+        $users[] = $roleAdminUser;
+
+        // We put the data on hold.
+        $objectManager->persist($roleAdminUser);
 
         // We create a array of users with the data of the users we want to create. 
         $usersToCreate = [
             0 => [
-                'Civility Title' => User::WOMAN_CIVILITY_TITLE,
-                'First Name' => 'Lana',
-                'Last Name' => 'Lang',
-                'E-mail' => 'lana.lang@email.com',
+                'Civility Title' => User::MAN_CIVILITY_TITLE,
+                'First Name' => 'Clark',
+                'Last Name' => 'Kent',
+                'E-mail' => 'clarkkent@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::WOMAN_PICTURE,
+                'Picture' => User::MAN_PICTURE
             ],
             1 => [
                 'Civility Title' => User::WOMAN_CIVILITY_TITLE,
-                'First Name' => 'Chloe',
-                'Last Name' => 'Sullivan',
-                'E-mail' => 'chloe.sullivan@email.com',
+                'First Name' => 'Lana',
+                'Last Name' => 'Lang',
+                'E-mail' => 'lanalang@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::WOMAN_PICTURE,
+                'Picture' => User::WOMAN_PICTURE
             ],
-            2 => [
+            3 => [
                 'Civility Title' => User::WOMAN_CIVILITY_TITLE,
                 'First Name' => 'Lois',
                 'Last Name' => 'Lane',
-                'E-mail' => 'lois.lane@email.com',
+                'E-mail' => 'loislane@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::WOMAN_PICTURE,
-            ],
-            3 => [
-                'Civility Title' => User::MAN_CIVILITY_TITLE,
-                'First Name' => 'Pete',
-                'Last Name' => 'Ross',
-                'E-mail' => 'pete.ross@email.com',
-                'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::MAN_PICTURE,
+                'Picture' => User::WOMAN_PICTURE
             ],
             4 => [
                 'Civility Title' => User::MAN_CIVILITY_TITLE,
-                'First Name' => 'Jonathan',
-                'Last Name' => 'Kent',
-                'E-mail' => 'jonathan.kent@email.com',
+                'First Name' => 'Pete',
+                'Last Name' => 'Ross',
+                'E-mail' => 'peteross@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::MAN_PICTURE,
+                'Picture' => User::MAN_PICTURE
             ],
             5 => [
-                'Civility Title' => User::WOMAN_CIVILITY_TITLE,
-                'First Name' => 'Martha',
+                'Civility Title' => User::MAN_CIVILITY_TITLE,
+                'First Name' => 'Jonathan',
                 'Last Name' => 'Kent',
-                'E-mail' => 'martha.kent@email.com',
+                'E-mail' => 'jonathankent@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::WOMAN_PICTURE,
+                'Picture' => User::MAN_PICTURE
             ],
             6 => [
                 'Civility Title' => User::WOMAN_CIVILITY_TITLE,
-                'First Name' => 'Kara',
+                'First Name' => 'Martha',
                 'Last Name' => 'Kent',
-                'E-mail' => 'kara.kent@email.com',
+                'E-mail' => 'marthakent@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::WOMAN_PICTURE,
+                'Picture' => User::WOMAN_PICTURE
             ],
             7 => [
-                'Civility Title' => User::MAN_CIVILITY_TITLE,
-                'First Name' => 'Lex',
-                'Last Name' => 'Luthor',
-                'E-mail' => 'lex.luthor@email.com',
+                'Civility Title' => User::WOMAN_CIVILITY_TITLE,
+                'First Name' => 'Kara',
+                'Last Name' => 'Kent',
+                'E-mail' => 'karakent@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::MAN_PICTURE,
+                'Picture' => User::WOMAN_PICTURE
             ],
             8 => [
                 'Civility Title' => User::MAN_CIVILITY_TITLE,
-                'First Name' => 'Lionel',
+                'First Name' => 'Lex',
                 'Last Name' => 'Luthor',
-                'E-mail' => 'lionel.luthor@email.com',
+                'E-mail' => 'lexluthor@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::MAN_PICTURE,
+                'Picture' => User::MAN_PICTURE
             ],
             9 => [
+                'Civility Title' => User::MAN_CIVILITY_TITLE,
+                'First Name' => 'Lionel',
+                'Last Name' => 'Luthor',
+                'E-mail' => 'lionelluthor@email.com',
+                'Password' => 'b673c78c-A985E643c60!2fe',
+                'Picture' => User::MAN_PICTURE
+            ],
+            10 => [
                 'Civility Title' => User::WOMAN_CIVILITY_TITLE,
                 'First Name' => 'Tess',
                 'Last Name' => 'Mercer',
-                'E-mail' => 'tess.mercer@email.com',
+                'E-mail' => 'tessmercer@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::WOMAN_PICTURE,
-            ],
-            10 => [
-                'Civility Title' => User::MAN_CIVILITY_TITLE,
-                'First Name' => 'Jimmy',
-                'Last Name' => 'Olson',
-                'E-mail' => 'jimmy.olson@email.com',
-                'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::MAN_PICTURE,
+                'Picture' => User::WOMAN_PICTURE
             ],
             11 => [
                 'Civility Title' => User::MAN_CIVILITY_TITLE,
-                'First Name' => 'Bart',
-                'Last Name' => 'Allen',
-                'E-mail' => 'bart.allen@email.com',
+                'First Name' => 'Jimmy',
+                'Last Name' => 'Olson',
+                'E-mail' => 'jimmyolson@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::MAN_PICTURE,
+                'Picture' => User::MAN_PICTURE
             ],
             12 => [
                 'Civility Title' => User::MAN_CIVILITY_TITLE,
-                'First Name' => 'Oliver',
-                'Last Name' => 'Queen',
-                'E-mail' => 'oliver.queen@email.com',
+                'First Name' => 'Bart',
+                'Last Name' => 'Allen',
+                'E-mail' => 'bartallen@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::MAN_PICTURE,
+                'Picture' => User::MAN_PICTURE
             ],
             13 => [
                 'Civility Title' => User::MAN_CIVILITY_TITLE,
-                'First Name' => 'Arthur',
-                'Last Name' => 'Curry',
-                'E-mail' => 'arthur.curry@email.com',
+                'First Name' => 'Oliver',
+                'Last Name' => 'Queen',
+                'E-mail' => 'oliverqueen@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::MAN_PICTURE,
+                'Picture' => User::MAN_PICTURE
             ],
             14 => [
                 'Civility Title' => User::MAN_CIVILITY_TITLE,
+                'First Name' => 'Arthur',
+                'Last Name' => 'Curry',
+                'E-mail' => 'arthurcurry@email.com',
+                'Password' => 'b673c78c-A985E643c60!2fe',
+                'Picture' => User::MAN_PICTURE
+            ],
+            15 => [
+                'Civility Title' => User::MAN_CIVILITY_TITLE,
                 'First Name' => 'Victor',
                 'Last Name' => 'Stone',
-                'E-mail' => 'victor.stone@email.com',
+                'E-mail' => 'victorstone@email.com',
                 'Password' => 'b673c78c-A985E643c60!2fe',
-                'Picture' => User::MAN_PICTURE,
+                'Picture' => User::MAN_PICTURE
             ],
         ];
 

@@ -63,7 +63,7 @@ const chart = {
     }
   },
   /**
-   * Method that create a pie chart to show the number of users by roles.
+   * Method that create a pie chart to display the number of users by roles.
    * @return {void}
    */
   createPieChartForUserRolesByNumber: function () {
@@ -79,8 +79,8 @@ const chart = {
           datasets: [
             {
               data: [
-                chart.pieCanvasUserRolesByNumber.dataset.users,
-                chart.pieCanvasUserRolesByNumber.dataset.admins,
+                chart.pieCanvasUserRolesByNumber.dataset.numberofusers,
+                chart.pieCanvasUserRolesByNumber.dataset.numberofadmins,
               ],
               backgroundColor: [app.colors.green, app.colors.red],
               borderColor: chart.borderColor,
@@ -131,7 +131,7 @@ const chart = {
     );
   },
   /**
-   * Method that create a pie chart to show the proportion of users by roles.
+   * Method that create a pie chart to display the proportion of users by roles.
    * @return {void}
    */
   createPieChartForUserRolesByProportion: function () {
@@ -147,8 +147,8 @@ const chart = {
           datasets: [
             {
               data: [
-                chart.pieCanvaUserRolesByProportion.dataset.users,
-                chart.pieCanvaUserRolesByProportion.dataset.admins,
+                chart.pieCanvaUserRolesByProportion.dataset.numberofusers,
+                chart.pieCanvaUserRolesByProportion.dataset.numberofadmins,
               ],
               backgroundColor: [app.colors.green, app.colors.red],
               borderColor: chart.borderColor,
@@ -201,7 +201,7 @@ const chart = {
     );
   },
   /**
-   * Method that create a pie chart to show the number of users by gender.
+   * Method that create a pie chart to display the number of users by gender.
    * @return {void}
    */
   createPieChartforUserCivilityTitleByNumber: function () {
@@ -266,7 +266,7 @@ const chart = {
     );
   },
   /**
-   * Method that create a pie chart to show the proportion of users by gender.
+   * Method that create a pie chart to display the proportion of users by gender.
    * @return {void}
    */
   createPieChartForUserCivilitTitlerByProportion: function () {

@@ -28,13 +28,6 @@ class ProductController extends AbstractController
         // We find all the products.
         $products = $this->productRepository->findAll();
 
-        // // We find all the available products.
-        // $products = $this->productRepository->findBy(
-        //     [
-        //         'availability' => Product::AVAILABLE,
-        //     ]
-        // );
-
         // If we don't find any product.
         if (!$products) {
             // We display a flash message for the user.

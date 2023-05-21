@@ -69,11 +69,11 @@ class FileUploader
         }
         // We catch the errors.
         catch (FileException $errors) {
-            // TODO #4 START: handle catch $errors in the uploadFile() method of FileUploader service.
+            // TODO START: handle catch $errors in the uploadFile() method of FileUploader service.
 
 
 
-            // TODO #4 END: handle catch $errors in the uploadFile() method of FileUploader service.
+            // TODO END: handle catch $errors in the uploadFile() method of FileUploader service.
         }
         // We return the name of the uploaded file just in case we need it.
         return $safeFileName;
