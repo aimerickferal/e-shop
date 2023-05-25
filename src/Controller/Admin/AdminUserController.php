@@ -465,6 +465,7 @@ class AdminUserController extends AbstractController
         return $this->render(
             'admin/user/statistics.html.twig',
             // We set a array of optional data.
+            // This data is backup in several HTML dataset properties that are get in the chart.js module.
             [
                 'numberOfUsers' => count($users),
                 'numberOfRolesUser' => count($this->userRepository->findUsersByRoles("[]")),

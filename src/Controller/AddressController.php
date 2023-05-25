@@ -170,27 +170,12 @@ class AddressController extends AbstractController
 
     /**
      * Method that display the detail of a logged in user's address.
-     * @param int $id
+     * @param Address $address
      * @return Response
      */
-    #[Route('/adresses/{id}', name: 'address_detail', methods: 'GET', requirements: ['id' => '\d+'])]
-    public function detail(int $id): Response
+    #[Route('/adresses/{id}', name: 'address_detail', methods: 'GET')]
+    public function detail(Address $address): Response
     {
-        // We find the address by its id.
-        $address =  $this->addressRepository->find($id);
-
-        // If we don't find any address.
-        if (!$address) {
-            // We redirect the user.
-            return $this->redirectToRoute(
-                'address_list',
-                // We set a array of optional data.
-                [],
-                // We specify the related HTTP response status code.
-                301
-            );
-        }
-
         // We get the logged in user.
         /**
          * @var User

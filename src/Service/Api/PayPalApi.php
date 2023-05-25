@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Service\Checkout;
+namespace App\Service\Api;
 
 use App\Service\Cart\Cart;
 use PayPalCheckoutSdk\Core\SandboxEnvironment;
 // use Psr\Http\Message\ServerRequesInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class PaypalCheckout
+/**
+ * This class use the PayPal API to make a checkout.
+ */
+class PayPalApi
 {
     public function __construct(private Cart $cart)
     {
@@ -23,7 +26,7 @@ class PaypalCheckout
         // 6fcf417f36eA@0581f69
         // ETzID^t3
 
-        dd("PaypalCheckout : showUserInterface()");
+        dd("PayPalApi : showUserInterface()");
 
         // The client id is backup in the environnement variable PAYPAL_CLIENT_ID.
         $paypalClientId = $_ENV['PAYPAL_CLIENT_ID'];
@@ -117,11 +120,11 @@ class PaypalCheckout
         }
 
         // We give the environnement to the client.
-        $client = new \PaypalCheckoutSdk\Core\PaypalHttpClient($environnement);
+        $client = new \PayPalApiSdk\Core\PaypalHttpClient($environnement);
         // We get the authorizationId in the request.
         $authorizationId = $request->query->get('authorizationId');
         // We create the request with the authorizationId.
-        $request = new \PaypalCheckoutSdk\Payments\AuthorizationGetRequest($authorizationId);
+        $request = new \PayPalApiSdk\Payments\AuthorizationGetRequest($authorizationId);
         // We execute the request.
         $authorizationResponse = $client->execute($request);
         // dd($authorizationResponse);

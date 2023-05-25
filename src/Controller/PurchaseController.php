@@ -12,8 +12,8 @@ use App\Form\PurchaseSearchType;
 use App\Repository\DeliveryModeRepository;
 use App\Repository\PurchaseRepository;
 use App\Service\Cart\Cart;
-use App\Service\Checkout\PaypalCheckout;
-use App\Service\Checkout\StripeCheckout;
+use App\Service\Api\PayPalApi;
+use App\Service\Api\StripeApi;
 use App\Service\Email;
 use App\Service\PurchaseAddress;
 use Doctrine\ORM\EntityManagerInterface;
@@ -169,11 +169,11 @@ class PurchaseController extends AbstractController
 
             // If the checkout method chosen by the user have the value of the PHP constant CHECKOUT_METHOD_CARD_WITH_STRIPE we start a Stripe checkout. 
             if ($form->get('checkoutMethod')->getData() === Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE) {
-                // We create a new StripeCheckout with in argument the value of the environnement variable STRIPE_SECRET_KEY, the UrlGeneratorInterface and the EntityManagerInterface.
-                $stripeCheckout = new StripeCheckout($_ENV['STRIPE_SECRET_KEY'], $urlGeneratorInterface, $this->entityManagerInterface);
+                // We create a new StripeApi with in argument the value of the environnement variable STRIPE_SECRET_KEY, the UrlGeneratorInterface and the EntityManagerInterface.
+                $stripeCheckout = new StripeApi($_ENV['STRIPE_SECRET_KEY'], $urlGeneratorInterface, $this->entityManagerInterface);
 
-                // The Stripe session is returned by the startStripeCheckout() method of the SripeCheckout service that we call with the cart, the purchase, the delivery mode price and the delivery mode description in argument.
-                $stripeSession = $stripeCheckout->startStripeCheckout(
+                // The Stripe session is returned by the startStripeApi() method of the SripeCheckout service that we call with the cart, the purchase, the delivery mode price and the delivery mode description in argument.
+                $stripeSession = $stripeCheckout->startStripeApi(
                     $this->cart,
                     $purchase,
                     $deliveryModePrice,
@@ -186,16 +186,16 @@ class PurchaseController extends AbstractController
                 // We backup the data in the database. 
                 $this->entityManagerInterface->flush();
 
-                // We redirect the user on the URL (success_url or the cancel_url) returned by the StripeCheckout service.
+                // We redirect the user on the URL (success_url or the cancel_url) returned by the StripeApi service.
                 return $this->redirect($stripeSession['url']);
             }
             // TODO START: Paypal checkout
             // Else if the checkout method chosen by the user have the value of the PHP constant CHECKOUT_METHOD_PAYPAL we start a Paypal checkout. 
             else if ($form->get('checkoutMethod')->getData() === Purchase::CHECKOUT_METHOD_PAYPAL) {
-                // We create a new PaypalCheckout with in argument the cart.
-                $paypalCheckout = new PaypalCheckout($this->cart);
-                // We call the showUserInterface() method of the PaypalCheckout service. 
-                $paypalCheckout->showUserInterface();
+                // We create a new PayPalApi with in argument the cart.
+                $payPalCheckout = new PayPalApi($this->cart);
+                // We call the showUserInterface() method of the PayPalApi service. 
+                $payPalCheckout->showUserInterface();
             }
             // TODO END: Paypal checkout
         }

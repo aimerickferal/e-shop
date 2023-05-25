@@ -83,7 +83,7 @@ const confirmDelete = {
     const clickedLink = event.currentTarget;
     console.log(event.currentTarget);
 
-    // The data of the user first name and last name are backup in a HTML dataset attribute.
+    // The data of the user first name and last name are backup in a HTML dataset property.
     let firstName = clickedLink.dataset.userfirstname;
     let lastName = clickedLink.dataset.userlastname;
 
@@ -109,7 +109,7 @@ const confirmDelete = {
     // We get the DOM element form which the event occured.
     const clickedLink = event.currentTarget;
 
-    // The data of the user first name and last name are backup in a HTML dataset attribute.
+    // The data of the user first name and last name are backup in a HTML dataset property.
     let firstName = clickedLink.dataset.userfirstname;
     let lastName = clickedLink.dataset.userlastname;
 
@@ -135,7 +135,7 @@ const confirmDelete = {
     // We get the DOM element form which the event occured.
     const clickedLink = event.currentTarget;
 
-    // The data of the product name is backup in a HTML dataset attribute.
+    // The data of the product name is backup in a HTML dataset property.
     let productName = clickedLink.dataset.productname;
 
     // We display a dialog box with a message to te browser.
@@ -156,7 +156,7 @@ const confirmDelete = {
     // We get the DOM element form which the event occured.
     const clickedLink = event.currentTarget;
 
-    // The data of the category name is backup in a HTML dataset attribute.
+    // The data of the category name is backup in a HTML dataset property.
     let categoryName = clickedLink.dataset.categoryname;
 
     // We display a dialog box with a message to te browser.
@@ -177,7 +177,7 @@ const confirmDelete = {
     // We get the DOM element form which the event occured.
     const clickedLink = event.currentTarget;
 
-    // The data of the delivery mode name is backup in a HTML dataset attribute.
+    // The data of the delivery mode name is backup in a HTML dataset property.
     let deliveryModeName = clickedLink.dataset.deliverymodename;
 
     // We display a dialog box with a message to te browser.

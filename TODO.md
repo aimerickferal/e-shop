@@ -1,6 +1,5 @@
 # **Todo**
 
-- address_detail look why you use the id
 - secrure routes with Role Hierarchy for user entity
 - only ROLE_ADMIN can update user roles:
   - AdminUserType.php enable display roles field only for ROLE_SUPER_ADMIN
@@ -23,15 +22,17 @@
 - term = galatea
 - fix the header
 - add img size in % as much as possible if not use em
-- Fix delete Product blocked by the PurchaseItem constraint
 - TODO START: handle catch $errors in the uploadPicture() method of FileUploader service.
-- TODO START: Make Paypal checkout.
 - TODO: solve issue on switch civilityTitle.
 - Fix delete my user account feature : id = delete-my-user-account-link
 
+Things to do make the project fonctional in prod:
+
+- Send e-mail of contact form
+- Make Paypal checkout
+- Fix delete Product blocked by the PurchaseItem constraint
+
 ## **Commit**
-
-
 
 ## Video script
 

@@ -263,7 +263,7 @@ const form = {
     // Regex that match only value that contain 10 numeric characters.
     form.regexMatchTenNumericCharacters = /^\d{10}$/;
     // Regex that match only value that start with the numeric value 06 or 07.
-    form.regexMatchStartBy06Or07 = /^((06)|(07))[0-9]{8}$/;
+    form.regexMatchStartBy06Or07 = /^((06)|(07))[0-9]/;
     //! START: regex not used
     // Regex that match only alphabetical characters with or without diacritical marks.
     regexMatchAlphabeticalCharactersWithOrWithoutDiacriticalMarks =
@@ -1018,6 +1018,24 @@ const form = {
     // input.style.setProperty("--outline", "0.1em solid " + outlineColor);
   },
   /**
+   * Method that check if the input's outline color it not app.colors.red which mean the input is in error.
+   * @param {HTMLInputElement} input
+   * @return {boolean}
+   */
+  isInputInError: function (input) {
+    console.log("form.isInputInError()");
+
+    // We use the cssText property of the style object to get the data related to the input style.
+    if (
+      input.style.cssText ===
+      "--outline: 0.1em solid " + app.colors.red + ";"
+    ) {
+      return true;
+    }
+
+    return false;
+  },
+  /**
    * Method that switch the color of the input outline on the focus-within according to the value of mode.backgroundColor.
    * @param {Event} event
    * @return {void}
@@ -1507,8 +1525,10 @@ const form = {
       tools.addDisplayNone(errorMessageEmpty);
 
       if (form.regexMatchAtLeastHeightCharacters.test(input.value)) {
-        form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessageLength);
+        if (!form.isInputInError(input)) {
+          form.switchInputOutlineColor(input, app.colors.green);
+          tools.addDisplayNone(errorMessageLength);
+        }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageLength);
@@ -1516,8 +1536,10 @@ const form = {
       }
 
       if (form.regexMatchAtLeastOneLowercase.test(input.value)) {
-        form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessageLowercase);
+        if (!form.isInputInError(input)) {
+          form.switchInputOutlineColor(input, app.colors.green);
+          tools.addDisplayNone(errorMessageLowercase);
+        }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageLowercase);
@@ -1525,8 +1547,10 @@ const form = {
       }
 
       if (form.regexMatchAtLeastOneUppercase.test(input.value)) {
-        form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessageUppercase);
+        if (!form.isInputInError(input)) {
+          form.switchInputOutlineColor(input, app.colors.green);
+          tools.addDisplayNone(errorMessageUppercase);
+        }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageUppercase);
@@ -1534,8 +1558,10 @@ const form = {
       }
 
       if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
-        form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessageNumber);
+        if (!form.isInputInError(input)) {
+          form.switchInputOutlineColor(input, app.colors.green);
+          tools.addDisplayNone(errorMessageNumber);
+        }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageNumber);
@@ -1543,8 +1569,10 @@ const form = {
       }
 
       if (form.regexMatchAtLeastOneSpecialCharacter.test(input.value)) {
-        form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessageSpecialCharacter);
+        if (!form.isInputInError(input)) {
+          form.switchInputOutlineColor(input, app.colors.green);
+          tools.addDisplayNone(errorMessageSpecialCharacter);
+        }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessageSpecialCharacter);
@@ -1777,8 +1805,10 @@ const form = {
       tools.addDisplayNone(errorMessage);
 
       if (form.regexMatchTenNumericCharacters.test(input.value)) {
-        form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessage);
+        if (!form.isInputInError(input)) {
+          form.switchInputOutlineColor(input, app.colors.green);
+          tools.addDisplayNone(errorMessage);
+        }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);
@@ -1786,8 +1816,10 @@ const form = {
       }
 
       if (form.regexMatchStartBy06Or07.test(input.value)) {
-        form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessage);
+        if (!form.isInputInError(input)) {
+          form.switchInputOutlineColor(input, app.colors.green);
+          tools.addDisplayNone(errorMessage);
+        }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);

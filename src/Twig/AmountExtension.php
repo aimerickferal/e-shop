@@ -26,7 +26,7 @@ class AmountExtension extends AbstractExtension
      * @param string $thousandSeparator 
      * @return string $finalPrice 
      */
-    public function amount($price, string $currencySymbol = '€', string $decimalSeparator = ',', string $thousandSeparator = ' '): string
+    public function amount(int $price, string $currencySymbol = '€', string $decimalSeparator = ',', string $thousandSeparator = ' '): string
     {
         // The final price is egual to the price divided by 100 because the price is in cents.
         $finalPrice = $price / 100;

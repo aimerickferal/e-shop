@@ -194,7 +194,7 @@ class AppFixtures extends Fixture
                 ->setCivilityTitle($userToCreate['Civility Title'])
                 ->setFirstName($userToCreate['First Name'])
                 ->setLastName($userToCreate['Last Name'])
-                ->setEmail(strtolower($userToCreate['First Name']) . '.' . strtolower($userToCreate['Last Name']) . '@email.com')
+                ->setEmail(strtolower($userToCreate['First Name']) . strtolower($userToCreate['Last Name']) . '@email.com')
                 ->setPassword($this->userPasswordHasherInterface->hashPassword($user, $userToCreate['Password']))
                 ->setPicture($userToCreate['Picture']);
 
@@ -313,6 +313,7 @@ class AppFixtures extends Fixture
         foreach ($users as $user) {
             // If the last name of the user is identical to the given last names. 
             if (
+                $user->getLastName() === 'FERAL' ||
                 $user->getLastName() === 'KENT' ||
                 $user->getLastName() === 'LANG' ||
                 $user->getLastName() === 'SULLIVAN' ||

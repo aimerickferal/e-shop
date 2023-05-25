@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service\Checkout;
+namespace App\Service\Api;
 
 use App\Entity\Purchase;
 use App\Service\Cart\Cart;
@@ -9,7 +9,10 @@ use Stripe\Checkout\Session;
 use Stripe\Stripe;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class StripeCheckout
+/**
+ * This class use the Stripe API to make a checkout.
+ */
+class StripeApi
 {
     public function __construct(readonly private string $stripeSecretKey, private UrlGeneratorInterface $urlGeneratorInterface, private EntityManagerInterface $entityManagerInterface)
     {
@@ -26,9 +29,9 @@ class StripeCheckout
      * @param string $deliveryModeDescription
      * @return string
      */
-    public function startStripeCheckout(Cart $cart, Purchase $purchase, int $deliveryModePrice, string $deliveryModeDescription)
+    public function startStripeApi(Cart $cart, Purchase $purchase, int $deliveryModePrice, string $deliveryModeDescription)
     {
-        // dd("StripeCheckout : startStripeCheckout()");
+        // dd("StripeApi : startStripeApi()");
 
         // We create a Stripe session.
         $session = Session::create([
