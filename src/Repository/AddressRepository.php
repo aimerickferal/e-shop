@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Address;
 use App\Entity\AddressSearch;
+use App\Entity\AddressSearchByCity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -77,17 +78,17 @@ class AddressRepository extends ServiceEntityRepository
 
     /**
      * Method to find a address by his city.
-     * @param AddressSearch $addressSearch
+     * @param AddressSearchByCity $addressSearchByCity
      * @return array
      */
-    public function findAddressByCity(AddressSearch $addressSearch): array
+    public function findAddressByCity(AddressSearchByCity $addressSearchByCity): array
     {
         // We instanciate the QueryBuilder and we refers to the address.
         $queryBuilder = $this->createQueryBuilder('address');
         // We say that the :city is egual to the city property of the address entity. 
         $queryBuilder->where('address.city LIKE :city');
         // We secure the query by setting a parameter to avoid the SQL injections. 
-        $queryBuilder->setParameter(':city', "%$addressSearch%");
+        $queryBuilder->setParameter(':city', "%$addressSearchByCity%");
         // We return the result of the query. 
         return $queryBuilder->getQuery()->getResult();
     }

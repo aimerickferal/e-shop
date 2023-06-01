@@ -14,7 +14,6 @@
 		<h2>Créer une Adresse :
 			{{ user.firstName }}
 			{{ user.lastName }}</h2>
-		{# START: adminAddressCreateForm #}
 		{{ form_start(adminAddressCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-address-create-form' }}) }}
 		{# firstName #}
 		<div class="form-field">
@@ -93,7 +92,6 @@
 			Créer
 		</button>
 		{{ form_end(adminAddressCreateForm) }}
-		{# END: adminAddressCreateForm #}
 	</section>
 {% endblock %}
 {# END: admin_address_create #}

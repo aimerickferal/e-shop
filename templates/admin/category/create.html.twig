@@ -9,7 +9,6 @@
 {% block body %}
 	<section class="page">
 		<h2>Créer une Catégorie</h2>
-		{# START :adminCategoryCreateForm #}
 		{{ form_start(adminCategoryCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-category-create-form' }}) }}
 		{# name #}
 		<div class="form-field">
@@ -25,7 +24,6 @@
 			Créer
 		</button>
 		{{ form_end(adminCategoryCreateForm) }}
-		{# END: adminCategoryCreateForm #}
 	</section>
 {% endblock %}
 {# END: admin_category_create #}

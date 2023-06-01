@@ -3,12 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
-use App\Entity\CategorySearch;
+use App\Entity\CategorySearchByName;
 use App\Entity\Product;
-use App\Entity\ProductSearch;
-use App\Form\CategorySearchType;
+use App\Entity\ProductSearchByName;
+use App\Form\CategorySearchByNameType;
 use App\Form\Admin\AdminCategoryType;
-use App\Form\ProductSearchType;
+use App\Form\ProductSearchByNameType;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -83,7 +83,7 @@ class AdminCategoryController extends AbstractController
         // If we don't find any category.
         if (!$categories) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'La liste des catégories est vide. Nous vous invitons à vous en créer une.');
+            $this->addFlash('warning', 'Aucune catégorie. Nous vous invitons à vous en créer une.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -95,10 +95,10 @@ class AdminCategoryController extends AbstractController
             );
         }
 
-        // We create a new category search.
-        $search = new CategorySearch();
+        // We create a new category search by name.
+        $search = new CategorySearchByName();
         // We create the form.
-        $form = $this->createForm(CategorySearchType::class, $search);
+        $form = $this->createForm(CategorySearchByNameType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -128,7 +128,7 @@ class AdminCategoryController extends AbstractController
             // We set a array of optional data.
             [
                 'categories' => $categories,
-                'categorySearchForm' => $form->createView()
+                'categorySearchByNameForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -184,10 +184,10 @@ class AdminCategoryController extends AbstractController
             );
         }
 
-        // We create a new product search.
-        $search = new ProductSearch();
+        // We create a new product search by name.
+        $search = new ProductSearchByName();
         // We create the form.
-        $form = $this->createForm(ProductSearchType::class, $search);
+        $form = $this->createForm(ProductSearchByNameType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -230,7 +230,7 @@ class AdminCategoryController extends AbstractController
             [
                 'category' => $category,
                 'products' => $products,
-                'productSearchForm' => $form->createView(),
+                'productSearchByNameForm' => $form->createView(),
                 'available' => Product::AVAILABLE,
                 'unavailable' => Product::UNAVAILABLE,
             ],

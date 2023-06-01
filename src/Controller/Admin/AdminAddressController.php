@@ -3,10 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Address;
-use App\Entity\AddressSearch;
+use App\Entity\AddressSearchByCity;
 use App\Entity\User;
-use App\Form\AddressSearchType;
-use App\Form\AddressType;
+use App\Form\AddressSearchByCityType;
 use App\Repository\AddressRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -103,7 +102,7 @@ class AdminAddressController extends AbstractController
         // If we don't find any address.
         if (!$addresses) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'La liste des adresses est vide. Nous vous invitons à créer une adresse pour un utilisateur.');
+            $this->addFlash('warning', 'Aucune adresse. Nous vous invitons à créer une adresse pour un utilisateur.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -115,10 +114,10 @@ class AdminAddressController extends AbstractController
             );
         }
 
-        // We create a new address search.
-        $search = new AddressSearch();
+        // We create a new address search by city.
+        $search = new AddressSearchByCity();
         // We create the form.
-        $form = $this->createForm(AddressSearchType::class, $search);
+        $form = $this->createForm(AddressSearchByCityType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -147,8 +146,8 @@ class AdminAddressController extends AbstractController
             'admin/address/list.html.twig',
             // We set a array of optional data.
             [
-                'addressSearchForm' => $form->createView(),
-                'addresses' => $addresses
+                'addresses' => $addresses,
+                'addressSearchByCityForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -188,10 +187,10 @@ class AdminAddressController extends AbstractController
             );
         }
 
-        // We create a new address search.
-        $search = new AddressSearch();
+        // We create a new address search by city.
+        $search = new AddressSearchByCity();
         // We create the form.
-        $form = $this->createForm(AddressSearchType::class, $search);
+        $form = $this->createForm(AddressSearchByCityType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 

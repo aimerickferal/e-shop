@@ -20,7 +20,6 @@
 			{{ user.firstName }}
 			{{ user.lastName }}
 		</h2>
-		{# START: adminPurchaseUpdateForm #}
 		{{ form_start(adminPurchaseUpdateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-purchase-update-form' }}) }}
 		{# status #}
 		<div class="form-field">
@@ -48,7 +47,6 @@
 			Mettre à jour
 		</button>
 		{{ form_end(adminPurchaseUpdateForm) }}
-		{# END: adminPurchaseUpdateForm #}
 	</section>
 {% endblock %}
 {# END: admin_purchase_update #}

@@ -14,7 +14,6 @@
 		<h2>Mettre à jour Utilisateur :
 			{{ user.firstName }}
 			{{ user.lastName }}</h2>
-		{# START :adminUserUpdateForm #}
 		{{ form_start(adminUserUpdateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-user-update-form' }}) }}
 		{# picture #}
 		<div class="form-field-picture">
@@ -107,7 +106,6 @@
 	        Mettre à jour
         </button>
         {{ form_end(adminUserUpdateForm) }}
-        {# END: adminUserUpdateForm #}
 	</section>
 {% endblock %}
 {# END: admin_user_update #}

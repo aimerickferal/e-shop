@@ -1,9 +1,7 @@
 const responsive = {
-  // Proprietes availables in the object.
   window320Px: null,
   window768Px: null,
   window992Px: null,
-  // ======================= DOM ELEMENTS =======================
   header: null,
   bugerMenu: [],
   openingButton: null,
@@ -18,8 +16,6 @@ const responsive = {
     responsive.window320Px = 320;
     responsive.window768Px = 768;
     responsive.window992Px = 992;
-
-    // ======================= DOM ELEMENTS =======================
 
     responsive.header = document.querySelector(".header");
     responsive.bugerMenu = document.querySelectorAll(".burger-menu");

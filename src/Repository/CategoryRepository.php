@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Category;
-use App\Entity\CategorySearch;
+use App\Entity\CategorySearchByName;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -51,17 +51,17 @@ class CategoryRepository extends ServiceEntityRepository
 
     /**
      * Method to find a category by his name.
-     * @param CategorySearch $categorySearch
+     * @param CategorySearchByName $categorySearchByName
      * @return array
      */
-    public function findCategoryByName(CategorySearch $categorySearch): array
+    public function findCategoryByName(CategorySearchByName $categorySearchByName): array
     {
         // We instanciate the QueryBuilder and we refers to the category.
         $queryBuilder = $this->createQueryBuilder('category');
         // We say that the :name is egual to the name property of the category entity. 
         $queryBuilder->where('category.name LIKE :name');
         // We secure the query by setting a parameter to avoid the SQL injections. 
-        $queryBuilder->setParameter(':name', "%$categorySearch%");
+        $queryBuilder->setParameter(':name', "%$categorySearchByName%");
         // We return the result of the query. 
         return $queryBuilder->getQuery()->getResult();
     }

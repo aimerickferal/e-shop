@@ -12,7 +12,6 @@
 	<section class="page">
 		<h2>Mettre à jour Catégorie :
 			{{ category.name }}</h2>
-		{# START :adminCategoryUpdateForm #}
 		{{ form_start(adminCategoryUpdateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-category-update-form' }}) }}
 		{# name #}
 		<div class="form-field">
@@ -28,7 +27,6 @@
 			Mettre à jour
 		</button>
 		{{ form_end(adminCategoryUpdateForm) }}
-		{# END: adminCategoryUpdateForm #}
 	</section>
 {% endblock %}
 {# END: admin_category_update #}

@@ -9,7 +9,6 @@
 {% block body %}
 	<section class="page">
 		<h2>Créer un Utilisateur</h2>
-		{# START :adminUserCreateForm #}
 		{{ form_start(adminUserCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-user-create-form' }}) }}
 		{# civilityTitle #}
 		<div class="form-field">
@@ -94,7 +93,6 @@
 		{# adminUserCreateForm submit button #}
 		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-user-create-button">Créer</button>
     	{{ form_end(adminUserCreateForm) }}
-    	{# END: adminUserCreateForm #}
 	</section>
 {% endblock %}
 {# END: admin_user_create #}

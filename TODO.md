@@ -29,7 +29,7 @@
 Things to do make the project fonctional in prod:
 
 - Send e-mail of contact form
-- Make Paypal checkout
+- Make PayPal checkout
 - Fix delete Product blocked by the PurchaseItem constraint
 
 ## **Commit**

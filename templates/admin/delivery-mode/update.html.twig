@@ -12,7 +12,6 @@
 	<section class="page">
 		<h2>Mettre à jour Mode de livraison :
 			{{ deliveryMode.name }}</h2>
-		{# START :adminDeliveryModeUpdateForm #}
 		{{ form_start(adminDeliveryModeUpdateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-delivery-mode-update-form' }}) }}
 		{# picture #}
 		<div class="form-field-picture">
@@ -69,7 +68,6 @@
 			Mettre à jour
 		</button>
 		{{ form_end(adminDeliveryModeUpdateForm) }}
-		{# END: adminDeliveryModeUpdateForm #}
 	</section>
 {% endblock %}
 {# END: admin_delivery_mode_update #}

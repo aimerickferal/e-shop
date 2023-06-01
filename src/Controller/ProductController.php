@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Product;
-use App\Entity\ProductSearch;
-use App\Form\ProductSearchType;
+use App\Entity\ProductSearchByName;
+use App\Form\ProductSearchByNameType;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class ProductController extends AbstractController
         // If we don't find any product.
         if (!$products) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'La liste des produits est vide.');
+            $this->addFlash('warning', 'Aucun produit.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -44,9 +44,9 @@ class ProductController extends AbstractController
         }
 
         // We create a new user search. 
-        $search = new ProductSearch();
+        $search = new ProductSearchByName();
         // We create the form.
-        $form = $this->createForm(ProductSearchType::class, $search);
+        $form = $this->createForm(ProductSearchByNameType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -76,7 +76,7 @@ class ProductController extends AbstractController
             // We set a array of optional data.
             [
                 'products' => $products,
-                'productSearchForm' => $form->createView(),
+                'productSearchByNameForm' => $form->createView(),
                 'available' => Product::AVAILABLE,
                 'unavailable' => Product::UNAVAILABLE,
             ],

@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Product;
-use App\Entity\ProductSearch;
+use App\Entity\ProductSearchByName;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -51,17 +51,17 @@ class ProductRepository extends ServiceEntityRepository
 
     /**
      * Method to find a product by his name.
-     * @param ProductSearch $productSearch
+     * @param ProductSearchByName $productSearchByName
      * @return array
      */
-    public function findProductByName(ProductSearch $productSearch): array
+    public function findProductByName(ProductSearchByName $productSearchByName): array
     {
         // We instanciate the QueryBuilder and we refers to the product.
         $queryBuilder = $this->createQueryBuilder('product');
         // We say that the :name is egual to the name property of the product entity. 
         $queryBuilder->where('product.name LIKE :name');
         // We secure the query by setting a parameter to avoid the SQL injections. 
-        $queryBuilder->setParameter(':name', "%$productSearch%");
+        $queryBuilder->setParameter(':name', "%$productSearchByName%");
         // We return the result of the query. 
         return $queryBuilder->getQuery()->getResult();
     }

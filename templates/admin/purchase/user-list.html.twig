@@ -15,25 +15,21 @@
 			{{ user.firstName }}
 			{{ user.lastName }}
 		</h2>
-		{# START: purchaseSearchForm #}
-		{{ form_start(purchaseSearchForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'purchase-search-form' }}
+		{{ form_start(purchaseSearchByReferenceForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'purchase-search-by-reference-form' }}
 		) }}
 		<div class="form-field">
-			{{ form_label(purchaseSearchForm, 'Référence:', { 'label_attr': { 'class': 'form-field__label form-field__purchase-reference-label display-none' }}) }}
-			{{ form_widget(purchaseSearchForm.reference, { 'id': 'purchase-reference-input', 'attr': {'class': 'form-field__input form-field__purchase-reference-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par référence' }}) }}
-			<p class="error-message error-message_color_red error-message-purchase-reference-empty display-none">
+			{{ form_label(purchaseSearchByReferenceForm, 'Référence:', { 'label_attr': { 'class': 'form-field__label form-field__purchase-reference-label display-none' }}) }}
+			{{ form_widget(purchaseSearchByReferenceForm.reference, { 'id': 'purchase-reference-input', 'attr': {'class': 'form-field__input form-field__purchase-reference-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par référence' }}) }}
+			<p class="error-message error-message_color_red error-message-purchase-reference display-none">
 				Merci de saisir une référence.
 			</p>
-			<p class="error-message error-message_color_red error-message-purchase-reference-length display-none">
-				La référence doit contenir 12 cactères.
-			</p>
-			{{ form_errors(purchaseSearchForm.reference) }}
+			{{ form_errors(purchaseSearchByReferenceForm.reference) }}
 		</div>
+		{# purchaseSearchByReferenceForm submit button #}
 		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="purchase-search-button">
 			Rechercher
 		</button>
-		{{ form_end(purchaseSearchForm) }}
-		{# END: purchaseSearchForm #}
+		{{ form_end(purchaseSearchByReferenceForm) }}
 		<a class="page__link page__create-link page__link_background-color_dodger-blue page__link_color_white" href="{{ path('admin_purchase_create', {'id': user.id}) }}" id="create-purchase-link">Créer</a>
 		<div
 			class="neptune">

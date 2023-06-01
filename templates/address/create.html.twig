@@ -9,7 +9,6 @@
 {% block body %}
 	<section class="page">
 		<h2>Créer une Adresse</h2>
-		{# START :userCreateAddressForm #}
 		{{ form_start(userCreateAddressForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'address-create-form' }}) }}
 		{# firstName #}
 		<div class="form-field">
@@ -87,7 +86,6 @@
 		<button type="submit" class="page__button page__submit-button page__create-button page__button_background-color_dodger-blue page__button_color_white " id="address-create-button">
 			Créer
 		</button>
-		{# END: userCreateAddressForm #}
 		{{ form_end(userCreateAddressForm) }}
 	</section>
 {% endblock %}

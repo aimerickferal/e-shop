@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Purchase;
-use App\Entity\PurchaseSearch;
+use App\Entity\PurchaseSearchByReference;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -67,17 +67,17 @@ class PurchaseRepository extends ServiceEntityRepository
 
     /**
      * Method to find a purchase by his reference.
-     * @param PurchaseSearch $purchaseSearch
+     * @param PurchaseSearchByReference $purchaseSearchByReference
      * @return array
      */
-    public function findPurchaseByReference(PurchaseSearch $purchaseSearch): array
+    public function findPurchaseByReference(PurchaseSearchByReference $purchaseSearchByReference): array
     {
         // We instanciate the QueryBuilder and we refers to the purchase.
         $queryBuilder = $this->createQueryBuilder('purchase');
         // We say that the :reference is egual to the reference property of the purchase entity. 
         $queryBuilder->where('purchase.reference LIKE :reference');
         // We secure the query by setting a parameter to avoid the SQL injections. 
-        $queryBuilder->setParameter(':reference', "%$purchaseSearch%");
+        $queryBuilder->setParameter(':reference', "%$purchaseSearchByReference%");
         // We return the result of the query. 
         return $queryBuilder->getQuery()->getResult();
     }

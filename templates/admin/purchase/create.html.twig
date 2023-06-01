@@ -16,7 +16,6 @@
 			{{ user.firstName }}
 			{{ user.lastName }}
 		</h2>
-		{# START: adminPurchaseCreateForm #}
 		{{ form_start(adminPurchaseCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'admin-purchase-create-form' }}) }}
 		{# status #}
 		<div class="form-field">
@@ -72,7 +71,6 @@
 			Créer
 		</button>
 		{{ form_end(adminPurchaseCreateForm) }}
-		{# END: adminPurchaseCreateForm #}
 	</section>
 {% endblock %}
 {# END: admin_purchase_create #}

@@ -3,8 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Product;
-use App\Entity\ProductSearch;
-use App\Form\ProductSearchType;
+use App\Entity\ProductSearchByName;
+use App\Form\ProductSearchByNameType;
 use App\Form\Admin\AdminProductType;
 use App\Repository\ProductRepository;
 use App\Service\FileUploader;
@@ -89,7 +89,7 @@ class AdminProductController extends AbstractController
         // If we don't find any product.
         if (!$products) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'La liste des produits est vide. Nous vous invitons à vous en créer un.');
+            $this->addFlash('warning', 'Aucun produit. Nous vous invitons à vous en créer un.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -101,10 +101,10 @@ class AdminProductController extends AbstractController
             );
         }
 
-        // We create a new product search.
-        $search = new ProductSearch();
+        // We create a new product search by name.
+        $search = new ProductSearchByName();
         // We create the form.
-        $form = $this->createForm(ProductSearchType::class, $search);
+        $form = $this->createForm(ProductSearchByNameType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -133,8 +133,8 @@ class AdminProductController extends AbstractController
             'admin/product/list.html.twig',
             // We set a array of optional data.
             [
-                'productSearchForm' => $form->createView(),
                 'products' => $products,
+                'productSearchByNameForm' => $form->createView(),
                 'available' => Product::AVAILABLE,
                 'unavailable' => Product::UNAVAILABLE
             ],
@@ -195,7 +195,7 @@ class AdminProductController extends AbstractController
         $product =  $this->productRepository->findOneBy(
             ['slug' => $slug]
         );
-        
+
         // If we don't find any product.
         if (!$product) {
             // If the query of the request contain the key returnToAdminProductList.

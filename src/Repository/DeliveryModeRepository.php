@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Admin\AdminDeliveryModeSearch;
+use App\Entity\Admin\AdminDeliveryModeSearchByName;
 use App\Entity\DeliveryMode;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -67,17 +67,17 @@ class DeliveryModeRepository extends ServiceEntityRepository
 
     /**
      * Method to find a delivery mode by his name.
-     * @param AdminDeliveryModeSearch $adminDeliveryModeSearch
+     * @param AdminDeliveryModeSearchByName $adminDeliveryModeSearchByName
      * @return array
      */
-    public function findDeliveryModeByName(AdminDeliveryModeSearch $adminDeliveryModeSearch): array
+    public function findDeliveryModeByName(AdminDeliveryModeSearchByName $adminDeliveryModeSearchByName): array
     {
         // We instanciate the QueryBuilder and we refers to the delivery mode.
         $queryBuilder = $this->createQueryBuilder('deliveryMode');
         // We say that the :name is egual to the name property of the delivery mode entity. 
         $queryBuilder->where('deliveryMode.name LIKE :name');
         // We secure the query by setting a parameter to avoid the SQL injections. 
-        $queryBuilder->setParameter(':name', "%$adminDeliveryModeSearch%");
+        $queryBuilder->setParameter(':name', "%$adminDeliveryModeSearchByName%");
         // We return the result of the query. 
         return $queryBuilder->getQuery()->getResult();
     }

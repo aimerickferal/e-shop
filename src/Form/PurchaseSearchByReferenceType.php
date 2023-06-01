@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\PurchaseSearch;
+use App\Entity\PurchaseSearchByReference;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PurchaseSearchType extends AbstractType
+class PurchaseSearchByReferenceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -18,7 +18,7 @@ class PurchaseSearchType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => PurchaseSearch::class,
+            'data_class' => PurchaseSearchByReference::class,
             'method' => 'GET',
             'csrf_protection' => false
         ]);

@@ -1,11 +1,7 @@
 const nav = {
-  // Proprietes availables in the object.
-  // ======================= DOM ELEMENTS =======================
   links: [],
   init: function () {
     console.log("Hello world, I'm nav.js 🗺");
-
-    // ======================= DOM ELEMENTS =======================
 
     nav.links = document.querySelectorAll(".nav__link");
 

@@ -3,9 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
-use App\Entity\Admin\AdminUserSearch;
+use App\Entity\Admin\AdminUserSearchByLastName;
 use App\Form\Admin\AdminUserType;
-use App\Form\Admin\AdminUserSearchType;
+use App\Form\Admin\AdminUserSearchByLastNameType;
 use App\Repository\UserRepository;
 use App\Service\Email;
 use App\Service\FileUploader;
@@ -127,10 +127,10 @@ class AdminUserController extends AbstractController
             );
         }
 
-        // We create a new admin user search.
-        $search = new AdminUserSearch();
+        // We create a new admin user search by last name.
+        $search = new AdminUserSearchByLastName();
         // We create the form.
-        $form = $this->createForm(AdminUserSearchType::class, $search);
+        $form = $this->createForm(AdminUserSearchByLastNameType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -160,7 +160,7 @@ class AdminUserController extends AbstractController
             // We set a array of optional data.
             [
                 'users' => $users,
-                'adminUserSearchForm' => $form->createView()
+                'adminUserSearchByLastNameForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)
@@ -203,10 +203,10 @@ class AdminUserController extends AbstractController
             );
         }
 
-        // We create a new admin user search.
-        $search = new AdminUserSearch();
+        // We create a new admin user search by last name.
+        $search = new AdminUserSearchByLastName();
         // We create the form.
-        $form = $this->createForm(AdminUserSearchType::class, $search);
+        $form = $this->createForm(AdminUserSearchByLastNameType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -449,7 +449,7 @@ class AdminUserController extends AbstractController
         // If we don't find any user.
         if (!$users) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'La liste des utilisateurs est vide.');
+            $this->addFlash('warning', 'Aucun utilisateur.');
 
             // We redirect the user.
             return $this->redirectToRoute(

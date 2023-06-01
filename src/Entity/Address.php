@@ -63,7 +63,7 @@ class Address
     )]
     #[Assert\Regex(
         // Regex that match only value that start with the numeric value 06 or 07.
-        pattern: '/^((06)|(07))[0-9]/',
+        pattern: '/^((06)|(07))/',
         message: 'Merci de saisir un numéro de téléphone mobile.',
     )]
     private $phoneNumber;

@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Address;
-use App\Entity\AddressSearch;
-use App\Form\AddressSearchType;
+use App\Entity\AddressSearchByCity;
+use App\Form\AddressSearchByCityType;
 use App\Form\AddressType;
 use App\Repository\AddressRepository;
 use App\Service\Cart\Cart;
@@ -106,7 +106,7 @@ class AddressController extends AbstractController
         // If we don't find any address.
         if (!$addresses) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'Vous ne possédez actuellement aucune adresse. Nous vous invitons à vous en créer une.');
+            $this->addFlash('warning', 'Aucune adresse. Nous vous invitons à vous en créer une.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -118,10 +118,10 @@ class AddressController extends AbstractController
             );
         }
 
-        // We create a new address search.
-        $search = new AddressSearch();
+        // We create a new address search by city.
+        $search = new AddressSearchByCity();
         // We create the form.
-        $form = $this->createForm(AddressSearchType::class, $search);
+        $form = $this->createForm(AddressSearchByCityType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -160,8 +160,8 @@ class AddressController extends AbstractController
             'address/list.html.twig',
             // We set a array of optional data.
             [
-                'addressSearchForm' => $form->createView(),
-                'addresses' => $addresses
+                'addresses' => $addresses,
+                'addressSearchByCityForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)

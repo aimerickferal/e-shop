@@ -1,5 +1,4 @@
 const form = {
-  // Proprietes availables in the object.
   numberOfErrors: null,
   // Regex
   regexMatchTenNumericCharacters: null,
@@ -11,48 +10,40 @@ const form = {
   regexMatchAtLeastOneUppercase: null,
   regexMatchAtLeastOneNumericCharacter: null,
   regexMatchAtLeastOneSpecialCharacter: null,
-  //! START: regex not used
-  regexMatchAlphabeticalCharactersWithOrWithoutDiacriticalMarks: null,
-  regexMatchAccentedAlphabeticalCharacters: null,
-  regexMatchAlphabeticalCharacters: null,
-  regexMatchAlphabeticalCharactersAndSpace: null,
-  regexMatchAlphabeticalCharactersWithHyphen: null,
-  //! END: regex not used
   regexMatchNumber: null,
   regexMatchAtLeastTweleCharacters: null,
-  // ======================= DOM ELEMENTS =======================
   // User's forms
   signUpForm: null,
   loginForm: null,
   userProfileForm: null,
   adminUserCreateForm: null,
   adminUserUpdateForm: null,
-  adminUserSearchForm: null,
+  adminUserSearchByNameForm: null,
   requestPasswordForm: null,
   resetPasswordForm: null,
   // Category's forms
   adminCategoryCreateForm: null,
   adminCategoryUpdateForm: null,
-  categorySearchForm: null,
+  categorySearchByNameForm: null,
   // Product's forms
   adminProductCreateForm: null,
   adminProductUpdateForm: null,
-  productSearchForm: null,
+  productSearchByNameForm: null,
   // Address's forms
   addressCreateForm: null,
   addressUpdateForm: null,
   adminAddressCreateForm: null,
   adminAddressUpdateForm: null,
-  addressSearchForm: null,
+  addressSearchByCityForm: null,
   // Purchase's forms
   adminPurchaseCreateForm: null,
   adminPurchaseUpdateForm: null,
-  purchaseSearchForm: null,
   purchaseCreateForm: null,
+  purchaseSearchByReferenceForm: null,
   // Delivery mode's forms
   adminDeliveryModeCreateForm: null,
   adminDeliveryModeUpdateForm: null,
-  deliveryModeSearchForm: null,
+  deliveryModeSearchByNameForm: null,
   // Contact's form
   contactForm: null,
   // Upload's field
@@ -259,32 +250,16 @@ const form = {
     form.regexMatchAtLeastOneNumericCharacter = /(?=.*[0-9])/;
     // Regex that match only value that contain at least 1 one special character, but we are escaping reserved Regex characters to avoid conflict.
     form.regexMatchAtLeastOneSpecialCharacter = /(?=.*[!@#$%^&*])/;
-    // Regex that match only value that contain at least 1 lowercase alphabetical character.
     // Regex that match only value that contain 10 numeric characters.
     form.regexMatchTenNumericCharacters = /^\d{10}$/;
     // Regex that match only value that start with the numeric value 06 or 07.
-    form.regexMatchStartBy06Or07 = /^((06)|(07))[0-9]/;
-    //! START: regex not used
-    // Regex that match only alphabetical characters with or without diacritical marks.
-    regexMatchAlphabeticalCharactersWithOrWithoutDiacriticalMarks =
-      /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
-    // Regex that match only value that contain alphabetical characters.
-    form.regexMatchAlphabeticalCharacters = /^[A-Za-z]+$/;
-    // Regex that match only value that contain alphabetical characters and space.
-    form.regexMatchAlphabeticalCharactersAndSpace = /^[a-zA-Z\s]*$/;
-    // Regex that match only value that contain alphabetical characters and hyphen.
-    form.regexMatchAlphabeticalCharactersWithHyphen = /^[A-Za-z-]+$/;
-    // Regex that match alphabetical characters in uppercase and lowercase with accentend characters for uppercase and lowercase.
-    form.regexMatchAccentedAlphabeticalCharacters = /[A-Za-zÀ-Ÿa-ÿ]/;
-    //! EN: regex not used
+    form.regexMatchStartBy06Or07 = /^((06)|(07))/;
     // The regex accepting only value that contain a digit number.
     form.regexMatchNumber = /\d+/;
-    // Regex that match only value who contain 5 numeric characters.
+    // Regex that match only value that contain 5 numeric characters.
     form.regexMatchFiveNumericCharacters = /^\d{5}$/;
-    // Regex that match only value that contain at least 12 characters.
-    form.regexMatchAtLeastTweleCharacters = /(?=.{12,})/;
-
-    // ======================= DOM ELEMENTS =======================
+    // Regex that match only value that contain 12 characters.
+    form.regexMatchAtLeastTweleCharacters = /(?=.{12})/;
 
     // User's forms
     form.signUpForm = document.getElementById("sign-up-form");
@@ -296,8 +271,8 @@ const form = {
     form.adminUserUpdateForm = document.getElementById(
       "admin-user-update-form"
     );
-    form.adminUserSearchForm = document.getElementById(
-      "admin-user-search-form"
+    form.adminUserSearchByNameForm = document.getElementById(
+      "admin-user-search-by-name-form"
     );
     form.requestPasswordForm = document.getElementById("request-password-form");
     form.resetPasswordForm = document.getElementById("reset-password-form");
@@ -309,7 +284,7 @@ const form = {
     form.adminCategoryUpdateForm = document.getElementById(
       "admin-category-update-form"
     );
-    form.categorySearchForm = document.getElementById("category-search-form");
+    form.categorySearchByNameForm = document.getElementById("category-search-by-name-form");
 
     // Product's froms
     form.adminProductCreateForm = document.getElementById(
@@ -318,7 +293,7 @@ const form = {
     form.adminProductUpdateForm = document.getElementById(
       "admin-product-update-form"
     );
-    form.productSearchForm = document.getElementById("product-search-form");
+    form.productSearchByNameForm = document.getElementById("product-search-by-name-form");
 
     // Address's forms
     form.addressCreateForm = document.getElementById("address-create-form");
@@ -329,7 +304,7 @@ const form = {
     form.adminAddressUpdateForm = document.getElementById(
       "admin-address-update-form"
     );
-    form.addressSearchForm = document.getElementById("address-search-form");
+    form.addressSearchByCityForm = document.getElementById("address-search-by-city-form");
 
     // Purchase's forms
     form.adminPurchaseCreateForm = document.getElementById(
@@ -338,8 +313,8 @@ const form = {
     form.adminPurchaseUpdateForm = document.getElementById(
       "admin-purchase-update-form"
     );
-    form.purchaseSearchForm = document.getElementById("purchase-search-form");
     form.purchaseCreateForm = document.getElementById("purchase-create-form");
+    form.purchaseSearchByReferenceForm = document.getElementById("purchase-search-by-reference-form");
 
     // Delivery mode's forms
     form.adminDeliveryModeCreateForm = document.getElementById(
@@ -348,8 +323,8 @@ const form = {
     form.adminDeliveryModeUpdateForm = document.getElementById(
       "admin-delivery-mode-update-form"
     );
-    form.deliveryModeSearchForm = document.getElementById(
-      "delivery-mode-search-form"
+    form.deliveryModeSearchByNameForm = document.getElementById(
+      "delivery-mode-search-by-name-form"
     );
 
     // Contact's form
@@ -854,7 +829,6 @@ const form = {
 
     // Buttons
     form.submitButtons = document.querySelectorAll(".page__submit-button");
-    // If the DOM elements exist.
     if (form.submitButtons) {
       // For each submitButton of form.submitButtons.
       for (let submitButton of form.submitButtons) {
@@ -1103,7 +1077,7 @@ const form = {
         form.userLastNameInput,
         form.errorMessageUserLastNameEmpty
       );
-      form.submitFormIfNoError(form.adminUserSearchForm);
+      form.submitFormIfNoError(form.adminUserSearchByNameForm);
     }
 
     if (
@@ -1252,7 +1226,7 @@ const form = {
     }
 
     if (clickedButton === form.categorySearchButton) {
-      form.submitFormIfNoError(form.categorySearchForm);
+      form.submitFormIfNoError(form.categorySearchByNameForm);
     }
 
     if (
@@ -1301,7 +1275,7 @@ const form = {
     }
 
     if (clickedButton === form.productSearchButton) {
-      form.submitFormIfNoError(form.productSearchForm);
+      form.submitFormIfNoError(form.productSearchByNameForm);
     }
 
     if (
@@ -1362,7 +1336,7 @@ const form = {
     }
 
     if (clickedButton === form.addressSearchButton) {
-      form.submitFormIfNoError(form.addressSearchForm);
+      form.submitFormIfNoError(form.addressSearchByCityForm);
     }
 
     if (
@@ -1413,7 +1387,7 @@ const form = {
         form.errorMessagePurchaseReference
       );
 
-      form.submitFormIfNoError(form.purchaseSearchForm);
+      form.submitFormIfNoError(form.purchaseSearchByReferenceForm);
     }
 
     if (
@@ -1461,7 +1435,7 @@ const form = {
     }
 
     if (clickedButton === form.deliveryModeSearchButton) {
-      form.submitFormIfNoError(form.deliveryModeSearchForm);
+      form.submitFormIfNoError(form.deliveryModeSearchByNameForm);
     }
   },
   /**

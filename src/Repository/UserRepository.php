@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Admin\AdminUserSearch;
+use App\Entity\Admin\AdminUserSearchByLastName;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -101,17 +101,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Method to find a user by his last name.
-     * @param AdminUserSearch $adminUserSearch
+     * @param AdminUserSearchByLastName $adminUserSearchByLastName
      * @return array
      */
-    public function findUserByLastName(AdminUserSearch $adminUserSearch): array
+    public function findUserByLastName(AdminUserSearchByLastName $adminUserSearchByLastName): array
     {
         // We instanciate the QueryBuilder and we refers to the user entity.
         $queryBuilder = $this->createQueryBuilder('user');
         // We say that the :lastName is egual to the last name property of the user entity. 
         $queryBuilder->where('user.lastName LIKE :lastName');
         // We secure the query by setting a parameter to avoid the SQL injections. 
-        $queryBuilder->setParameter(':lastName', "%$adminUserSearch%");
+        $queryBuilder->setParameter(':lastName', "%$adminUserSearchByLastName%");
         // We return the result of the query. 
         return $queryBuilder->getQuery()->getResult();
     }

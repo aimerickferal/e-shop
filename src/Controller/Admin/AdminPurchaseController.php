@@ -5,9 +5,9 @@ namespace App\Controller\Admin;
 use App\Entity\DeliveryMode;
 use App\Entity\Purchase;
 use App\Entity\PurchaseItem;
-use App\Entity\PurchaseSearch;
+use App\Entity\PurchaseSearchByReference;
 use App\Entity\User;
-use App\Form\PurchaseSearchType;
+use App\Form\PurchaseSearchByReferenceType;
 use App\Form\Admin\AdminPurchaseType;
 use App\Repository\DeliveryModeRepository;
 use App\Repository\PurchaseRepository;
@@ -199,7 +199,7 @@ class AdminPurchaseController extends AbstractController
         // If we don't find any purchase.
         if (!$purchases) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'La liste des commandes est vide.');
+            $this->addFlash('warning', 'Aucune commande.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -211,10 +211,10 @@ class AdminPurchaseController extends AbstractController
             );
         }
 
-        // We create a new purchase search.
-        $search = new PurchaseSearch();
+        // We create a new purchase search by reference.
+        $search = new PurchaseSearchByReference();
         // We create the form.
-        $form = $this->createForm(PurchaseSearchType::class, $search);
+        $form = $this->createForm(PurchaseSearchByReferenceType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -243,7 +243,7 @@ class AdminPurchaseController extends AbstractController
             'admin/purchase/list.html.twig',
             // We set a array of optional data.
             [
-                'purchaseSearchForm' => $form->createView(),
+                'purchaseSearchByReferenceForm' => $form->createView(),
                 'purchases' => $purchases,
                 'statusPaid' => Purchase::STATUS_PAID,
                 'statusInProgress' => Purchase::STATUS_IN_PROGRESS,
@@ -301,10 +301,10 @@ class AdminPurchaseController extends AbstractController
             );
         }
 
-        // We create a new purchase search.
-        $search = new PurchaseSearch();
+        // We create a new purchase search by reference.
+        $search = new PurchaseSearchByReference();
         // We create the form.
-        $form = $this->createForm(PurchaseSearchType::class, $search);
+        $form = $this->createForm(PurchaseSearchByReferenceType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 

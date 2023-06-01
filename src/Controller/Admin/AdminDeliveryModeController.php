@@ -2,9 +2,9 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Admin\AdminDeliveryModeSearch;
+use App\Entity\Admin\AdminDeliveryModeSearchByName;
 use App\Entity\DeliveryMode;
-use App\Form\Admin\AdminDeliveryModeSearchType;
+use App\Form\Admin\AdminDeliveryModeSearchByNameType;
 use App\Form\Admin\AdminDeliveryModeType;
 use App\Repository\DeliveryModeRepository;
 use App\Service\FileUploader;
@@ -90,7 +90,7 @@ class AdminDeliveryModeController extends AbstractController
         // If we don't find any delivery modes.
         if (!$deliveryModes) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'La liste des modes de livraison est vide. Nous vous invitons à vous en créer un.');
+            $this->addFlash('warning', 'Aucun mode de livraison. Nous vous invitons à vous en créer un.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -103,10 +103,10 @@ class AdminDeliveryModeController extends AbstractController
         }
 
 
-        // We create a new admin delivery mode search.
-        $search = new AdminDeliveryModeSearch();
+        // We create a new admin delivery mode search by name.
+        $search = new AdminDeliveryModeSearchByName();
         // We create the form.
-        $form = $this->createForm(AdminDeliveryModeSearchType::class, $search);
+        $form = $this->createForm(AdminDeliveryModeSearchByNameType::class, $search);
         // We link the form to the request.
         $form->handleRequest($request);
 
@@ -135,7 +135,7 @@ class AdminDeliveryModeController extends AbstractController
             // We set a array of optional data.
             [
                 'deliveryModes' => $deliveryModes,
-                'adminDeliveryModeSearchForm' => $form->createView()
+                'adminDeliveryModeSearchByNameForm' => $form->createView()
             ],
             // We specify the related HTTP response status code.
             new Response('', 200)

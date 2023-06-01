@@ -94,7 +94,7 @@ class ContactType extends AbstractType
                         'message' => 'Merci de saisir un numéro de téléphone mobile.'
                     ]),
                     new Regex([
-                        'pattern' => '/^((06)|(07))[0-9]/',
+                        'pattern' => '/^((06)|(07))/',
                         'message' => 'Merci de saisir un numéro de téléphone mobile.'
                     ]),
                 ]

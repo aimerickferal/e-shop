@@ -1,6 +1,4 @@
 const confirmDelete = {
-  // Proprietes availables in the object.
-  // ======================= DOM ELEMENTS =======================
   userDeleteLinks: [],
   addressDeleteLinks: [],
   productDeleteLinks: [],
@@ -8,8 +6,6 @@ const confirmDelete = {
   deliveryModeDeleteLinks: [],
   init: function () {
     console.log("Hello world, I'm confirmDelete.js 🗑");
-
-    // ======================= DOM ELEMENTS =======================
 
     // User
     confirmDelete.userDeleteLinks = document.querySelectorAll(

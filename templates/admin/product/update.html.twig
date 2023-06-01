@@ -12,7 +12,6 @@
 	<section class="page">
 		<h2>Mettre à jour Produit :
 			{{ product.name }}</h2>
-		{# START :adminProductUpdateForm #}
 		{{ form_start(adminProductUpdateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-product-update-form' }}) }}
 		{# picture #}
 		<div class="form-field-picture">
@@ -79,7 +78,6 @@
 			Mettre à jour
 		</button>
 		{{ form_end(adminProductUpdateForm) }}
-		{# END: adminProductUpdateForm #}
 	</section>
 {% endblock %}
 {# END: admin_product_update #}

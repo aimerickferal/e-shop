@@ -2,23 +2,23 @@
 
 namespace App\Form;
 
-use App\Entity\AddressSearch;
+use App\Entity\ProductSearchByName;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AddressSearchType extends AbstractType
+class ProductSearchByNameType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('city', null, []);
+            ->add('name', null, []);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => AddressSearch::class,
+            'data_class' => ProductSearchByName::class,
             'method' => 'GET',
             'csrf_protection' => false
         ]);
@@ -28,7 +28,7 @@ class AddressSearchType extends AbstractType
      * Method that clean the parameters of the query in the URL.
      * @return string
      */
-    public function getBlockPrefix(): string 
+    public function getBlockPrefix(): string
     {
         return '';
     }

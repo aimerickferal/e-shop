@@ -9,7 +9,6 @@
 {% block body %}
 	<section class="page">
 		<h2>Créer un Mode de Livraison</h2>
-		{# START :adminDeliveryModeCreateForm #}
 		{{ form_start(adminDeliveryModeCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-delivery-mode-create-form' }}) }}
 		{# picture #}
 		<div class="form-field">
@@ -62,7 +61,6 @@
 			Créer
 		</button>
 		{{ form_end(adminDeliveryModeCreateForm) }}
-		{# END: adminDeliveryModeCreateForm #}
 	</section>
 {% endblock %}
 {# END: admin_delivery_mode_create #}

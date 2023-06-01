@@ -40,7 +40,8 @@ class AdminProductType extends AbstractType
             ->add('price', MoneyType::class, [
                 'empty_data' => '',
                 'currency' => false,
-                'divisor' => 100
+                'divisor' => 100,
+                'invalid_message' => 'Merci de saisir un montant en euros.'
             ])
             ->add('description', TextareaType::class, [])
             ->add('picture', HiddenType::class, [])

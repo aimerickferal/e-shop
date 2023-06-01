@@ -1,6 +1,4 @@
 const purchase = {
-  // Proprietes availables in the object.
-  // ======================= DOM ELEMENTS =======================
   subtotalParagraph: null,
   subtotal: null,
   deliveryModePriceParagraph: null,
@@ -11,8 +9,6 @@ const purchase = {
   total: null,
   init: function () {
     console.log("Hello world, I'm purchase.js 🛒");
-
-    // ======================= DOM ELEMENTS =======================
 
     // We get the paragraph where the data of the subtotal is gonna be display.
     purchase.subtotalParagraph = document.getElementById(

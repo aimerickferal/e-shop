@@ -1,12 +1,8 @@
 const customerService = {
-  // Proprietes availables in the object.
-  // ======================= DOM ELEMENTS =======================
   questions: [],
   terms: [],
   init: function () {
     console.log("Hello world, I'm customerService.js 📃");
-
-    // ======================= DOM ELEMENTS =======================
 
     customerService.questions = Array.from(
       document.querySelectorAll(".term__question")

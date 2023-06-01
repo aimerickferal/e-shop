@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\ProductSearch;
+use App\Entity\CategorySearchByName;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProductSearchType extends AbstractType
+class CategorySearchByNameType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -18,7 +18,7 @@ class ProductSearchType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => ProductSearch::class,
+            'data_class' => CategorySearchByName::class,
             'method' => 'GET',
             'csrf_protection' => false
         ]);
@@ -28,7 +28,7 @@ class ProductSearchType extends AbstractType
      * Method that clean the parameters of the query in the URL.
      * @return string
      */
-    public function getBlockPrefix(): string 
+    public function getBlockPrefix(): string
     {
         return '';
     }

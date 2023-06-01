@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * This Entity is not related to the database. 
  */
-class CategorySearch
+class ProductSearchByName
 {
     // Proprietes availables in the object.
     #[Assert\NotBlank(message: 'Merci de saisir un nom.')]

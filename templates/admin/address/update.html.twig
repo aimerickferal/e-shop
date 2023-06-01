@@ -14,7 +14,6 @@
 		<h2>Mettre à jour Adresse :
 			{{ user.firstName }}
 			{{ user.lastName }}</h2>
-		{# START: adminAddressUpdateForm #}
 		{{ form_start(adminAddressUpdateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-address-update-form' }}) }}
 		{# firstName #}
 		<div class="form-field">
@@ -95,7 +94,6 @@
 			Mettre à jour
 		</button>
 		{{ form_end(adminAddressUpdateForm) }}
-		{# END: adminAddressUpdateForm #}
 	</section>
 {% endblock %}
 {# END: admin_address_update #}

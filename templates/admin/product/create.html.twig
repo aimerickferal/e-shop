@@ -9,7 +9,6 @@
 {% block body %}
 	<section class="page">
 		<h2>Créer un Produit</h2>
-		{# START :adminProductCreateForm #}
 		{{ form_start(adminProductCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'admin-product-create-form' }}) }}
 		{# picture #}
 		<div class="form-field">
@@ -68,7 +67,6 @@
 		{# adminProductCreateForm submit button #}
 		<button type="submit" class="page__button page__create-button page__submit-button page__button_background-color_dodger-blue page__button_color_white" id="admin-product-create-button">Créer</button>
 		{{ form_end(adminProductCreateForm) }}
-		{# END: adminProductCreateForm #}
 	</section>
 {% endblock %}
 {# END: admin_product_create #}

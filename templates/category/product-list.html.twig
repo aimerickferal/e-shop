@@ -12,22 +12,21 @@
 	<section class="page">
 		<h2>Nos
 			{{ category.name }}s</h2>
-		{# START: productSearchForm #}
-		{{ form_start(productSearchForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'search-product-form' }}
+		{{ form_start(productSearchByNameForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'product-search-by-name-form' }}
 		) }}
 		<div class="form-field">
-			{{ form_label(productSearchForm, 'Rechercher par nom:', { 'label_attr': { 'class': 'form-field__label form-field__product-name-label display-none' }}) }}
-			{{ form_widget(productSearchForm.name, { 'id': 'product-name-input', 'attr': {'class': 'form-field__input form-field__product-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}) }}
+			{{ form_label(productSearchByNameForm, 'Rechercher par nom:', { 'label_attr': { 'class': 'form-field__label form-field__product-name-label display-none' }}) }}
+			{{ form_widget(productSearchByNameForm.name, { 'id': 'product-name-input', 'attr': {'class': 'form-field__input form-field__product-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}) }}
 			<p class="error-message error-message_color_red error-message-product-name-empty display-none">
 				Merci de saisir un nom.
 			</p>
-			{{ form_errors(productSearchForm.name) }}
+			{{ form_errors(productSearchByNameForm.name) }}
 		</div>
+		{# productSearchByNameForm submit button #}
 		<button type="submit" class="page__button page__submit-button page__search-button page__button_background-color_blue page__button_color_white" id="product-search-button">
 			Rechercher
 		</button>
-		{{ form_end(productSearchForm) }}
-		{# END: productSearchForm #}
+		{{ form_end(productSearchByNameForm) }}
 		<div class="neptune">
 			{% for product in products %}
 				<div class="venus">

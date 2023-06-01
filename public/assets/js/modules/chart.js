@@ -1,5 +1,4 @@
 const chart = {
-  // Proprietes availables in the object.
   fontFamily: null,
   titleFontSize: null,
   legendFontSize: null,
@@ -7,7 +6,6 @@ const chart = {
   datalabelsColor: null,
   labelsColor: null,
   titleColor: null,
-  // ======================= DOM ELEMENTS =======================
   statisticsTitle: null,
   // User's roles
   pieCanvasUserRolesByNumber: null,
@@ -29,8 +27,6 @@ const chart = {
     chart.datalabelsColor = app.colors.black;
     chart.labelsColor = app.colors.black;
     chart.titleColor = app.colors.black;
-
-    // ======================= DOM ELEMENTS =======================
 
     chart.statisticsTitle = document.querySelector(".page__statistics-title");
 
