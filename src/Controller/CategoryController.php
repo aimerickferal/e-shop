@@ -156,7 +156,7 @@ class CategoryController extends AbstractController
             // If we don't find a product with the submitted name. 
             if (!$products) {
                 // We display a flash message for the user.
-                $this->addFlash('error', 'Aucun résultat. Le produit ' . $form->get('name')->getData() . ' n\'existe pas ou ne fait pas partie de la catégorie ' . $category->getName() . '.');
+                $this->addFlash('error', 'Le produit ' . $form->get('name')->getData() . ' n\'existe pas ou ne fait pas partie de la catégorie ' . $category->getName() . '.');
 
                 // We redirect the user.
                 return $this->redirectToRoute(
