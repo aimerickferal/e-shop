@@ -6,6 +6,7 @@ use App\Entity\Address;
 use App\Entity\AddressSearchByCity;
 use App\Entity\User;
 use App\Form\AddressSearchByCityType;
+use App\Form\AddressType;
 use App\Repository\AddressRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -102,7 +103,7 @@ class AdminAddressController extends AbstractController
         // If we don't find any address.
         if (!$addresses) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'Aucune adresse. Nous vous invitons à créer une adresse pour un utilisateur.');
+            $this->addFlash('notice', 'Aucune adresse. Nous vous invitons à créer une adresse pour un utilisateur.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -173,7 +174,7 @@ class AdminAddressController extends AbstractController
         // If we don't find any address.
         if (!$addresses) {
             // We display a flash message for the user.
-            $this->addFlash('warning', $user->getFirstName() . ' '  . $user->getLastName() . ' ne possède actuellement aucune adresse. Nous vous invitons à lui  en créer une.');
+            $this->addFlash('notice', $user->getFirstName() . ' '  . $user->getLastName() . ' ne possède actuellement aucune adresse. Nous vous invitons à lui en créer une.');
 
             // We redirect the user.
             return $this->redirectToRoute(

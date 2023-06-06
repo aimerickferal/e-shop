@@ -189,10 +189,10 @@ class CartController extends AbstractController
         // We call the getItems() method of the Cart service to get the detail of the CartItem() in the cart.
         $cartItems = $this->cart->getItems();
 
-        // If we don't find any $cartItems. 
+        // If we don't find any cart items. 
         if (!$cartItems) {
             // We display a flash message for the user. 
-            $this->addFlash('warning', 'Votre panier est vide.');
+            $this->addFlash('notice', 'Votre panier est vide.');
 
             // We redirect the user.
             return $this->redirectToRoute(

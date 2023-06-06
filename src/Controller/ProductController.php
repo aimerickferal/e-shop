@@ -31,7 +31,7 @@ class ProductController extends AbstractController
         // If we don't find any product.
         if (!$products) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'Aucun produit.');
+            $this->addFlash('notice', 'Aucun produit.');
 
             // We redirect the user.
             return $this->redirectToRoute(

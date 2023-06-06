@@ -21,7 +21,7 @@
 		<div class="form-field">
 			{{ form_label(addressSearchForm, 'Ville:', { 'label_attr': { 'class': 'form-field__label form-field__address-city-label display-none' }}) }}
 			{{ form_widget(addressSearchForm.city, { 'id': 'address-city-input', 'attr': {'class': 'form-field__input form-field__address-city-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par ville' }}) }}
-			<p class="error-message error-message_color_red error-message-address-city-empty display-none">
+			<p class="error-message error-message_color_red error-message-address-city display-none">
 				Merci de saisir un nom de ville.
 			</p>
 			{{ form_errors(addressSearchForm.city) }}

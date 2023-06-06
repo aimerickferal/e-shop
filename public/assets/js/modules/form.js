@@ -120,33 +120,33 @@ const form = {
   // User's error messages
   errorMessageGeneralTermsOfUseNotChecked: null,
   errorMessageUserEmail: null,
-  errorMessageUserPasswordEmpty: null,
+  errorMessageUserPassword: null,
   errorMessageUserPasswordLength: null,
   errorMessageUserPasswordLowercase: null,
   errorMessageUserPasswordUppercase: null,
   errorMessageUserPasswordNumber: null,
   errorMessageUserPasswordSpecialCharacter: null,
-  errorMessageUserFirstNameEmpty: null,
-  errorMessageUserLastNameEmpty: null,
+  errorMessageUserFirstName: null,
+  errorMessageUserLastName: null,
   errorMessageUserPictureMimeType: null,
   errorMessageUserPictureSize: null,
   errorMessageUserGenderNotChecked: null,
   // Category's error messages
-  errorMessageCategoryNameEmpty: null,
+  errorMessageCategoryName: null,
   // Product's error messages
-  errorMessageProductNameEmpty: null,
+  errorMessageProductName: null,
   errorMessageProductPictureMimeType: null,
   errorMessageProductPictureSize: null,
   errorMessageProductPrice: null,
-  errorMessageProductDescriptionEmpty: null,
+  errorMessageProductDescription: null,
   errorMessageProductAvailabilityNotChecked: null,
   errorMessageCategoryProductNotChecked: null,
   // Address's error messages
   errorMessageAddressStreetNumber: null,
-  errorMessageAddressStreetNameEmpty: null,
+  errorMessageAddressStreetName: null,
   errorMessageAddressZipCode: null,
-  errorMessageAddressCityEmpty: null,
-  errorMessageAddressCountryEmpty: null,
+  errorMessageAddressCity: null,
+  errorMessageAddressCountry: null,
   // Purchase's error messages
   errorMessagePurchaseProductsNotChecked: null,
   errorMessagePurchaseReference: null,
@@ -159,16 +159,16 @@ const form = {
   errorMessagePurchaseDeliveryModeNotChecked: null,
   errorMessageGeneralTermsOfSaleNotChecked: null,
   // Delivery Mode's error messages
-  errorMessageDeliveryModeNameEmpty: null,
+  errorMessageDeliveryModeName: null,
   errorMessageDeliveryModePictureMimeType: null,
   errorMessageDeliveryModePictureSize: null,
   errorMessageDeliveryModePrice: null,
-  errorMessageDeliveryModeDescriptionEmpty: null,
+  errorMessageDeliveryModeDescription: null,
   errorMessageDeliveryModeMinCartAmountForFreeDelivery: null,
   // Contact's error messages
   errorMessageContactSubjectNotChecked: null,
   errorMessagePhoneNumber: null,
-  errorContactMessageEmpty: null,
+  errorContactMessage: null,
   // Buttons
   submitButtons: [],
   // User's buttons
@@ -284,7 +284,9 @@ const form = {
     form.adminCategoryUpdateForm = document.getElementById(
       "admin-category-update-form"
     );
-    form.categorySearchByNameForm = document.getElementById("category-search-by-name-form");
+    form.categorySearchByNameForm = document.getElementById(
+      "category-search-by-name-form"
+    );
 
     // Product's froms
     form.adminProductCreateForm = document.getElementById(
@@ -293,7 +295,9 @@ const form = {
     form.adminProductUpdateForm = document.getElementById(
       "admin-product-update-form"
     );
-    form.productSearchByNameForm = document.getElementById("product-search-by-name-form");
+    form.productSearchByNameForm = document.getElementById(
+      "product-search-by-name-form"
+    );
 
     // Address's forms
     form.addressCreateForm = document.getElementById("address-create-form");
@@ -304,7 +308,9 @@ const form = {
     form.adminAddressUpdateForm = document.getElementById(
       "admin-address-update-form"
     );
-    form.addressSearchByCityForm = document.getElementById("address-search-by-city-form");
+    form.addressSearchByCityForm = document.getElementById(
+      "address-search-by-city-form"
+    );
 
     // Purchase's forms
     form.adminPurchaseCreateForm = document.getElementById(
@@ -314,7 +320,9 @@ const form = {
       "admin-purchase-update-form"
     );
     form.purchaseCreateForm = document.getElementById("purchase-create-form");
-    form.purchaseSearchByReferenceForm = document.getElementById("purchase-search-by-reference-form");
+    form.purchaseSearchByReferenceForm = document.getElementById(
+      "purchase-search-by-reference-form"
+    );
 
     // Delivery mode's forms
     form.adminDeliveryModeCreateForm = document.getElementById(
@@ -678,8 +686,8 @@ const form = {
     form.errorMessageUserEmail = document.querySelector(
       ".error-message-user-e-mail"
     );
-    form.errorMessageUserPasswordEmpty = document.querySelector(
-      ".error-message-user-password-empty"
+    form.errorMessageUserPassword = document.querySelector(
+      ".error-message-user-password"
     );
     form.errorMessageUserPasswordLength = document.querySelector(
       ".error-message-user-password-length"
@@ -696,11 +704,11 @@ const form = {
     form.errorMessageUserPasswordSpecialCharacter = document.querySelector(
       ".error-message-user-password-special-character"
     );
-    form.errorMessageUserFirstNameEmpty = document.querySelector(
-      ".error-message-user-first-name-empty"
+    form.errorMessageUserFirstName = document.querySelector(
+      ".error-message-user-first-name"
     );
-    form.errorMessageUserLastNameEmpty = document.querySelector(
-      ".error-message-user-last-name-empty"
+    form.errorMessageUserLastName = document.querySelector(
+      ".error-message-user-last-name"
     );
     form.errorMessageUserGenderNotChecked = document.querySelector(
       ".error-message-user-gender-not-checked"
@@ -713,13 +721,13 @@ const form = {
     );
 
     // Category's error messages
-    form.errorMessageCategoryNameEmpty = document.querySelector(
-      ".error-message-category-name-empty"
+    form.errorMessageCategoryName = document.querySelector(
+      ".error-message-category-name"
     );
 
     // Product's error messages
-    form.errorMessageProductNameEmpty = document.querySelector(
-      ".error-message-product-name-empty"
+    form.errorMessageProductName = document.querySelector(
+      ".error-message-product-name"
     );
     form.errorMessageProductPictureMimeType = document.querySelector(
       ".error-message-product-picture-mime-type"
@@ -730,8 +738,8 @@ const form = {
     form.errorMessageProductPrice = document.querySelector(
       ".error-message-product-price"
     );
-    form.errorMessageProductDescriptionEmpty = document.querySelector(
-      ".error-message-product-description-empty"
+    form.errorMessageProductDescription = document.querySelector(
+      ".error-message-product-description"
     );
     form.errorMessageProductAvailabilityNotChecked = document.querySelector(
       ".error-message-product-availability-not-checked"
@@ -744,17 +752,17 @@ const form = {
     form.errorMessageAddressStreetNumber = document.querySelector(
       ".error-message-adress-street-number"
     );
-    form.errorMessageAddressStreetNameEmpty = document.querySelector(
-      ".error-message-address-street-name-empty"
+    form.errorMessageAddressStreetName = document.querySelector(
+      ".error-message-address-street-name"
     );
     form.errorMessageAddressZipCode = document.querySelector(
       ".error-message-address-zip-code"
     );
-    form.errorMessageAddressCityEmpty = document.querySelector(
-      ".error-message-address-city-empty"
+    form.errorMessageAddressCity = document.querySelector(
+      ".error-message-address-city"
     );
-    form.errorMessageAddressCountryEmpty = document.querySelector(
-      ".error-message-address-country-empty"
+    form.errorMessageAddressCountry = document.querySelector(
+      ".error-message-address-country"
     );
 
     // Purchase's error messages
@@ -790,8 +798,8 @@ const form = {
     );
 
     // Delivery Mode's error messages
-    form.errorMessageDeliveryModeNameEmpty = document.querySelector(
-      ".error-message-delivery-mode-name-empty"
+    form.errorMessageDeliveryModeName = document.querySelector(
+      ".error-message-delivery-mode-name"
     );
     form.errorMessageDeliveryModePictureMimeType = document.querySelector(
       ".error-message-delivery-mode-picture-mime-type"
@@ -802,8 +810,8 @@ const form = {
     form.errorMessageDeliveryModePrice = document.querySelector(
       ".error-message-delivery-mode-price"
     );
-    form.errorMessageDeliveryModeDescriptionEmpty = document.querySelector(
-      ".error-message-delivery-mode-description-empty"
+    form.errorMessageDeliveryModeDescription = document.querySelector(
+      ".error-message-delivery-mode-description"
     );
     form.errorMessageDeliveryModeMinCartAmountForFreeDelivery =
       document.querySelector(
@@ -817,8 +825,8 @@ const form = {
     form.errorMessagePhoneNumber = document.querySelector(
       ".error-message-phone-number"
     );
-    form.errorContactMessageEmpty = document.querySelector(
-      ".error-message-contact-message-empty"
+    form.errorContactMessage = document.querySelector(
+      ".error-message-contact-message"
     );
     form.errorMessageContactFileMimeType = document.querySelector(
       ".error-message-contact-file-mime-type"
@@ -1069,13 +1077,13 @@ const form = {
       clickedButton === form.adminUserUpdateButton ||
       clickedButton === form.requestPasswordButton
     ) {
-      form.checkIfEmail(form.userEmailInput, form.errorMessageUserEmail);
+      form.checkIfEmail(form.userEmailInput);
     }
 
     if (clickedButton === form.adminUserSearchButton) {
       form.checkIfAlphabeticalCharacters(
         form.userLastNameInput,
-        form.errorMessageUserLastNameEmpty
+        form.errorMessageUserLastName
       );
       form.submitFormIfNoError(form.adminUserSearchByNameForm);
     }
@@ -1086,15 +1094,7 @@ const form = {
       clickedButton === form.adminUserCreateButton ||
       clickedButton === form.resetPasswordButton
     ) {
-      form.checkIfPassword(
-        form.userPasswordInput,
-        form.errorMessageUserPasswordEmpty,
-        form.errorMessageUserPasswordLength,
-        form.errorMessageUserPasswordLowercase,
-        form.errorMessageUserPasswordUppercase,
-        form.errorMessageUserPasswordNumber,
-        form.errorMessageUserPasswordSpecialCharacter
-      );
+      form.checkIfPassword(form.userPasswordInput);
     }
 
     if (
@@ -1110,11 +1110,11 @@ const form = {
     ) {
       form.checkIfAlphabeticalCharacters(
         form.userFirstNameInput,
-        form.errorMessageUserFirstNameEmpty
+        form.errorMessageUserFirstName
       );
       form.checkIfAlphabeticalCharacters(
         form.userLastNameInput,
-        form.errorMessageUserLastNameEmpty
+        form.errorMessageUserLastName
       );
     }
 
@@ -1178,7 +1178,7 @@ const form = {
       );
       form.checkIfInputContainValue(
         form.contactMessageInput,
-        form.errorContactMessageEmpty
+        form.errorContactMessage
       );
       if (form.contactFileInput.value) {
         form.checkUploadedFileMimeType(
@@ -1213,7 +1213,7 @@ const form = {
     ) {
       form.checkIfInputContainValue(
         form.categoryNameInput,
-        form.errorMessageCategoryNameEmpty
+        form.errorMessageCategoryName
       );
     }
 
@@ -1236,7 +1236,7 @@ const form = {
     ) {
       form.checkIfInputContainValue(
         form.productNameInput,
-        form.errorMessageProductNameEmpty
+        form.errorMessageProductName
       );
     }
 
@@ -1254,7 +1254,7 @@ const form = {
       form.checkIfNumber(form.productPriceInput, form.errorMessageProductPrice);
       form.checkIfInputContainValue(
         form.productDescriptionInput,
-        form.errorMessageProductDescriptionEmpty
+        form.errorMessageProductDescription
       );
       form.checkIfInputIsChecked(
         form.productAvailabilityInputs,
@@ -1287,7 +1287,7 @@ const form = {
     ) {
       form.checkIfAlphabeticalCharacters(
         form.addressCityInput,
-        form.errorMessageAddressCityEmpty
+        form.errorMessageAddressCity
       );
     }
 
@@ -1297,25 +1297,19 @@ const form = {
       clickedButton === form.adminAddressCreateButton ||
       clickedButton === form.adminAddressUpdateButton
     ) {
-      form.checkIfStreetNumber(
-        form.addressStreetNumberInput,
-        form.errorMessageAddressStreetNumber
-      );
+      form.checkIfNumber(form.addressStreetNumberInput, form.errorMessageAddressStreetNumber);
       form.checkIfAlphabeticalCharacters(
         form.addressStreetNameInput,
-        form.errorMessageAddressStreetNameEmpty
+        form.errorMessageAddressStreetName
       );
-      form.checkIfZipCode(
-        form.addressZipCodeInput,
-        form.errorMessageAddressZipCode
-      );
+      form.checkIfZipCode(form.addressZipCodeInput);
       form.checkIfAlphabeticalCharacters(
         form.addressCityInput,
-        form.errorMessageAddressCityEmpty
+        form.errorMessageAddressCity
       );
       form.checkIfAlphabeticalCharacters(
         form.addressCountryInput,
-        form.errorMessageAddressCountryEmpty
+        form.errorMessageAddressCountry
       );
     }
 
@@ -1382,10 +1376,7 @@ const form = {
     }
 
     if (clickedButton === form.purchaseSearchButton) {
-      form.checkIfPurchaseReference(
-        form.purchaseReferenceInput,
-        form.errorMessagePurchaseReference
-      );
+      form.checkIfReference(form.purchaseReferenceInput);
 
       form.submitFormIfNoError(form.purchaseSearchByReferenceForm);
     }
@@ -1397,7 +1388,7 @@ const form = {
     ) {
       form.checkIfAlphabeticalCharacters(
         form.deliveryModeNameInput,
-        form.errorMessageDeliveryModeNameEmpty
+        form.errorMessageDeliveryModeName
       );
     }
 
@@ -1422,7 +1413,7 @@ const form = {
       );
       form.checkIfInputContainValue(
         form.deliveryModeDescriptionInput,
-        form.errorMessageDeliveryModeDescriptionEmpty
+        form.errorMessageDeliveryModeDescription
       );
     }
 
@@ -1441,10 +1432,9 @@ const form = {
   /**
    * Method that check if a input contain a value type of e-mail and and call the methods that display the related error message.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessage
    * @return {void}
    */
-  checkIfEmail: function (input, errorMessage) {
+  checkIfEmail: function (input) {
     console.log("form.checkIfEmail()");
 
     // According on whether the input contain a doesn't a value we:
@@ -1453,41 +1443,27 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorMessage);
+      tools.addDisplayNone(form.errorMessageUserEmail);
       if (form.regexMatchEmail.test(input.value)) {
         form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessage);
+        tools.addDisplayNone(form.errorMessageUserEmail);
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessage);
+        tools.removeDisplayNone(form.errorMessageUserEmail);
         form.numberOfErrors++;
       }
     } else {
       form.switchInputOutlineColor(input, app.colors.red);
-      tools.removeDisplayNone(errorMessage);
+      tools.removeDisplayNone(form.errorMessageUserEmail);
       form.numberOfErrors++;
     }
   },
   /**
    * Method that check if a input contain a value type of password and call the methods that display the related error messages.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessageEmpty
-   * @param {HTMLParagraphElement} errorMessageLength
-   * @param {HTMLParagraphElement} errorMessageLowercase
-   * @param {HTMLParagraphElement} errorMessageUppercase
-   * @param {HTMLParagraphElement} errorMessageNumber
-   * @param {HTMLParagraphElement} errorMessageSpecialCharacter
    * @return {void}
    */
-  checkIfPassword: function (
-    input,
-    errorMessageEmpty,
-    errorMessageLength,
-    errorMessageLowercase,
-    errorMessageUppercase,
-    errorMessageNumber,
-    errorMessageSpecialCharacter
-  ) {
+  checkIfPassword: function (input) {
     console.log("form.checkIfPassword()");
 
     // According on whether the input contain a doesn't a value we:
@@ -1496,65 +1472,65 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorMessageEmpty);
+      tools.addDisplayNone(form.errorMessageUserPassword);
 
       if (form.regexMatchAtLeastHeightCharacters.test(input.value)) {
         if (!form.isInputInError(input)) {
           form.switchInputOutlineColor(input, app.colors.green);
-          tools.addDisplayNone(errorMessageLength);
+          tools.addDisplayNone(form.errorMessageUserPasswordLength);
         }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessageLength);
+        tools.removeDisplayNone(form.errorMessageUserPasswordLength);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchAtLeastOneLowercase.test(input.value)) {
         if (!form.isInputInError(input)) {
           form.switchInputOutlineColor(input, app.colors.green);
-          tools.addDisplayNone(errorMessageLowercase);
+          tools.addDisplayNone(form.errorMessageUserPasswordLowercase);
         }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessageLowercase);
+        tools.removeDisplayNone(form.errorMessageUserPasswordLowercase);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchAtLeastOneUppercase.test(input.value)) {
         if (!form.isInputInError(input)) {
           form.switchInputOutlineColor(input, app.colors.green);
-          tools.addDisplayNone(errorMessageUppercase);
+          tools.addDisplayNone(form.errorMessageUserPasswordUppercase);
         }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessageUppercase);
+        tools.removeDisplayNone(form.errorMessageUserPasswordUppercase);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
         if (!form.isInputInError(input)) {
           form.switchInputOutlineColor(input, app.colors.green);
-          tools.addDisplayNone(errorMessageNumber);
+          tools.addDisplayNone(form.errorMessageUserPasswordNumber);
         }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessageNumber);
+        tools.removeDisplayNone(form.errorMessageUserPasswordNumber);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchAtLeastOneSpecialCharacter.test(input.value)) {
         if (!form.isInputInError(input)) {
           form.switchInputOutlineColor(input, app.colors.green);
-          tools.addDisplayNone(errorMessageSpecialCharacter);
+          tools.addDisplayNone(form.errorMessageUserPasswordSpecialCharacter);
         }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessageSpecialCharacter);
+        tools.removeDisplayNone(form.errorMessageUserPasswordSpecialCharacter);
         form.numberOfErrors++;
       }
     } else {
       form.switchInputOutlineColor(input, app.colors.red);
-      tools.removeDisplayNone(errorMessageEmpty);
+      tools.removeDisplayNone(form.errorMessageUserPassword);
       form.numberOfErrors++;
     }
   },
@@ -1764,10 +1740,9 @@ const form = {
   /**
    * Method that check if a input contain a value type of french phone number and call the methods that display the related error message.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessage
    * @return {void}
    */
-  checkIfPhoneNumber: function (input, errorMessage) {
+  checkIfPhoneNumber: function (input) {
     console.log("form.checkIfPhoneNumber()");
 
     // According on whether the input contain a doesn't a value we:
@@ -1776,32 +1751,32 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorMessage);
+      tools.addDisplayNone(form.errorMessagePhoneNumber);
 
       if (form.regexMatchTenNumericCharacters.test(input.value)) {
         if (!form.isInputInError(input)) {
           form.switchInputOutlineColor(input, app.colors.green);
-          tools.addDisplayNone(errorMessage);
+          tools.addDisplayNone(form.errorMessagePhoneNumber);
         }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessage);
+        tools.removeDisplayNone(form.errorMessagePhoneNumber);
         form.numberOfErrors++;
       }
 
       if (form.regexMatchStartBy06Or07.test(input.value)) {
         if (!form.isInputInError(input)) {
           form.switchInputOutlineColor(input, app.colors.green);
-          tools.addDisplayNone(errorMessage);
+          tools.addDisplayNone(form.errorMessagePhoneNumber);
         }
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessage);
+        tools.removeDisplayNone(form.errorMessagePhoneNumber);
         form.numberOfErrors++;
       }
     } else {
       form.switchInputOutlineColor(input, app.colors.red);
-      tools.removeDisplayNone(errorMessage);
+      tools.removeDisplayNone(form.errorMessagePhoneNumber);
       form.numberOfErrors++;
     }
   },
@@ -1837,43 +1812,11 @@ const form = {
     }
   },
   /**
-   * Method that check if a input contain a value with at least 1 numeric character and call the methods that display the related error message.
-   * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessage
-   * @return {void}
-   */
-  checkIfStreetNumber: function (input, errorMessage) {
-    console.log("form.checkIfStreetNumber()");
-
-    // According on whether the input contain a doesn't a value we:
-    // - Check if it's value match our regex
-    // - Switch the input ouline color
-    // - Display or hide the related error message
-    // - Increment form.numberOfErrors if we have a error.
-    if (input.value) {
-      tools.addDisplayNone(errorMessage);
-
-      if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
-        form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessage);
-      } else {
-        form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessage);
-        form.numberOfErrors++;
-      }
-    } else {
-      form.switchInputOutlineColor(input, app.colors.red);
-      tools.removeDisplayNone(errorMessage);
-      form.numberOfErrors++;
-    }
-  },
-  /**
    * Method that check if input contain a value type french zip code and call the methods that display the related error message.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessage
    * @return {void}
    */
-  checkIfZipCode: function (input, errorMessage) {
+  checkIfZipCode: function (input) {
     console.log("form.checkIfZipCode()");
 
     // According on whether the input contain a doesn't a value we:
@@ -1882,29 +1825,28 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorMessage);
+      tools.addDisplayNone(form.errorMessageAddressZipCode);
 
       if (form.regexMatchFiveNumericCharacters.test(input.value)) {
         form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessage);
+        tools.addDisplayNone(form.errorMessageAddressZipCode);
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessage);
+        tools.removeDisplayNone(form.errorMessageAddressZipCode);
         form.numberOfErrors++;
       }
     } else {
       form.switchInputOutlineColor(input, app.colors.red);
-      tools.removeDisplayNone(errorMessage);
+      tools.removeDisplayNone(form.errorMessageAddressZipCode);
       form.numberOfErrors++;
     }
   },
   /**
    *  Method that check if a input contain a value type of reference and call the methods that display the related error message.
    * @param {HTMLInputElement} input
-   * @param {HTMLParagraphElement} errorMessage
    */
-  checkIfPurchaseReference: function (input, errorMessage) {
-    console.log("form.checkIfPurchaseReference()");
+  checkIfReference: function (input) {
+    console.log("form.checkIfReference()");
 
     // According on whether the input contain a doesn't a value we:
     // - Check if it's value match our regex
@@ -1912,19 +1854,19 @@ const form = {
     // - Display or hide the related error message
     // - Increment form.numberOfErrors if we have a error.
     if (input.value) {
-      tools.addDisplayNone(errorMessage);
+      tools.addDisplayNone(form.errorMessagePurchaseReference);
 
       if (form.regexMatchAtLeastTweleCharacters.test(input.value)) {
         form.switchInputOutlineColor(input, app.colors.green);
-        tools.addDisplayNone(errorMessage);
+        tools.addDisplayNone(form.errorMessagePurchaseReference);
       } else {
         form.switchInputOutlineColor(input, app.colors.red);
-        tools.removeDisplayNone(errorMessage);
+        tools.removeDisplayNone(form.errorMessagePurchaseReference);
         form.numberOfErrors++;
       }
     } else {
       form.switchInputOutlineColor(input, app.colors.red);
-      tools.removeDisplayNone(errorMessage);
+      tools.removeDisplayNone(form.errorMessagePurchaseReference);
       form.numberOfErrors++;
     }
   },

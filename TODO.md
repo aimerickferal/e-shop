@@ -22,7 +22,7 @@
 - term = galatea
 - fix the header
 - add img size in % as much as possible if not use em
-- TODO START: handle catch $errors in the uploadPicture() method of FileUploader service.
+- catch errors on upload
 - TODO: solve issue on switch civilityTitle.
 - Fix delete my user account feature : id = delete-my-user-account-link
 
@@ -56,3 +56,7 @@ Things to do make the project fonctional in prod:
 - product CRUD
 - category CRUD
 - delivery mode CRUD
+
+error: quand l'action de l'utilisateur a échoué
+warning: quand on doit transmettre une info après action de l'utilisateur sans échec (important)
+notice: quand on doit transmettre une info sans action de l'utilisateur (pas imporant)

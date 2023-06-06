@@ -60,15 +60,15 @@ class AdminUserType extends AbstractType
             ->add('roles', ChoiceType::class, [
                 'choices' => [
                     'Admin' => User::ROLE_ADMIN,
-                    'Super Admin' => User::ROLE_SUPER_ADMIN
+                    // 'Super Admin' => User::ROLE_SUPER_ADMIN
                 ],
                 'choice_attr' => [
                     'Admin' => [
                         'class' => 'form-field__user-roles-input form-field__user-roles-admin-input'
                     ],
-                    'Super Admin' => [
-                        'class' => 'form-field__user-roles-input form-field__user-roles-super-admin-input'
-                    ]
+                    // 'Super Admin' => [
+                    //     'class' => 'form-field__user-roles-input form-field__user-roles-super-admin-input'
+                    // ]
                 ],
                 'expanded' => true,
                 'multiple' => true

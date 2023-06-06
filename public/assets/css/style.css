@@ -16,7 +16,6 @@
   --black: #000000;
   --white: #ffffff;
   --silver: #cccccc;
-  --blue: #0000ff;
   --green: #00ff00;
   --purple: #cc00ff;
   --yellow: #fbbc05;
@@ -34,6 +33,9 @@
   /* flash-warning */
   --peach-crayola: #ffc299;
   --orange: #ff6600;
+  /* flash-notice */
+  --deep-sky-blue: #00bfff;
+  --blue: #0000ff;
 }
 
 body {
@@ -235,21 +237,15 @@ body {
 
   .flash-success,
   .flash-error,
-  .flash-warning {
+  .flash-warning,
+  .flash-notice {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    margin: 1em 0 0 0;
+    margin: 4em 0 0 0;
     width: 100%;
     height: 4em;
-  }
-
-  .flash-success p,
-  .flash-error p,
-  .flash-warning p {
-    margin: 0;
-    text-align: center;
   }
 
   .flash-success {
@@ -267,15 +263,22 @@ body {
     color: var(--orange);
   }
 
-  .flash-error__message {
-    text-transform: uppercase;
-    font-weight: bold;
+  .flash-notice {
+    background-color: var(--deep-sky-blue);
+    color: var(--blue);
+  }
+
+  .flash-success p,
+  .flash-error p,
+  .flash-warning p,
+  .flash-notice p {
+    margin: 0;
+    text-align: center;
   }
 
   .circle p {
     margin: 0;
   }
-
   /* ============================================================ */
   /* ===================== START: BUTTONS ====================== */
   /* ============================================================ */
@@ -1698,6 +1701,16 @@ body {
 /* ============================================================ */
 @media screen and (min-width: 768px) {
   /* ============================================================ */
+  /* ====================== START: BUTTONS ====================== */
+  /* ============================================================ */
+  .page__button.page__purchase-step {
+    width: 25%;
+  }
+  /* ============================================================ */
+  /* ======================= END: BUTTONS ======================= */
+  /* ============================================================ */
+
+  /* ============================================================ */
   /* ======================= START: LINKS ======================= */
   /* ============================================================ */
   .header__h1-link {
@@ -1868,7 +1881,7 @@ body {
   /* ====================== START: BUTTONS ====================== */
   /* ============================================================ */
   .page__button {
-    width: 30%;
+    width: 40%;
   }
 
   .page__login-button {

@@ -106,7 +106,7 @@ class AddressController extends AbstractController
         // If we don't find any address.
         if (!$addresses) {
             // We display a flash message for the user.
-            $this->addFlash('warning', 'Aucune adresse. Nous vous invitons à vous en créer une.');
+            $this->addFlash('notice', 'Aucune adresse. Nous vous invitons à vous en créer une.');
 
             // We redirect the user.
             return $this->redirectToRoute(

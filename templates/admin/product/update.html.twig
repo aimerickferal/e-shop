@@ -32,7 +32,7 @@
 		<div class="form-field">
 			{{ form_label(adminProductUpdateForm, 'Nom:', { 'label_attr': { 'class': 'form-field__label form-field__product-name-label display-none' }}) }}
 			{{ form_widget(adminProductUpdateForm.name, { 'id': 'product-name-input', 'attr': {'class': 'form-field__input form-field__product-name-input form-field__input_color_black', 'placeholder': 'Nom' }}) }}
-			<p class="error-message error-message_color_red error-message-product-name-empty display-none">
+			<p class="error-message error-message_color_red error-message-product-name display-none">
 				Merci de saisir un nom.
 			</p>
 			{{ form_errors(adminProductUpdateForm.name) }}
@@ -50,7 +50,7 @@
 		<div class="form-field">
 			{{ form_label(adminProductUpdateForm, 'Description:', { 'label_attr': { 'class': 'form-field__label form-field__product-description-label display-none' }}) }}
 			{{ form_widget(adminProductUpdateForm.description, { 'id': 'product-description-input', 'attr': {'class': 'form-field__input form-field__product-description-input form-field__input_color_black', 'placeholder': 'Description' }}) }}
-			<p class="error-message error-message_color_red error-message-product-description-empty display-none">
+			<p class="error-message error-message_color_red error-message-product-description display-none">
 				Merci de saisir une description.
 			</p>
 			{{ form_errors(adminProductUpdateForm.description) }}
