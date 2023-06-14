@@ -103,7 +103,7 @@ class AdminAddressController extends AbstractController
         // If we don't find any address.
         if (!$addresses) {
             // We display a flash message for the user.
-            $this->addFlash('notice', 'Aucune adresse. Nous vous invitons à créer une adresse pour un utilisateur.');
+            $this->addFlash('warning', 'Aucune adresse. Nous vous invitons à créer une adresse pour un utilisateur.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -174,7 +174,7 @@ class AdminAddressController extends AbstractController
         // If we don't find any address.
         if (!$addresses) {
             // We display a flash message for the user.
-            $this->addFlash('notice', $user->getFirstName() . ' '  . $user->getLastName() . ' ne possède actuellement aucune adresse. Nous vous invitons à lui en créer une.');
+            $this->addFlash('warning', $user->getFirstName() . ' '  . $user->getLastName() . ' ne possède actuellement aucune adresse. Nous vous invitons à lui en créer une.');
 
             // We redirect the user.
             return $this->redirectToRoute(

@@ -83,7 +83,7 @@ class AdminCategoryController extends AbstractController
         // If we don't find any category.
         if (!$categories) {
             // We display a flash message for the user.
-            $this->addFlash('notice', 'Aucune catégorie. Nous vous invitons à vous en créer une.');
+            $this->addFlash('warning', 'Aucune catégorie. Nous vous invitons à vous en créer une.');
 
             // We redirect the user.
             return $this->redirectToRoute(

@@ -90,7 +90,7 @@ class AdminDeliveryModeController extends AbstractController
         // If we don't find any delivery modes.
         if (!$deliveryModes) {
             // We display a flash message for the user.
-            $this->addFlash('notice', 'Aucun mode de livraison. Nous vous invitons à vous en créer un.');
+            $this->addFlash('warning', 'Aucun mode de livraison. Nous vous invitons à vous en créer un.');
 
             // We redirect the user.
             return $this->redirectToRoute(

@@ -36,7 +36,7 @@ class DeliveryMode
     #[ORM\Column]
     #[Assert\NotBlank(message: 'Merci de saisir un prix en euros.')]
     #[Assert\Regex(
-        // The regex accepting only value that contain a digit number.
+        // Regex that match only value that contain a digit.
         pattern: '/\d+/',
         message: 'Merci de saisir un prix en euros.',
     )]
@@ -45,7 +45,7 @@ class DeliveryMode
     #[ORM\Column]
     #[Assert\NotBlank(message: 'Merci de saisir un prix en euros.')]
     #[Assert\Regex(
-        // The regex accepting only value that contain a digit number.
+        // Regex that match only value that contain a digit.
         pattern: '/\d+/',
         message: 'Merci de saisir un prix en euros.',
     )]

@@ -252,7 +252,7 @@ class PurchaseController extends AbstractController
         // If we don't find any purchases.
         if (!$purchases) {
             // We display a flash message for the user.
-            $this->addFlash('notice', 'Aucune commande. Vous n\'avez passé aucune commande.');
+            $this->addFlash('warning', 'Aucune commande. Vous n\'avez passé aucune commande.');
 
             // We redirect the user.
             return $this->redirectToRoute(

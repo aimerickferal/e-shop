@@ -131,7 +131,7 @@ class AdminUserType extends AbstractType
                             'message' => 'Le mot de passe doit contenir au moins une majuscule.'
                         ]),
                         new Regex([
-                            // Regex that match only value that contain at least 1 numeric character.
+                            // Regex that match only value that contain at least 1 digit.
                             'pattern' => '/(?=.*[0-9])/',
                             'message' => 'Le mot de passe doit contenir au moins un chiffre.'
                         ]),

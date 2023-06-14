@@ -192,7 +192,7 @@ class CartController extends AbstractController
         // If we don't find any cart items. 
         if (!$cartItems) {
             // We display a flash message for the user. 
-            $this->addFlash('notice', 'Votre panier est vide.');
+            $this->addFlash('warning', 'Votre panier est vide.');
 
             // We redirect the user.
             return $this->redirectToRoute(

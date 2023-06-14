@@ -11,7 +11,7 @@ The **E-Shop** project is demo of a e-shop application that I develop in order t
 - Symfony 6
 - MariaDB Version 15.1 Distribution 10.11.2
 
-To use the projet you have to follow this steps :
+To use the projet follows these steps:
 
 - Git clone the `dev` branch of the repository
 - Set Up your `.env.local` file with the help on the informations located in the `.env` file

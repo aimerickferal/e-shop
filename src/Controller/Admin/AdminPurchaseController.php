@@ -199,7 +199,7 @@ class AdminPurchaseController extends AbstractController
         // If we don't find any purchase.
         if (!$purchases) {
             // We display a flash message for the user.
-            $this->addFlash('notice', 'Aucune commande.');
+            $this->addFlash('warning', 'Aucune commande.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -287,7 +287,7 @@ class AdminPurchaseController extends AbstractController
         // If we don't find any purchase.
         if (!$purchases) {
             // We display a flash message for the user.
-            $this->addFlash('notice', $user->getFirstName() . ' '  . $user->getLastName() . ' ne possède actuellement aucune commande. Nous vous invitons à lui  en créer une.');
+            $this->addFlash('warning', $user->getFirstName() . ' '  . $user->getLastName() . ' ne possède actuellement aucune commande. Nous vous invitons à lui  en créer une.');
 
             // We redirect the user.
             return $this->redirectToRoute(

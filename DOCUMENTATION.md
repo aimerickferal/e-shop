@@ -9,6 +9,26 @@
 - Symfony 6
 - MariaDB Version 15.1 Distribution 10.11.2
 
+## **Setup**
+
+- HTML 5
+- CSS 3
+- JavaScript ECMAScript 2020
+- PHP 8
+- Symfony 6
+- MariaDB Version 15.1 Distribution 10.11.2
+
+To use the projet follows these steps:
+
+- Git clone the `dev` branch of the repository
+- Set Up your `.env.local` file with the help on the informations located in the `.env` file
+- Run the command `php bin/console doctrine:database:create`
+- Run the command `php bin/console make:migration`
+- Run the command `php bin/console doctrine:migrations:migrate` or `php bin/console doctrine:schema:update --force`
+- Run the command `php bin/console doctrine:fixtures:load`
+- Run the command `php -S localhost:8080 -t public`
+- Open you browser and go the URL `http://localhost:8080/`
+
 ## **Database**
 
 ### **User**
@@ -268,11 +288,10 @@ Relation between **PurchaseItem** & **Purchase** :
 ROLE_ADMIN:
 
 - User:
-  - CREATE ❌ (ROLE_SUPER_ADMIN only) 
-  - READ ✅  
-  - UPDATE only for ROLE_USER except password ❌ & roles ❌ (ROLE_SUPER_ADMIN only) ✅ 
-  - DELETE ❌ (ROLE_SUPER_ADMIN only)  
-
+  - CREATE ❌ (ROLE_SUPER_ADMIN only)
+  - READ ✅
+  - UPDATE only for ROLE_USER except password ❌ & roles ❌ (ROLE_SUPER_ADMIN only) ✅
+  - DELETE ❌ (ROLE_SUPER_ADMIN only)
 
 ## Divers
 

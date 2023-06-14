@@ -27,7 +27,7 @@ class Address
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Merci de saisir un numéro de rue.')]
     #[Assert\Regex(
-        // The regex accepting only value that contain a digit number.
+        // Regex that match only value that contain a digit.
         pattern: '/\d+/',
         message: 'Merci de saisir un numéro de rue.',
     )]
@@ -57,12 +57,12 @@ class Address
     #[ORM\Column(type: 'string')]
     #[Assert\NotBlank(message: 'Merci de saisir un numéro de téléphone mobile.')]
     #[Assert\Regex(
-        // Regex that match only value that contain 10 numeric characters.
+        // Regex that match only value that contain 10 digits.
         pattern: '/^\d{10}$/',
         message: 'Merci de saisir un numéro de téléphone mobile.',
     )]
     #[Assert\Regex(
-        // Regex that match only value that start with the numeric value 06 or 07.
+        // Regex that match only value that start with the digits 06 or 07.
         pattern: '/^((06)|(07))/',
         message: 'Merci de saisir un numéro de téléphone mobile.',
     )]

@@ -16,7 +16,7 @@ const purchase = {
     );
     if (purchase.subtotalParagraph) {
       // The value in cents of the subtotal is in a HTML dataset attribut whose name is data-purchasesubtotal.
-      // We use the JavaScript parseFloat() method to convert the string value to a floating point number.
+      // We use the parseFloat() function to convert the string value to a floating point number.
       purchase.subtotal = parseFloat(
         purchase.subtotalParagraph.dataset.purchasesubtotal
       );
@@ -31,7 +31,7 @@ const purchase = {
       purchase.deliveryModeAmountFree =
         purchase.deliveryModePriceParagraph.dataset.deliveryamountfree;
       // The value in cents of the delivery mode price by default is in a HTML dataset attribut whose name is data-deliverymodebydefaultprice.
-      // We use the JavaScript parseFloat() method to convert the string value to a floating point number.
+      // We use the parseFloat() function to convert the string value to a floating point number.
       purchase.deliveryModeByDefaultPrice = parseFloat(
         purchase.deliveryModePriceParagraph.dataset.deliverymodebydefaultprice
       );
@@ -66,14 +66,14 @@ const purchase = {
     // We use the innerText property of purchase.deliveryModePriceParagraph to display the data of the HTML dataset attribute whose name is data-deliverymodeamount.
     purchase.deliveryModePriceParagraph.innerText = `${clickedInput.dataset.deliverymodeamount}`;
 
-    // We use the parseFloat() method to convert the string value of the HTML dataset attribute whose name is data-deliverymodeprice to a integer.
+    // We use the parseFloat() function to convert the string value of the HTML dataset attribute whose name is data-deliverymodeprice to a integer.
     // purchase.total have for value purchase.subtotal add to the value returned the parseFloat() methot.
     purchase.total =
       purchase.subtotal + parseFloat(clickedInput.dataset.deliverymodeprice);
     // We use the innerText property of purchase.totalParagraph to display the data returned by tools.toAmount() that we call with purchase.total in argument.
     purchase.totalParagraph.innerText = `${tools.toAmount(purchase.total)}`;
 
-    // We use the parseFloat() method to convert the string value of the HTML dataset attribute whose name is data-mincartamountforfreedelivery to a integer.
+    // We use the parseFloat() function to convert the string value of the HTML dataset attribute whose name is data-mincartamountforfreedelivery to a integer.
     // If the subtotal (the price total of the cart) is superior or equal this value.
     if (
       purchase.subtotal >=

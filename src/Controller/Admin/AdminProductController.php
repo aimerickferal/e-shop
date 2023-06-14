@@ -89,7 +89,7 @@ class AdminProductController extends AbstractController
         // If we don't find any product.
         if (!$products) {
             // We display a flash message for the user.
-            $this->addFlash('notice', 'Aucun produit. Nous vous invitons à vous en créer un.');
+            $this->addFlash('warning', 'Aucun produit. Nous vous invitons à vous en créer un.');
 
             // We redirect the user.
             return $this->redirectToRoute(

@@ -1,16 +1,16 @@
 const form = {
   numberOfErrors: null,
   // Regex
-  regexMatchTenNumericCharacters: null,
+  regexMatchTenDigits: null,
   regexMatchStartBy06Or07: null,
-  regexMatchFiveNumericCharacters: null,
+  regexMatchFiveDigits: null,
   regexMatchEmail: null,
   regexMatchAtLeastHeightCharacters: null,
   regexMatchAtLeastOneLowercase: null,
   regexMatchAtLeastOneUppercase: null,
-  regexMatchAtLeastOneNumericCharacter: null,
+  regexMatchAtLeastOneDigit: null,
   regexMatchAtLeastOneSpecialCharacter: null,
-  regexMatchNumber: null,
+  regexMatchDigit: null,
   regexMatchAtLeastTweleCharacters: null,
   // User's forms
   signUpForm: null,
@@ -246,18 +246,18 @@ const form = {
     form.regexMatchAtLeastOneLowercase = /(?=.*[a-z])/;
     // Regex that match only value that contain at least 1 uppercase alphabetical character.
     form.regexMatchAtLeastOneUppercase = /(?=.*[A-Z])/;
-    // Regex that match only value that contain at least 1 numeric character.
-    form.regexMatchAtLeastOneNumericCharacter = /(?=.*[0-9])/;
+    // Regex that match only value that contain at least 1 digit.
+    form.regexMatchAtLeastOneDigit = /(?=.*[0-9])/;
     // Regex that match only value that contain at least 1 one special character, but we are escaping reserved Regex characters to avoid conflict.
     form.regexMatchAtLeastOneSpecialCharacter = /(?=.*[!@#$%^&*])/;
-    // Regex that match only value that contain 10 numeric characters.
-    form.regexMatchTenNumericCharacters = /^\d{10}$/;
-    // Regex that match only value that start with the numeric value 06 or 07.
+    // Regex that match only value that contain 10 digits.
+    form.regexMatchTenDigits = /^\d{10}$/;
+    // Regex that match only value that start with the digits 06 or 07.
     form.regexMatchStartBy06Or07 = /^((06)|(07))/;
-    // The regex accepting only value that contain a digit number.
-    form.regexMatchNumber = /\d+/;
-    // Regex that match only value that contain 5 numeric characters.
-    form.regexMatchFiveNumericCharacters = /^\d{5}$/;
+    // Regex that match only value that contain a digit.
+    form.regexMatchDigit = /\d+/;
+    // Regex that match only value that contain 5 digits.
+    form.regexMatchFiveDigits = /^\d{5}$/;
     // Regex that match only value that contain 12 characters.
     form.regexMatchAtLeastTweleCharacters = /(?=.{12})/;
 
@@ -1297,7 +1297,10 @@ const form = {
       clickedButton === form.adminAddressCreateButton ||
       clickedButton === form.adminAddressUpdateButton
     ) {
-      form.checkIfNumber(form.addressStreetNumberInput, form.errorMessageAddressStreetNumber);
+      form.checkIfNumber(
+        form.addressStreetNumberInput,
+        form.errorMessageAddressStreetNumber
+      );
       form.checkIfAlphabeticalCharacters(
         form.addressStreetNameInput,
         form.errorMessageAddressStreetName
@@ -1507,7 +1510,7 @@ const form = {
         form.numberOfErrors++;
       }
 
-      if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
+      if (form.regexMatchAtLeastOneDigit.test(input.value)) {
         if (!form.isInputInError(input)) {
           form.switchInputOutlineColor(input, app.colors.green);
           tools.addDisplayNone(form.errorMessageUserPasswordNumber);
@@ -1573,7 +1576,7 @@ const form = {
     if (input.value) {
       tools.addDisplayNone(errorMessage);
 
-      if (form.regexMatchAtLeastOneNumericCharacter.test(input.value)) {
+      if (form.regexMatchAtLeastOneDigit.test(input.value)) {
         form.switchInputOutlineColor(input, app.colors.red);
         tools.removeDisplayNone(errorMessage);
         form.numberOfErrors++;
@@ -1753,7 +1756,7 @@ const form = {
     if (input.value) {
       tools.addDisplayNone(form.errorMessagePhoneNumber);
 
-      if (form.regexMatchTenNumericCharacters.test(input.value)) {
+      if (form.regexMatchTenDigits.test(input.value)) {
         if (!form.isInputInError(input)) {
           form.switchInputOutlineColor(input, app.colors.green);
           tools.addDisplayNone(form.errorMessagePhoneNumber);
@@ -1797,7 +1800,7 @@ const form = {
     if (input.value) {
       tools.addDisplayNone(errorMessage);
 
-      if (form.regexMatchNumber.test(input.value)) {
+      if (form.regexMatchDigit.test(input.value)) {
         form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(errorMessage);
       } else {
@@ -1827,7 +1830,7 @@ const form = {
     if (input.value) {
       tools.addDisplayNone(form.errorMessageAddressZipCode);
 
-      if (form.regexMatchFiveNumericCharacters.test(input.value)) {
+      if (form.regexMatchFiveDigits.test(input.value)) {
         form.switchInputOutlineColor(input, app.colors.green);
         tools.addDisplayNone(form.errorMessageAddressZipCode);
       } else {

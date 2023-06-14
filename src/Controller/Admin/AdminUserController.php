@@ -115,7 +115,7 @@ class AdminUserController extends AbstractController
         // If we don't find any user.
         if (!$users) {
             // We display a flash message for the user.
-            $this->addFlash('notice', 'Aucun utilisateur. Nous vous invitons à vous en créer un.');
+            $this->addFlash('warning', 'Aucun utilisateur. Nous vous invitons à vous en créer un.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -191,7 +191,7 @@ class AdminUserController extends AbstractController
         // If we don't find any admin user.
         if (!$users) {
             // We display a flash message for the user.
-            $this->addFlash('notice', 'Aucun administrateur. Nous vous invitons à vous en créer un.');
+            $this->addFlash('warning', 'Aucun administrateur. Nous vous invitons à vous en créer un.');
 
             // We redirect the user.
             return $this->redirectToRoute(
@@ -449,7 +449,7 @@ class AdminUserController extends AbstractController
         // If we don't find any user.
         if (!$users) {
             // We display a flash message for the user.
-            $this->addFlash('notice', 'Aucun utilisateur.');
+            $this->addFlash('warning', 'Aucun utilisateur.');
 
             // We redirect the user.
             return $this->redirectToRoute(
