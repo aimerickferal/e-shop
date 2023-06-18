@@ -103,14 +103,15 @@ class ContactType extends AbstractType
                 "required" => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '300k',
+                        'maxSize' => '2000k',
                         'maxSizeMessage' => 'Merci de téléverser un fichier de maximum {{ limit }} bytes.',
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'image/png',
-                            'image/jpeg'
+                        'extensions' => [
+                            'pdf',
+                            'png',
+                            'jpeg',
+                            'svg'
                         ],
-                        'mimeTypesMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
+                        'extensionsMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                     ])
                 ]
             ])

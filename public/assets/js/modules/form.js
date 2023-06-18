@@ -1714,7 +1714,7 @@ const form = {
     console.log("form.checkUploadedFileSize()");
 
     // We initialize a constant that will contain the autorized file size.
-    const authorizedFileSize = 300000;
+    const authorizedFileSize = 2000000;
 
     // We count the number of uploaded file.
     for (let index = 0; index < input.files.length; index++) {

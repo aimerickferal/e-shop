@@ -1,5 +1,20 @@
 # **Todo**
 
+- use class for titles
+- term = galatea
+- fix the header
+- add img size in % as much as possible if not use em
+- catch errors on upload
+- resize image on upload
+- TODO: solve issue on switch civilityTitle.
+- Fix delete my user account feature : id = delete-my-user-account-link
+- Stripe Checkout:
+
+  - add TVA on invoice
+  - send invoice by e-mail to user
+  - use webhook with checkout.session.completed event to backup or not the purchase
+  - set country by default to France: https://stackoverflow.com/questions/70843839/in-stripe-checkout-page-display-country-or-region-fields-how-to-remove-it/70845469#70845469
+
 - secrure routes with Role Hierarchy for user entity
 - only ROLE_ADMIN can update user roles:
   - AdminUserType.php enable display roles field only for ROLE_SUPER_ADMIN
@@ -16,15 +31,6 @@
     console.log("form.checkIfOnlyOneInputIsChecked()");
   },
 ```
-
-- text align to switch
-- use class for titles
-- term = galatea
-- fix the header
-- add img size in % as much as possible if not use em
-- catch errors on upload
-- TODO: solve issue on switch civilityTitle.
-- Fix delete my user account feature : id = delete-my-user-account-link
 
 Things to do make the project fonctional in prod:
 

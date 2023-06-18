@@ -148,9 +148,9 @@ Relations entre **Address** & **User** :
 - purchaseAt
 - updatedAt
 
-| id  | reference    | billing_address                                                       | delivery_address                                                               | subtotal | delivery_mode      | delivery_mode_price | total | checkout_method             | stripe_session_id  | status | bill     | user_id | purchased_at        | updated_at          |
-| --- | ------------ | --------------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------- | ------------------ | ------------------- | ----- | --------------------------- | ------------------ | ------ | -------- | ------- | ------------------- | ------------------- |
-| 1   | 3153c8b2b80a | Clark KENT 42 Hickory Lane 66605 - Smallville Kansas - USA 0642424242 | Clark KENT 42 Justice League street 88805 - Metropolis Kansas - USA 0642424242 | 999      | Delivery Mode Name | 999                 | 999   | Paiement par Carte Bancaire | hur783hfb99383yf30 | Payée  | bill.pdf | 1       | 2022-02-09 10:03:11 | 2022-02-09 10:03:11 |
+| id  | reference    | billing_address                                                       | delivery_address                                                               | subtotal | delivery_mode      | delivery_mode_price | total | checkout_method             | stripe_session_id                                                  | status | bill     | user_id | purchased_at        | updated_at          |
+| --- | ------------ | --------------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------- | ------------------ | ------------------- | ----- | --------------------------- | ------------------------------------------------------------------ | ------ | -------- | ------- | ------------------- | ------------------- |
+| 1   | 3153c8b2b80a | Clark KENT 42 Hickory Lane 66605 - Smallville Kansas - USA 0642424242 | Clark KENT 42 Justice League street 88805 - Metropolis Kansas - USA 0642424242 | 999      | Delivery Mode Name | 999                 | 999   | Paiement par Carte Bancaire | cs_test_a1macXCsNtn1ZPG0uMhM9D06xHtviFRkhm97Pneoa1mhd0W5OjwItyQhvk | Payée  | bill.pdf | 1       | 2022-02-09 10:03:11 | 2022-02-09 10:03:11 |
 
 Relations entre **Purchase** & **User** :
 

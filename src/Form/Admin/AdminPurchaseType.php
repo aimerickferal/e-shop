@@ -149,7 +149,7 @@ class AdminPurchaseType extends AbstractType
                             'message' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
                         ]),
                         new File([
-                            'maxSize' => '300k',
+                            'maxSize' => '2000k',
                             'maxSizeMessage' => 'Merci de télécharger un fichier de maximum {{ limit }} bytes.',
                             'mimeTypes' => [
                                 'application/pdf',
@@ -171,7 +171,7 @@ class AdminPurchaseType extends AbstractType
                     'required' => false,
                     'constraints' => [
                         new File([
-                            'maxSize' => '300k',
+                            'maxSize' => '2000k',
                             'maxSizeMessage' => 'Merci de télécharger un fichier de maximum {{ limit }} bytes.',
                             'mimeTypes' => [
                                 'application/pdf',

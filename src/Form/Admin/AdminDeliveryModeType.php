@@ -64,15 +64,15 @@ class AdminDeliveryModeType extends AbstractType
                             'message' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
                         ]),
                         new File([
-                            'maxSize' => '300k',
-                            'maxSizeMessage' => 'Merci de télécharger un fichier de maximum {{ limit }} bytes.',
-                            'mimeTypes' => [
-                                'application/pdf',
-                                'image/png',
-                                'image/jpeg',
-                                'image/svg+xml'
+                            'maxSize' => '2000k',
+                            'maxSizeMessage' => 'Merci de téléverser un fichier de maximum {{ limit }} bytes.',
+                            'extensions' => [
+                                'pdf',
+                                'png',
+                                'jpeg',
+                                'svg'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
+                            'extensionsMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ]);
@@ -86,15 +86,15 @@ class AdminDeliveryModeType extends AbstractType
                     'required' => false,
                     'constraints' => [
                         new File([
-                            'maxSize' => '300k',
-                            'maxSizeMessage' => 'Merci de télécharger un fichier de maximum {{ limit }} bytes.',
-                            'mimeTypes' => [
-                                'application/pdf',
-                                'image/png',
-                                'image/jpeg',
-                                'image/svg+xml'
+                            'maxSize' => '2000k',
+                            'maxSizeMessage' => 'Merci de téléverser un fichier de maximum {{ limit }} bytes.',
+                            'extensions' => [
+                                'pdf',
+                                'png',
+                                'jpeg',
+                                'svg'
                             ],
-                            'mimeTypesMessage' => 'Merci de télécharger un fichier au format PDF, PNG, JPEG ou SVG.'
+                            'extensionsMessage' => 'Merci de téléverser un fichier au format PDF, PNG, JPEG ou SVG.'
                         ])
                     ]
                 ]);

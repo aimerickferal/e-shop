@@ -18,7 +18,7 @@ class StripeApi
     {
         Stripe::setApiKey($this->stripeSecretKey);
         // We specify the API version that its used by the app.
-        Stripe::setApiVersion('2020-08-27');
+        Stripe::setApiVersion('2022-11-15');
     }
 
     /**
@@ -33,9 +33,30 @@ class StripeApi
     {
         // dd("StripeApi : startStripeApi()");
 
-        // We create a Stripe session.
         $session = Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [
+                array_map(fn ($product) => [
+                    'price_data' => [
+                        'currency' => 'eur',
+                        // We return the Price of each CartItem().
+                        'unit_amount' => $product->getPrice(),
+                        'product_data' => [
+                            // We return the name of each CartItem().
+                            'name' => $product->getName()
+                        ],
+                    ],
+                    // We return the quantity of each CartItem().
+                    'quantity' => $product->getQuantity(),
+                ], $cart->getItems())
+            ],
             'mode' => 'payment',
+            'automatic_tax' => [
+                'enabled' => true
+            ],
+            'invoice_creation' => [
+                'enabled' => true
+            ],
             // We set the sucess URL in order to redirect the user in the case of a successful checkout.
             'success_url' => $this->urlGeneratorInterface->generate(
                 'purchase_stripe_success',
@@ -52,38 +73,6 @@ class StripeApi
                 [],
                 UrlGeneratorInterface::ABSOLUTE_URL
             ),
-            'line_items' => [
-                array_map(fn ($product) => [
-                    'price_data' => [
-                        'currency' => 'EUR',
-                        'product_data' => [
-                            // We return the name of each CartItem().
-                            'name' => $product->getName(),
-                        ],
-                        // We return the Price of each CartItem().
-                        'unit_amount' => $product->getPrice(),
-                    ],
-                    // We return the quantity of each CartItem().
-                    'quantity' => $product->getQuantity(),
-                ], $cart->getItems())
-            ],
-            'shipping_options' => [
-                [
-                    'shipping_rate_data' => [
-                        'type' => 'fixed_amount',
-                        'fixed_amount' => [
-                            'amount' => $deliveryModePrice,
-                            'currency' => 'eur'
-                        ],
-                        // The name of the shipping rate display to the customer will be the description of the chosen delivery mode.
-                        'display_name' => $deliveryModeDescription
-                    ]
-                ],
-            ],
-            'metadata' => [
-                // We return the cart id.
-                'cart_id' => $cart->getId()
-            ]
         ]);
 
         // We return the URL generate by Stripe to make the checkout on their interface. 
