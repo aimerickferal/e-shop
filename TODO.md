@@ -1,6 +1,5 @@
 # **Todo**
 
-- use class for titles
 - term = galatea
 - fix the header
 - add img size in % as much as possible if not use em
@@ -44,7 +43,7 @@ Things to do make the project fonctional in prod:
 
 - registration
 - login
-- infinite scroolidod
+- infinite scrool
 - add 1 t shirt
 - click detail 1 t shirt add
 - search red

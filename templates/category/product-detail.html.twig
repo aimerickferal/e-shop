@@ -15,7 +15,7 @@
 		{# START: layout mobile #}
 		<div class="product-detail">
 			<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image-{{ product.name }}"/>
-			<h2>{{ product.name }}</h2>
+			<h2 class="page__h2">{{ product.name }}</h2>
 			<p>{{ product.price|amount }}</p>
 			<p>
 				{{ product.description }}
@@ -34,7 +34,7 @@
 				<img class="page__product-picture" src="{{ asset('assets/uploads/products/'~ product.picture) }}" alt="image-{{ product.name }}"/>
 			</div>
 			<div class="product-detail-property">
-				<h2>{{ product.name }}</h2>
+				<h2 class="page__h2">{{ product.name }}</h2>
 				<p>{{ product.price|amount }}</p>
 				<p>
 					{{ product.description }}

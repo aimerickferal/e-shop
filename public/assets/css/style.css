@@ -978,29 +978,28 @@ body {
     /* background-color: var(--orange); */
   }
 
-  .page h2,
-  h3,
-  h4 {
-    text-align: center;
+  .page__h2,
+  .page__h3,
+  .page__h4 {
     font-weight: bold;
   }
 
-  .page h2 {
+  .page__h2 {
     font-size: 3em;
     margin: 1em 0 0 0;
   }
 
   .page h3,
-  h4 {
+  .page__h4 {
     font-size: 1.5em;
   }
 
-  .page h3 {
+  .page__h3 {
     font-size: 1.5em;
     margin: 0 0 1em 0;
   }
 
-  .page h4 {
+  .page__h4 {
     font-size: 1.5em;
     margin: 1em 0 0;
     margin: 1em 0 0 0;
@@ -1162,23 +1161,23 @@ body {
     margin: 0 0 0 2em;
   }
 
-  .term h4 {
+  .term .page__h4 {
     text-align: left;
     font-weight: normal;
     margin: 2em 0 1em 0;
   }
 
-  .term h3 {
+  .term .page__h3 {
     text-align: left;
     font-weight: normal;
     margin: 2em 0 1em 0;
   }
 
-  .term h3:nth-child(1) {
+  .term .page__h3:nth-child(1) {
     margin: 0 0 1em 0;
   }
 
-  .term-customer-service h4 {
+  .term-customer-service .page__h4 {
     font-size: 1em;
     font-weight: normal;
     margin: 0 0 0.5em;
@@ -1194,11 +1193,11 @@ body {
     color: var(--blue);
   }
 
-  .term.term-secure-payment h3 {
+  .term.term-secure-payment .page__h3 {
     margin: 2em 0 0;
   }
 
-  .term.term-secure-payment h3:nth-child(1) {
+  .term.term-secure-payment .page__h3:nth-child(1) {
     margin: 0;
   }
 
@@ -1357,8 +1356,8 @@ body {
     height: 100%;
   }
 
-  .purchase-item-property h3,
-  .purchase-item-property-reminder h3 {
+  .purchase-item-property .page__h3,
+  .purchase-item-property-reminder .page__h3 {
     margin: 0 0 0.5em;
   }
 
@@ -1371,7 +1370,7 @@ body {
     margin: 0 auto 0;
   }
 
-  .saturn h3 {
+  .saturn .page__h3 {
     margin: 0.5em 0 0.5em;
   }
 
@@ -1469,7 +1468,7 @@ body {
     font-weight: bold;
   }
 
-  .product-property h3 {
+  .product-property .page__h3 {
     margin: 0 0 0.5em;
   }
 
@@ -1542,12 +1541,12 @@ body {
     color: var(--spanish-grey);
   }
 
-  .page h3.page__title-address-step {
+  .page .page__h3.page__title-address-step {
     margin: 0;
   }
 
-  .page h3.page__title-delivery-mode-step,
-  .page h3.page__title-checkout-method-step {
+  .page .page__h3.page__title-delivery-mode-step,
+  .page .page__h3.page__title-checkout-method-step {
     margin: 1em 0 0 0;
   }
 
@@ -1785,7 +1784,7 @@ body {
     justify-content: center;
   }
 
-  .footer h3 {
+  .footer .page__h3 {
     font-size: 1.65em;
   }
 
@@ -1905,7 +1904,7 @@ body {
   }
 
   .page__create-link {
-    width: 7%;
+    width: 9%;
   }
 
   .page__link.page__delete-my-user-account-link {

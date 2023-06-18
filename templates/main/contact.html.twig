@@ -8,14 +8,14 @@
 {# START: contact #}
 {% block body %}
 	<section class="page">
-		<h2>Informations</h2>
+		<h2 class="page__h2">Informations</h2>
 		<div class="information">
 			<p>
 				📧 Envoyer nous un e-mail :
 			</p>
 			<a class="page__link-text page__link_color_blue" id="contact-email-link" href="mailto:contact@eshop.fr">contact@eshop.fr</a>
 		</div>
-		<h2>Contactez-nous</h2>
+		<h2 class="page__h2">Contactez-nous</h2>
 		{# START: contactForm #}
 		{{ form_start(contactForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'contact-form' }}) }}
 		{# subject #}

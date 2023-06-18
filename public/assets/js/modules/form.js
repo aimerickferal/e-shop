@@ -234,10 +234,6 @@ const form = {
 
     // Regex
 
-    // The $ means: ????
-    // The +$ means: ????
-    // The *$ means: match, from beginning to end, any character that appears zero or more times. Basically, that means. match everything from start to end of the string.
-
     // Regex that match only value of type e-mail.
     form.regexMatchEmail = /^(.+)@(\S+)$/;
     // Regex that match only value that contain at least 8 characters.

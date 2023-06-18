@@ -10,7 +10,7 @@
 {# START: admin_purchase_detail #}
 {% block body %}
 	<section class="page">
-		<h2>
+		<h2 class="page__h2">
 			Commande :
 			{{ purchase.reference|upper }}
 		</h2>
@@ -67,22 +67,22 @@
 				{% endif %}
 			</div>
 			<div class="saturn saturn_border-color_blue">
-				<h3>Adresse de facturation</h3>
+				<h3 class="page__h3">Adresse de facturation</h3>
 				{% for data in billingAddress %}
 					<p>{{ data }}</p>
 				{% endfor %}
 			</div>
 			<div class="saturn saturn_border-color_blue">
-				<h3>Adresse de livraison</h3>
+				<h3 class="page__h3">Adresse de livraison</h3>
 				{% for data in deliveryAddress %}
 					<p>{{ data }}</p>
 				{% endfor %}
 			</div>
-			{# <h4>Articles commandés</h4> #}
+			{# <h4 class="page__h4">Articles commandés</h4> #}
 			{% for purchaseItem in purchaseItems %}
 				<div class="purchase-item">
 					<div class="purchase-item-property">
-						<h3>{{ purchaseItem.productName }}</h3>
+						<h3 class="page__h3">{{ purchaseItem.productName }}</h3>
 						<p>Référence :
 							{{ purchaseItem.productReference}}</p>
 						<p>{{ purchaseItem.productPrice|amount }}</p>

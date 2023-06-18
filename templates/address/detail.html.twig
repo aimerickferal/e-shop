@@ -11,7 +11,7 @@
 {# START: address_detail #}
 {% block body %}
 	<section class="page">
-		<h2>Adresse :
+		<h2 class="page__h2">Adresse :
 			{{ app.user.firstName }}
 			{{ app.user.lastName }}
 		</h2>
@@ -36,7 +36,7 @@
 					{{ address.country }}
 				</p>
 				<p>
-					{{ address.phoneNumber }}
+					{{ address.phoneNumber|phone_number }}
 				</p>
 				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('address_update', {'id': address.id}) }}">Modifier</a>
 				<a class="page__link page__delete-link page__address-delete-link page__link_background-color_red page__link_color_white" href="{{ path('address_delete', {'id': address.id, 'token':csrf_token('address-delete' ~ address.id)} ) }}" data-userfirstname="{{ address.user.firstName }}" data-userlastname="{{ address.user.lastName }}">Supprimer</a>
@@ -83,7 +83,7 @@
 					</tr>
 					<tr>
 						<th>Numéro de téléphone mobile</th>
-						<td>{{ address.phoneNumber }}</td>
+						<td>{{ address.phoneNumber|phone_number }}</td>
 					</tr>
 					<tr>
 						<th>Actions</th>

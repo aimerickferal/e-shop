@@ -8,7 +8,7 @@
 {# START: purchase #}
 {% block body %}
 	<section class="page">
-		<h2>Commande</h2>
+		<h2 class="page__h2">Commande</h2>
 		{{ form_start(purchaseCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'purchase-create-form' }}) }}
 		<h3 class="page__title-purchase-step page__title-address-step page__purchase-step" id="addresses-step">1 - Adresses 📮
 			<img class="display-none page__checked-icon page__image_color_green" id="icon-checked-addresses-step" src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="icon-checked"/>
@@ -85,7 +85,7 @@
 		{% for item in cartItems %}
 			<div class="purchase-item-reminder" id="desktop-purchase-item">
 				<div class="purchase-item-property-reminder">
-					<h3>{{ item.product.name }}</h3>
+					<h3 class="page__h3">{{ item.product.name }}</h3>
 					<p>{{ item.product.price|amount }}</p>
 					<p>
 						Quantité x

@@ -11,7 +11,7 @@
 {# START: admin_address_detail #}
 {% block body %}
 	<section class="page">
-		<h2>{{ user.firstName }}
+		<h2 class="page__h2">{{ user.firstName }}
 			{{ user.lastName }}</h2>
 		<div
 			class="neptune">
@@ -34,7 +34,7 @@
 					{{ address.country }}
 				</p>
 				<p>
-					{{ address.phoneNumber }}
+					{{ address.phoneNumber|phone_number }}
 				</p>
 				<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_detail', {'id': address.user.id}) }}">{{ address.user.email}}</a>
 				<p>
@@ -90,7 +90,7 @@
 					</tr>
 					<tr>
 						<th>Numéro de téléphone mobile</th>
-						<td>{{ address.phoneNumber }}</td>
+						<td>{{ address.phoneNumber|phone_number }}</td>
 					</tr>
 					<tr>
 						<th>Utilisateur</th>

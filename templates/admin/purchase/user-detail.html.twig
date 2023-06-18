@@ -13,7 +13,7 @@
 {# START: admin_purchase_user_detail #}
 {% block body %}
 	<section class="page">
-		<h2>Commande :
+		<h2 class="page__h2">Commande :
 			{{ purchase.reference|upper }}
 			-
 			{{ user.firstName }}
@@ -66,22 +66,22 @@
 				<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_purchase_update', {'userId': user.id, 'reference': purchase.reference}) }}?returnToAdminPurchaseUserList=true">Modifier</a>
 			</div>
 			<div class="saturn saturn_border-color_blue">
-				<h3>Adresse de facturation</h3>
+				<h3 class="page__h3">Adresse de facturation</h3>
 				{% for data in billingAddress %}
 					<p>{{ data }}</p>
 				{% endfor %}
 			</div>
 			<div class="saturn saturn_border-color_blue">
-				<h3>Adresse de livraison</h3>
+				<h3 class="page__h3">Adresse de livraison</h3>
 				{% for data in deliveryAddress %}
 					<p>{{ data }}</p>
 				{% endfor %}
 			</div>
-			{# <h4>Articles commandés</h4> #}
+			{# <h4 class="page__h4">Articles commandés</h4> #}
 			{% for purchaseItem in purchaseItems %}
 				<div class="purchase-item">
 					<div class="purchase-item-property">
-						<h3>{{ purchaseItem.productName }}</h3>
+						<h3 class="page__h3">{{ purchaseItem.productName }}</h3>
 						<p>Référence :
 							{{ purchaseItem.productReference}}</p>
 						<p>{{ purchaseItem.productPrice|amount }}</p>

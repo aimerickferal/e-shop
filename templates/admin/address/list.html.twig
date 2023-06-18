@@ -8,7 +8,7 @@
 {# START: admin_address_list #}
 {% block body %}
 	<section class="page">
-		<h2>
+		<h2 class="page__h2">
 			Adresses
 		</h2>
 		{{ form_start(addressSearchByCityForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'address-search-by-city-form' }}
@@ -49,7 +49,7 @@
 						{{ address.country }}
 					</p>
 					<p>
-						{{ address.phoneNumber }}
+						{{ address.phoneNumber|phone_number }}
 					</p>
 					<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_detail', {'id': address.user.id}) }}">{{ address.user.email}}</a>
 					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_address_detail', {'userId': address.user.id, 'addressId': address.id}) }}">Détails</a>
@@ -84,7 +84,7 @@
 							<td>{{ address.zipCode}}</td>
 							<td>{{ address.city}}</td>
 							<td>{{ address.country}}</td>
-							<td>{{ address.phoneNumber}}</td>
+							<td>{{ address.phoneNumber|phone_number}}</td>
 							<td>
 								<a class="page__text-link page__link_color_blue" href="{{ path('admin_user_detail', {'id': address.user.id}) }}">{{ address.user.email}}</a>
 							</td>

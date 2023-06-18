@@ -11,7 +11,7 @@
 {# START: address_list #}
 {% block body %}
 	<section class="page">
-		<h2>Mes Adresses</h2>
+		<h2 class="page__h2">Mes Adresses</h2>
 		{{ form_start(addressSearchByCityForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'address-search-by-city-form' }}
 		) }}
 		<div class="form-field">
@@ -50,7 +50,7 @@
 						{{ address.country }}
 					</p>
 					<p>
-						{{ address.phoneNumber }}
+						{{ address.phoneNumber|phone_number }}
 					</p>
 					<a class="page__link page__detail-link  page__link_background-color_blue page__link_color_white" href="{{ path('address_detail', {'id': address.id}) }}">Détails</a>
 					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('address_update', {'id': address.id}) }}">Modifier</a>
@@ -83,7 +83,7 @@
 							<td>{{ address.zipCode }}</td>
 							<td>{{ address.city }}</td>
 							<td>{{ address.country }}</td>
-							<td>{{ address.phoneNumber }}</td>
+							<td>{{ address.phoneNumber|phone_number }}</td>
 							<td>
 								<a class="page__link page__detail-link  page__link_background-color_blue page__link_color_white" href="{{ path('address_detail', {'id': address.id}) }}">Détails</a>
 								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('address_update', {'id': address.id}) }}">
