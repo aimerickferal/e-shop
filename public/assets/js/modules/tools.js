@@ -4,7 +4,7 @@ const tools = {
   },
   /**
    * Method that add the display-none CSS classes to one or several elements.
-   * @param {HTMLElement} element
+   * @param {Array} elements
    * @return {void}
    */
   addDisplayNone: function (...elements) {
@@ -16,7 +16,7 @@ const tools = {
   },
   /**
    * Method that remove the display-none CSS class from one or several elements to display it.
-   * @param {Array} element
+   * @param {Array} elements
    * @return {void}
    */
   removeDisplayNone: function (...elements) {
@@ -28,7 +28,7 @@ const tools = {
   },
   /**
    * Method that toggle the display-none CSS class to one or several elements to display it.
-   * @param {Array} element
+   * @param {Array} elements
    * @return {void}
    */
   toggleDisplayNone: function (...elements) {

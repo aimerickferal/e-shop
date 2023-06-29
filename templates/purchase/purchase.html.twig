@@ -10,7 +10,7 @@
 	<section class="page">
 		<h2 class="page__h2">Commande</h2>
 		{{ form_start(purchaseCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'purchase-create-form' }}) }}
-		<h3 class="page__title-purchase-step page__title-address-step page__purchase-step" id="addresses-step">1 - Adresses 📮
+		<h3 class="page__h3 page__title-purchase-step page__title-address-step page__purchase-step" id="addresses-step">1 - Adresses 📮
 			<img class="display-none page__checked-icon page__image_color_green" id="icon-checked-addresses-step" src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="icon-checked"/>
 		</h3>
 		{# billingAddress #}
@@ -36,7 +36,7 @@
 		<button type="button" class="page__purchase-step page__button page__purchase-confirm-address-button page__button_background-color_blue page__button_color_white" id="purchase-address-confirm-button">
 			Continuer
 		</button>
-		<h3 class="page__title-purchase-step page__title-delivery-mode-step page__purchase-step page__title-purchase-step_color_spanish-grey" id="delivery-mode-step">2 - Mode de livraison 📦
+		<h3 class="page__h3 page__title-purchase-step page__title-delivery-mode-step page__purchase-step page__title-purchase-step_color_spanish-grey" id="delivery-mode-step">2 - Mode de livraison 📦
 			<img class="display-none page__checked-icon page__image_color_green" id="icon-checked-delivery-mode-step" src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="icon-checked"/>
 		</h3>
 		{# deliveryMode #}
@@ -52,7 +52,7 @@
 		<button type="button" class="page__purchase-step page__button page__purchase-confirm-delivery-mode-button page__button_background-color_blue page__button_color_white display-none" id="purchase-delivery-mode-confirm-button">
 			Continuer
 		</button>
-		<h3 class="page__title-purchase-step page__title-checkout-method-step page__purchase-step page__title-purchase-step_color_spanish-grey" id="checkout-method-step">3 - Paiement Sécurisé 🔐</h3>
+		<h3 class="page__h3 page__title-purchase-step page__title-checkout-method-step page__purchase-step page__title-purchase-step_color_spanish-grey" id="checkout-method-step">3 - Paiement Sécurisé 🔐</h3>
 		{# checkoutMethod #}
 		<div class="form-field form-field-purchase-checkout-method display-none">
 			{#! TODO START: Make Paypal checkout.  #}
@@ -80,7 +80,7 @@
 		<button type="button" class="page__purchase-step page__button page__purchase-confirm-button page__button_background-color_blue page__button_color_white display-none" id="purchase-confirm-button">Commander</button>
 		{{ form_end(purchaseCreateForm) }}
 		{# END: purchaseCreateForm #}
-		<h4 class="page__title-your-cart">
+		<h4 class="page__h4 page__title-your-cart">
 			Votre Panier</h4>
 		{% for item in cartItems %}
 			<div class="purchase-item-reminder" id="desktop-purchase-item">

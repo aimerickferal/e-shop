@@ -1,5 +1,7 @@
 # **Todo**
 
+- add form.addClassToRadioOrCheckboxLabelsIfNotChecked
+
 - term = galatea
 - fix the header
 - add img size in % as much as possible if not use em

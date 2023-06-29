@@ -80,7 +80,7 @@ class UserType extends AbstractType
         // We get the data of the user.
         $user = $formEvent->getData();
 
-        // TODO: solve issue on switch civilityTitle. 
+        // TODO START: solve issue on switch civilityTitle. 
         // dump($user);
         // dd($user['civilityTitle']);
 
@@ -94,7 +94,7 @@ class UserType extends AbstractType
                 'data' => $user['civilityTitle'],
                 'expanded' => true
             ]);
-        // TODO #2 END: solve issue on switch civilityTitle.  
+        // TODO END: solve issue on switch civilityTitle.  
 
         // We set the data of the form event with the new data of the user.
         $formEvent->setData($user);

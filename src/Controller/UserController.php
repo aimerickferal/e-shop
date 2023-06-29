@@ -35,9 +35,9 @@ class UserController extends AbstractController
          */
         $user = $this->getUser();
 
-        // TODO: solve issue on switch civilityTitle.  
+        // TODO START: solve issue on switch civilityTitle.  
         // dd($user->getCivilityTitle());
-        // TODO #2 END: solve issue on switch civilityTitle.   
+        // TODO END: solve issue on switch civilityTitle.   
 
         // We create the form.
         $form = $this->createForm(UserType::class, $user);
@@ -45,10 +45,10 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // TODO #2 END: solve issue on switch civilityTitle.   
+            // TODO START: solve issue on switch civilityTitle.   
             // dump($user->getCivilityTitle());
             // dd(42);
-            // TODO #2 END: solve issue on switch civilityTitle.
+            // TODO END: solve issue on switch civilityTitle.
 
             // We upload the picture submitted by the user. 
             $picture = $fileUploader->uploadFile($form, 'upload');
@@ -101,12 +101,12 @@ class UserController extends AbstractController
                 }
             }
 
-            // TODO: solve issue on switch civilityTitle.  
+            // TODO START: solve issue on switch civilityTitle.  
             // The civility title doesn't switch normaly like all the other properties.
             // If we use onPreSubmit() in UserType.php : the civility title switch correctly to the new one. 
             // If don't use onPreSubmit() in UserType.php : the civility title doesn't switch, he keep is hold value.
             // Why we have to use onPreSubmit() so that the civility title switch correctly ? 
-            // TODO #2 END: solve issue on switch civilityTitle.    
+            // TODO END: solve issue on switch civilityTitle.    
             // }
 
             // We backup the data in the database.  

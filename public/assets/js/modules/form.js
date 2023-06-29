@@ -395,11 +395,10 @@ const form = {
     form.userCivilityTitleProfileInputs = document.querySelectorAll(
       ".form-field__user-civility-title-profile-input"
     );
-    for (let input of form.userCivilityTitleProfileInputs) {
+    for (let userCivilityTitleProfileInput of form.userCivilityTitleProfileInputs) {
       // We get the label related to the input.
-      let label = input.nextElementSibling;
-      // We call form.displayNoneInputNotChecked with the elements in argument.
-      form.displayNoneInputNotChecked(input, label);
+      let label = userCivilityTitleProfileInput.nextElementSibling;
+      form.displayNoneInputNotChecked(userCivilityTitleProfileInput, label);
     }
     form.userFirstNameInput = document.querySelector(
       ".form-field__user-first-name-input"
@@ -414,7 +413,6 @@ const form = {
       ".form-field__user-roles-input"
     );
     if (form.userRolesInputs.length > 0) {
-      // We call the form.createDivForEachInputAndLabelOfCheckField() to create a div with a form-field class for each pair of input and label.
       form.createDivForEachInputAndLabelOfCheckField(form.userRolesInputs);
     }
     form.generalTermsOfUseInput = document.querySelector(
@@ -852,7 +850,7 @@ const form = {
       // We add a listener and a handler on the click event.
       form.modifyMyUserProfileButton.addEventListener(
         "click",
-        form.handleUserProfileUpdate
+        form.handleUserUpdate
       );
     }
     form.updateMyUserProfileButton = document.getElementById(
@@ -1874,8 +1872,8 @@ const form = {
    * @param {Event} event
    * @return {void}
    */
-  handleUserProfileUpdate: function (event) {
-    console.log("form.handleUserProfileUpdate()");
+  handleUserUpdate: function (event) {
+    console.log("form.handleUserUpdate()");
 
     // We get the DOM element form which the event occured.
     const clickedButton = event.currentTarget;
@@ -1895,16 +1893,10 @@ const form = {
         form.userCivilityTitleWomanInput,
         form.userGenderWomanLabel
       );
-    } else if (clickedButton === form.updateMyUserProfileButton) {
-      tools.addDisplayNone(
-        form.modifyMyUserProfileButton,
-        form.deleteMyUserPictureLink
-        // form.deleteMyUserAccountLink
-      );
     }
   },
   /**
-   * Method that display only the inputs that are checked.
+   * Method that display only the checked inputs.
    * @param {HTMLInputElement} input
    * @param {HTMLLabelElement} label
    * @return {void}
