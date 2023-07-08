@@ -49,11 +49,12 @@ class FileUploader
             $uploadedFile->move($this->getUploadFolderPath($form->getName()), $safeFileName);
         }
         // We catch the errors.
-        catch (FileException $errors) {
-            // TODO START: catch errors on upload
-
-            // TODO END: catch errors on upload
+        catch (FileException $fileException) {
+            // We throw a 400 Bad Request response status code.  
+            http_response_code(400);
+            exit();
         }
+
         // We return the name of the uploaded file just in case we need it.
         return $safeFileName;
     }

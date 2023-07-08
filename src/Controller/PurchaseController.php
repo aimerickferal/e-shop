@@ -142,10 +142,7 @@ class PurchaseController extends AbstractController
             $purchase
                 ->setSubtotal($this->cart->getTotal())
                 ->setDeliveryModePrice($deliveryModePrice)
-                ->setTotal($this->cart->getTotal() + $deliveryModePrice)
-                // The status and the bill of the purchase are set accordingly to the fact that its not confirmed yet. 
-                ->setStatus(Purchase::STATUS_PENDING_CHECKOUT)
-                ->setBill(Purchase::BILL_BY_DEFAULT);
+                ->setTotal($this->cart->getTotal() + $deliveryModePrice);
 
             // We put the data on hold.
             $this->entityManagerInterface->persist($purchase);
@@ -394,11 +391,11 @@ class PurchaseController extends AbstractController
         // We find the purchase by its reference. 
         $purchase = $this->purchaseRepository->findOneBy(['reference' => $request->attributes->get('reference')]);
 
-        // If the purchase doesn't exist or the user of the purchase is not identical to the logged in user or the status of the purchase not identical to the value of the PHP constant STATUS_PENDING_CHECKOUT.
+        // If the purchase doesn't exist or the user of the purchase is not identical to the logged in user or the status of the purchase not identical to the value of the PHP constant STATUS_PENDING.
         if (
             !$purchase ||
             $purchase->getUser() !== $user ||
-            $purchase->getStatus() !== Purchase::STATUS_PENDING_CHECKOUT
+            $purchase->getStatus() !== Purchase::STATUS_PENDING
         ) {
             // We redirect the user.
             return $this->redirectToRoute(

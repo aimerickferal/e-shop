@@ -52,7 +52,6 @@ class PurchaseType extends AbstractType
                 'choices' => [
                     Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE => Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE,
                     Purchase::CHECKOUT_METHOD_PAYPAL => Purchase::CHECKOUT_METHOD_PAYPAL
-                    // Purchase::CHECKOUT_PENDING => Purchase::CHECKOUT_PENDING,
                 ],
                 'choice_attr' => [
                     Purchase::CHECKOUT_METHOD_CARD_WITH_STRIPE => [
@@ -64,9 +63,6 @@ class PurchaseType extends AbstractType
                         'class' => 'form-field__purchase-checkout-method-input form-field__paypal-input',
                         'data-value' => Purchase::CHECKOUT_METHOD_PAYPAL
                     ]
-                    // Purchase::CHECKOUT_PENDING => [
-                    //     'class' => 'form-field__pending-checkout-input display-none',
-                    // ],
                 ],
                 'data' =>  null,
                 'expanded' => true,
@@ -84,6 +80,8 @@ class PurchaseType extends AbstractType
                     ])
                 ]
             ])
+            ->add('bill', HiddenType::class, [])
+            ->add('status', HiddenType::class, [])
             ->add('reference', HiddenType::class, []);
     }
 
@@ -156,8 +154,15 @@ class PurchaseType extends AbstractType
         // We get the data of the purchase.
         $purchase = $formEvent->getData();
 
-        // We set the reference property of the purchase. 
-        $purchase['reference'] = bin2hex(random_bytes(6));
+        // If the submit doesn't contain a purchase with a reference.
+        if (!$purchase['reference']) {
+            // We set the reference property of the purchase.
+            $purchase['reference'] = bin2hex(random_bytes(6));
+            // We set the status of the purchase.
+            $purchase['status'] = Purchase::STATUS_PENDING;
+            // We set the bill of the purchase.
+            $purchase['bill'] = Purchase::BILL_BY_DEFAULT;
+        }
 
         // We set the data of the event with the new data of the purchase.
         $formEvent->setData($purchase);

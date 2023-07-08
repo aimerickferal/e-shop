@@ -17,15 +17,6 @@
 			{{ user.lastName }}
 		</h2>
 		{{ form_start(adminPurchaseCreateForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form form-purchase', 'id': 'admin-purchase-create-form' }}) }}
-		{# status #}
-		<div class="form-field">
-			{{ form_label(adminPurchaseCreateForm, 'Statut:', { 'label_attr': { 'class': 'form-field__label' }}) }}
-			{{ form_widget(adminPurchaseCreateForm.status) }}
-			<p class="error-message error-message_color_red error-message-purchase-status-not-checked display-none">
-				Merci de sélectionner un statut.
-			</p>
-			{{ form_errors(adminPurchaseCreateForm.status) }}
-		</div>
 		{# billingAddress #}
 		<div class="form-field form-field-address">
 			{{ form_label(adminPurchaseCreateForm, 'Adresse de facturation:', { 'label_attr': { 'class': 'form-field__label' }}) }}

@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CategorySearchByName
 {
     // Proprietes availables in the object.
-    #[Assert\NotBlank(message: 'Merci de saisir un nom.')]
+    #[Assert\NotBlank(message: 'Merci de sélectionner une catégorie.')]
     public $name;
 
     public function __toString()

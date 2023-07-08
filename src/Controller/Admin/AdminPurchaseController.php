@@ -106,8 +106,7 @@ class AdminPurchaseController extends AbstractController
             $purchase
                 ->setSubtotal($cart->getTotal())
                 ->setDeliveryModePrice(DeliveryMode::DELIVERY_PRICE_FREE)
-                ->setTotal($purchase->getSubtotal() + DeliveryMode::DELIVERY_PRICE_FREE)
-                ->setCheckoutMethod(Purchase::CHECKOUT_METHOD_DISPOSAL);
+                ->setTotal($purchase->getSubtotal() + DeliveryMode::DELIVERY_PRICE_FREE);
 
             // For each $cartItems in $cart->getItems().
             foreach ($cart->getItems() as $cartItems) {
@@ -355,7 +354,7 @@ class AdminPurchaseController extends AbstractController
             // We set a array of optional data.
             [
                 'user' => $user,
-                'purchaseSearchForm' => $form->createView(),
+                'purchaseSearchByReferenceForm' => $form->createView(),
                 'purchases' => $purchases,
                 'statusPaid' => Purchase::STATUS_PAID,
                 'statusInProgress' => Purchase::STATUS_IN_PROGRESS,

@@ -1,6 +1,6 @@
 # **Todo**
 
-- add form.addClassToRadioOrCheckboxLabelsIfNotChecked
+- add Stripe webhooks
 
 - term = galatea
 - fix the header

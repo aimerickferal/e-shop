@@ -42,6 +42,10 @@
 					{% elseif product.availability == unavailable %}
 						<p class="availability unavailable availability__unavailable_color_red">Indisponible</p>
 					{% endif %}
+					<p>Créer le
+						{{ product.createdAt|format_datetime('short', 'none', locale='fr') }}</p>
+					<p>Mis à jour le
+						{{ product.updatedAt|format_datetime('short', 'none', locale='fr') }}</p>
 					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_product_detail', {'slug': product.slug}) }}">Détails</a>
 					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminProductList=true">Modifier</a>
 					<a class="page__link page__delete-link page__delete-product-link page__link_background-color_red page__link_color_white" href="{{ path('admin_product_delete', {'id':product.id, 'token':csrf_token('admin-product-delete' ~ product.id)} ) }}" data-productname="{{ product.name }}">Supprimer</a>
@@ -58,6 +62,8 @@
 						<th>Référence</th>
 						<th>Prix</th>
 						<th>Disponibilité</th>
+						<th>Crée le</th>
+						<th>Mis à jour le</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -76,6 +82,8 @@
 							{% elseif product.availability == unavailable %}
 								<td class="availability unavailable availability__unavailable_color_red">Indisponible</td>
 							{% endif %}
+							<td>{{ product.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+							<td>{{ product.updatedAt|format_datetime('short', 'none', locale='fr') }}</td>
 							<td>
 								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_product_detail', {'slug': product.slug}) }}">Détails</a>
 								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_product_update', {'slug': product.slug}) }}?returnToAdminProductList=true">Modifier</a>

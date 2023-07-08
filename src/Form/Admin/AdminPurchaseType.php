@@ -32,43 +32,13 @@ class AdminPurchaseType extends AbstractType
             ->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'onPreSetData'])
             // We use the addEventlistener method on PRE_SUBMIT to check the data of some fields, before submitting the data to the form.
             ->addEventListener(FormEvents::PRE_SUBMIT, [$this, 'onPreSubmit'])
-            ->add('status', ChoiceType::class, [
-                'choices' => [
-                    Purchase::STATUS_PAID => Purchase::STATUS_PAID,
-                    Purchase::STATUS_IN_PROGRESS => Purchase::STATUS_IN_PROGRESS,
-                    Purchase::STATUS_SEND => Purchase::STATUS_SEND,
-                    Purchase::STATUS_DELIVER => Purchase::STATUS_DELIVER,
-                    Purchase::STATUS_ANNUL => Purchase::STATUS_ANNUL
-                ],
-                'choice_attr' => [
-                    Purchase::STATUS_PAID => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-paid-input'
-                    ],
-                    Purchase::STATUS_IN_PROGRESS => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-in-progress-input'
-                    ],
-                    Purchase::STATUS_SEND => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-send-input'
-                    ],
-                    Purchase::STATUS_DELIVER => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-deliver-input'
-                    ],
-                    Purchase::STATUS_ANNUL => [
-                        'class' => 'form-field__purchase-status-input form-field__purchase-status-annul-input'
-                    ]
-                ],
-                'expanded' => true,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci de sélectionner un statut.'
-                    ])
-                ]
-            ])
             ->add('billingAddress', HiddenType::class, [])
             ->add('deliveryAddress', HiddenType::class, [])
             ->add('deliveryMode', HiddenType::class, [])
-            ->add('reference', HiddenType::class, [])
-            ->add('bill', HiddenType::class, []);
+            ->add('checkoutMethod', HiddenType::class, [])
+            ->add('status', HiddenType::class, [])
+            ->add('bill', HiddenType::class, [])
+            ->add('reference', HiddenType::class, []);
     }
 
     /**
@@ -166,6 +136,38 @@ class AdminPurchaseType extends AbstractType
         else {
             // We dynamically add the fields that will be required for the update form.
             $form
+                ->add('status', ChoiceType::class, [
+                    'choices' => [
+                        Purchase::STATUS_PAID => Purchase::STATUS_PAID,
+                        Purchase::STATUS_IN_PROGRESS => Purchase::STATUS_IN_PROGRESS,
+                        Purchase::STATUS_SEND => Purchase::STATUS_SEND,
+                        Purchase::STATUS_DELIVER => Purchase::STATUS_DELIVER,
+                        Purchase::STATUS_ANNUL => Purchase::STATUS_ANNUL
+                    ],
+                    'choice_attr' => [
+                        Purchase::STATUS_PAID => [
+                            'class' => 'form-field__purchase-status-input form-field__purchase-status-paid-input'
+                        ],
+                        Purchase::STATUS_IN_PROGRESS => [
+                            'class' => 'form-field__purchase-status-input form-field__purchase-status-in-progress-input'
+                        ],
+                        Purchase::STATUS_SEND => [
+                            'class' => 'form-field__purchase-status-input form-field__purchase-status-send-input'
+                        ],
+                        Purchase::STATUS_DELIVER => [
+                            'class' => 'form-field__purchase-status-input form-field__purchase-status-deliver-input'
+                        ],
+                        Purchase::STATUS_ANNUL => [
+                            'class' => 'form-field__purchase-status-input form-field__purchase-status-annul-input'
+                        ]
+                    ],
+                    'expanded' => true,
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'Merci de sélectionner un statut.'
+                        ])
+                    ]
+                ])
                 ->add('upload', FileType::class, [
                     'mapped' => false,
                     'required' => false,
@@ -201,8 +203,14 @@ class AdminPurchaseType extends AbstractType
 
         // If the submit doesn't contain a purchase with a reference.
         if (!$purchase['reference']) {
-            // We set the reference property.
+            // We set the reference property of the purchase.
             $purchase['reference'] = bin2hex(random_bytes(6));
+            // We set the status of the purchase.
+            $purchase['status'] = Purchase::STATUS_IN_PROGRESS;
+            // We set the checkout method of the purchase.
+            $purchase['checkoutMethod'] = Purchase::CHECKOUT_METHOD_DISPOSAL;
+            // We set the bill of the purchase.
+            $purchase['bill'] = Purchase::BILL_BY_DEFAULT;
         }
 
         // We set the data of the form event with the new data of the product.

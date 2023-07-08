@@ -164,7 +164,7 @@ class CartController extends AbstractController
         // We find the purchase by is status.
         $purchase = $purchaseRepository->findOneBy(
             [
-                'status' => Purchase::STATUS_PENDING_CHECKOUT,
+                'status' => Purchase::STATUS_PENDING,
 
             ]
         );

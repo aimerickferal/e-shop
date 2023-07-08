@@ -37,6 +37,10 @@
 					<p>{{ deliveryMode.price|amount }}</p>
 					<p>Offert à partir de
 						{{ deliveryMode.minCartAmountForFreeDelivery|amount }}</p>
+					<p>Créer le
+						{{ deliveryMode.createdAt|format_datetime('short', 'none', locale='fr') }}</p>
+					<p>Mis à jour le
+						{{ deliveryMode.updatedAt|format_datetime('short', 'none', locale='fr') }}</p>
 					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_delivery_mode_detail', {'id': deliveryMode.id}) }}">Détails</a>
 					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_delivery_mode_update', {'id': deliveryMode.id}) }}">Modifier</a>
 					<a class="page__link page__delete-link page__delivery-mode-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_delivery_mode_delete', {'id':deliveryMode.id, 'token':csrf_token('admin-delivery-mode-delete' ~ deliveryMode.id)} ) }}" data-deliverymodename="{{ deliveryMode.name }}">Supprimer</a>
@@ -52,6 +56,8 @@
 						<th>Description</th>
 						<th>Prix</th>
 						<th>Offert à partir de</th>
+						<th>Crée le</th>
+						<th>Mis à jour le</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -65,7 +71,8 @@
 							<td>{{ deliveryMode.description }}</td>
 							<td>{{ deliveryMode.price|amount }}</td>
 							<td>{{ deliveryMode.minCartAmountForFreeDelivery|amount }}</td>
-
+							<td>{{ deliveryMode.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+							<td>{{ deliveryMode.updatedAt|format_datetime('short', 'none', locale='fr') }}</td>
 							<td>
 								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_delivery_mode_detail', {'id': deliveryMode.id}) }}">Détails</a>
 								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_delivery_mode_update', {'id': deliveryMode.id}) }}">Modifier</a>

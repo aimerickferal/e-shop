@@ -72,6 +72,7 @@ const form = {
   generalTermsOfUseInput: null,
   // Category's inputs
   categoryNameInput: null,
+  categorySearchByNameInput: null,
   // Product's inputs
   productNameInput: null,
   productPictureInput: null,
@@ -114,6 +115,16 @@ const form = {
   phoneNumberInput: null,
   contactMessageInput: null,
   contactFileInput: null,
+  // Labels
+  userCivilityTitleLabels: [],
+  generalTermsOfUseLabels: [],
+  generalTermsOfSaleLabels: [],
+  contactSubjectLabels: [],
+  productCategoryLabels: [],
+  purchaseBillingAddressLabels: [],
+  purchaseDeliveryAddressLabels: [],
+  purchaseDeliveryModeLabels: [],
+  purchaseCheckoutMethodLabels: [],
   // Error messages contact
   errorMessageContactFileMimeType: null,
   errorMessageContactFileSize: null,
@@ -133,6 +144,7 @@ const form = {
   errorMessageUserGenderNotChecked: null,
   // Category's error messages
   errorMessageCategoryName: null,
+  errorMessageCategoryNameNotSelect: null,
   // Product's error messages
   errorMessageProductName: null,
   errorMessageProductPictureMimeType: null,
@@ -275,7 +287,7 @@ const form = {
 
     // Category's forms
     form.adminCategoryCreateForm = document.getElementById(
-      "admin-create-category-form"
+      "admin-category-create-form"
     );
     form.adminCategoryUpdateForm = document.getElementById(
       "admin-category-update-form"
@@ -375,6 +387,12 @@ const form = {
     form.userCivilityTitleInputs = document.querySelectorAll(
       ".form-field__user-civility-title-input"
     );
+    for (let userCivilityTitleInput of form.userCivilityTitleInputs) {
+      // We push each label related to the input to the array.
+      form.userCivilityTitleLabels.push(
+        userCivilityTitleInput.nextElementSibling
+      );
+    }
     form.userCivilityTitleManInput = document.querySelector(
       ".form-field__user-civility-title-man-input"
     );
@@ -418,10 +436,19 @@ const form = {
     form.generalTermsOfUseInput = document.querySelector(
       ".form-field__general-terms-of-use-input"
     );
+    if (form.generalTermsOfUseInput) {
+      // We push in the array the label related to the input.
+      form.generalTermsOfUseLabels.push(
+        form.generalTermsOfUseInput.nextElementSibling
+      );
+    }
 
     // Category's inputs
     form.categoryNameInput = document.querySelector(
       ".form-field__category-name-input"
+    );
+    form.categorySearchByNameInput = document.querySelector(
+      ".form-field__category-search-by-name-input"
     );
 
     // Product's inputs
@@ -484,6 +511,10 @@ const form = {
       form.createDivForEachInputAndLabelOfCheckField(
         form.productCategoryInputs
       );
+    }
+    for (let productCategoryInput of form.productCategoryInputs) {
+      // We push each label related to the input to the array.
+      form.productCategoryLabels.push(productCategoryInput.nextElementSibling);
     }
 
     // Address's inputs
@@ -588,6 +619,13 @@ const form = {
         form.purchaseBillingAddressInputs
       );
     }
+    for (let purchaseBillingAddressInput of form.purchaseBillingAddressInputs) {
+      // We push each label related to the input to the array.
+      form.purchaseBillingAddressLabels.push(
+        purchaseBillingAddressInput.nextElementSibling
+      );
+    }
+
     form.purchaseDeliveryAddressInputs = document.querySelectorAll(
       ".form-field__purchase-delivery-address-input"
     );
@@ -597,12 +635,25 @@ const form = {
         form.purchaseDeliveryAddressInputs
       );
     }
+    for (let purchaseDeliveryAddressInput of form.purchaseDeliveryAddressInputs) {
+      // We push each label related to the input to the array.
+      form.purchaseDeliveryAddressLabels.push(
+        purchaseDeliveryAddressInput.nextElementSibling
+      );
+    }
     form.purchaseDeliveryModeInputs = document.querySelectorAll(
       ".form-field__purchase-delivery-mode-input"
     );
-    for (let input of form.purchaseDeliveryModeInputs) {
+    for (let purchaseDeliveryModeInput of form.purchaseDeliveryModeInputs) {
       // We add a listener and a handler on the click event on each of the input.
-      input.addEventListener("input", purchase.handleDeliveryModeInputs);
+      purchaseDeliveryModeInput.addEventListener(
+        "input",
+        purchase.handleDeliveryModeInputs
+      );
+      // We push each label related to the input to the array.
+      form.purchaseDeliveryModeLabels.push(
+        purchaseDeliveryModeInput.nextElementSibling
+      );
     }
     if (form.purchaseDeliveryModeInputs.length > 0) {
       // We call the form.createDivForEachInputAndLabelOfCheckField() to create a div with a form-field class for each pair of input and label.
@@ -623,12 +674,24 @@ const form = {
       // We call form.createImgTagForPaymentMethodPicture() to create a HTML img tag before each checkout method field label.
       form.createImgTagForPaymentMethodPicture();
     }
+    for (let purchaseCheckoutMethodInput of form.purchaseCheckoutMethodInputs) {
+      // We push each label related to the input to the array.
+      form.purchaseCheckoutMethodLabels.push(
+        purchaseCheckoutMethodInput.nextElementSibling
+      );
+    }
     form.purchaseBillInput = document.querySelector(
       ".form-field__purchase-bill-input"
     );
     form.generalTermsOfSaleInput = document.querySelector(
       ".form-field__general-terms-of-sale-input"
     );
+    if (form.generalTermsOfSaleInput) {
+      // We push in the array the label related to the input.
+      form.generalTermsOfSaleLabels.push(
+        form.generalTermsOfSaleInput.nextElementSibling
+      );
+    }
     form.purchasePendingCheckoutInput = document.querySelector(
       ".form-field__pending-checkout-input"
     );
@@ -662,6 +725,10 @@ const form = {
     if (form.contactSubjectInputs) {
       // We call the form.createDivForEachInputAndLabelOfCheckField() to create a div with a form-field class for each pair of input and label.
       form.createDivForEachInputAndLabelOfCheckField(form.contactSubjectInputs);
+      // We push in the array the label related to the input.
+      form.contactSubjectLabels.push(
+        form.contactSubjectInputs.nextElementSibling
+      );
     }
     form.phoneNumberInput = document.querySelector(
       ".form-field__phone-number-input"
@@ -717,6 +784,9 @@ const form = {
     // Category's error messages
     form.errorMessageCategoryName = document.querySelector(
       ".error-message-category-name"
+    );
+    form.errorMessageCategoryNameNotSelect = document.querySelector(
+      ".error-message-category-name-not-select"
     );
 
     // Product's error messages
@@ -1120,6 +1190,10 @@ const form = {
         form.userCivilityTitleInputs,
         form.errorMessageUserGenderNotChecked
       );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.userCivilityTitleLabels,
+        form.errorMessageUserGenderNotChecked
+      );
     }
 
     if (
@@ -1154,6 +1228,10 @@ const form = {
         form.generalTermsOfUseInput,
         form.errorMessageGeneralTermsOfUseNotChecked
       );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.generalTermsOfUseLabels,
+        form.errorMessageGeneralTermsOfUseNotChecked
+      );
       form.submitFormIfNoError(form.signUpForm);
     }
 
@@ -1168,6 +1246,10 @@ const form = {
     if (clickedButton === form.contactButton) {
       form.checkIfInputIsChecked(
         form.contactSubjectInputs,
+        form.errorMessageContactSubjectNotChecked
+      );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.contactSubjectLabels,
         form.errorMessageContactSubjectNotChecked
       );
       form.checkIfInputContainValue(
@@ -1202,8 +1284,7 @@ const form = {
 
     if (
       clickedButton === form.adminCategoryCreateButton ||
-      clickedButton === form.adminCategoryUpdateButton ||
-      clickedButton === form.categorySearchButton
+      clickedButton === form.adminCategoryUpdateButton
     ) {
       form.checkIfInputContainValue(
         form.categoryNameInput,
@@ -1220,6 +1301,10 @@ const form = {
     }
 
     if (clickedButton === form.categorySearchButton) {
+      form.checkIfInputContainValue(
+        form.categorySearchByNameInput,
+        form.errorMessageCategoryNameNotSelect
+      );
       form.submitFormIfNoError(form.categorySearchByNameForm);
     }
 
@@ -1256,6 +1341,10 @@ const form = {
       );
       form.checkIfInputIsChecked(
         form.productCategoryInputs,
+        form.errorMessageCategoryProductNotChecked
+      );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.productCategoryLabels,
         form.errorMessageCategoryProductNotChecked
       );
     }
@@ -1330,11 +1419,12 @@ const form = {
       form.submitFormIfNoError(form.addressSearchByCityForm);
     }
 
-    if (
-      clickedButton === form.adminPurchaseCreateButton ||
-      clickedButton === form.adminPurchaseUpdateButton
-    ) {
+    if (clickedButton === form.adminPurchaseUpdateButton) {
       form.checkIfInputIsChecked(
+        form.purchaseStatusInputs,
+        form.errorMessagePurchaseStatusNotChecked
+      );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
         form.purchaseStatusInputs,
         form.errorMessagePurchaseStatusNotChecked
       );
@@ -1345,12 +1435,24 @@ const form = {
         form.purchaseBillingAddressInputs,
         form.errorMessagePurchaseBillingAddressNotChecked
       );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.purchaseBillingAddressLabels,
+        form.errorMessagePurchaseBillingAddressNotChecked
+      );
       form.checkIfInputIsChecked(
         form.purchaseDeliveryAddressInputs,
         form.errorMessagePurchaseDeliveryAddressNotChecked
       );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.purchaseDeliveryAddressLabels,
+        form.errorMessagePurchaseDeliveryAddressNotChecked
+      );
       form.checkIfInputIsChecked(
         form.purchaseDeliveryModeInputs,
+        form.errorMessagePurchaseDeliveryModeNotChecked
+      );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.purchaseDeliveryModeLabels,
         form.errorMessagePurchaseDeliveryModeNotChecked
       );
       form.checkUploadedFileMimeType(
@@ -1952,8 +2054,16 @@ const form = {
         form.purchaseBillingAddressInputs,
         form.errorMessagePurchaseBillingAddressNotChecked
       );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.purchaseBillingAddressLabels,
+        form.errorMessagePurchaseBillingAddressNotChecked
+      );
       form.checkIfInputIsChecked(
         form.purchaseDeliveryAddressInputs,
+        form.errorMessagePurchaseDeliveryAddressNotChecked
+      );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.purchaseDeliveryAddressLabels,
         form.errorMessagePurchaseDeliveryAddressNotChecked
       );
       // The purchase multi-step form contain at least one error beacause at least one of the billing address input or the delivery address input are not checked.
@@ -2035,6 +2145,10 @@ const form = {
         form.purchaseDeliveryModeInputs,
         form.errorMessagePurchaseDeliveryModeNotChecked
       );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.purchaseDeliveryModeLabels,
+        form.errorMessagePurchaseDeliveryModeNotChecked
+      );
       // The purchase multi-step form contain one error beacause the delivery mode input is not checked.
       if (form.numberOfErrors > 0) {
         // We reset the number of errors counter for the next submit control.
@@ -2100,8 +2214,16 @@ const form = {
         form.purchaseCheckoutMethodInputs,
         form.errorMessagePurchaseCheckoutMethodNotChecked
       );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.purchaseCheckoutMethodLabels,
+        form.errorMessagePurchaseCheckoutMethodNotChecked
+      );
       form.checkIfInputIsChecked(
         form.generalTermsOfSaleInput,
+        form.errorMessageGeneralTermsOfSaleNotChecked
+      );
+      form.addClassToRadioOrCheckboxLabelsIfNotChecked(
+        form.generalTermsOfSaleLabels,
         form.errorMessageGeneralTermsOfSaleNotChecked
       );
       // We extract the index of each inputs by counting them from the lenght of form.purchaseCheckoutMethodInputs in order to know their positions and act accordingly to the value of each. .
@@ -2193,7 +2315,7 @@ const form = {
    * @return {void}
    */
   createImgTagForDeliveryModePicture: function () {
-    console.log("form.createImgTagForDeliveryModePicture()");
+    // console.log("form.createImgTagForDeliveryModePicture()");
 
     // We get the div in which all the delivery modes fields are store.
     const deliveryModeField =
@@ -2221,7 +2343,7 @@ const form = {
    * @return {void}
    */
   displayDeliveryModePicture: function () {
-    console.log("form.displayDeliveryModePictures()");
+    // console.log("form.displayDeliveryModePictures()");
 
     // The database value of the picture is in a HTML dataset attribut whose name is data-pictures.
     // We use the JSON.parse() method to convert the string value to a object.
@@ -2253,7 +2375,7 @@ const form = {
    * @return {void}
    */
   createImgTagForPaymentMethodPicture: function () {
-    console.log("form.createImgTagForPaymentMethodPicture()");
+    // console.log("form.createImgTagForPaymentMethodPicture()");
 
     // We get the div in which all the checkout methodes fields are store.
     const purchaseConfirmPayementMethod = document.getElementById(
@@ -2315,7 +2437,7 @@ const form = {
    * @return {void}
    */
   displayPaymentMethodPicture: function () {
-    console.log("form.displayPaymentMethodPicture()");
+    // console.log("form.displayPaymentMethodPicture()");
 
     // We get all the images by their class name.
     const imgs = document.querySelectorAll(".page__logo-checkout-method");
@@ -2340,6 +2462,27 @@ const form = {
 
     for (let input of inputs) {
       input.removeAttribute("disabled");
+    }
+  },
+  /**
+   * Methot that add a CSS class to one or several labels if they're not checked.
+   *
+   * @param {Array} labels
+   * @param {HTMLParagraphElement} errorMessage
+   * @return {void}
+   */
+  addClassToRadioOrCheckboxLabelsIfNotChecked: function (labels, errorMessage) {
+    // console.log("form.addClassToRadioOrCheckboxLabelsIfNotChecked()");
+
+    for (let label of labels) {
+      // If the error message related to the inputs contains the display-none class that mean they have been checked. There is no error so we remove the CSS class related to the error case.
+      if (errorMessage.classList.contains("display-none")) {
+        tools.removeClassesFromElement(label, "form-field__label_color_red");
+      }
+      // Else the error message related to the inputs doesn't contains the display-none class which mean that they have not been checked. So we need to add the CSS class related to the error case for each labels.
+      else {
+        tools.addClassesToElement(label, "form-field__label_color_red");
+      }
     }
   },
   /**

@@ -986,6 +986,7 @@ body {
 
   .page__h2 {
     font-size: 3em;
+    text-align: center;
     margin: 1em 0 0 0;
   }
 
@@ -1080,14 +1081,26 @@ body {
     margin: 0;
   }
 
-  .form-field li {
+  .form-field li,
+  .form-select-field li {
     margin: 0.25em 0 0;
     color: var(--red);
+  }
+
+  .form-select-field {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
   }
 
   .form-field__label {
     cursor: pointer;
     font-weight: bold;
+  }
+
+  .form-field__label_color_red {
+    color: var(--red);
   }
 
   .form-field__general-terms-of-use-label,
@@ -1705,6 +1718,10 @@ body {
   .page__button.page__purchase-step {
     width: 25%;
   }
+
+  .form-purchase .page__button {
+    width: 25%;
+  }
   /* ============================================================ */
   /* ======================= END: BUTTONS ======================= */
   /* ============================================================ */
@@ -1811,6 +1828,14 @@ body {
 
   .form {
     width: 45%;
+  }
+
+  .form-select-field {
+    all: unset;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
   }
 
   .saturn {

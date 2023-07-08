@@ -20,7 +20,7 @@ class Purchase
     public const CHECKOUT_METHOD_DISPOSAL = 'Commande interne';
 
     // The differents status.
-    public const STATUS_PENDING_CHECKOUT = 'En attente de paiment';
+    public const STATUS_PENDING = 'En attente de paiment';
     // const STATUS_ABANDONNED_CHECKOUT = 'Paiement abandonné';
     public const STATUS_PAID = 'Payée';
     public const STATUS_IN_PROGRESS = 'En cours de préparation';

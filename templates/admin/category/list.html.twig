@@ -11,12 +11,11 @@
 		<h2 class="page__h2">Catégories</h2>
 		{{ form_start(categorySearchByNameForm, { 'attr': { 'novalidate': 'novalidate', 'class': 'form', 'id': 'category-search-by-name-form' }}
 		) }}
-		<div class="form-field">
-			{{ form_label(categorySearchByNameForm, 'Rechercher par nom:', { 'label_attr': { 'class': 'form-field__label form-field__category-name-label display-none' }}) }}
-
-			{{ form_widget(categorySearchByNameForm.name, { 'id': 'category-name-input', 'attr': {'class': 'form-field__input form-field__category-name-input form-field__input_color_black', 'placeholder': '🔍 Rechercher par nom' }}) }}
-			<p class="error-message error-message_color_red error-message-category-name display-none">
-				Merci de saisir un nom.
+		<div class="form-select-field">
+			{{ form_label(categorySearchByNameForm, 'Sélectionner une catégorie:', { 'label_attr': { 'class': 'form-field__label form-field__category-name-label display-none' }}) }}
+			{{ form_widget(categorySearchByNameForm.name) }}
+			<p class="error-message error-message_color_red error-message-category-name-not-select display-none">
+				Merci de sélectionner une catégorie.
 			</p>
 			{{ form_errors(categorySearchByNameForm.name) }}
 		</div>
@@ -33,6 +32,10 @@
 					<p>{{ category.name }}</p>
 					<a class="page__text-link page__link_color_blue" href="{{ path('admin_category_product_list', {'slug': category.slug}) }}">Liste  des
 						{{ category.name }}s</a>
+					<p>Créer le
+						{{ category.createdAt|format_datetime('short', 'none', locale='fr') }}</p>
+					<p>Mis à jour le
+						{{ category.updatedAt|format_datetime('short', 'none', locale='fr') }}</p>
 					<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_category_detail', {'slug': category.slug}) }}">Détails</a>
 					<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_category_update', {'slug': category.slug}) }}">Modifier</a>
 					<a class=" page__link page__delete-link page__category-delete-link page__link_background-color_red page__link_color_white" href="{{ path('admin_category_delete', {'id':category.id, 'token':csrf_token('admin-category-delete' ~ category.id)} ) }}" data-categoryname="{{ category.name }}">Supprimer</a>
@@ -45,6 +48,8 @@
 					<tr>
 						<th>Nom</th>
 						<th>Produits</th>
+						<th>Créee le</th>
+						<th>Mis à jour le</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -56,6 +61,8 @@
 								<a class="page__text-link page__link_color_blue" href="{{ path('admin_category_product_list', {'slug': category.slug}) }}">Liste des
 									{{ category.name }}s</a>
 							</td>
+							<td>{{ category.createdAt|format_datetime('short', 'none', locale='fr') }}</td>
+							<td>{{ category.updatedAt|format_datetime('short', 'none', locale='fr') }}</td>
 							<td>
 								<a class="page__link page__detail-link page__link_background-color_blue page__link_color_white" href="{{ path('admin_category_detail', {'slug': category.slug}) }}">Détails</a>
 								<a class="page__link page__update-link page__link_background-color_orange page__link_color_white" href="{{ path('admin_category_update', {'slug': category.slug}) }}">Modifier</a>
